@@ -1,0 +1,745 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Era 6: Song and Yuan · China Through Time</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,500;0,700;1,500&family=Source+Sans+3:wght@400;500;700&family=Noto+Serif+TC:wght@500;700&family=Noto+Sans+TC:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a field guide. Era strip across the top, then one long-form chapter per era with maps and drawings set into the text column. */
+:root {
+  --bg: #F3F4F0;
+  --surface: #FFFFFF;
+  --ink: #1E2421;
+  --muted: #5B645F;
+  --line: #D6DAD3;
+  --loch: #2B5F58;
+  --lichen: #9C7426;
+  --heather: #6A4B7C;
+  --moss: #3F6B3A;
+  --rust: #B0392B;
+  --river: #5B8DB0;
+  --sea: #D3E2E3;
+  --land: #EEEADF;
+  --land-edge: #A9AA9E;
+  --display: "Noto Serif TC", "Songti TC", "PMingLiU", serif;
+  --body: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #101614; --surface: #18201D; --ink: #E4E8E4; --muted: #9BA6A0; --line: #2B3632; --loch: #85C1B6; --lichen: #D8B458; --heather: #BFA0D2; --moss: #93C08A; --rust: #E4806C; --river: #7FB2D4; --sea: #15252A; --land: #2A302C; --land-edge: #5D6660;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #101614; --surface: #18201D; --ink: #E4E8E4; --muted: #9BA6A0; --line: #2B3632; --loch: #85C1B6; --lichen: #D8B458; --heather: #BFA0D2; --moss: #93C08A; --rust: #E4806C; --river: #7FB2D4; --sea: #15252A; --land: #2A302C; --land-edge: #5D6660;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 1.125rem; line-height: 1.65; }
+.wrap { max-width: 68rem; margin: 0 auto; padding-inline: 1.25rem; padding-block: 2.5rem 4rem; }
+h1, h2, h3 { font-family: var(--display); font-weight: 700; line-height: 1.15; text-wrap: balance; margin: 0; }
+p { margin: 0; }
+a { color: var(--loch); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--loch); outline-offset: 3px; border-radius: 3px; }
+.label { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+
+/* Masthead */
+header.mast { display: grid; gap: 1rem; padding-block: 1rem 2.5rem; border-bottom: 1px solid var(--line); }
+header.mast h1 { font-size: clamp(2.6rem, 7vw, 4.6rem); letter-spacing: -0.01em; }
+header.mast h1 em { font-style: italic; font-weight: 500; color: var(--loch); }
+header.mast .lede { max-width: 38rem; color: var(--muted); font-size: 1.2rem; }
+
+/* Era strip */
+.eras { list-style: none; margin: 2rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.5rem; }
+@media (max-width: 760px) { .eras { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.eras li { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 0.75rem 0.85rem; display: grid; gap: 0.15rem; min-width: 0; }
+.eras li.open { border-color: var(--loch); }
+.eras .n { font-family: var(--mono); font-size: 0.75rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.eras .t { font-family: var(--display); font-weight: 700; font-size: 1.05rem; line-height: 1.2; }
+.eras .cn { font-size: 0.85rem; color: var(--heather); }
+.eras .st { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.eras li.open .st { color: var(--loch); }
+.eras li:hover { border-color: var(--loch); }
+.eras a { color: inherit; text-decoration: none; display: grid; gap: 0.15rem; }
+.threads { margin-top: 1.25rem; color: var(--muted); font-size: 1rem; max-width: 44rem; }
+
+/* Chapter */
+article.era { margin-top: 3.5rem; display: grid; gap: 2.5rem; }
+.era-head { display: grid; gap: 0.6rem; }
+.era-head h2 { font-size: clamp(2rem, 5vw, 3rem); }
+.era-head .dates { font-family: var(--mono); color: var(--loch); font-size: 0.95rem; }
+.bigidea { font-family: var(--display); font-size: 1.35rem; line-height: 1.45; max-width: 44rem; border-left: 3px solid var(--lichen); padding-left: 1.1rem; }
+.cols { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 26rem); gap: 3rem; align-items: start; }
+@media (max-width: 900px) { .cols { grid-template-columns: minmax(0, 1fr); gap: 2rem; } }
+.text { display: grid; gap: 2.25rem; min-width: 0; max-width: 40rem; }
+.part { display: grid; gap: 0.7rem; }
+.part h3 { font-size: 1.45rem; }
+.part .when { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.part ul { margin: 0; padding-left: 1.2rem; display: grid; gap: 0.5rem; }
+.part li::marker { color: var(--lichen); }
+.events { list-style: none; padding: 0 !important; display: grid; gap: 0.75rem !important; }
+.events li { display: grid; grid-template-columns: 6.5rem minmax(0, 1fr); gap: 0.75rem; }
+.events .y { font-family: var(--mono); font-size: 0.85rem; color: var(--loch); padding-top: 0.2rem; font-variant-numeric: tabular-nums; }
+@media (max-width: 480px) { .events li { grid-template-columns: minmax(0, 1fr); gap: 0.1rem; } }
+.quote { font-family: var(--display); font-style: italic; font-size: 1.25rem; }
+.note { font-size: 0.95rem; color: var(--muted); }
+
+/* Figures */
+figure { margin: 0; display: grid; gap: 0.6rem; min-width: 0; }
+figure .frame { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 0.75rem; overflow-x: auto; }
+figure svg { display: block; width: 100%; height: auto; }
+figcaption { font-size: 0.9rem; color: var(--muted); line-height: 1.5; }
+figcaption b { color: var(--ink); font-weight: 500; }
+.side { display: grid; gap: 2rem; }
+@media (max-width: 900px) { .side { position: static; } }
+
+/* Map text */
+.m-sea { fill: var(--sea); }
+.m-land { fill: var(--land); stroke: var(--land-edge); stroke-width: 0.8; }
+.m-wall { fill: none; stroke: var(--lichen); stroke-width: 3.2; stroke-linecap: round; stroke-linejoin: round; }
+.m-border { fill: none; stroke: var(--muted); stroke-width: 1; stroke-dasharray: 3 3; }
+.m-dot { fill: var(--loch); stroke: var(--surface); stroke-width: 1.5; }
+.m-unknown { fill: none; stroke: var(--heather); stroke-width: 1.4; stroke-dasharray: 4 3; }
+.m-lab { font-family: var(--body); font-size: 12.5px; fill: var(--ink); paint-order: stroke; stroke: var(--surface); stroke-width: 3.5px; stroke-linejoin: round; }
+.m-lab.mu { fill: var(--muted); font-size: 11.5px; }
+.m-lab.wall { fill: var(--lichen); font-weight: 700; }
+.m-lab.h { fill: var(--heather); }
+.m-lab.sea { fill: var(--muted); stroke: var(--sea); font-style: italic; font-size: 12px; letter-spacing: 0.1em; }
+.legend { display: flex; flex-wrap: wrap; gap: 0.4rem 1rem; font-size: 0.85rem; color: var(--muted); }
+.legend span { display: inline-flex; align-items: center; gap: 0.4rem; }
+.sw { width: 18px; height: 0; border-top: 3px solid var(--lichen); display: inline-block; }
+.sw.d { border-top: 2px dashed var(--muted); }
+.sw.c { width: 10px; height: 10px; border: 0; border-radius: 50%; background: var(--loch); }
+
+.m-reg { font-family: var(--display); font-weight: 700; font-size: 15px; letter-spacing: 0.18em; paint-order: stroke; stroke: var(--land); stroke-width: 4px; stroke-linejoin: round; }
+.c-axis line { stroke: var(--muted); stroke-width: 1; }
+.c-track line { stroke: var(--line); stroke-width: 2; stroke-dasharray: 3 4; }
+.c-in line { stroke: var(--loch); stroke-width: 3; stroke-linecap: round; }
+.c-pt { fill: var(--loch); stroke: var(--surface); stroke-width: 2; }
+.c-pt.rust { fill: var(--rust); }
+.c-tick { font-family: var(--mono); font-size: 11px; fill: var(--muted); }
+.c-row { font-family: var(--body); font-size: 13px; fill: var(--ink); }
+.c-val { font-family: var(--mono); font-size: 11px; fill: var(--muted); paint-order: stroke; stroke: var(--surface); stroke-width: 3px; }
+.m-dot.rust { fill: var(--rust); }
+.r-adv { fill: none; stroke: var(--rust); stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+.r-ret { fill: none; stroke: var(--loch); stroke-width: 2; stroke-dasharray: 5 4; stroke-linejoin: round; }
+.b-adult { fill: var(--muted); opacity: 0.7; }
+.b-child { fill: var(--lichen); }
+.b-yes { fill: var(--loch); }
+.c-sub { font-family: var(--body); font-size: 11.5px; fill: var(--muted); }
+.c-mid { stroke: var(--muted); stroke-width: 1; stroke-dasharray: 3 3; }
+.c-grid line { stroke: var(--line); stroke-width: 1; }
+.c-note { font-family: var(--mono); font-size: 11px; fill: var(--lichen); letter-spacing: 0.06em; }
+.u-head { font-family: var(--display); font-weight: 700; font-size: 15px; fill: var(--ink); }
+.u-t { font-family: var(--body); font-size: 14px; fill: var(--ink); }
+.u-t.b { font-weight: 700; }
+.u-s { font-family: var(--body); font-size: 12.5px; fill: var(--muted); }
+.u-shared { fill: var(--sea); stroke: var(--loch); stroke-width: 1; }
+.u-scot { fill: var(--surface); stroke: var(--lichen); stroke-width: 1.5; }
+.u-eng { fill: var(--surface); stroke: var(--land-edge); stroke-width: 1; }
+.u-link { stroke: var(--loch); stroke-width: 1.2; }
+.u-div { stroke: var(--line); stroke-width: 1; }
+/* Illustration text */
+.i-stone { fill: var(--land); stroke: var(--land-edge); stroke-width: 1; }
+.i-ground { stroke: var(--muted); stroke-width: 1.2; }
+.i-lead { stroke: var(--muted); stroke-width: 0.7; stroke-dasharray: 2 2; fill: none; }
+.i-lab { font-family: var(--body); font-size: 13px; fill: var(--ink); }
+.i-lab.mu { fill: var(--muted); font-size: 12px; }
+
+/* Parallels */
+.parallel { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 1.5rem; display: grid; gap: 1.25rem; }
+.parallel h3 { font-size: 1.45rem; }
+.parallel .pair { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; }
+@media (max-width: 800px) { .parallel .pair { grid-template-columns: minmax(0, 1fr); } }
+.parallel .pair div { display: grid; gap: 0.4rem; align-content: start; min-width: 0; }
+.parallel h4 { margin: 0; font-family: var(--display); font-size: 1.1rem; font-weight: 700; }
+.zh { color: var(--heather); white-space: nowrap; }
+
+/* Visit */
+.visit { display: grid; gap: 1rem; }
+.visit h3 { font-size: 1.45rem; }
+.places { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem 1rem; }
+@media (max-width: 800px) { .places { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 480px) { .places { grid-template-columns: minmax(0, 1fr); } }
+.places li { border-top: 2px solid var(--loch); padding-top: 0.6rem; display: grid; gap: 0.25rem; align-content: start; }
+.places .nm { font-weight: 700; }
+.places .tm { font-family: var(--mono); font-size: 0.75rem; color: var(--muted); }
+.places p { font-size: 1rem; }
+.remember { font-family: var(--display); font-size: 1.3rem; line-height: 1.45; max-width: 44rem; padding-block: 1.5rem; border-block: 1px solid var(--line); }
+.remember .label { display: block; margin-bottom: 0.4rem; font-family: var(--mono); }
+footer { margin-top: 3rem; font-size: 0.9rem; color: var(--muted); display: grid; gap: 0.4rem; max-width: 44rem; }
+
+[id] { scroll-margin-top: 1rem; }
+body { margin: 0; }
+.topbar { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; padding-block: 0.25rem 1rem; border-bottom: 1px solid var(--line); font-family: var(--mono); font-size: 0.8rem; color: var(--muted); }
+.topbar a { text-decoration: none; }
+.jump { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.jump a { font-family: var(--mono); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; padding: 0.3rem 0.65rem; border: 1px solid var(--line); border-radius: 999px; text-decoration: none; color: var(--muted); background: var(--surface); }
+.jump a:hover { color: var(--loch); border-color: var(--loch); }
+.block { display: grid; gap: 1rem; }
+.block h3 { font-size: 1.45rem; }
+.life { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.75rem; }
+@media (max-width: 800px) { .life { grid-template-columns: minmax(0, 1fr); gap: 1.25rem; } }
+.life > div { display: grid; gap: 0.4rem; align-content: start; min-width: 0; }
+.life h4, .people .nm { margin: 0; font-family: var(--display); font-size: 1.1rem; font-weight: 700; }
+.people { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.75rem; }
+@media (max-width: 800px) { .people { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 480px) { .people { grid-template-columns: minmax(0, 1fr); } }
+.people li { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 1rem; display: grid; gap: 0.3rem; align-content: start; min-width: 0; }
+.people .rl { font-family: var(--mono); font-size: 0.75rem; color: var(--muted); }
+.people p { font-size: 1rem; }
+.myths { list-style: none; margin: 0; padding: 0; display: grid; }
+.myths li { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 1.5rem; border-top: 1px solid var(--line); padding-block: 0.9rem; }
+.myths li:last-child { border-bottom: 1px solid var(--line); }
+@media (max-width: 700px) { .myths li { grid-template-columns: minmax(0, 1fr); gap: 0.35rem; } }
+.myths .mq { font-family: var(--display); font-style: italic; font-size: 1.15rem; line-height: 1.4; }
+.myths .ma b { color: var(--rust); font-weight: 700; }
+.words { margin: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem 1.5rem; }
+@media (max-width: 800px) { .words { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 480px) { .words { grid-template-columns: minmax(0, 1fr); } }
+.words div { border-left: 2px solid var(--lichen); padding-left: 0.8rem; border-radius: 0; min-width: 0; }
+.words dt { font-family: var(--display); font-weight: 700; font-size: 1.1rem; }
+.words dd { margin: 0; font-size: 1rem; color: var(--muted); }
+.pagenav { display: flex; justify-content: space-between; gap: 1rem; margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--line); }
+.pagenav a { display: grid; gap: 0.2rem; text-decoration: none; min-width: 0; }
+.pagenav a.next { text-align: right; margin-left: auto; }
+.pagenav .dir { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.pagenav .ttl { font-family: var(--display); font-weight: 700; font-size: 1.2rem; color: var(--ink); }
+.intro { max-width: 44rem; display: grid; gap: 0.75rem; margin-top: 2rem; color: var(--muted); }
+.i-wall { fill: var(--land); stroke: var(--land-edge); stroke-width: 1; }
+.i-floor { fill: var(--surface); stroke: var(--land-edge); stroke-width: 1; }
+.i-edge { stroke: var(--land-edge); stroke-width: 1; }
+.i-hearth { fill: var(--lichen); opacity: 0.75; }
+.i-bedding { fill: var(--moss); opacity: 0.35; }
+.i-water { fill: var(--sea); stroke: var(--loch); stroke-width: 1; }
+[hidden] { display: none !important; }
+.frame { position: relative; }
+.zoom-btn { position: absolute; top: 0.5rem; right: 0.5rem; display: inline-flex; align-items: center; gap: 0.35rem; font: 500 0.8rem var(--body); color: var(--loch); background: var(--surface); border: 1px solid var(--loch); border-radius: 999px; padding: 0.3rem 0.7rem; cursor: pointer; }
+.zoom-btn:hover { background: var(--loch); color: var(--surface); }
+figure .frame svg { cursor: zoom-in; }
+.lightbox { position: fixed; inset: 0; z-index: 50; background: var(--bg); display: flex; flex-direction: column; padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+.lb-bar { display: flex; align-items: center; gap: 0.5rem; padding: 0.6rem 1rem; border-bottom: 1px solid var(--line); background: var(--surface); }
+.lb-title { flex: 1; min-width: 0; font-family: var(--display); font-weight: 700; font-size: 1rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.lb-bar button { font: 500 1rem var(--body); min-width: 2.5rem; height: 2.5rem; padding: 0 0.8rem; border: 1px solid var(--line); border-radius: 6px; background: var(--bg); color: var(--ink); cursor: pointer; }
+.lb-bar button:hover { border-color: var(--loch); color: var(--loch); }
+.lb-bar .lb-close { background: var(--loch); color: var(--surface); border-color: var(--loch); }
+.lb-level { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); min-width: 3.2rem; text-align: center; font-variant-numeric: tabular-nums; }
+.lb-controls { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; padding: 0.5rem 1rem; border-bottom: 1px solid var(--line); background: var(--surface); }
+.lb-controls button { font: 500 1rem var(--body); min-width: 2.5rem; height: 2.5rem; padding: 0 0.8rem; border: 1px solid var(--line); border-radius: 6px; background: var(--bg); color: var(--ink); cursor: pointer; }
+.lb-controls button:hover { border-color: var(--loch); color: var(--loch); }
+.lb-controls input[type=range] { flex: 1; min-width: 8rem; accent-color: var(--loch); }
+.lb-body { flex: 1; overflow: auto; padding: 1rem; -webkit-overflow-scrolling: touch; }
+.lb-body svg { display: block; height: auto; margin: 0 auto; max-width: none; }
+.lb-hint { font-size: 0.85rem; color: var(--muted); text-align: center; padding: 0.4rem 1rem 0.6rem; }
+.t-live { fill: var(--surface); stroke: var(--loch); stroke-width: 1.5; }
+.t-dead { fill: var(--surface); stroke: var(--muted); stroke-width: 1; stroke-dasharray: 4 3; }
+.c-axis-v { stroke: var(--muted); stroke-width: 1; }
+.c-row.rust { fill: var(--rust); }
+
+body { font-size: 1.0625rem; line-height: 1.85; }
+.label { font-family: var(--body); letter-spacing: 0.12em; text-transform: none; }
+h1, h2, h3, .people .nm, .life h4, .parallel h4, .words dt, .pagenav .ttl { letter-spacing: 0.02em; }
+.bigidea, .remember, .quote, .myths .mq { line-height: 1.7; }
+.myths .mq { font-style: normal; }
+.quote { font-style: normal; }
+.m-river { fill: none; stroke: var(--river); stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; opacity: 0.85; }
+.m-route { fill: none; stroke: var(--rust); stroke-width: 2.4; stroke-linejoin: round; stroke-linecap: round; }
+.m-route2 { fill: none; stroke: var(--lichen); stroke-width: 2.6; stroke-linejoin: round; stroke-linecap: round; }
+.m-lab.river { fill: var(--river); font-style: italic; }
+.m-lab.red { fill: var(--rust); }
+.m-reg { font-family: var(--display); font-weight: 700; font-size: 15px; letter-spacing: 0.3em; paint-order: stroke; stroke: var(--land); stroke-width: 4px; stroke-linejoin: round; }
+.hk { background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--rust); border-radius: 0; padding: 1.25rem 1.5rem; display: grid; gap: 0.6rem; }
+.hk h3 { font-size: 1.35rem; }
+.hk .label { color: var(--rust); }
+.eras.cn { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+@media (max-width: 900px) { .eras.cn { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+.startlink { display: block; margin: 0 0 1.5rem; padding: 1rem 1.25rem; border: 1.5px solid var(--loch); border-radius: 6px; background: var(--surface); color: var(--ink); text-decoration: none; }
+.startlink .dir { display: block; font-family: var(--mono); font-size: 0.8rem; color: var(--loch); letter-spacing: 0.05em; }
+.startlink .ttl { display: block; margin-top: 0.25rem; font-family: var(--display); font-weight: 700; font-size: 1.05rem; }
+.startlink:hover { background: var(--sea); }
+.text .stages { margin: 0.5rem 0 1rem; }
+.stages { margin: 0; padding-left: 0; list-style: none; display: grid; gap: 0.45rem; font-size: 0.95rem; line-height: 1.7; }
+.glhint { font-size: 0.9rem; color: var(--muted); margin-top: -1.25rem; }
+button.gl { font: inherit; color: inherit; background: none; border: 0; padding: 0; margin: 0; cursor: pointer; text-decoration: underline dotted var(--loch); text-decoration-thickness: 1.5px; text-underline-offset: 4px; }
+button.gl:hover, button.gl[aria-expanded="true"] { color: var(--loch); background: color-mix(in srgb, var(--loch) 10%, transparent); }
+.glcard { position: absolute; z-index: 40; width: min(22rem, calc(100vw - 32px)); background: var(--surface); border: 1px solid var(--line); border-top: 3px solid var(--loch); border-radius: 6px; box-shadow: 0 10px 30px rgba(0,0,0,0.18); padding: 1rem 1.1rem 1.1rem; display: grid; gap: 0.35rem; }
+.glcard .gt { font-family: var(--display); font-weight: 700; font-size: 1.15rem; padding-right: 2rem; }
+.glcard .gs { font-size: 0.85rem; color: var(--muted); }
+.glcard .gb { font-size: 1rem; line-height: 1.75; }
+.glcard .gx { position: absolute; top: 0.5rem; right: 0.5rem; width: 2rem; height: 2rem; border: 0; background: none; font-size: 1.3rem; color: var(--muted); cursor: pointer; border-radius: 4px; }
+.glcard .gx:hover { background: var(--bg); color: var(--ink); }
+@media (max-width: 700px) { .glcard { position: fixed; left: 0 !important; right: 0; bottom: 0; top: auto !important; width: auto; border-radius: 12px 12px 0 0; padding-bottom: calc(1.1rem + env(safe-area-inset-bottom, 0px)); } }
+.homefig { margin-top: 2.5rem; max-width: 60rem; }
+figure.homefig .frame { padding-top: 2.75rem; }
+.frame { padding-top: 2.75rem; }
+header.mast h1 em { font-style: normal; }
+.jump a { text-transform: none; letter-spacing: 0.04em; font-family: var(--body); font-size: 0.8rem; }
+
+:root { --display: "Source Serif 4", "Noto Serif TC", Georgia, serif; --body: "Source Sans 3", "Noto Sans TC", system-ui, sans-serif; }
+body { line-height: 1.7; }
+.label { font-family: var(--mono); letter-spacing: 0.08em; text-transform: uppercase; }
+.m-reg { letter-spacing: 0.12em; }
+.myths .mq { font-style: italic; }
+.eras.cn .t { font-size: 1rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar"><a href="index.html">China Through Time</a><span>Era 6 of 10</span></div>
+  <article class="era" id="era6">
+    <div class="era-head">
+      <span class="label">Era 6</span>
+      <h2>Song and Yuan</h2>
+      <span class="dates">907 – 1368</span>
+    </div>
+
+    <p class="bigidea">After the fall of the Tang (唐), the Song (宋) dynasty reunited most of China, but in the north it always had powerful neighbours: the Liao (遼) of the Khitan (契丹) people, the Western Xia (西夏) of the Tangut (黨項) people and the Jin (金) of the Jurchen (女真) people. Militarily the Song was under constant threat, yet its economy and culture flourished as never before. Cities bustled all night, the world's first government paper money appeared here, movable type printing, gunpowder and the navigational compass were all invented or first recorded in this period, and the civil service examination (科舉, keju) let the sons of ordinary families become officials through study. In the end, Genghis Khan (成吉思汗) from the Mongolian steppe and his descendants built a vast empire stretching across Europe and Asia, destroyed the Southern Song (南宋) and founded the Yuan dynasty (元朝). For the first time, all of China was ruled by a people from the north.</p>
+
+    <p class="glhint">Names and terms with a dotted underline can be tapped for a short explanation.</p>
+
+    <nav class="jump" aria-label="In this era">
+      <a href="#story">The story</a><a href="#life">Daily life</a><a href="#people">Key people</a><a href="#myths">Myth or fact</a><a href="#evidence">How we know</a><a href="#words">Key terms</a><a href="#hk">Hong Kong</a><a href="#world">The world</a><a href="#visit">Visit</a>
+    </nav>
+
+    <div class="cols" id="story">
+      <div class="text">
+        <section class="part">
+          <span class="when">Before we begin</span>
+          <h3>A China that did not rule alone</h3>
+          <p>This era lasts about 460 years and falls into four parts:</p>
+          <ul class="stages">
+            <li><b><button type="button" class="gl" data-g="wudai" aria-haspopup="dialog">Five Dynasties and Ten Kingdoms</button> (五代十國; 907–979):</b> more than half a century of division after the fall of the Tang.</li>
+            <li><b><button type="button" class="gl" data-g="beisong" aria-haspopup="dialog">Northern Song</button> (北宋; 960–1127):</b> the capital was Kaifeng (開封), on the Yellow River (黃河). To the north lay the Liao, to the northwest the Western Xia.</li>
+            <li><b><button type="button" class="gl" data-g="nansong" aria-haspopup="dialog">Southern Song</button> (1127–1279):</b> after the Jin state of the Jurchen people took the north, the Song retreated south, with its capital at Hangzhou (杭州).</li>
+            <li><b><button type="button" class="gl" data-g="yuan" aria-haspopup="dialog">Yuan</button> (1271–1368):</b> the Mongols united all of China, with their capital at today's Beijing (北京).</li>
+          </ul>
+          <p>Unlike the Han (漢) and the Tang, the Song never ruled the whole of what is now northern China. It was only one of several strong states in East Asia (see Map 1). The Liao state founded by the <button type="button" class="gl" data-g="qidan" aria-haspopup="dialog">Khitan</button> (契丹) people in the north was so powerful that Central Asians and Europeans used the name "Khitan" for the whole of China: the "Cathay" of medieval Europeans, and the Russian word for China today, Китай (Kitai), both come from it.</p>
+        </section>
+
+        <section class="part">
+          <span class="when">907 – 979</span>
+          <h3>The Five Dynasties and Ten Kingdoms, and the founding of the Song</h3>
+          <p>After the fall of the Tang, the north went through five short-lived dynasties in a little over fifty years, while the south split into more than ten rival kingdoms. This is known as the Five Dynasties and Ten Kingdoms. Most of the emperors of this time were soldiers, and mutinies that put a new man on the throne were an everyday event. As one saying put it: "The Son of Heaven is simply whoever has the strongest troops and the sturdiest horses."</p>
+          <p>In 960 <button type="button" class="gl" data-g="zhaokuangyin" aria-haspopup="dialog">Zhao Kuangyin</button> (趙匡胤), commander of the palace army of the Later Zhou (後周) dynasty, led his troops out on campaign. At Chenqiao (陳橋), a staging post near Kaifeng, his officers threw an emperor's yellow robe over his shoulders and proclaimed him emperor, an event remembered as the "Chenqiao Mutiny" (陳橋兵變) or "putting on the yellow robe" (黃袍加身). He became Emperor Taizu of Song (宋太祖). Knowing exactly how he had come to power, after taking the throne he held a banquet for the veteran generals who commanded the armies and, over the wine, persuaded them to give up their commands and retire to a comfortable life at home. This is known as <button type="button" class="gl" data-g="beijiu" aria-haspopup="dialog">"relieving the generals of command over a cup of wine"</button>. From then on the Song followed the principle of <button type="button" class="gl" data-g="zhongwen" aria-haspopup="dialog">putting civil officials above the military</button>: the state was run by civil officials, not generals, the army was commanded by civil officials, and generals were moved around often. As a result, in more than three hundred years of Song rule no soldier ever seized the throne, but the army's fighting strength was weakened.</p>
+        </section>
+
+        <section class="part">
+          <span class="when">936 – 1044</span>
+          <h3>The Liao, the Western Xia and a peace paid for with money</h3>
+          <p>From the start the Song faced a hard problem. During the Five Dynasties, a warlord in the north China plain, bidding for the throne, had handed sixteen prefectures around today's Beijing and Datong (大同) to the Khitan. These were called the <button type="button" class="gl" data-g="yanyun" aria-haspopup="dialog">Sixteen Prefectures</button>. The area included the passes along the line of the Great Wall (長城); without it, the north China plain had no natural defences, and horsemen from the north could ride straight in. The Song tried twice to win it back, and both times the Liao army defeated them.</p>
+          <p>In 1004 the Liao army invaded in force and reached Chanzhou (澶州, today's Puyang 濮陽 in Henan 河南) on the Yellow River, little more than a hundred kilometres from the Song capital at Kaifeng. Urged on by his minister Kou Zhun (寇準), Emperor Zhenzong (宋真宗) went to the front in person. Neither side could win, and in 1005 they agreed the <button type="button" class="gl" data-g="chanyuan" aria-haspopup="dialog">Treaty of Chanyuan</button>: every year the Song would send the Liao 100,000 taels of silver and 200,000 bolts of silk, and the two states would address each other as brothers. Peace then lasted for more than a hundred years. Later the Song made peace in a similar way with the <button type="button" class="gl" data-g="xixia" aria-haspopup="dialog">Western Xia</button> (西夏) in the northwest. Many people have criticised this as a humiliating "peace bought with money", but these annual payments were only a small part of the Song's income, far cheaper than war, and much of the money flowed back to the Song through trade on the border.</p>
+        </section>
+
+        <section class="part">
+          <span class="when">960 – 1127</span>
+          <h3>The Northern Song: thriving cities and trade</h3>
+          <p>The Song was one of the most economically advanced periods in Chinese history. <button type="button" class="gl" data-g="zhancheng" aria-haspopup="dialog">Champa rice</button> (占城稻, zhancheng), a drought-resistant, fast-ripening variety brought in from Vietnam, allowed many places south of the Yangtze (長江) to grow two harvests a year. Food supplies rose sharply, and in the early twelfth century the population passed one hundred million for the first time, more than the population of the whole of Europe.</p>
+          <p>The Northern Song capital, <button type="button" class="gl" data-g="kaifeng" aria-haspopup="dialog">Kaifeng</button> (開封), may have had a million people. The Tang system, as in Chang'an (長安), of walling in residential wards and locking their gates at night was broken down. Shops could open along the streets, night markets traded until dawn, and in restaurants, teahouses and entertainment quarters called <button type="button" class="gl" data-g="wazi" aria-haspopup="dialog">wazi</button> there were storytellers, acrobats, puppet shows and all kinds of performances. A long scroll by the painter <button type="button" class="gl" data-g="zhangzeduan" aria-haspopup="dialog">Zhang Zeduan</button> (張擇端), <button type="button" class="gl" data-g="qingming" aria-haspopup="dialog">Along the River During the Qingming Festival</button> (清明上河圖), shows the bustle inside and outside Kaifeng. It contains more than eight hundred people, along with boats, bridges, shops, carts and horses, in detail as rich as a photograph.</p>
+          <p>Trade grew so much that there were not enough copper coins. Merchants in Sichuan (四川) were the first to issue paper certificates that could be exchanged for cash, called <button type="button" class="gl" data-g="jiaozi" aria-haspopup="dialog">jiaozi</button> (交子). In 1024 the Song government took over issuing them: the world's first paper money issued by a government. Europe did not have banknotes, issued by banks, until the seventeenth century.</p>
+        </section>
+
+        <section class="part">
+          <span class="when">960 – 1279</span>
+          <h3>A world run by scholars</h3>
+          <p>Under the Tang, the <button type="button" class="gl" data-g="keju" aria-haspopup="dialog">civil service examination</button> was only one way into government; the Song made it the main way. Each Song examination passed far more candidates for the highest degree (jinshi, 進士) than the Tang did, and the examinations aimed to be fair: candidates' names were pasted over, and every paper was recopied by clerks so that examiners could not recognise the handwriting. The final stage was overseen by the emperor himself, and was called the "palace examination" (殿試, dianshi). A child from a poor farming family could become chief minister if he studied and passed. A widely known Song poem says: "In the morning a lad in a farmhouse, by evening in the hall of the Son of Heaven."</p>
+          <p>The scholars who became officials through the examinations were called <button type="button" class="gl" data-g="shidafu" aria-haspopup="dialog">scholar-officials</button>. They were officials, but also scholars, poets and calligraphers, and saw themselves as responsible for the state and for the world. The great minister <button type="button" class="gl" data-g="fanzhongyan" aria-haspopup="dialog">Fan Zhongyan</button> (范仲淹) wrote that a scholar should be "the first to worry about the world's troubles, and the last to enjoy its pleasures". As printing spread, books became cheap, academies and schools were opened everywhere, and the number of people who could read grew enormously.</p>
+          <p>The scholar-official best loved by later generations is <button type="button" class="gl" data-g="sushi" aria-haspopup="dialog">Su Shi</button> (蘇軾), also known as Su Dongpo (蘇東坡). He was a poet, a writer of song lyrics, an essayist, a calligrapher and a painter, and also a lover of good food: the famous "Dongpo pork" (東坡肉) is said to be connected with him. He was arrested and imprisoned for writing poems that criticised government policy, and late in life he was banished to Huizhou (惠州) in the far south and then to distant Hainan (海南) Island, yet he always kept his optimism and sense of humour.</p>
+        </section>
+
+        <section class="part">
+          <span class="when">1069 – 1085</span>
+          <h3>Wang Anshi's reforms: a great debate</h3>
+          <p>By the middle of the Northern Song, the court was paying for a huge army and civil service, and its finances were getting harder and harder. In 1069 Emperor Shenzong (宋神宗) appointed <button type="button" class="gl" data-g="wanganshi" aria-haspopup="dialog">Wang Anshi</button> (王安石) to carry out reforms, known as <button type="button" class="gl" data-g="xinfa" aria-haspopup="dialog">Wang Anshi's reforms</button> (王安石變法). The most famous was the "Green Shoots Law" (青苗法, qingmiaofa): in the lean months before the harvest, the government lent money to farmers at low interest, to be repaid after the harvest, so that they would not have to borrow from moneylenders. Other measures let people pay money instead of doing labour service, organised village militias and had the government steady prices.</p>
+          <p>The reforms were fiercely opposed by a group of ministers led by the historian <button type="button" class="gl" data-g="simaguang" aria-haspopup="dialog">Sima Guang</button> (司馬光). They argued that the new laws harmed the people: local officials, eager to show results, forced farmers to borrow, which made their burden heavier, not lighter. The officials who supported and opposed the reforms split into two factions that attacked each other, and court policy swung back and forth for decades, in what is known as the factional struggle between the New and Old parties (新舊黨爭). The argument was a little like today's debates about how far government should intervene in the economy. After Sima Guang was pushed out of court, he spent nineteen years compiling a chronicle running from the Warring States (戰國) to the Five Dynasties, the Comprehensive Mirror for Aid in Government (資治通鑑, Zizhi tongjian), which is still one of China's most important works of history.</p>
+        </section>
+
+        <section class="part">
+          <span class="when">c. 1040 – 1120</span>
+          <h3>Inventions that changed the world</h3>
+          <p>In 1620 the English philosopher Francis Bacon wrote that three inventions, printing, gunpowder and the compass, had "changed the whole face and state of things throughout the world". He did not know that the earliest reliable records of all three come from the Song (see Figure 2).</p>
+          <ul class="stages">
+            <li><b>Movable type printing:</b> woodblock printing already existed under the Tang. In about the 1040s a commoner named <button type="button" class="gl" data-g="bisheng" aria-haspopup="dialog">Bi Sheng</button> (畢昇) made individual characters out of baked clay, which could be set up to print a page and then taken apart and reused. But Chinese has several thousand common characters, so in China movable type never became as widespread as woodblocks. In Europe, Gutenberg invented metal movable type in about 1450, and because the alphabet has only twenty-odd letters, it had a much bigger impact.</li>
+            <li><b>Gunpowder:</b> Tang alchemists trying to make an elixir of immortality found that a mixture of saltpetre, sulphur and charcoal would burn and explode. In 1044 an official Song military manual, the <button type="button" class="gl" data-g="wujing" aria-haspopup="dialog">Complete Essentials from the Military Classics</button> (武經總要, Wujing zongyao), recorded three gunpowder formulas, the earliest written gunpowder formulas in the world. The Song already used fire arrows, fire bombs and fire lances shot from bamboo tubes.</li>
+            <li><b>The navigational compass:</b> the Chinese had long known that a lodestone points south, but the earliest clear record of using a compass to navigate at sea is in a book of notes written in about 1117, which describes seagoing ships at Guangzhou (廣州) "watching the south-pointing needle" to find their way on cloudy days.</li>
+          </ul>
+          <p>Bi Sheng's invention was recorded by the Northern Song scientist <button type="button" class="gl" data-g="shenkuo" aria-haspopup="dialog">Shen Kuo</button> (沈括) in his Dream Pool Essays (夢溪筆談, Mengxi bitan). The book also notes that a magnetic needle does not point due south but slightly off it, one of the earliest records anywhere of magnetic declination.</p>
+        </section>
+
+        <section class="part">
+          <span class="when">1100 – 1127</span>
+          <h3>The artist emperor and the Jingkang Incident</h3>
+          <p><button type="button" class="gl" data-g="huizong" aria-haspopup="dialog">Emperor Huizong</button> (宋徽宗) was an extraordinarily gifted artist. His paintings of flowers and birds and the "slender gold" (瘦金體, shoujin ti) style of calligraphy he invented are still treasured today. But he was a very poor emperor. Absorbed in art and Daoism (道教), he had rare plants and strange-shaped rocks collected from the lower Yangtze region and shipped to Kaifeng by fleets of boats to build gardens in the palace, wearing out the people and wasting money, and sparking revolts. The stories of the outlaw heroes of Liangshan (梁山) in <button type="button" class="gl" data-g="shuihu" aria-haspopup="dialog">The Water Margin</button> (水滸傳) are set in this period.</p>
+          <p>Meanwhile, in the northeast, the <button type="button" class="gl" data-g="nuzhen" aria-haspopup="dialog">Jurchen</button> (女真) people rose to power and founded the <button type="button" class="gl" data-g="jin" aria-haspopup="dialog">Jin</button> (金) state. The Song hoped to use the Jin to win back the Sixteen Prefectures, so it allied with the Jin to attack the Liao from both sides. The Jin destroyed the Liao, but the Song army performed very badly, and the Jin, having seen how weak the Song was, turned south to invade it. In 1127 the Jin army took Kaifeng and carried off to the north Huizong, who had already abdicated, his son Emperor Qinzong (宋欽宗), and more than ten thousand members of the imperial family, consorts, ministers and craftsmen, together with huge quantities of treasure, books and ritual objects. It is one of the most humiliating events in Chinese history, and is known by the reign title of the time as the <button type="button" class="gl" data-g="jingkang" aria-haspopup="dialog">Jingkang Incident</button>. Huizong later died in the northeast and never came home.</p>
+        </section>
+
+        <section class="part">
+          <span class="when">1127 – 1142</span>
+          <h3>The Southern Song and Yue Fei</h3>
+          <p>Another of Huizong's sons, Zhao Gou (趙構), escaped south and took the throne as Emperor Gaozong (宋高宗). He later made his capital at Lin'an (臨安, today's Hangzhou), and this is known as the Southern Song. At one point the Jin army crossed the Yangtze and chased Gaozong out to sea. Of the generals who fought the Jin, the most famous was <button type="button" class="gl" data-g="yuefei" aria-haspopup="dialog">Yue Fei</button> (岳飛). Born into a farming family, he ran his army with strict discipline ("we would freeze to death rather than tear down houses for firewood, and starve rather than plunder"), beat the Jin army again and again, at one point recovered a large area around Luoyang (洛陽), and was preparing to march on Kaifeng.</p>
+          <p>But Emperor Gaozong and his chief minister <button type="button" class="gl" data-g="qinhui" aria-haspopup="dialog">Qin Hui</button> (秦檜) were set on making peace. In a single day Gaozong sent twelve gold-lacquered tablets (十二道金牌) ordering Yue Fei to return. In 1142 Qin Hui had Yue Fei put to death on a charge described as <i>moxuyou</i> (莫須有), meaning "perhaps there was" something. In the same year the Song signed a treaty with the Jin, fixing the border along the line from the Huai River (淮河) to the Qinling mountains (秦嶺), and accepting the status of a vassal paying tribute every year (see Map 1). Yue Fei later became China's most revered national hero, and Qin Hui's name became a byword for a treacherous minister. At the Temple of Yue Fei (岳王廟) in Hangzhou, iron statues of Qin Hui and his wife, kneeling with their hands tied behind their backs before Yue Fei's tomb, are still there today.</p>
+          <p>Why would an emperor recall a general who was winning? Besides fearing that Yue Fei's success made him a threat to the throne, some people believe Gaozong also worried that if the Jin were defeated, his captive elder brother Qinzong would be sent back and threaten his own position as emperor.</p>
+        </section>
+
+        <section class="part">
+          <span class="when">1127 – 1279</span>
+          <h3>The Southern Song: facing the sea</h3>
+          <p>After losing the north, the Southern Song's economic centre moved entirely south of the Yangtze. Lin'an became one of the largest and richest cities in the world. With the overland Silk Road (絲綢之路) blocked by the states to the north, the Southern Song threw its energy into sea trade, setting up <button type="button" class="gl" data-g="shibosi" aria-haspopup="dialog">Maritime Trade Offices</button> (市舶司, shibosi) in Guangzhou, Quanzhou (泉州) and other ports to oversee foreign merchant ships and collect customs duties, which became an important source of government income. <button type="button" class="gl" data-g="quanzhou" aria-haspopup="dialog">Quanzhou</button> (泉州) in Fujian (福建) was home to large numbers of Arab and Persian merchants, and the city had mosques, a Hindu temple and gravestones of Nestorian Christians. Marco Polo and the Moroccan traveller Ibn Battuta later called it one of the greatest ports in the world. Chinese porcelain, silk and tea were shipped from here to Southeast Asia, India, Arabia and East Africa. The Southern Song shipwreck <button type="button" class="gl" data-g="nanhai1" aria-haspopup="dialog">Nanhai No. 1</button>, found off the coast of Guangdong (廣東) in 1987, carried more than a hundred thousand pieces of porcelain and other goods.</p>
+          <p>In the world of ideas, <button type="button" class="gl" data-g="zhuxi" aria-haspopup="dialog">Zhu Xi</button> (朱熹) of the Southern Song brought together the teachings of Song Confucian scholars into a new form of Confucianism called <button type="button" class="gl" data-g="lixue" aria-haspopup="dialog">the Learning of Principle</button> (理學), known in the West as Neo-Confucianism. It joined Confucian morality to the "principle" (li) found in everything in the universe. Zhu Xi's commentaries on the Analects (論語), the Mencius (孟子), the Great Learning (大學) and the Doctrine of the Mean (中庸), together called the <button type="button" class="gl" data-g="sishu" aria-haspopup="dialog">Four Books</button>, became the standard texts for the civil service examination from the Yuan dynasty onwards, and shaped China, Korea, Japan and Vietnam for six or seven hundred years.</p>
+        </section>
+
+        <section class="part">
+          <span class="when">1206 – 1279</span>
+          <h3>The Mongol conquest</h3>
+          <p>In 1206 Temujin (鐵木真), a tribal chief on the Mongolian steppe, united the Mongol tribes and was given the title <button type="button" class="gl" data-g="genghis" aria-haspopup="dialog">Genghis Khan</button>. The Mongols were nomadic herders, only a little over a million people, but every man had grown up in the saddle and was a horseman. They were disciplined, fast-moving, and good at taking in the technology and talent of the peoples they conquered. Within half a century, Genghis Khan and his descendants built the largest continuous land empire in human history, stretching from the Korean peninsula to today's Russia, Iran and Eastern Europe (see Map 3).</p>
+          <p>The Mongols destroyed first the Western Xia and then the Jin. The Southern Song had joined the Mongols to destroy the Jin, but immediately became the Mongols' next target. Protected by the Yangtze and its many walled cities, the Southern Song held out stubbornly for more than forty years, longer than any other state the Mongols attacked. Xiangyang (襄陽), a key stronghold on the Han River (漢水), a tributary of the Yangtze, was besieged for nearly six years, until the Mongols broke its walls with giant catapults built by Persian engineers. In 1276 Lin'an surrendered.</p>
+          <p>What was left of the Southern Song court fled south with a boy emperor along the coasts of Fujian and Guangdong, and stopped for a while around today's Hong Kong (香港; see "Hong Kong"). In 1279 the Song fleet was wiped out at the sea battle of Yashan (崖山), at Xinhui (新會) in Guangdong, and the minister Lu Xiufu (陸秀夫) jumped into the sea with the seven-year-old emperor on his back. The Song chief minister <button type="button" class="gl" data-g="wentianxiang" aria-haspopup="dialog">Wen Tianxiang</button> (文天祥) was captured and refused to surrender. In prison he wrote the Song of Righteousness (正氣歌), and four years later he went calmly to his execution. In a poem he wrote while being taken as a prisoner across the Lingding Sea (零丁洋), outside the mouth of the Pearl River (珠江), are two lines that are among the best known in Chinese: "Since ancient times, who has lived and not died? Let me leave a loyal heart to shine in the pages of history."</p>
+        </section>
+
+        <section class="part">
+          <span class="when">1260 – 1368</span>
+          <h3>The Yuan: China under Mongol rule</h3>
+          <p>In 1271 Genghis Khan's grandson <button type="button" class="gl" data-g="kublai" aria-haspopup="dialog">Kublai Khan</button> (忽必烈) adopted a Chinese-style dynastic name, "Great Yuan" (大元), and built his capital, <button type="button" class="gl" data-g="dadu" aria-haspopup="dialog">Dadu</button> (大都), on the site of today's Beijing. From then on Beijing has been China's capital right up to the present (with only brief exceptions). Kublai also twice sent great armies across the sea to invade Japan; both failed because of typhoons and Japanese resistance, and the Japanese called the typhoons kamikaze, "divine wind".</p>
+          <p>The Yuan divided the people roughly into four classes: <button type="button" class="gl" data-g="sideng" aria-haspopup="dialog">Mongols; semu (色目, "various kinds", the peoples of Central and West Asia); Han (northerners formerly ruled by the Jin); and Southerners (the former subjects of the Southern Song)</button>. The high offices were held mainly by Mongols and semu. The civil service examination was suspended for decades and only restored in 1315, with very few places. Many scholars, with no way into government, turned to writing plays, so the Yuan became the golden age of Chinese drama, known as <button type="button" class="gl" data-g="yuanqu" aria-haspopup="dialog">Yuan drama</button> (元曲); Guan Hanqing's (關漢卿) The Injustice to Dou E (竇娥冤) is its best-known work.</p>
+          <p>The Mongol empire joined up the whole of Eurasia, and merchants, missionaries and envoys could travel between east and west on safe roads. The Venetian merchant <button type="button" class="gl" data-g="marcopolo" aria-haspopup="dialog">Marco Polo</button> is said to have lived in Yuan China for seventeen years, and his account of his travels filled Europeans with longing for the rich East. The Yuan also printed paper money in large quantities, and in its later years printed so much that it caused inflation.</p>
+        </section>
+
+        <section class="part">
+          <span class="when">1344 – 1368</span>
+          <h3>The fall of the Yuan</h3>
+          <p>In the later Yuan, Mongol nobles fought over the throne, government fell into chaos, and natural disasters struck year after year. In 1344 the Yellow River burst its banks and changed course, flooding huge areas; the court then conscripted well over a hundred thousand labourers to work on the river, and anger boiled over. In 1351 a rebellion broke out, centred on a religious group called the <button type="button" class="gl" data-g="bailian" aria-haspopup="dialog">White Lotus</button> (白蓮教). The rebels wrapped their heads in red cloth and were called the <button type="button" class="gl" data-g="hongjin" aria-haspopup="dialog">Red Turbans</button>. It is said that before the rising, someone buried a one-eyed stone figure in the bed of the Yellow River, with words carved on its back: "Don't laugh at the stone man for having one eye; stir up the Yellow River and all under Heaven will rise." When the labourers dug it up, they took it as a sign from Heaven.</p>
+          <p>Among all the rebel armies, one man rose above the rest: <button type="button" class="gl" data-g="zhuyuanzhang" aria-haspopup="dialog">Zhu Yuanzhang</button> (朱元璋), born into a poor farming family, who had once been a Buddhist monk. In 1368 he founded the Ming dynasty (明朝) in Nanjing (南京), and the same year sent an army to take Dadu. The last Yuan emperor retreated to the Mongolian steppe (see Era 7).</p>
+        </section>
+      </div>
+
+      <aside class="side">
+        <figure>
+          <div class="frame">
+            <svg viewBox="0 0 520 560" role="img" aria-labelledby="c6ma">
+              <title id="c6ma">The Song and its northern neighbours, the Liao, Western Xia and Jin: the Northern Song capital Kaifeng, the Southern Song capital Lin'an, and the Song-Jin border</title>
+              <rect class="m-sea" x="0" y="0" width="520" height="560" rx="4"/><path class="m-land" d="M445.3,526.3L444.1,528.7L443.1,531.3L442.7,533.8L442.8,536.3L442.5,538.6L442,540.9L440.1,540.3L439,538.6L438.8,536L437.4,532.8L436.9,531.8L435,530L433.1,529.1L431.7,527.8L432,527.9L430.9,526.1L430.1,524.2L428.5,518.8L428,517.4L427.3,516.3L427,515.1L427.3,513.7L428,511.8L428.4,509.8L428,507.1L428.2,504.4L428.7,503.2L437.8,486.8L440.4,483.3L441.9,481.5L443.2,479.6L444.4,477.1L445.9,474.9L447,474.2L452.2,472.2L453.8,470.2L455.2,469.6L456.6,469.7L457.6,470.6L458.5,471.7L459.4,472.3L461.7,473.3L462.7,474.4L463.2,476.2L461.8,477.8L461.1,479.4L460.9,481L461.2,483.3L461.2,485.6L459.4,490.9L457.6,494.2L457.1,495.9L456.4,500L455.3,504.1L454.4,509.2L452.9,514.6L451.9,516.8L450.8,519L448.2,523ZM520,174.8L518.7,174.9L517,174.2L520,172.1L520,174.8ZM520,134.5L518.6,133.4L517.9,133.8L517.8,136.1L517.2,136.6L516,137L515.3,134.4L514.4,132.6L511.4,130.7L510.3,129.6L510.9,127.3L510.6,127.2L510.4,127L508.8,129.2L505.6,131.3L498.9,131.8L496.8,130.3L496,131.3L495.4,132.7L493.6,133.2L490.9,133.3L489.3,134.2L488.5,135.2L484.7,135.5L483.3,136.9L480.9,137.4L471.1,143.3L469,145.8L467,148.7L465.5,150.2L464.2,151.2L463.1,151.6L461.9,152.6L460.8,152.7L459.6,152.2L458.3,152.4L457.4,153.6L458.1,155.2L457.8,155.9L455.2,156.7L451.3,157.3L449.7,158.3L449.1,158.9L448.3,159.2L447.5,157.2L447.2,154.5L448.8,153.9L450.2,153.5L458.3,149.8L457.3,147L458,145.8L459.9,143.8L461.1,142.8L460.4,142.4L455.1,143.1L452,143L450.5,142.8L451,141.1L450.7,139.4L450.3,138.8L453,136.9L454.3,136.4L455.2,136.4L455.1,135.2L454.3,133.5L455.2,131.2L460.7,128.5L462,126.1L464.2,123.8L468.3,118.1L468.6,117.2L469.7,114.5L469.9,113.4L468.1,111.9L467.3,109.7L461.8,105.7L461.3,102.3L460.9,102.4L460,104.8L459.3,105.6L456.8,105.7L455.5,104.8L448.5,104.2L446.8,105.7L445.1,108.1L443.6,109.8L442,110.7L440.7,112.2L435,121.4L432.8,122.1L422.7,127.6L417.6,129.7L413.7,133.6L412.4,135.8L411.2,138.4L410.5,142.3L406.9,146.9L405.7,147.9L404.4,148.3L402.8,148.2L401.3,148.5L398.8,148.1L395.8,149.5L392.5,150.8L389.5,147.6L387.4,146.8L384,147.7L382.4,149.2L379.1,156.2L377.9,160.2L378,161.9L379.9,166.9L382.1,169.7L386.9,172.8L397.2,175L399.6,174.3L402.2,174.3L404.9,176.3L406.6,179.8L406.8,182.1L406.8,182.9L407.5,183.6L407.8,184.8L406.8,185.8L405.9,186.3L405.2,189.9L405.2,193.9L406.1,195.2L408.3,197L411.8,198.6L414.9,198.9L420.9,198.2L423.4,195.8L423.3,194.7L423.3,193.4L428.7,189.9L431.7,186.7L431.2,185.9L430.6,185.3L431.2,185L432.8,184.8L440.2,181.5L446.1,184.2L449.3,187.2L452.6,187.8L455,189.3L457.6,190.7L461,190.8L463.9,191.1L464.8,189.8L465.7,189L466.7,189.2L467.9,190.8L471.2,192.1L474.2,192L476.3,191.5L477.5,192.1L475.7,194.2L476,197.6L474.6,198.6L473.3,200.3L474,201.4L474.7,201.9L474.7,203.3L473.5,204L471.2,206.1L469.9,206L469.3,205.6L468.8,204.9L468.6,203.7L467.7,203L465.6,202.7L463.2,202.9L458.1,205.9L453.1,208.3L447.9,210.2L446.1,211.4L444.9,211.8L442.8,210.8L441.4,210.9L441.1,211.5L442.8,213.2L443.2,214.5L443,215.5L442.1,215.9L440.7,215.2L439.5,216.2L438.9,218L438.9,222.1L438.1,223.1L435.7,223.6L433.3,224.9L432.4,224.3L432,223.6L432.3,221.6L432,220.7L430.9,220.8L429.1,221.3L427.9,222.6L427.5,223.4L429.1,225.8L430.8,226L431.2,226.6L429.8,227.8L426.7,229.5L426.1,231L425.2,232.5L423.9,233.6L423,234.7L421.9,235.4L420.2,236.1L418,238.9L416.4,241.6L414.5,242.9L413,247.4L410.4,249.8L409.4,253.7L410.1,256.1L412.9,256.1L414.4,256.9L417.5,260.1L421.2,262.1L424.9,263.2L429.5,266.1L430.8,267.3L431.9,269.8L433.9,276.9L435.3,280.4L435.5,282.3L437.6,285.7L439.9,291.6L442.5,296.8L443.1,300.8L442.2,302.6L442.3,305L444.9,307.2L450.8,309.7L451.7,310.4L452.9,311.7L452.9,315.5L453.8,316.7L454.7,317.4L458.3,319.1L459.7,320.4L461.3,322.5L461.8,324.5L462,327L459.9,327.1L458.3,326.8L451.9,323.5L450.3,323.4L447.9,323.9L444.6,323.2L441,319.5L438.5,318.4L435.7,317.8L429.2,321L427.5,320.8L427,321.1L426.3,321.7L429.4,322.4L432.4,321.3L435.3,319.8L439.5,320.6L440.2,322L440.9,324.4L443.9,326L446.2,326.7L449.1,328.7L451.9,332L458,335.8L460.4,339.4L461.3,341.7L462.2,345L460.1,346L458.3,346.2L455.4,346.7L453.3,347.8L451.1,349.9L445.1,353.1L443.9,355.1L443.1,356.8L441.6,357.7L437.8,356.9L434.3,357L430.4,359.3L429.4,360.3L430.1,360.1L430.7,359.8L432.4,360.1L435.3,358.9L437.9,362.7L443.2,362.1L448.2,358.9L450.1,358.8L451.7,359.4L453.5,360.6L458.3,366.2L460.9,366.8L463.5,368.1L464.9,368.2L466.2,368.6L462.7,370.6L458.3,375L456.3,376.1L455,377.3L458.5,376.7L461.1,374.6L462.4,374.1L463.4,374.5L463.9,377.1L463,385.1L461.7,385.2L460.5,383L459.1,382.4L457.8,382.8L455.5,382.8L454.6,383.8L453.8,385.2L455.2,385.4L458,387.8L458.3,389.1L457.6,390L455.6,389.6L458,391.4L457.3,393.3L456.6,394L455.2,394.4L454.3,396.1L455.6,398.7L456.9,402.1L457,403.8L455,403.1L452,405.2L450.4,405.3L449.3,402.6L447.9,403L447,403.8L445.8,406.8L444.3,409.4L443,410.2L441.4,410L440.2,410.1L440.5,410.7L441.8,411.6L441.8,412.7L439,415.9L438.5,417.1L438.5,418.2L437.1,419.5L437.8,421.7L437.4,423.2L436.1,425.3L434.8,426.6L433.1,428.8L431,430.1L428.3,434.7L427.5,437L427.3,439.4L426.4,440.2L425,441.3L423.3,440.7L423.3,439.1L422.6,439L422.1,438L422,436.6L422.2,435.6L421.5,435.9L421.1,437.1L420,438.2L418.8,437.7L417.6,436.9L417.6,438.1L418.3,439.3L418.6,440.5L420.2,440.7L421.4,442.1L422.3,444.2L422.5,445L423.2,446L423.3,446.7L421.6,447.5L419.6,448.9L417.2,451.2L415.1,452.8L413.3,452.8L412.2,452.6L410.6,451.7L408.8,451.3L411.3,454.5L412.6,455.1L414.3,455L415.9,453.8L418.2,453.9L418.8,455.7L418.1,457.8L416.9,460.5L416.7,462.8L418.2,466.1L418.3,467.2L417.6,467.6L415.8,466.8L414.3,465.7L412.8,466L411.3,465.5L409.6,465.9L408.9,466.7L409.4,467.9L410.8,469L411.7,470.6L410.7,471.2L406.6,470.8L405.7,471.1L404.5,472.8L405.2,475.5L404.3,477.1L402.6,477.5L400.4,478.8L399.1,479.1L399.1,479.7L400.1,480.3L400.7,481L399.4,483.7L397.6,484.6L394.6,484.1L392.4,484.8L390.4,483.6L388.3,483.6L386.9,485L386.8,486.7L385.4,486.8L384.6,486.7L383.6,486.8L383.7,487.7L384.3,488.5L387.1,488.9L387.6,490L387.8,491.7L384.7,494.7L383.5,496.7L381.6,496.7L380.2,498.3L379.4,500.5L378.4,500L376.3,500.4L375.6,501.4L376.1,501.9L376.2,502.6L375.3,505.1L374.3,505.7L373.9,504.7L373.6,503.2L372.8,503.1L371.6,504.5L370,505.5L368.8,506L367.8,505L365.4,504.5L364.5,508.6L362.4,510.1L361.5,510.6L359.9,510.7L361,511.3L361.3,512.4L360.7,513.4L359.1,513.6L358.2,514.4L357.8,518.1L356.8,519.4L354.4,519.5L352.6,518.6L352,519.3L351.7,519.9L350.7,520.6L348.9,520.8L344.8,522.4L342.9,522L340.7,521.3L339.1,522L338.6,523.2L337.9,524.2L335.7,524.2L333.8,523L332,522.1L330,522.8L328.4,524.4L326.5,524.9L326.2,525.9L325.3,526.3L323.3,526.1L322.5,523.8L321.4,523.4L320.3,524.6L319.9,525.6L319.3,526.3L319.5,528.2L318.4,528.2L316.9,527.1L315.3,526.8L313.9,527.9L314.4,528.8L314.3,529.7L315,530.1L315.2,531L314.4,531.5L314.3,532.5L313.9,533.1L311.4,532L309.3,531.4L307.5,531.6L306.8,531L306.7,530.3L308.9,529.1L309,528.6L307.4,528.2L305.4,526.5L303.9,523.9L302.1,522.4L301.3,521.2L301,518.9L300.7,517.8L300.8,516.6L301.3,515.5L299.3,516.1L297.9,517.1L298.2,518.3L297.8,519.5L295.7,520.1L295.8,520.6L296,521.1L297.6,522.7L298,524L298.7,524.8L300,526.8L300,530.8L300.7,532L300.4,533.1L299.9,534.6L299,535.1L297.4,535.6L296.4,535.9L295.6,536.3L294.4,537.4L292.1,537.7L291,535L289.4,536.8L288.9,540.6L288.3,541.3L287.3,541.8L285.5,540.5L283.9,541.4L282.6,542.3L282.1,543.1L281.2,544L279.4,543.1L277.9,541.8L278.3,540.8L278.1,540.2L277.4,539.7L276.7,539.8L277.1,541.1L277.4,543.5L276.7,544.2L275.7,544.7L273.5,544.3L272,543.4L270.2,542.6L268.7,542.5L268.3,544L267.3,545.3L266.4,545.4L265.4,545.2L264.1,546.6L263.5,547.5L262,548.6L257.9,549.1L256.5,550.1L254.6,549.9L253.1,550.2L252.2,550.1L251.5,549.6L250.6,549.6L250.2,551.3L247.9,552L245.8,552.2L243.5,554.4L241.8,555.8L240.6,555.9L239.7,555.5L239.2,553.4L238.8,553.2L238.5,555.1L238.1,556.7L237.2,557.5L234.6,559.5L234.4,560L224.8,560L224.8,560L225,559.2L224.6,557.5L226.1,555.5L226.5,553.2L229.2,552.4L229.5,550.2L227.4,550.2L226.1,548.6L225.7,549.2L224.7,549.3L222.9,546.2L222.3,545.8L221.5,545.8L221.9,549L219.8,550.2L218,550.8L215.6,551L214.2,551.4L212.9,551.1L213.2,550.1L213.9,548.9L213.3,547.9L211.9,547.2L209.8,547.2L208.3,547L206.9,547.1L206.3,546.6L205,545.1L203.8,544.2L203.3,543.2L203.8,542.1L203.4,541.4L201.1,541.3L201.2,542.9L201.4,544.8L202,546.2L201.6,547L200.5,547.6L199.3,546L198.7,545.7L198.1,545.8L197.7,547.2L196.6,548.6L194.7,548.4L193.1,549.3L191.3,549.6L190.4,549.8L188.1,549.9L186.1,551.8L184.7,552.6L182.6,553.2L180.3,554.3L179.7,556.2L179.6,557.6L179.2,559.1L177.8,560L0,560L0,0L520,0ZM313.2,534.9L312.7,535.2L311.4,533.7L311.3,533.2L312.4,533.1L313.5,533.8L313.5,534.4ZM509.2,486L508.1,489.3L507.1,489.8L506.2,489.6L505.2,487.7L505.9,487L506.9,487.3L507.6,487.2L509.4,484.4L509.9,484.9ZM501.4,491L500.1,491.3L498.7,490.9L497.3,490.9L497.3,490.2L498.7,489.6L498.7,488.6L499.1,488.1L502.3,489.3L502.2,490.1ZM394.6,485.8L395.4,487.3L395.1,488.1L392.4,487.7L392.3,486.8L393.2,487ZM390.2,486.4L389.5,487.7L388.4,487.5L388.4,486.6L388.1,486.3L388.5,485.4L388.7,485.2L389.9,485.9ZM461.9,331.9L460.3,332.5L455.2,330.6L451.7,328.4L449.5,325.8L449.2,324.7L451.7,324.9L454.1,325.8L454.7,327.3L455.7,327.7L456.3,328.6L460.9,330.5L461.6,331.1ZM470.3,366.5L470,367L467.7,365.7L465.1,365.4L464.1,364.3L464,362.5L466.7,362.6L470.1,364.2L470.9,365ZM467.9,372.9L467.9,373.3L466.2,371.9L465.4,371.6L465.8,370.8L466.9,370.6L467.8,372.4ZM472.4,368.1L472.3,369.2L471.7,369L471,367.2L471.4,366.7L472.4,366.8ZM422.1,465.7L420.7,466.7L419.7,466.3L419.7,464.9L420.2,463.7L419.7,462.8L420.2,461.8L421.3,461.5L421.6,462.1L422.3,462.5L422.5,462.8L422.5,463.5L421.9,464.6L422.3,465.2ZM236.1,560L235.9,559.7L236.8,558.7L238.3,558.3L238.3,558.3L239,559L241,558.5L241.3,559.4L241.2,559.9L241.2,560L236.1,560ZM184.1,555.7L181.3,558.4L180.2,558.3L181.1,555.4L181.6,554.7L183.3,555.7ZM182.5,560L182.5,560L183.1,559.6L183.1,560L182.5,560ZM450,408.4L448.3,408.9L447.7,408.9L447.7,407.3L449.1,405.8L449.6,406.3L450,407.1ZM300,522.4L300.2,523.4L298.7,521.9L298.3,521.8L297.5,521.2L297.1,520.3L298.3,520.3L299.4,521.4ZM285.2,547.7L284.7,548.1L284.2,547.4L284,546.3L283.6,545.7L284.6,544.9L285,544.1L286.1,544.3L286.6,544.5L285.6,545.4L285.4,545.7ZM282.3,546.9L280.4,547.3L280,547.2L280.7,546.2L282.3,545.4ZM308.6,534.9L306.3,534.9L305.8,534.7L305.6,534.2L306.4,533.4L309.6,532.3L308.8,533.5ZM518,177.9L518.2,178.1L518.2,178.5L517.9,178.7L517.5,179.1L517.1,179.4L516.3,179.2L515.7,178.8L515.9,177.9L516.4,178L517.5,177.7Z"/>
+              <path d="M384.7 129.8 L384.1 126.2 L382.2 122.7 L379.2 119.4 L375.0 116.3 L369.9 113.6 L363.8 111.2 L357.0 109.3 L349.7 107.9 L342.0 107.1 L334.0 106.8 L326.1 107.1 L318.4 107.9 L311.0 109.3 L304.3 111.2 L298.2 113.6 L293.1 116.3 L288.9 119.4 L285.9 122.7 L284.0 126.2 L283.4 129.8 L284.0 133.4 L285.9 136.8 L288.9 140.1 L293.1 143.2 L298.2 145.9 L304.3 148.2 L311.0 150.0 L318.4 151.4 L326.1 152.2 L334.0 152.5 L342.0 152.2 L349.7 151.4 L357.0 150.0 L363.8 148.2 L369.9 145.9 L375.0 143.2 L379.2 140.1 L382.2 136.8 L384.1 133.4 L384.7 129.8 Z" fill="var(--muted)" opacity="0.25"/>
+              <path class="m-river" d="M-3 250.1 L110.6 224.8 L158.1 165.7 L230.8 111.9 L254.2 122.2 L248.3 165 L240.5 226.2 L236.6 259.6 L254.2 254.9 L277.5 252.5 L300.9 252.5 L314.6 252.5 L343.8 231 L367.2 209.3 L410 183.6"/><path class="m-river" d="M-22.5 297.1 L16.5 365.7 L35 434.4 L69.1 441 L126.2 393.2 L163.6 375.6 L256.1 349.9 L314.6 352.4 L347.7 372.4 L402.2 318.9 L454.8 334"/>
+              <path d="M129.5 259.6 L170.4 265.5 L211.3 283.2 L246.4 292.5 L273.6 304.1 L300.9 313.3 L337.9 311 L373 299.5 L396.4 297.1 L415.9 283.2 L431.5 273.8" fill="none" stroke="var(--rust)" stroke-width="2.4" stroke-dasharray="6 4"/>
+              <text class="m-lab" style="fill:var(--rust);font-weight:700" x="150.0" y="300.0" text-anchor="middle">Song-Jin border, 1142</text>
+              <text class="m-reg" style="fill:var(--muted);font-size:16px" x="289.2" y="59.8" text-anchor="middle">Liao (to 1125)</text><text class="m-reg" style="fill:var(--muted);font-size:15px" x="378.8" y="187.3" text-anchor="middle">Jin (from 1125)</text><text class="m-reg" style="fill:var(--muted);font-size:16px" x="104.1" y="137.4" text-anchor="middle">Western Xia</text><text class="m-reg" style="fill:var(--loch);font-size:26px" x="195" y="403.6" text-anchor="middle">Song</text><text class="m-reg" style="fill:var(--muted);font-size:13px" x="59.3" y="497" text-anchor="middle">Dali</text>
+              <text class="m-lab" style="fill:var(--muted);font-size:11px" x="334.0" y="166.0" text-anchor="middle">Sixteen Prefectures</text>
+              <text class="m-lab river" x="95.0" y="200.0" text-anchor="middle">Yellow River</text><text class="m-lab river" x="150.0" y="372.0" text-anchor="middle">Yangtze</text>
+              <circle cx="315.5" cy="254.9" r="6" fill="var(--loch)" stroke="var(--surface)" stroke-width="1.5"/><circle cx="428.5" cy="359.6" r="6" fill="var(--loch)" stroke="var(--surface)" stroke-width="1.5"/><circle cx="355.5" cy="129.8" r="4.5" fill="var(--ink)" stroke="var(--surface)" stroke-width="1.5"/><circle cx="413.3" cy="23.1" r="4.5" fill="var(--ink)" stroke="var(--surface)" stroke-width="1.5"/><circle cx="158.1" cy="165.7" r="4.5" fill="var(--ink)" stroke="var(--surface)" stroke-width="1.5"/><circle cx="398.3" cy="477.7" r="4.5" fill="var(--ink)" stroke="var(--surface)" stroke-width="1.5"/><circle cx="39.8" cy="462.7" r="4.5" fill="var(--ink)" stroke="var(--surface)" stroke-width="1.5"/>
+              <path d="M323.2 227 L333.2 237 M323.2 237 L333.2 227" stroke="var(--ink)" stroke-width="2.4"/><path d="M267.1 315.2 L277.1 325.2 M267.1 325.2 L277.1 315.2" stroke="var(--ink)" stroke-width="2.4"/><path d="M285.8 528.6 L295.8 538.6 M285.8 538.6 L295.8 528.6" stroke="var(--ink)" stroke-width="2.4"/>
+              <circle cx="312" cy="533" r="3.5" fill="var(--muted)" stroke="var(--surface)" stroke-width="1.2"/>
+              <text class="m-lab" style="fill:var(--loch);font-weight:700" x="307.5" y="251" text-anchor="end">Kaifeng (Northern Song capital)</text>
+              <text class="m-lab" style="fill:var(--loch);font-weight:700" x="420.5" y="390" text-anchor="end">Lin'an (Hangzhou)</text><text class="m-lab" style="fill:var(--loch);font-weight:700" x="420.5" y="404" text-anchor="end">Southern Song capital</text>
+              <text class="m-lab" x="337.2" y="236.0" text-anchor="start">Chanyuan, 1005</text>
+              <text class="m-lab" x="363.5" y="133.8" text-anchor="start">Yanjing (Beijing)</text>
+              <text class="m-lab" x="405.3" y="27.1" text-anchor="end">Liao Upper Capital</text>
+              <text class="m-lab" x="166.1" y="179.7" text-anchor="start">Xingqing (Yinchuan)</text>
+              <text class="m-lab" x="263.1" y="324.2" text-anchor="end">Xiangyang, 1268–73</text>
+              <text class="m-lab" x="281.8" y="537.6" text-anchor="end">Yashan, 1279</text>
+              <text class="m-lab mu" x="319.0" y="537.0" text-anchor="start">Hong Kong</text>
+              <text class="m-lab" x="406.3" y="481.7" text-anchor="start">Quanzhou (port)</text>
+              <text class="m-lab mu" x="41.8" y="453.7" text-anchor="start">Dali</text>
+              <circle cx="331.5" cy="262.9" r="9" fill="var(--rust)" stroke="var(--surface)" stroke-width="1.5"/><text x="331.5" y="266.9" text-anchor="middle" style="font:700 11px var(--mono);fill:#fff">1</text><circle cx="272.0" cy="127.8" r="9" fill="var(--rust)" stroke="var(--surface)" stroke-width="1.5"/><text x="272.0" y="131.8" text-anchor="middle" style="font:700 11px var(--mono);fill:#fff">2</text><circle cx="314.2" cy="220.0" r="9" fill="var(--rust)" stroke="var(--surface)" stroke-width="1.5"/><text x="314.2" y="224.0" text-anchor="middle" style="font:700 11px var(--mono);fill:#fff">3</text><circle cx="444.5" cy="355.6" r="9" fill="var(--rust)" stroke="var(--surface)" stroke-width="1.5"/><text x="444.5" y="359.6" text-anchor="middle" style="font:700 11px var(--mono);fill:#fff">4</text><circle cx="286.1" cy="310.2" r="9" fill="var(--rust)" stroke="var(--surface)" stroke-width="1.5"/><text x="286.1" y="314.2" text-anchor="middle" style="font:700 11px var(--mono);fill:#fff">5</text><circle cx="278.8" cy="515.6" r="9" fill="var(--rust)" stroke="var(--surface)" stroke-width="1.5"/><text x="278.8" y="519.6" text-anchor="middle" style="font:700 11px var(--mono);fill:#fff">6</text>
+            </svg>
+          </div>
+          <div class="legend"><span><i class="sw c" style="background:var(--loch)"></i>Song capitals</span><span><i class="sw" style="border-top:2.5px dashed var(--rust)"></i>Song-Jin border, 1142 (approx.)</span><span><i class="sw" style="background:var(--muted);opacity:.5;border-radius:2px"></i>Sixteen Prefectures</span></div>
+          <ol class="stages">
+            <li><b style="color:var(--rust)">① Kaifeng:</b> the Northern Song capital, with perhaps a million people.</li>
+            <li><b style="color:var(--rust)">② Sixteen Prefectures:</b> land along the Great Wall held by the Khitan, which the Song never won back.</li>
+            <li><b style="color:var(--rust)">③ Chanyuan, 1005:</b> the Liao army got close to Kaifeng; the Song and Liao made peace, which lasted more than a hundred years.</li>
+            <li><b style="color:var(--rust)">④ Lin'an (Hangzhou):</b> after Kaifeng fell in 1127, the Southern Song made its capital in the south; from 1142 its border with the Jin ran from the Huai River to the Qinling mountains (red dashed line).</li>
+            <li><b style="color:var(--rust)">⑤ Xiangyang, 1268–1273:</b> the Mongols besieged the city for nearly six years before taking it, and the Yangtze defences then collapsed.</li>
+            <li><b style="color:var(--rust)">⑥ Yashan, 1279:</b> the Southern Song's last sea battle, not far west of today's Hong Kong.</li>
+          </ol>
+          <figcaption><b>Map 1: How strong were the Song's neighbours?</b> Under the Northern Song, the Liao lay to the north and the Western Xia to the northwest; after 1127 the Jin held the whole of the north. State names are placed roughly, and borders and rivers are simplified.</figcaption>
+        </figure>
+<figure>
+          <div class="frame">
+            <svg viewBox="0 0 600 268" role="img" aria-labelledby="c6inv">
+              <title id="c6inv">Earliest reliable records of four inventions in China and in Europe, compared</title><g transform="translate(0 24)">
+              <line class="c-mid" x1="300" y1="10" x2="300" y2="200"/><line class="c-mid" x1="430" y1="10" x2="430" y2="200"/>
+              <text class="c-row" x="0" y="44">Paper</text>
+              <line class="u-link" x1="197.3" y1="40" x2="469" y2="40" style="stroke-width:3;opacity:.5"/>
+              <circle class="c-pt" cx="197.3" cy="40" r="6"/><circle class="c-pt rust" cx="469" cy="40" r="6"/>
+              <text class="c-val" x="197.3" y="26" text-anchor="middle">AD 105</text><text class="c-val" x="469" y="26" text-anchor="middle">c. 1150</text>
+              <text class="c-row" x="0" y="94">Movable type</text>
+              <line class="u-link" x1="440.4" y1="90" x2="547" y2="90" style="stroke-width:3;opacity:.5"/>
+              <circle class="c-pt" cx="440.4" cy="90" r="6"/><circle class="c-pt rust" cx="547" cy="90" r="6"/>
+              <text class="c-val" x="440.4" y="76" text-anchor="middle">c. 1040</text><text class="c-val" x="547" y="76" text-anchor="middle">c. 1450</text>
+              <text class="c-row" x="0" y="144">Gunpowder formula</text>
+              <line class="u-link" x1="441.4" y1="140" x2="499.4" y2="140" style="stroke-width:3;opacity:.5"/>
+              <circle class="c-pt" cx="441.4" cy="140" r="6"/><circle class="c-pt rust" cx="499.4" cy="140" r="6"/>
+              <text class="c-val" x="436" y="126" text-anchor="end">1044</text><text class="c-val" x="505" y="126" text-anchor="start">1267</text>
+              <text class="c-row" x="0" y="194">Ship's compass</text>
+              <line class="u-link" x1="456" y1="190" x2="479.4" y2="190" style="stroke-width:3;opacity:.5"/>
+              <circle class="c-pt" cx="456" cy="190" r="6"/><circle class="c-pt rust" cx="479.4" cy="190" r="6"/>
+              <text class="c-val" x="450" y="176" text-anchor="end">c. 1100</text><text class="c-val" x="486" y="176" text-anchor="start">c. 1190</text>
+              <g class="c-axis"><line x1="170" y1="212" x2="560" y2="212"/></g>
+              <text class="c-tick" x="170" y="232" text-anchor="middle">AD 1</text><text class="c-tick" x="300" y="232" text-anchor="middle">500</text><text class="c-tick" x="430" y="232" text-anchor="middle">1000</text><text class="c-tick" x="560" y="232" text-anchor="middle">1500</text>
+            </g></svg>
+          </div>
+          <div class="legend"><span><i class="sw c"></i>China</span><span><i class="sw c" style="background:var(--rust)"></i>Europe</span></div>
+          <figcaption><b>Figure 2: How much earlier than Europe?</b> The years of the earliest reliable records of each technology in China and in Europe, to scale. China: Cai Lun's improved paper, Bi Sheng's movable type, the gunpowder formulas in the Complete Essentials from the Military Classics, and the record of Guangzhou ships using a compass. Europe: a paper mill in Spain, Gutenberg's movable type, the gunpowder formula recorded by the English friar Roger Bacon, and the English scholar Alexander Neckam's description of the navigational compass. Scholars still debate whether all of these technologies reached Europe from China.</figcaption>
+        </figure>
+        <figure>
+          <div class="frame">
+            <svg viewBox="0 0 600 320" role="img" aria-labelledby="c6mb">
+              <title id="c6mb">The four parts of the Mongol empire and key events</title>
+              <rect class="m-sea" x="0" y="0" width="600" height="320" rx="4"/><path class="m-land" d="M523.4,320L521,317.9L519.7,320L517.7,319.8L517.4,320L514.2,320L514.2,320L515.4,316.9L518,315.5L520.3,313.6L521.9,315.9L525.1,314.5L525.7,312.3L528.7,312.2L528.3,308.3L531.9,310.7L532.3,313.2L532.7,315L532.7,315L533.3,318.3L533.5,320L523.4,320ZM333.4,320L332.9,316.1L334.8,308L337.8,310.8L339.8,314.3L341.9,319.5L341.8,320L333.4,320ZM522.1,305.7L520.6,307.4L519.4,310.5L518.1,312L515.4,308.6L516.2,307.2L517.2,305.8L517.5,302.7L519.9,302.5L519.3,305.8L522.3,301ZM498.9,310.5L493.3,315.3L495.3,311.8L498.3,308.7L500.7,305.3L502.8,300.3L503.7,304.4L501,307.1ZM512.8,297.7L515.4,299.3L518.1,299.3L518.1,301.3L516.2,303.4L513.6,304.9L513.4,302.6L513.5,300.1ZM528.1,296.4L529.6,301.9L526.3,300.6L526.4,302.3L527.6,305.3L525.6,306.5L525.3,303L524,302.7L523.2,299.7L525.7,300.1L525.6,298.2L522.8,294.4L526.9,294.5ZM511,291.9L510,296.2L508.1,293.7L505.7,289.9L509.4,290.1ZM508.4,264.8L511.1,266.2L512.3,264.9L512.8,266.2L512.2,268.2L513.9,271.8L513.1,276L510.7,277.6L510.3,281.6L511.5,285.6L513.8,286.1L515.6,285.6L521.1,288.3L520.8,291L522.3,292.2L522,294.5L518.5,292.1L516.8,289.5L515.8,291.3L512.9,288.3L509.1,289L506.9,287.9L507,285.9L508.3,284.6L506.9,283.5L506.5,285.3L504.2,282.4L503.5,280.2L503,275.5L504.8,277.1L504.8,269.3L505.8,264.8ZM461.9,263.9L458.4,266.3L454.9,264.8L454.5,260.5L456.4,258.2L461,256.8L463.4,256.9L464.4,258.8L462.7,261ZM506,243.4L504.6,247.5L502,243.3L501.2,239.6L503.1,234.6L506.1,230.9L508.2,232.3L507.7,235.4ZM553.9,186.6L554.7,188.3L553,191.3L551.1,189.7L549.2,190.9L548.6,193.8L545.7,192.4L545.3,190L547.1,187L549.5,187.6L550.8,185.5ZM149.1,179L146.2,181.1L146.4,182L146.4,182.4L142.1,184.5L140.1,183.8L139.5,181.8L141.4,181.6L141.7,181.6L142.4,180.4L145.3,180.5ZM105.3,178.8L107.3,180.5L110.5,180.2L113.4,180.6L113.2,181.4L115.5,180.8L114.8,182.3L108.9,182.7L109,181.9L104.3,180.9ZM74.6,166.2L72.5,170.1L72.8,171.7L71.5,174.2L68.7,172.4L66.8,171.8L61.7,169.3L62.7,166.7L67.3,167.2L71.5,166.7ZM52.7,151.4L54.2,155L52.2,161.5L50.5,161.2L48.5,162.9L47.3,161.5L48.5,155.6L48.2,152.7L50.3,153ZM576.5,171.6L575.8,175.6L577.1,178.1L575.7,181.6L571,184L563.9,184.3L559.2,190L556.2,188.1L555.3,184.3L548.5,185.4L544.1,187.8L539.3,187.9L544.1,191.6L542.7,200.1L540.4,202.2L538.1,200.2L538.4,195.7L535.6,194.3L533.4,190.8L537,189.3L538.6,186.2L542.2,183.6L544.6,180.2L552.3,178.7L556.8,179.7L559.3,170.8L562.4,173.2L567.2,168.2L569.1,166.3L570.2,160.2L568.2,154.6L569.1,151.5L573,150.6L576.9,157.5L577.8,161.5L575.3,166.5ZM55.1,146.8L52.9,150.6L51.4,149.6L51.2,146.3L52.5,144.4L55.4,142.5ZM579.3,136.8L582.3,137.9L584.5,135.8L586.9,141.3L581.5,142.7L579.4,147.6L572.3,144.2L571.6,149.6L567.3,149.7L565.5,144.7L566.4,141L570.5,140.7L569.8,133.9L569.8,130.1L575.8,135.2ZM568.3,104.9L575,113.4L568.9,111.8L568.7,118.8L574,123.8L574.9,127.2L571.1,124.3L569.7,128L567.8,123.9L566.8,119.2L564.7,114L564.4,110.3L562.5,103.9L558.7,99.2L556.8,92.7L559.5,90.6L557.2,88.4L558.6,87.7L560.7,90.8L563.6,95.4L565.1,100.1ZM0,94.8L0,94.8L0.1,90L6.6,86.3L10.3,84.1L13.4,83.9L16.1,86.8L12.9,90.1L12.1,93.4L7.7,97.7L7.7,97.7L0,100.5L0,94.8ZM84.7,81.9L81.4,85.7L78.4,83L78.5,81.1L84.3,79.6ZM33.6,67.9L27.6,72.9L31.6,72.3L35.5,72.3L33,76L28.1,80.2L31.7,80.5L32.9,86.5L35.1,87.3L35.4,92.6L35.7,94.5L39.9,95.4L38.4,98.4L36,99.8L36.7,102.3L32.4,104.8L27.5,104.8L20.6,106.1L19.2,105.1L15.9,107.4L12.6,106.8L9.3,108.7L7.7,107.7L15,102.7L18.7,101.6L13.2,100.8L12.8,99L17.3,97.5L16.2,94.9L18.1,91.8L23.4,92.2L25,89.5L23.7,86.6L19.6,85.7L19.2,84.5L21.4,82.4L20.7,81.1L17.8,83.3L19.5,78.8L18.7,76.4L22,71.7L26.5,67.9L29.1,68.3ZM0,34.9L6,32.8L11.4,33.1L11.4,33.1L9,35.9L11.1,38.9L4.8,42.2L0,43.5L0,34.9ZM209.9,151.1L211.6,154.6L213.4,154.8L214.5,156.2L211.2,156.6L210.2,160.4L209.4,162.2L207.9,163.3L207.8,165.8L208.8,169.5L212.5,170.5L215.1,173L220.8,173.8L227.1,172.5L227.6,171.4L227,167.8L227.9,162.6L224.9,161L226.2,157.6L223.6,157.3L224.7,153.1L228.3,154.3L231.9,152.7L229.2,149.7L228.3,146.9L225,148.2L224.4,151.8L223.4,148.6L223.3,147.4L224.4,145.3L223.8,143.6L219.4,141.9L218,137.5L215.9,136.3L215.9,134.7L219.7,135.1L220.1,131.6L223.5,130.8L226.8,131.5L227.8,126.7L227.4,123.7L223.5,123.9L220.4,122.8L215.8,124.9L212.1,125.9L210.1,128.8L206.2,129.6L201.9,134.7L205,139.3L204.3,142.7L208,148.5ZM600,54.2L594.6,55.2L589.6,62.8L593.9,65.6L586.5,66.8L581.2,67.2L580,64L574.2,63.3L570.8,65.5L559.7,64.7L548.6,66.1L540.5,75L530.5,86L536.4,86.6L539.2,89.5L543.1,90.6L544.7,88.2L548.8,88.5L555.9,93.7L557.4,97.8L556.1,102.5L557.7,108.3L558.4,116L554.7,123L554.3,126.4L550.7,132.1L546.9,137.7L545.1,140.6L540.6,143.5L538.1,143.6L535.1,141.2L530.7,144.8L530.5,146.4L528.9,146.1L527.6,147.8L526.8,149.5L527.6,153.1L525.8,154.1L525.3,155L524.1,156.5L521.6,157.3L520.2,158.6L520.5,160.8L520.1,161.3L521.8,162.1L524.5,164.3L529.1,170.2L530.6,173.4L531.7,179.2L530.7,181.9L527.1,182.9L524.3,184.9L520.7,185.4L519.8,182.7L519.9,178.9L517.3,173.7L520.1,172.9L516.6,168.6L514.5,167.7L514.2,168.6L513.1,169L512.8,168.1L511.7,167.6L510.4,166.8L511.2,164.6L512,164.1L511.5,163.2L512,160.5L511.6,159.7L509.2,159.1L507.1,157.8L501.8,159.2L499.3,161.6L495.2,162.9L496.9,160.6L495.8,158.7L498.3,155.3L495.8,152.7L492.6,154.5L488.8,157.9L486.8,161.1L483,161.4L481.3,163.7L483.9,167.1L487.3,167.9L487.8,170.1L491.2,171.6L495.1,168L499,170L501.6,170.1L502.7,172.7L497.2,174.1L495.7,176.8L492.2,179.3L490.6,182.8L495.4,185.5L497.6,190.4L500.7,195L504,198.9L504.4,202.6L502.1,203.9L503.4,206.6L506,208.2L505.9,212.2L505.3,216.2L503,216.6L500.6,222.1L497.9,228.6L494.6,234.6L489.3,239.2L483.9,243.4L479.2,244L476.8,246.2L475.2,244.6L473,247.1L467.3,249.6L463,250.3L461.9,255.6L459.5,255.9L458.2,252.3L459.1,250.4L453.3,248.7L451.4,249.6L446.1,253.8L442.8,258.6L442.1,262L445.6,267.3L449.9,273.8L453.8,276.9L456.6,280.9L459,290.1L458.7,298.8L455.3,302.1L450.5,305.3L447.1,309.5L441.9,314.1L440.2,310.9L441.4,307.5L438.1,304.7L434.5,304L432.7,301.4L430.4,296.3L426.5,294L422.9,294.1L423.4,290.2L419.6,290.2L419.4,295.7L417.3,302.9L416,307.3L416.4,310.9L419.2,311.1L421,315.6L421.9,319.9L422,320L417.6,320L417.6,320L415.5,317.5L413.4,315.2L412.8,318.1L411.9,315.3L412.3,312.2L413.5,307.5L413,303.8L414.2,300L412.7,297L412.9,291.6L411.1,289L409.5,283.1L408.6,276.8L406.6,272.6L403.9,275.1L399.2,278.7L396.8,278.2L394.1,277.1L395.4,270.9L394.4,266.2L390.9,260.5L391.3,258.7L388.8,258L385.7,254L384.4,251.4L384.1,248.8L383.2,246.4L381.3,243.5L377.5,243.3L377.9,245.4L376.7,248.1L374.9,247.1L374.3,248L373.1,247.5L371.5,247L370.9,248.9L368.1,248.8L362.9,249.8L363.2,253.6L361.1,256.6L355.1,259.9L350.5,265.8L347.3,268.9L343.2,272.2L343.2,274.5L341.1,275.7L337.3,277.5L335.3,277.8L334.1,281.6L335,288L335.3,292.2L333.5,296.9L333.6,305.4L331.4,305.6L329.4,309.4L330.7,311L326.9,312.4L325.4,315.8L323.7,317.2L319.6,312.6L317.7,305.6L316,300.6L314.5,298.3L312.2,293.5L311.1,287.3L310.4,284.2L306.5,277.3L304.7,267.7L303.5,261.3L303.5,255.2L302.6,250.5L296.5,253.5L293.6,252.9L288.1,246.9L290.1,245.1L288.9,243.1L284,238.9L281,237.6L279.8,234L276.6,230.2L268.9,231.2L262.1,231.2L256.2,231.9L248.4,230.4L243.9,229.3L239.3,228.6L237.7,222.5L235.7,221.6L232.5,222.5L228.2,224.9L223.2,223.3L219.2,219.4L215.3,218L212.8,213.3L210.1,206.6L207.8,207.4L205.3,205.7L203.7,207.7L201.3,207.4L202,209.7L201.5,210.8L202.6,214.6L204,218.9L206,220L206.6,221.8L209.4,223.9L209.5,225.9L209,227.6L209.5,229.3L210.6,230.7L211.1,232.3L211.6,233.6L211.5,229.9L212.8,227.3L213.9,226.8L215.1,228.3L215.1,231.3L214,234.2L214.7,236.1L215.5,235.9L215.6,237.2L218.9,236.4L222.4,236.6L224.9,236.7L227.8,233.3L231.1,230.1L233.8,227.1L235.1,225.4L235.6,225.8L235.1,227.9L234.5,228.8L235,232.7L236.7,236.1L239,237.9L242.1,238.6L244.5,239.5L246.3,242.4L247.4,244L248.9,244.7L248.9,245.8L247.3,248.8L246.6,250.2L244.8,251.8L243.1,255.2L241.2,254.9L240.3,256.1L239.6,258.6L240,262L239.6,262.6L237.7,262.6L235,264.4L234.5,266.9L233.5,267.9L230.9,267.9L229.2,269.1L229.2,271.1L227.1,272.5L224.8,272.1L221.9,273.7L219.9,274L216.8,275.4L216,277.6L215.8,279.3L211.5,281.4L204.7,283.7L200.8,287.2L198.9,287.5L197.6,287.2L195.1,289.3L192.3,290.2L188.8,290.5L187.7,290.8L186.7,292.1L185.6,292.4L184.9,293.7L182.8,293.6L181.4,294.3L178.5,294L177.5,291.1L177.7,288.4L177,286.9L176.3,283.2L175.2,281.2L176,280.9L175.7,278.7L176.2,277.7L176.1,275.5L175.6,273.4L174.4,271.9L174.2,269.9L172.1,268.1L170,263.9L169,259.9L166.3,256.4L164.4,255.6L161.9,250.9L161.6,247.4L162,244.4L159.9,238.9L158.1,236.9L155.9,235.9L154.7,233L155,231.9L154.1,229.3L153,228.2L151.6,224.5L149.4,220.5L147.6,217L145.5,217L146.4,214.3L146.8,212.5L147.4,210.5L147.4,209.8L146,211.8L144.8,215.6L143.5,218.2L142.4,219.1L141.2,217.5L139.5,215.2L137.3,208.1L136.8,208.5L138,213.8L140.1,218.8L142.5,226.6L143.9,229.3L145,232.2L148.3,237.7L147.4,238.6L147.3,241.8L151.9,246.3L152.6,247.3L153.6,252.2L152.7,253.1L153,258.3L154.2,264.2L155.7,265.5L158,267.3L160.1,273.1L161.1,277.7L163.3,280.1L169,284.8L171.2,287.6L173.4,290.5L174.7,292.2L176.8,293.7L177.7,295.2L177.5,297.3L175.1,298.5L176.9,299.9L178.2,300.8L179,302.8L180.9,304.9L183,304.9L187.1,303.7L191.7,303.1L195.5,301.5L197.7,301.2L199.2,300.3L201.6,300.1L203,300L205,299.3L207.2,298.8L209.3,297.1L210.9,297.1L211,298.4L210.5,301.3L210.5,303.9L209.6,305.7L208.3,311.1L206.1,316.7L204.7,320L0,320L0,181.5L0.5,181.5L4.9,178.8L9.5,177.9L12.5,175.8L16.7,174.3L23.7,173.4L30.4,173L32.3,173.8L36.5,171.8L40.8,171.8L42.2,172.9L45,172.6L49.7,170.6L52.4,171.2L51.8,173.7L55.6,171.9L55.7,172.8L53.2,175.3L52.7,177.6L53.9,178.8L52.6,183.2L49.4,185.7L49.7,188.4L51.8,188.5L52.4,190.9L53.8,191.6L58.3,193.4L60.1,192.9L63.4,193.8L68.4,196L69.7,200.4L73.2,201.4L78.7,203.5L82.7,206L84.9,204.7L87.2,202.4L86.7,198.6L88.3,196.1L91.6,193.8L94.5,193.1L99.9,194.1L101,196.4L102.5,196.4L103.7,197.2L107.7,197.8L108.5,199.5L113.9,199.4L117.7,200.7L121.6,202.2L123.4,203L126.7,201.4L128.6,200L132.2,199.5L135.1,200.2L135.9,202.7L137,201L140.2,202.2L143.4,202.5L145.5,201.2L146.9,199.6L146.6,199.3L147.9,197L149.1,193.2L149.8,191.9L150,191.9L151.8,187.8L154.2,184.3L154.3,184.1L154.4,180.3L155.6,178.2L154.3,176L156.1,174.1L153.6,174.5L150.3,173.4L147.2,176.2L141.1,176.8L138.2,174.1L133.8,174L132.6,176L129.8,176.6L126.3,174L121.9,174L120.2,169.1L117.7,166.3L120.2,162.5L118.1,160.1L123.2,155.3L129.3,155.2L131.6,151.4L139,152L144.2,148.8L149,147.4L155.5,147.3L161.9,150.8L167.3,152.7L172,152L175.3,152.4L180.2,149.8L181.1,147.7L180.5,144.3L178.4,142.5L176.3,142L175.1,140.5L170.7,136.3L166.5,134.4L163.6,131.6L166.5,130.8L170.3,126.7L168.4,124.8L174.3,122.8L174.4,121.7L170.8,122.5L167.7,122.9L164.9,124.5L161.3,124.7L157.7,126.5L157.5,129.6L159.2,130.8L163.2,130.5L162.1,132.2L157.8,133.1L152.1,135.9L150.1,134.9L151.3,132.6L147.3,131.2L148.2,130.2L152.1,128.6L151.2,127.5L145.4,126.2L145.4,124.4L141.8,125L139.9,127.7L136.3,131.3L136.2,132.6L134.1,133.6L133,133.2L130.9,139.1L128.5,141.2L126.5,144.7L127.3,147.5L127.5,149.4L130.6,151L129.7,152.2L125,152.5L123.1,154L119.4,156.7L118.5,154.4L118.7,153.4L116.3,153.2L114.3,152.7L109.3,154L111.6,156.8L109.5,157.6L107.3,157.6L105.6,155.1L104.7,156.2L105.1,159.1L106.6,161.5L105,162.5L106.8,164.8L108.5,166.3L108.2,169.1L104.7,167.8L105.4,170.3L102.8,170.8L103.7,175.2L101,175.3L98,173.1L97.2,169.1L97,165.8L95.9,163.5L94.3,160.7L94.3,159.3L93.7,158.9L93.8,157.9L91.9,156.2L92,153.8L93,150.5L93.8,148.9L93.3,148.1L92.6,147.7L91.8,146.1L90.3,145.2L87,143.3L85.1,141.6L81.8,140.1L79.4,136.5L80.3,136.1L78.9,134L79.3,132.4L77,131.6L75.3,133.7L74.5,132.1L75,130.4L75.2,130.3L76.1,129.9L73.2,129.2L69.7,130.9L69.3,133.3L68.5,134.7L69.2,137.2L72.2,139.7L73.3,143.8L76.8,147.7L79.9,147.7L80.6,148.8L79.3,149.8L82.5,151.6L85.1,153.1L88,155.7L88.2,156.6L87.1,158.4L85.4,156.1L82.1,155.2L79.8,158.4L82.3,160.3L81.3,162.9L79.6,163.2L76.7,167.4L75,167.8L75.3,166.3L76.6,163.6L77.6,162.6L76.7,159.7L75.9,157.2L74.4,156.6L73.7,154.4L71.3,153.5L70,151.5L67.2,151.2L64.6,149L61.7,145.8L59.7,142.9L59.7,138.1L57.9,137.5L55.1,135.9L53.2,136.5L50.4,138.8L48.7,139.2L44.4,142L37.1,140.6L31,142.2L29.7,145.2L29.2,148.1L24.6,151.4L19.3,152.4L18.5,154.1L15.4,156.8L12.9,160.9L13.7,163.7L10.9,165.9L9.3,169.1L6,170.1L2.3,174L0,174L0,140.1L0,140.1L2.4,140.6L5.7,140.4L11.9,140.5L14.8,137.6L18.4,127.8L16.1,122.7L14,120.2L8.8,118.4L9.6,114.8L14.9,113.8L20.9,115L21.5,109.6L24.4,111.6L34.4,107.9L36.8,103.9L40.4,103L43.7,102L46.1,100.7L51.6,93.7L57.4,91.7L60.4,91.9L61.4,90.9L64.6,90.6L64.9,91.7L68.2,89.3L67.9,87.6L68.6,84.9L68,82.3L69.5,77.6L70.6,76.3L72.1,74.9L75.4,74.6L77.1,73.4L80.4,72.1L79.5,74.4L77.9,75.9L77.9,77.2L79.6,77.9L78.1,79.7L77.2,79.2L73.5,82.5L73.7,84.8L73.2,86.6L76.6,87.7L76,89.4L80,88.5L82.5,87.2L86,89.1L87.3,90.6L90.2,89.2L96.6,87L101.6,85.4L105,86.2L105,87.4L108.5,87.4L109.9,85.4L115.3,83.9L115.6,79.9L116.7,76.4L119.3,73.5L123.1,72L125,75.4L127.9,75.3L129.6,71.8L130.7,69.1L129.2,69.6L127.4,68L127.9,65.4L132.7,64.1L137.3,63.5L140.9,64.2L144.6,64.1L149.3,61.6L146.1,59.4L139.7,59.8L133.1,61.4L127.1,62.4L125.7,59.9L122.8,58.4L124.9,54L124.5,50L127,47.4L130.9,44.6L140.2,39.9L142.7,39L142.9,37.1L138.9,35.1L132.7,36.3L128.5,39.3L128.1,42L121.6,45.6L113.6,49.4L109,55.7L110.5,58.8L113,61.3L108.2,66.5L104.2,67.5L100.4,75.2L97,79.6L92.8,79.1L89.6,82.8L85.3,83L85.5,78.6L84.3,73.4L83.8,66.9L82.4,64.1L73.5,69.4L68.4,70.5L64.3,68.1L64.9,63.2L68,52.8L72.3,50L82.9,46.2L91.4,41.7L100,35.6L111.3,27.3L118,24.1L129,18.9L136.8,17L142,17.2L148.1,13.8L153.9,14L159.9,13.2L169,16.2L164.5,17.3L167.3,19.9L171,18.5L175.6,21L184.3,22L195.6,26.8L197.7,28.8L197.3,31.7L193.1,34L187.4,35.1L173.3,31.8L170.7,32.4L175.3,35.5L174.2,42L178.3,43.4L180.7,44.5L181.6,42.4L179.9,40.4L182.5,38.8L190.1,41.6L193.2,40.5L191.6,37.3L200.2,33.1L203.3,33.3L206.1,34.8L208.6,31.8L206.3,29.3L208.4,26.7L206.5,24.1L215.4,25.5L216.9,27.9L212.6,28.4L212.2,30.8L214.6,32.2L219.9,31.3L221.1,28.6L228.3,26.5L240.3,22.9L242.7,23.1L239.2,25.7L243.2,26.1L245.7,24.7L251.9,24.5L256.9,22.8L260.4,25.3L264.3,22.5L261.1,20.1L262.9,18.7L272.4,20L276.9,21.3L288.5,26.1L290.8,23.9L287.5,21.7L287.4,20.8L283.5,20.4L284.7,18.4L283.1,15.1L283,13.8L289,10.1L291.2,6.4L293.5,5.6L301.8,6.7L302.5,8.9L299.5,12.2L301.5,13.6L302.5,16.5L301.8,22.2L305.5,24.8L304.1,27.6L297.6,33.7L301.4,34.4L302.7,32.8L306.4,31.7L307.2,29.6L310.1,27.5L308.1,25.1L309.6,22.3L306,22L305.2,19.7L307.7,15.5L303.5,12.1L309.2,9.3L308.4,6.4L309.9,6.3L311.6,8.6L310.5,12.6L313.9,13.3L312.4,10.3L317.6,8.7L324.2,8.5L330.2,10.8L327.2,7.4L326.6,3.1L331.9,2.3L339.4,2.5L346.1,2L343.5,0L417.8,0L417.8,0L416.1,1L420.1,1.6L425,2.6L427.6,1.8L430,4.4L431,3.4L435.8,2.7L446,3.4L447.5,5.3L460.9,5.9L459.8,2.8L466.7,3.5L471.7,3.5L477.7,5.6L480.2,8.2L479.1,9.9L484.5,13.1L490.2,14.8L491.4,10.5L497.4,12.3L502.3,11.2L509,12.5L510.8,11.3L516.3,11.9L512.1,8.1L515.3,6.4L545.3,9L549.4,11.4L559.7,14.6L572.1,13.8L578.9,14.5L582.7,16.2L584.2,19.3L589,20.4L592.8,19.6L598.5,19.5L600,19.7L600,54.2ZM524.4,4.9L519.7,4.9L513,4.5L512.3,4.3L514.4,2.7L518.2,2.3L523.4,3.8ZM259.4,0L258.1,0.5L253,4.4L247.6,8.3L247.8,11.7L253.6,15.1L253.6,15.1L251.6,15.5L241.2,14.9L240.6,13.1L235,12L234.9,9.8L238.2,8.9L238.4,6.7L245.2,3.2L242.4,2.7L248.6,0L259.4,0ZM16.5,0L16.8,0.6L9.7,0.8L12.1,2.5L10,3.9L5.2,4.5L0.8,4.5L2.7,7.3L1.5,9.1L0,8.6L0,0Z"/>
+              <text class="m-reg" style="fill:var(--loch);font-size:17px" x="454.7" y="192.3" text-anchor="middle">Yuan</text><text class="m-reg" style="fill:var(--lichen);font-size:14px" x="248" y="98.9" text-anchor="middle">Golden Horde</text><text class="m-reg" style="fill:var(--lichen);font-size:14px" x="260.5" y="223.3" text-anchor="middle">Ilkhanate</text><text class="m-reg" style="fill:var(--lichen);font-size:14px" x="307.8" y="147.5" text-anchor="middle">Chagatai Khanate</text>
+              <circle cx="417.7" cy="122" r="4.5" fill="var(--rust)" stroke="var(--surface)" stroke-width="1.5"/><circle cx="475.9" cy="157.9" r="5.5" fill="var(--loch)" stroke="var(--surface)" stroke-width="1.5"/><circle cx="187.8" cy="190.8" r="4.5" fill="var(--ink)" stroke="var(--surface)" stroke-width="1.5"/><circle cx="537.2" cy="189.3" r="4.5" fill="var(--ink)" stroke="var(--surface)" stroke-width="1.5"/><circle cx="158.4" cy="132.6" r="4.5" fill="var(--ink)" stroke="var(--surface)" stroke-width="1.5"/><circle cx="69.8" cy="130.6" r="3.5" fill="var(--muted)" stroke="var(--surface)" stroke-width="1.5"/><circle cx="494.2" cy="232.8" r="4.5" fill="var(--ink)" stroke="var(--surface)" stroke-width="1.5"/>
+              <path d="M86.6 97.7 L96.6 107.7 M86.6 107.7 L96.6 97.7" stroke="var(--ink)" stroke-width="2.4"/><path d="M145.6 189.6 L155.6 199.6 M145.6 199.6 L155.6 189.6" stroke="var(--ink)" stroke-width="2.4"/>
+              <text class="m-lab" x="411.7" y="114.0" text-anchor="end">Karakorum</text>
+              <text class="m-lab" style="fill:var(--loch);font-weight:700" x="483.9" y="161.9" text-anchor="start">Dadu (Beijing)</text>
+              <text class="m-lab" x="91.6" y="90" text-anchor="middle">Poland, 1241</text>
+              <text class="m-lab" x="195.8" y="204.8" text-anchor="start">Baghdad</text>
+              <text class="m-lab" x="144.6" y="215" text-anchor="middle">Ain Jalut</text>
+              <text class="m-lab" x="543.2" y="205.3" text-anchor="middle">Japan</text>
+              <text class="m-lab" x="166.4" y="128.6" text-anchor="start">Caffa</text>
+              <text class="m-lab mu" x="65.8" y="145.6" text-anchor="middle">Venice</text>
+              <text class="m-lab" x="502.2" y="236.8" text-anchor="start">Quanzhou</text>
+              <circle cx="431.7" cy="114.0" r="9" fill="var(--rust)" stroke="var(--surface)" stroke-width="1.5"/><text x="431.7" y="118.0" text-anchor="middle" style="font:700 11px var(--mono);fill:#fff">1</text><circle cx="109.6" cy="104.7" r="9" fill="var(--rust)" stroke="var(--surface)" stroke-width="1.5"/><text x="109.6" y="108.7" text-anchor="middle" style="font:700 11px var(--mono);fill:#fff">2</text><circle cx="183.8" cy="174.8" r="9" fill="var(--rust)" stroke="var(--surface)" stroke-width="1.5"/><text x="183.8" y="178.8" text-anchor="middle" style="font:700 11px var(--mono);fill:#fff">3</text><circle cx="132.6" cy="188.6" r="9" fill="var(--rust)" stroke="var(--surface)" stroke-width="1.5"/><text x="132.6" y="192.6" text-anchor="middle" style="font:700 11px var(--mono);fill:#fff">4</text><circle cx="471.9" cy="141.9" r="9" fill="var(--rust)" stroke="var(--surface)" stroke-width="1.5"/><text x="471.9" y="145.9" text-anchor="middle" style="font:700 11px var(--mono);fill:#fff">5</text><circle cx="539.2" cy="173.3" r="9" fill="var(--rust)" stroke="var(--surface)" stroke-width="1.5"/><text x="539.2" y="177.3" text-anchor="middle" style="font:700 11px var(--mono);fill:#fff">6</text><circle cx="142.4" cy="128.6" r="9" fill="var(--rust)" stroke="var(--surface)" stroke-width="1.5"/><text x="142.4" y="132.6" text-anchor="middle" style="font:700 11px var(--mono);fill:#fff">7</text>
+            </svg>
+          </div>
+          <ol class="stages">
+            <li><b style="color:var(--rust)">① Karakorum:</b> the first capital of the Mongol empire, in today's Mongolia.</li>
+            <li><b style="color:var(--rust)">② 1241:</b> the Mongols crushed European armies in Poland and Hungary, then withdrew when the Great Khan died.</li>
+            <li><b style="color:var(--rust)">③ 1258:</b> the Mongols took Baghdad, ending the Abbasid dynasty.</li>
+            <li><b style="color:var(--rust)">④ 1260:</b> defeated by Egypt's Mamluk army at Ain Jalut, in today's Israel, ending the advance west.</li>
+            <li><b style="color:var(--rust)">⑤ Dadu:</b> Kublai Khan's capital; in 1279 the Yuan destroyed the Southern Song.</li>
+            <li><b style="color:var(--rust)">⑥ 1274 and 1281:</b> two invasions of Japan by sea, both defeated by typhoons.</li>
+            <li><b style="color:var(--rust)">⑦ Caffa, 1347:</b> a trading port on the Black Sea, from which plague is said to have reached Europe on Genoese ships.</li>
+          </ol>
+          <figcaption><b>Map 3: How big was the Mongol empire?</b> By Kublai Khan's time the empire had split into four parts ruled by descendants of Genghis Khan: the Yuan in China, and three khanates in Central Asia, the Russian steppe and Iran. Names are placed roughly, and no borders are drawn. Marco Polo is said to have set out from Venice, travelled overland to Dadu, and sailed home from Quanzhou.</figcaption>
+        </figure>
+      </aside>
+    </div>
+
+    <section class="block" id="life" aria-labelledby="life6">
+      <span class="label">Daily life</span>
+      <h3 id="life6">How people lived</h3>
+      <div class="life">
+        <div>
+          <h4>The night markets of Kaifeng</h4>
+          <p>The night markets of Northern Song Kaifeng stayed open until the third watch of the night (around midnight), and the morning markets opened at the fifth watch (before dawn), so trade hardly stopped at all. The streets sold mutton, dumplings, "soup cakes" (湯餅, noodles), fruit and all kinds of snacks; in the teahouses storytellers told tales of the Three Kingdoms (三國), and a single wazi might have dozens of stages going at once. City people began to eat three meals a day, and to eat at tables sitting on high chairs, instead of sitting on mats on the floor as people had before the Tang.</p>
+        </div>
+        <div>
+          <h4>Tea and porcelain</h4>
+          <p>Everyone in the Song loved tea. The fashion was to grind the leaves into a powder and whisk it with boiling water into a froth, known as "whisked tea" (點茶), and scholars even held "tea contests" (鬥茶) to judge whose froth was best. This way of drinking tea later spread to Japan and developed into the Japanese tea ceremony. Song porcelain is famous for its elegant single-colour glazes; later generations called the Ru (汝), Guan (官), Ge (哥), Jun (鈞) and Ding (定) wares the "Five Great Kilns" (五大名窯) of the Song.</p>
+        </div>
+        <div>
+          <h4>Women's lives</h4>
+          <p>The Song produced China's most famous woman poet, <button type="button" class="gl" data-g="liqingzhao" aria-haspopup="dialog">Li Qingzhao</button> (李清照). She and her husband collected bronze and stone inscriptions, books and paintings together; after his death she was driven from place to place by war. In the same period, the custom of <button type="button" class="gl" data-g="chanzu" aria-haspopup="dialog">foot-binding</button> (纏足, chanzu), wrapping girls' feet tightly in cloth to make them small and misshapen, gradually became fashionable among the upper classes. Under the Ming and Qing (清) it spread to every class, and it was not abolished until the twentieth century.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="people" aria-labelledby="people6">
+      <span class="label">Key people</span>
+      <h3 id="people6">Who's who</h3>
+      <ul class="people">
+        <li><span class="nm">Emperor Taizu of Song (宋太祖; Zhao Kuangyin 趙匡胤)</span><span class="rl">Founder of the Song, 927–976</span><p>Became emperor through the Chenqiao Mutiny, took back the generals' commands "over a cup of wine", and set the state policy of putting civil officials above the military.</p></li>
+        <li><span class="nm">Wang Anshi (王安石)</span><span class="rl">Chief minister and reformer, 1021–1086</span><p>Led reforms intended to make the state rich and its army strong, which set off a factional struggle lasting decades. He was also a first-rate poet and essayist.</p></li>
+        <li><span class="nm">Su Shi (蘇軾, Su Dongpo)</span><span class="rl">Writer and calligrapher, 1037–1101</span><p>The most versatile man of letters of the Song, first-rate in poetry, song lyrics, prose, calligraphy and painting. He was banished many times but always stayed cheerful and broad-minded.</p></li>
+        <li><span class="nm">Yue Fei (岳飛)</span><span class="rl">General against the Jin, 1103–1142</span><p>Beat the Jin army again and again, was put to death by Qin Hui on a charge of "perhaps there was", and became one of China's most revered national heroes.</p></li>
+        <li><span class="nm">Zhu Xi (朱熹)</span><span class="rl">Thinker, 1130–1200</span><p>Brought the Learning of Principle to its fullest form. His commentaries on the Four Books became the standard for the civil service examination for the next six or seven hundred years.</p></li>
+        <li><span class="nm">Genghis Khan (成吉思汗; Temujin 鐵木真)</span><span class="rl">Founder of the Mongol empire, c. 1162–1227</span><p>United the Mongol tribes and built a great empire that conquered much of Eurasia. In his lifetime he did not conquer most of China; the Yuan dynasty was founded by his grandson.</p></li>
+        <li><span class="nm">Kublai Khan (忽必烈)</span><span class="rl">Emperor Shizu of Yuan, 1215–1294</span><p>Grandson of Genghis Khan. He founded the Yuan dynasty with its capital at Dadu (Beijing), destroyed the Southern Song in 1279 and united China.</p></li>
+      </ul>
+    </section>
+
+    <section class="block" id="myths" aria-labelledby="myths6">
+      <span class="label">Myth or fact</span>
+      <h3 id="myths6">What people often get wrong</h3>
+      <ul class="myths">
+        <li><span class="mq">"The Song was poor and weak."</span><span class="ma"><b>Only half right.</b> The Song was indeed often on the losing side militarily, but its economy, technology and culture were highly advanced, and the government's tax revenue was far greater than the Tang's. "Weak" is true mainly in comparison with the powerful horse-riding peoples of the north; "poor" is simply not true.</span></li>
+        <li><span class="mq">"Yue Fei's mother tattooed 'Serve the country with utmost loyalty' on his back."</span><span class="ma"><b>The tattoo is real, but his mother did not do it.</b> The histories record that Yue Fei's back did carry four characters meaning "serve the country with utmost loyalty" (盡忠報國), but they do not say who tattooed them. The story of his mother doing it was added later by novels and operas.</span></li>
+        <li><span class="mq">"Marco Polo brought noodles to Italy."</span><span class="ma"><b>Wrong.</b> There are records of dried pasta in Italy before Marco Polo. Scholars even argue about whether Marco Polo really went to China at all: his book does not mention the Great Wall, tea or foot-binding. But many of its details do match Chinese sources, and most scholars still believe he went.</span></li>
+        <li><span class="mq">"Genghis Khan was an emperor of China."</span><span class="ma"><b>Not accurate.</b> Genghis Khan was the Great Khan of the Mongol empire, and in his lifetime he conquered only part of northern China. Only after the Yuan dynasty was founded was he given the posthumous title "Emperor Taizu of Yuan" (元太祖). Both Mongolia and China see him as part of their own history, and this is still a sensitive subject.</span></li>
+      </ul>
+    </section>
+
+    <section class="block" id="evidence" aria-labelledby="ev6">
+      <span class="label">How we know</span>
+      <h3 id="ev6">The age of print</h3>
+      <div class="life">
+        <div>
+          <h4>A flood of books</h4>
+          <p>Once printing spread, the Song left far more histories, local gazetteers, notebooks, collected writings and poems than any earlier period. Sima Guang's Comprehensive Mirror for Aid in Government, Shen Kuo's Dream Pool Essays, and Meng Yuanlao's (孟元老) Dreams of Splendour in the Eastern Capital (東京夢華錄), his memories of the rich life of Northern Song Kaifeng, all let us understand the society of the time in detail.</p>
+        </div>
+        <div>
+          <h4>Paintings</h4>
+          <p>Realistic paintings such as Along the River During the Qingming Festival record the streets, bridges, boats, shops and clothing of Song towns and countryside. Song landscape and bird-and-flower paintings are also high points of Chinese art, and many are kept in the two Palace Museums (故宮博物院), in Beijing and Taipei (台北).</p>
+        </div>
+        <div>
+          <h4>Shipwrecks</h4>
+          <p>In 2007 the Nanhai No. 1 was lifted out of the sea in one piece and placed in a huge water tank inside a museum, where it is being excavated slowly. Its cargo, the passengers' belongings and the structure of the ship show Song sea trade directly. A Yuan shipwreck found off Sinan in South Korea also carried about twenty thousand pieces of Chinese porcelain.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="words" aria-labelledby="words6">
+      <span class="label">Key terms</span>
+      <h3 id="words6">Terms from this era</h3>
+      <dl class="words">
+        <div><dt>Northern Song / Southern Song (北宋 / 南宋)</dt><dd>The two halves of the Song dynasty, divided by the fall of Kaifeng in 1127, with capitals at Kaifeng and Hangzhou respectively.</dd></div>
+        <div><dt>Civil over military (重文輕武)</dt><dd>The Song state policy of having civil officials run the state and the army, and keeping generals in check.</dd></div>
+        <div><dt>Scholar-officials (士大夫)</dt><dd>Educated men who became officials through the civil service examination, and were both officials and scholars.</dd></div>
+        <div><dt>Jiaozi (交子)</dt><dd>The paper money of Sichuan under the Northern Song, the world's first paper money issued by a government.</dd></div>
+        <div><dt>Neo-Confucianism (理學)</dt><dd>The new Confucianism developed under the Song, represented above all by Zhu Xi, which shaped East Asia for centuries.</dd></div>
+        <div><dt>Maritime Trade Office (市舶司)</dt><dd>The government office that managed overseas trade by sea and collected customs duties.</dd></div>
+        <div><dt>Cathay (契丹)</dt><dd>The medieval European name for northern China, from "Khitan" (契丹).</dd></div>
+        <div><dt>Yuan drama (元曲)</dt><dd>The plays and songs popular under the Yuan, the first high point of Chinese drama.</dd></div>
+      </dl>
+    </section>
+
+    <section class="hk" id="hk" aria-labelledby="hk6">
+      <span class="label">Hong Kong</span>
+      <h3 id="hk6">Hong Kong in the Song</h3>
+      <p>By the Song, Hong Kong already had settled communities and industries. The Tang (鄧) clan moved from Jiangxi (江西) to Kam Tin (錦田) in the New Territories (新界) during the Northern Song, and later became the first of the New Territories' "Five Great Clans" (五大氏族); walled villages such as Kat Hing Wai (吉慶圍) in Kam Tin are still home to the Tang clan today. The government set up the Kwun Fu Cheung (官富場) salt field around Kowloon Bay (九龍灣) to produce sea salt, with officials sent to run it. The rock inscription at Joss House Bay (北佛堂石刻) in Sai Kung (西貢) was carved in 1274 and records a visit by a salt official; it is the earliest dated inscription known in Hong Kong.</p>
+      <p>In 1277–78 the Southern Song court, fleeing the Yuan army with two boy emperors, stopped for a time around Kowloon. Sung Wong Toi (宋王臺, "Terrace of the Song Kings") in Kowloon City (九龍城) was originally a huge seaside boulder carved with those three characters, in memory of this episode. During the Second World War the Japanese army blew up the boulder to extend Kai Tak (啟德) airport; the inscription in today's Sung Wong Toi Garden was cut from the surviving part of the original rock. The "Lingding Sea" in Wen Tianxiang's poem is the Lingding Yang (伶仃洋), the stretch of water just west of Hong Kong.</p>
+    </section>
+
+    <section class="parallel" id="world" aria-labelledby="w6">
+      <span class="label">Meanwhile in Europe and the world</span>
+      <h3 id="w6">A world joined up by the Mongols</h3>
+      <div class="pair">
+        <div>
+          <h4>The Norman Conquest and Magna Carta</h4>
+          <p>In 1066, three years before Wang Anshi's reforms began under the Northern Song, the Normans conquered England. From 1096 Europe launched the Crusades. Under the Southern Song, in 1215, England's barons forced King John to seal Magna Carta, limiting the king's power. Scotland kept its independence when Robert the Bruce defeated the English army at the Battle of Bannockburn in 1314; China was then under the Yuan.</p>
+        </div>
+        <div>
+          <h4>Mongol armies reach Europe</h4>
+          <p>In 1241 the Mongols crushed European armies in what are now Poland and Hungary and pushed on towards Vienna, shocking all of Europe. Then they suddenly withdrew, because the Great Khan Ögedei (窩闊台) had died and the Mongol commanders had to go home to choose a new one. In 1258 the Mongols took Baghdad and killed the caliph of the Abbasid dynasty, bringing the golden age of the Islamic world to an end.</p>
+        </div>
+        <div>
+          <h4>The Black Death</h4>
+          <p>From 1347 plague came into Europe from the Black Sea, and within a few years it killed between a third and a half of Europe's population; it reached Scotland in 1349. The plague probably began in Central Asia and spread along the trade routes of the Mongol empire. China also recorded severe epidemics in the same period, but scholars still argue about whether it was the same disease.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="visit" id="visit" aria-labelledby="v6">
+      <span class="label">See it for yourself</span>
+      <h3 id="v6">Places to visit</h3>
+      <ul class="places">
+        <li><span class="nm">Quanzhou: Emporium of the World in Song-Yuan China (泉州：宋元中國的世界海洋商貿中心)</span><span class="tm">Quanzhou, Fujian</span><p>A World Heritage Site since 2021, including the Qingjing Mosque (清淨寺), Kaiyuan Temple (開元寺), the old harbour, the site of the customs office and gravestones of foreigners from the Song and Yuan.</p></li>
+        <li><span class="nm">Maritime Silk Road Museum of Guangdong (廣東海上絲綢之路博物館)</span><span class="tm">Yangjiang, Guangdong</span><p>The Nanhai No. 1 wreck sits in the museum's "Crystal Palace", where you can watch archaeologists excavating it.</p></li>
+        <li><span class="nm">The Palace Museums (故宮博物院)</span><span class="tm">Beijing; Taipei</span><p>The Palace Museum in Beijing holds Along the River During the Qingming Festival; the National Palace Museum in Taipei holds a great deal of Song painting and calligraphy and Ru ware. Both put works on display in rotation.</p></li>
+        <li><span class="nm">Temple of Yue Fei and West Lake (岳王廟與西湖)</span><span class="tm">Hangzhou, Zhejiang</span><p>Yue Fei's tomb and temple, with iron statues of Qin Hui, his wife and others kneeling in front of the tomb. Hangzhou was Lin'an, the Southern Song capital, and the Su Causeway (蘇堤) on West Lake was built by Su Shi when he governed Hangzhou.</p></li>
+        <li><span class="nm">Sung Wong Toi Garden and Ping Shan Heritage Trail (宋王臺花園及屏山文物徑)</span><span class="tm">Kowloon City; Yuen Long, Hong Kong</span><p>The Sung Wong Toi inscription; the Ping Shan Heritage Trail has Tang clan ancestral halls, a walled village and Tsui Sing Lau (聚星樓), Hong Kong's only ancient pagoda.</p></li>
+        <li><span class="nm">British Museum, China gallery</span><span class="tm">London · free</span><p>The Chinese ceramics collection given by Sir Percival David includes many masterpieces from the famous Song kilns, among them Ru ware.</p></li>
+      </ul>
+    </section>
+
+    <p class="remember"><span class="label">The one thing to remember</span>The Song could not match the horse-riding peoples of the north in war, but it reached a peak in economy, technology and culture; in the end the Mongols conquered all of China, founded the Yuan, and joined China to the whole of Eurasia.</p>
+  </article>
+
+<script type="application/json" id="gloss">{"wudai": ["Five Dynasties and Ten Kingdoms 五代十國", "907–979", "After the fall of the Tang, five short-lived dynasties followed one another in the north: the Later Liang, Later Tang, Later Jin, Later Han and Later Zhou. In the south and Sichuan there were more than ten breakaway states, among them Wu, Southern Tang, Wuyue, Former Shu and Southern Han."], "beisong": ["Northern Song 北宋", "960–1127", "The first half of the Song dynasty founded by Zhao Kuangyin, with its capital at Kaifeng. It ended in 1127 when the Jin army took Kaifeng."], "nansong": ["Southern Song 南宋", "1127–1279", "The court the Song imperial family rebuilt in the south, with its capital at Lin'an (today's Hangzhou). Its border with the Jin in the north ran along the Huai River. It was finally destroyed by the Mongols."], "yuan": ["Yuan dynasty 元朝", "1271–1368", "The dynasty founded by the Mongol ruler Kublai Khan, with its capital at Dadu (today's Beijing). It destroyed the Southern Song in 1279, and was the first dynasty of a northern people to rule the whole of China."], "qidan": ["Khitan 契丹", "Nomadic people of the northeast", "A people originally from what is now eastern Inner Mongolia. In 916 they founded the Liao state (at first called the Khitan state), which ruled the northern edge of China and the Mongolian steppe for more than two hundred years until the Jin destroyed it in 1125. The English word Cathay comes from 'Khitan'."], "zhaokuangyin": ["Zhao Kuangyin 趙匡胤", "Emperor Taizu of Song, reigned 960–976", "Commander of the Later Zhou palace army. In 960 he seized the throne in the Chenqiao Mutiny, founded the Song dynasty, and step by step brought the southern states under his rule."], "beijiu": ["Relieving the generals of command over a cup of wine 杯酒釋兵權", "961", "Emperor Taizu held a banquet for Shi Shouxin (石守信) and other generals who had helped him to power. He told them he feared their own men might one day put the yellow robe on them too, and urged them to give up their commands and enjoy life on large estates. The next day the generals all reported sick and resigned."], "zhongwen": ["Civil over military 重文輕武", "Song state policy", "Raising the status of civil officials, letting them run the main affairs of state and command the army, and limiting the power of generals, so that no soldier could seize the throne. The result was political stability, but a weaker army."], "yanyun": ["Sixteen Prefectures 燕雲十六州", "Today's Beijing, northern Tianjin and northern Shanxi", "In 938 Shi Jingtang (石敬瑭) of the Later Jin handed these sixteen prefectures to the Khitan in return for their backing for his claim to the throne. They contained the key passes along the Great Wall; without them, the north China plain had no natural defences."], "chanyuan": ["Treaty of Chanyuan 澶淵之盟", "1005", "The peace treaty between the Song and the Liao: every year the Song gave the Liao 100,000 taels of silver and 200,000 bolts of silk, the two emperors called each other brothers, and the border was opened for trade. Peace between the Song and Liao then lasted more than a hundred years."], "xixia": ["Western Xia 西夏", "1038–1227", "A state founded by the Tangut people in what is now Ningxia and Gansu, which created its own script, Tangut. The Mongols destroyed it in 1227; Genghis Khan died during this campaign."], "zhancheng": ["Champa rice 占城稻", "Promoted from 1012", "A rice variety from Champa (today's south-central Vietnam) that ripened quickly and withstood drought. Emperor Zhenzong ordered it to be grown widely south of the Yangtze, so that many places could harvest two crops a year."], "kaifeng": ["Kaifeng 開封", "Northern Song capital, also called Bianjing or Dongjing", "On the south bank of the Yellow River, linked by canal to the lower Yangtze region, with a population that may have reached a million. It was later flooded by the Yellow River many times, and the remains of the Song city lie about ten metres below today's ground level."], "wazi": ["Wazi 瓦子", "Song entertainment quarters", "Places in a city where all kinds of entertainment were gathered. Inside were performance areas fenced off with railings, called goulan (勾欄), with storytelling, variety plays, acrobatics, puppet shows and shadow puppets, and audiences paid to get in."], "zhangzeduan": ["Zhang Zeduan 張擇端", "Northern Song painter", "Almost nothing is known of his life, except that he served in Emperor Huizong's painting academy. His Along the River During the Qingming Festival is one of China's most famous paintings."], "qingming": ["Along the River During the Qingming Festival 清明上河圖", "Northern Song, early 12th century", "A handscroll about five metres long showing the bustle of the outskirts of Kaifeng and the streets along the river inside the city, with more than eight hundred people and large numbers of boats, shops, carts and horses. It is in the Palace Museum, Beijing, and is very rarely put on display."], "jiaozi": ["Jiaozi 交子", "Issued by the government from 1024", "First issued jointly by wealthy merchants in Chengdu, Sichuan, because Sichuan used heavy iron coins that were awkward to carry. In 1024 the Song government set up a Jiaozi Office and took over issuing them, making them the world's first official paper money."], "keju": ["Civil service examination 科舉", "7th century–1905", "A system of choosing officials by examination. The Song increased the number of passes, pasted over candidates' names and had papers recopied to prevent cheating, and had the emperor oversee the final palace examination. The examination became the main way into government."], "shidafu": ["Scholar-officials 士大夫", "The educated official class", "Men who became officials through study and the civil service examination. They shared Confucian values and cultural training, and from the Song onwards they were the leading class of Chinese society. In English they are often called scholar-officials or literati."], "fanzhongyan": ["Fan Zhongyan 范仲淹", "Statesman and writer, 989–1052", "His father died when he was a baby, and he studied hard in poverty and passed the highest examination. He led the Qingli Reforms (慶曆新政) and defended the northwest frontier against the Western Xia. In his Record of Yueyang Tower (岳陽樓記) he wrote that one should be 'the first to worry about the world's troubles, and the last to enjoy its pleasures'."], "sushi": ["Su Shi 蘇軾", "Known as Dongpo Jushi, 1037–1101", "The most famous writer of the Northern Song, known for the bold, free spirit of his poems and song lyrics, and first-rate at calligraphy and painting too. He opposed Wang Anshi's new laws but did not fully side with the Old party either, so he offended both sides and was banished many times."], "wanganshi": ["Wang Anshi 王安石", "Statesman and writer, 1021–1086", "Chief minister under Emperor Shenzong, who led reforms of the state's finances and army. He is one of the most controversial reformers in Chinese history, and also one of the 'Eight Great Prose Masters of the Tang and Song'."], "xinfa": ["Wang Anshi's reforms 王安石變法", "1069–1085", "They included the Green Shoots Law (low-interest government loans to farmers), the Hired Service Law (paying money instead of doing labour service), the Baojia Law (village militias) and the Market Exchange Law (government steadying of prices). The aim was to make the state rich and its army strong, but there were many abuses in practice."], "simaguang": ["Sima Guang 司馬光", "Historian and statesman, 1019–1086", "Leader of the opposition to Wang Anshi's reforms, and chief compiler of the Comprehensive Mirror for Aid in Government. As a boy he smashed a big water jar with a stone to save a friend who had fallen in; 'Sima Guang breaks the jar' is a story every Chinese child knows."], "bisheng": ["Bi Sheng 畢昇", "Inventor of movable type, 11th century", "A commoner craftsman about whose life almost nothing is known. He carved characters in clay, hardened them in a fire, and set them in an iron frame to print; after printing, the characters were taken out and used again."], "wujing": ["Complete Essentials from the Military Classics 武經總要", "1044", "A military encyclopedia compiled on the orders of the Northern Song court, covering strategy, weapons, city defence and three gunpowder formulas, the earliest surviving written gunpowder formulas in the world."], "shenkuo": ["Shen Kuo 沈括", "Scientist and official, 1031–1095", "A Northern Song polymath who studied astronomy, mathematics, geology, medicine and engineering. His Dream Pool Essays records movable type, magnetic declination, fossils, petroleum and more; he was the first to use the Chinese word for petroleum, shiyou (石油), 'rock oil'."], "huizong": ["Emperor Huizong 宋徽宗", "Zhao Ji, reigned 1100–1126", "A painter and calligrapher who created the 'slender gold' style of calligraphy and ran the court painting academy. In government he trusted corrupt ministers and lived in luxury. He was carried off by the Jin in the Jingkang Incident and died in the northeast in 1135."], "shuihu": ["The Water Margin 水滸傳", "Ming novel", "One of the Four Great Classical Novels of China, telling how 108 heroes at the end of the Northern Song were driven to Liangshan to fight corrupt officials. Song Jiang's rising really happened, but most of the plot is invented. A Japanese television adaptation from the 1970s, called The Water Margin, was shown in Britain."], "nuzhen": ["Jurchen 女真", "People of the northeast", "A people who lived in what is now northeast China and the Russian Far East, by hunting, fishing and farming. They founded the Jin state; more than four hundred years later their descendants took the name Manchu and founded the Qing dynasty."], "jin": ["Jin state 金國", "1115–1234", "The state founded by the Jurchen leader Wanyan Aguda (完顏阿骨打). It destroyed the Liao in 1125 and the Northern Song in 1127, and ruled northern China for more than a hundred years, until it was destroyed by the Mongols and the Southern Song together."], "jingkang": ["Jingkang Incident 靖康之變", "1127", "The Jin army took the Northern Song capital, Kaifeng, and carried off to the north the two emperors Huizong and Qinzong, along with more than ten thousand members of the imperial family, ministers and others. It marked the end of the Northern Song. 'Jingkang' was Emperor Qinzong's reign title."], "yuefei": ["Yue Fei 岳飛", "General against the Jin, 1103–1142", "Born into a farming family, he led the strictly disciplined 'Yue Family Army' and beat the Jin army many times. Emperor Gaozong and Qin Hui had him executed on a charge of 'perhaps there was', and twenty years later he was officially cleared. His song lyric 'The River All Red' (滿江紅, though his authorship is disputed) is a patriotic poem most Chinese people know."], "qinhui": ["Qin Hui 秦檜", "Southern Song chief minister, 1090–1155", "He argued for peace with the Jin and brought about Yue Fei's death, becoming the most notorious treacherous minister in Chinese history. Folk tradition says the deep-fried dough stick, youtiao, was once called 'deep-fried Hui' to show people's hatred of him."], "shibosi": ["Maritime Trade Office 市舶司", "Office managing overseas trade", "First set up in Guangzhou under the Tang, and under the Song and Yuan found in many ports, including Guangzhou, Quanzhou and Mingzhou (Ningbo). It registered foreign merchant ships, collected customs duties and bought up goods that were state monopolies, rather like a customs house."], "quanzhou": ["Quanzhou 泉州", "Great port of Fujian in the Song and Yuan", "One of China's biggest ports for foreign trade under the Song and Yuan; the Arabs called it Zaitun (刺桐). Merchants from Arabia, Persia and India lived in the city, leaving many mosques, gravestones and temple remains."], "nanhai1": ["Nanhai No. 1 南海一號", "Southern Song shipwreck", "A Southern Song merchant ship found in 1987 in the sea near Yangjiang, Guangdong. About thirty metres long, it carried large quantities of porcelain, ironware and copper coins. In 2007 it was raised whole inside a steel caisson and moved into a museum to be excavated."], "zhuxi": ["Zhu Xi 朱熹", "Thinker, 1130–1200", "The scholar who brought the Southern Song Learning of Principle to its fullest form. He wrote commentaries on the Confucian classics and taught at academies. Under the Yuan, Ming and Qing his teachings became the official orthodoxy, and later generations honoured him as Zhuzi, 'Master Zhu'."], "lixue": ["Neo-Confucianism 理學", "The new Confucianism of the Song and Ming", "A new Confucianism developed by Song scholars, drawing on the philosophy of Buddhism and Daoism. It holds that everything in the universe has its 'principle' (li), which people should come to know through study and self-cultivation, while practising virtues such as benevolence, righteousness, propriety and wisdom."], "sishu": ["Four Books 四書", "Confucian classics", "The Analects, the Mencius, the Great Learning and the Doctrine of the Mean, selected and given commentaries by Zhu Xi. From 1313, under the Yuan, they were required reading for the civil service examination, until the examination was abolished in 1905."], "genghis": ["Genghis Khan 成吉思汗", "Temujin, c. 1162–1227", "United the Mongol tribes and in 1206 was given the title Genghis Khan, which may mean 'oceanic ruler'. He led Mongol armies to conquer huge areas of Central Asia and northern China. He died during the campaign against the Western Xia, and his burial place is still unknown."], "wentianxiang": ["Wen Tianxiang 文天祥", "Southern Song chief minister, 1236–1283", "Came first in the highest examination at the age of twenty. When the Yuan army invaded, he raised troops to resist, was defeated and captured. Kublai Khan himself urged him to surrender, but he firmly refused and was executed in Dadu. His Song of Righteousness and Crossing the Lingding Sea (過零丁洋) have been recited by generation after generation of Chinese."], "kublai": ["Kublai Khan 忽必烈", "Emperor Shizu of Yuan, reigned 1260–1294", "Grandson of Genghis Khan. He became Great Khan in 1260, adopted the dynastic name Great Yuan in 1271 and destroyed the Southern Song in 1279. He took over many Chinese institutions, but kept the Mongols at the heart of power."], "dadu": ["Dadu 大都", "Yuan capital, today's Beijing", "A new capital built on Kublai Khan's orders, laid out according to the ideal capital described in the Confucian classics. The Ming city of Beijing was rebuilt on its foundations. The Mongols called it Khanbaliq, 'city of the Khan'."], "sideng": ["Four classes 四等人", "Yuan social ranks", "Mongols, semu, Han and Southerners, who were treated differently in appointments to office, under the law and in examination quotas. Some scholars in recent years argue that the Yuan never had a written 'four-class system', but rather unequal treatment that showed up in a range of different policies."], "yuanqu": ["Yuan drama 元曲", "Literary form of the Yuan", "Includes sanqu, songs that could be sung on their own, and zaju, plays with a story. Leading writers include Guan Hanqing, Wang Shifu (王實甫) and Ma Zhiyuan (馬致遠); famous works include The Injustice to Dou E and The Romance of the Western Chamber (西廂記)."], "marcopolo": ["Marco Polo 馬可孛羅", "Venetian merchant, 1254–1324", "According to his own book, he reached China around 1275, lived in Yuan China for seventeen years, worked for Kublai Khan, and went home by sea. He dictated his book to a fellow prisoner in a jail in Genoa."], "bailian": ["White Lotus 白蓮教", "Popular religion", "A popular religion mixing elements of Pure Land Buddhism, belief in the Maitreya Buddha, Manichaeism and more, which taught that the Maitreya Buddha would come down to earth to save all beings. There were many risings under its banner under the Yuan, Ming and Qing, so it was banned by the government for long periods."], "hongjin": ["Red Turbans 紅巾軍", "1351–1366", "The late Yuan rebel armies, bound together by the White Lotus, who wrapped their heads in red cloth. They were spread across the Yangtze and Huai river regions. Zhu Yuanzhang started out as one of them."], "zhuyuanzhang": ["Zhu Yuanzhang 朱元璋", "Emperor Taizu of Ming, reigned 1368–1398", "Born into an extremely poor farming family, he lost his parents and elder brother to famine and plague, and became a monk and a beggar. He later joined the Red Turbans and in the end founded the Ming dynasty."], "liqingzhao": ["Li Qingzhao 李清照", "Poet, 1084–c. 1155", "China's most famous woman poet. Her early song lyrics describe life at home; after the Jingkang Incident she was driven south, her husband died of illness and their collection was scattered, and her later work is full of grief for her family and her country."], "chanzu": ["Foot-binding 纏足", "c. 10th century – early 20th century", "From the age of a few years, a girl's feet were wrapped tightly in long strips of cloth, deforming the bones until the feet were about ten centimetres long, the so-called 'three-inch golden lotuses'. It was seen as a sign of beauty and status, but left women barely able to walk for life. It was banned after 1912 and had largely disappeared by the mid-twentieth century."]}</script>
+  <nav class="pagenav" aria-label="Eras"><a class="prev" href="era5.html"><span class="dir">Previous · Era 5</span><span class="ttl">Division, Sui and Tang</span></a><a class="next" href="era7.html"><span class="dir">Next · Era 7</span><span class="ttl">Ming</span></a></nav>
+</div>
+<div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-labelledby="lb-title">
+  <div class="lb-bar">
+    <span class="lb-title" id="lb-title"></span>
+    <button type="button" class="lb-close" id="lb-close">Close</button>
+  </div>
+  <div class="lb-controls">
+    <button type="button" id="lb-fit">Fit to screen</button>
+    <button type="button" id="lb-out" aria-label="Zoom out">&minus;</button>
+    <input type="range" id="lb-range" min="25" max="300" step="5" value="100" aria-label="Zoom level">
+    <button type="button" id="lb-in" aria-label="Zoom in">+</button>
+    <span class="lb-level" id="lb-level">100%</span>
+  </div>
+  <div class="lb-body" id="lb-body"></div>
+  <div class="lb-hint">Drag the slider or use &minus; and + to zoom from 25% to 300%. 100% fills the screen width. Scroll to move around.</div>
+</div>
+<script>
+(function () {
+  var box = document.getElementById('lightbox'), body = document.getElementById('lb-body');
+  var title = document.getElementById('lb-title'), level = document.getElementById('lb-level'), range = document.getElementById('lb-range');
+  var z = 1, MIN = 0.25, MAX = 3, current = null, opener = null;
+  function availW() { return Math.max(200, body.clientWidth - 32); }
+  function availH() { return Math.max(200, body.clientHeight - 32); }
+  function aspect() { var vb = current && current.viewBox && current.viewBox.baseVal; return vb && vb.width ? vb.height / vb.width : 0.6; }
+  function setZ(v) {
+    z = Math.min(MAX, Math.max(MIN, Math.round(v * 100) / 100));
+    if (current) current.style.width = Math.round(availW() * z) + 'px';
+    range.value = Math.round(z * 100); level.textContent = Math.round(z * 100) + '%';
+  }
+  function fit() { setZ(Math.min(1, availH() / (availW() * aspect()))); }
+  function open(svg, from) {
+    current = svg.cloneNode(true);
+    current.querySelectorAll('[id]').forEach(function (el) { el.removeAttribute('id'); });
+    current.removeAttribute('aria-labelledby');
+    var t = svg.querySelector('title'); title.textContent = t ? t.textContent : 'Diagram';
+    current.setAttribute('role', 'img'); current.setAttribute('aria-label', title.textContent);
+    body.innerHTML = ''; body.appendChild(current);
+    opener = from; box.hidden = false; document.documentElement.style.overflow = 'hidden';
+    fit(); body.scrollTop = 0; body.scrollLeft = 0;
+    document.getElementById('lb-close').focus();
+  }
+  function close() { box.hidden = true; body.innerHTML = ''; current = null; document.documentElement.style.overflow = ''; if (opener) opener.focus(); }
+  document.querySelectorAll('figure .frame').forEach(function (frame) {
+    var svg = frame.querySelector('svg'); if (!svg) return;
+    var b = document.createElement('button'); b.type = 'button'; b.className = 'zoom-btn'; b.textContent = 'Enlarge';
+    b.setAttribute('aria-label', 'Enlarge: ' + ((svg.querySelector('title') || {}).textContent || 'diagram'));
+    b.addEventListener('click', function () { open(svg, b); });
+    svg.addEventListener('click', function () { open(svg, b); });
+    frame.appendChild(b);
+  });
+  document.getElementById('lb-close').addEventListener('click', close);
+  document.getElementById('lb-fit').addEventListener('click', fit);
+  document.getElementById('lb-in').addEventListener('click', function () { setZ(z + 0.1); });
+  document.getElementById('lb-out').addEventListener('click', function () { setZ(z - 0.1); });
+  range.addEventListener('input', function () { setZ(range.value / 100); });
+  body.addEventListener('wheel', function (e) { if (!e.ctrlKey) return; e.preventDefault(); setZ(z * (e.deltaY < 0 ? 1.1 : 0.9)); }, { passive: false });
+  window.addEventListener('resize', function () { if (!box.hidden) setZ(z); });
+  document.addEventListener('keydown', function (e) {
+    if (box.hidden) return;
+    if (e.key === 'Escape') close();
+    else if (e.key === '+' || e.key === '=') setZ(z + 0.1);
+    else if (e.key === '-') setZ(z - 0.1);
+    else if (e.key === '0') fit();
+  });
+})();
+</script>
+<div class="glcard" id="glcard" role="dialog" aria-modal="false" aria-labelledby="gl-t" hidden>
+  <button type="button" class="gx" id="gl-x" aria-label="Close">×</button>
+  <span class="gt" id="gl-t"></span><span class="gs" id="gl-s"></span><p class="gb" id="gl-b"></p>
+</div>
+<script>
+(function () {
+  var el = document.getElementById('gloss'); if (!el) return;
+  var G = JSON.parse(el.textContent), card = document.getElementById('glcard'), cur = null;
+  function hide() { card.hidden = true; if (cur) { cur.setAttribute('aria-expanded', 'false'); } cur = null; }
+  function show(btn) {
+    var e = G[btn.dataset.g]; if (!e) return;
+    if (cur === btn) { hide(); return; }
+    if (cur) cur.setAttribute('aria-expanded', 'false');
+    document.getElementById('gl-t').textContent = e[0];
+    document.getElementById('gl-s').textContent = e[1];
+    document.getElementById('gl-b').textContent = e[2];
+    card.hidden = false; cur = btn; btn.setAttribute('aria-expanded', 'true');
+    if (window.innerWidth > 700) {
+      var r = btn.getBoundingClientRect(), w = card.offsetWidth, h = card.offsetHeight;
+      var left = Math.min(Math.max(16, r.left + window.scrollX), window.scrollX + document.documentElement.clientWidth - w - 16);
+      var top = r.bottom + window.scrollY + 8;
+      if (r.bottom + h + 16 > window.innerHeight && r.top > h + 16) top = r.top + window.scrollY - h - 8;
+      card.style.left = left + 'px'; card.style.top = top + 'px';
+    }
+    document.getElementById('gl-x').focus({ preventScroll: true });
+  }
+  document.querySelectorAll('button.gl').forEach(function (b) { b.setAttribute('aria-expanded', 'false'); b.addEventListener('click', function (ev) { ev.stopPropagation(); show(b); }); });
+  document.getElementById('gl-x').addEventListener('click', function () { var b = cur; hide(); if (b) b.focus(); });
+  card.addEventListener('click', function (ev) { ev.stopPropagation(); });
+  document.addEventListener('click', hide);
+  document.addEventListener('keydown', function (ev) { if (ev.key === 'Escape' && !card.hidden) { var b = cur; hide(); if (b) b.focus(); } });
+  window.addEventListener('resize', hide);
+})();
+</script>
+</body>
+</html>

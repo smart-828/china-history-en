@@ -1,0 +1,724 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Era 2: Shang and Western Zhou · China Through Time</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,500;0,700;1,500&family=Source+Sans+3:wght@400;500;700&family=Noto+Serif+TC:wght@500;700&family=Noto+Sans+TC:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a field guide. Era strip across the top, then one long-form chapter per era with maps and drawings set into the text column. */
+:root {
+  --bg: #F3F4F0;
+  --surface: #FFFFFF;
+  --ink: #1E2421;
+  --muted: #5B645F;
+  --line: #D6DAD3;
+  --loch: #2B5F58;
+  --lichen: #9C7426;
+  --heather: #6A4B7C;
+  --moss: #3F6B3A;
+  --rust: #B0392B;
+  --river: #5B8DB0;
+  --sea: #D3E2E3;
+  --land: #EEEADF;
+  --land-edge: #A9AA9E;
+  --display: "Noto Serif TC", "Songti TC", "PMingLiU", serif;
+  --body: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #101614; --surface: #18201D; --ink: #E4E8E4; --muted: #9BA6A0; --line: #2B3632; --loch: #85C1B6; --lichen: #D8B458; --heather: #BFA0D2; --moss: #93C08A; --rust: #E4806C; --river: #7FB2D4; --sea: #15252A; --land: #2A302C; --land-edge: #5D6660;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #101614; --surface: #18201D; --ink: #E4E8E4; --muted: #9BA6A0; --line: #2B3632; --loch: #85C1B6; --lichen: #D8B458; --heather: #BFA0D2; --moss: #93C08A; --rust: #E4806C; --river: #7FB2D4; --sea: #15252A; --land: #2A302C; --land-edge: #5D6660;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 1.125rem; line-height: 1.65; }
+.wrap { max-width: 68rem; margin: 0 auto; padding-inline: 1.25rem; padding-block: 2.5rem 4rem; }
+h1, h2, h3 { font-family: var(--display); font-weight: 700; line-height: 1.15; text-wrap: balance; margin: 0; }
+p { margin: 0; }
+a { color: var(--loch); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--loch); outline-offset: 3px; border-radius: 3px; }
+.label { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+
+/* Masthead */
+header.mast { display: grid; gap: 1rem; padding-block: 1rem 2.5rem; border-bottom: 1px solid var(--line); }
+header.mast h1 { font-size: clamp(2.6rem, 7vw, 4.6rem); letter-spacing: -0.01em; }
+header.mast h1 em { font-style: italic; font-weight: 500; color: var(--loch); }
+header.mast .lede { max-width: 38rem; color: var(--muted); font-size: 1.2rem; }
+
+/* Era strip */
+.eras { list-style: none; margin: 2rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.5rem; }
+@media (max-width: 760px) { .eras { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.eras li { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 0.75rem 0.85rem; display: grid; gap: 0.15rem; min-width: 0; }
+.eras li.open { border-color: var(--loch); }
+.eras .n { font-family: var(--mono); font-size: 0.75rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.eras .t { font-family: var(--display); font-weight: 700; font-size: 1.05rem; line-height: 1.2; }
+.eras .cn { font-size: 0.85rem; color: var(--heather); }
+.eras .st { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.eras li.open .st { color: var(--loch); }
+.eras li:hover { border-color: var(--loch); }
+.eras a { color: inherit; text-decoration: none; display: grid; gap: 0.15rem; }
+.threads { margin-top: 1.25rem; color: var(--muted); font-size: 1rem; max-width: 44rem; }
+
+/* Chapter */
+article.era { margin-top: 3.5rem; display: grid; gap: 2.5rem; }
+.era-head { display: grid; gap: 0.6rem; }
+.era-head h2 { font-size: clamp(2rem, 5vw, 3rem); }
+.era-head .dates { font-family: var(--mono); color: var(--loch); font-size: 0.95rem; }
+.bigidea { font-family: var(--display); font-size: 1.35rem; line-height: 1.45; max-width: 44rem; border-left: 3px solid var(--lichen); padding-left: 1.1rem; }
+.cols { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 26rem); gap: 3rem; align-items: start; }
+@media (max-width: 900px) { .cols { grid-template-columns: minmax(0, 1fr); gap: 2rem; } }
+.text { display: grid; gap: 2.25rem; min-width: 0; max-width: 40rem; }
+.part { display: grid; gap: 0.7rem; }
+.part h3 { font-size: 1.45rem; }
+.part .when { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.part ul { margin: 0; padding-left: 1.2rem; display: grid; gap: 0.5rem; }
+.part li::marker { color: var(--lichen); }
+.events { list-style: none; padding: 0 !important; display: grid; gap: 0.75rem !important; }
+.events li { display: grid; grid-template-columns: 6.5rem minmax(0, 1fr); gap: 0.75rem; }
+.events .y { font-family: var(--mono); font-size: 0.85rem; color: var(--loch); padding-top: 0.2rem; font-variant-numeric: tabular-nums; }
+@media (max-width: 480px) { .events li { grid-template-columns: minmax(0, 1fr); gap: 0.1rem; } }
+.quote { font-family: var(--display); font-style: italic; font-size: 1.25rem; }
+.note { font-size: 0.95rem; color: var(--muted); }
+
+/* Figures */
+figure { margin: 0; display: grid; gap: 0.6rem; min-width: 0; }
+figure .frame { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 0.75rem; overflow-x: auto; }
+figure svg { display: block; width: 100%; height: auto; }
+figcaption { font-size: 0.9rem; color: var(--muted); line-height: 1.5; }
+figcaption b { color: var(--ink); font-weight: 500; }
+.side { display: grid; gap: 2rem; }
+@media (max-width: 900px) { .side { position: static; } }
+
+/* Map text */
+.m-sea { fill: var(--sea); }
+.m-land { fill: var(--land); stroke: var(--land-edge); stroke-width: 0.8; }
+.m-wall { fill: none; stroke: var(--lichen); stroke-width: 3.2; stroke-linecap: round; stroke-linejoin: round; }
+.m-border { fill: none; stroke: var(--muted); stroke-width: 1; stroke-dasharray: 3 3; }
+.m-dot { fill: var(--loch); stroke: var(--surface); stroke-width: 1.5; }
+.m-unknown { fill: none; stroke: var(--heather); stroke-width: 1.4; stroke-dasharray: 4 3; }
+.m-lab { font-family: var(--body); font-size: 12.5px; fill: var(--ink); paint-order: stroke; stroke: var(--surface); stroke-width: 3.5px; stroke-linejoin: round; }
+.m-lab.mu { fill: var(--muted); font-size: 11.5px; }
+.m-lab.wall { fill: var(--lichen); font-weight: 700; }
+.m-lab.h { fill: var(--heather); }
+.m-lab.sea { fill: var(--muted); stroke: var(--sea); font-style: italic; font-size: 12px; letter-spacing: 0.1em; }
+.legend { display: flex; flex-wrap: wrap; gap: 0.4rem 1rem; font-size: 0.85rem; color: var(--muted); }
+.legend span { display: inline-flex; align-items: center; gap: 0.4rem; }
+.sw { width: 18px; height: 0; border-top: 3px solid var(--lichen); display: inline-block; }
+.sw.d { border-top: 2px dashed var(--muted); }
+.sw.c { width: 10px; height: 10px; border: 0; border-radius: 50%; background: var(--loch); }
+
+.m-reg { font-family: var(--display); font-weight: 700; font-size: 15px; letter-spacing: 0.18em; paint-order: stroke; stroke: var(--land); stroke-width: 4px; stroke-linejoin: round; }
+.c-axis line { stroke: var(--muted); stroke-width: 1; }
+.c-track line { stroke: var(--line); stroke-width: 2; stroke-dasharray: 3 4; }
+.c-in line { stroke: var(--loch); stroke-width: 3; stroke-linecap: round; }
+.c-pt { fill: var(--loch); stroke: var(--surface); stroke-width: 2; }
+.c-pt.rust { fill: var(--rust); }
+.c-tick { font-family: var(--mono); font-size: 11px; fill: var(--muted); }
+.c-row { font-family: var(--body); font-size: 13px; fill: var(--ink); }
+.c-val { font-family: var(--mono); font-size: 11px; fill: var(--muted); paint-order: stroke; stroke: var(--surface); stroke-width: 3px; }
+.m-dot.rust { fill: var(--rust); }
+.r-adv { fill: none; stroke: var(--rust); stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+.r-ret { fill: none; stroke: var(--loch); stroke-width: 2; stroke-dasharray: 5 4; stroke-linejoin: round; }
+.b-adult { fill: var(--muted); opacity: 0.7; }
+.b-child { fill: var(--lichen); }
+.b-yes { fill: var(--loch); }
+.c-sub { font-family: var(--body); font-size: 11.5px; fill: var(--muted); }
+.c-mid { stroke: var(--muted); stroke-width: 1; stroke-dasharray: 3 3; }
+.c-grid line { stroke: var(--line); stroke-width: 1; }
+.c-note { font-family: var(--mono); font-size: 11px; fill: var(--lichen); letter-spacing: 0.06em; }
+.u-head { font-family: var(--display); font-weight: 700; font-size: 15px; fill: var(--ink); }
+.u-t { font-family: var(--body); font-size: 14px; fill: var(--ink); }
+.u-t.b { font-weight: 700; }
+.u-s { font-family: var(--body); font-size: 12.5px; fill: var(--muted); }
+.u-shared { fill: var(--sea); stroke: var(--loch); stroke-width: 1; }
+.u-scot { fill: var(--surface); stroke: var(--lichen); stroke-width: 1.5; }
+.u-eng { fill: var(--surface); stroke: var(--land-edge); stroke-width: 1; }
+.u-link { stroke: var(--loch); stroke-width: 1.2; }
+.u-div { stroke: var(--line); stroke-width: 1; }
+/* Illustration text */
+.i-stone { fill: var(--land); stroke: var(--land-edge); stroke-width: 1; }
+.i-ground { stroke: var(--muted); stroke-width: 1.2; }
+.i-lead { stroke: var(--muted); stroke-width: 0.7; stroke-dasharray: 2 2; fill: none; }
+.i-lab { font-family: var(--body); font-size: 13px; fill: var(--ink); }
+.i-lab.mu { fill: var(--muted); font-size: 12px; }
+
+/* Parallels */
+.parallel { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 1.5rem; display: grid; gap: 1.25rem; }
+.parallel h3 { font-size: 1.45rem; }
+.parallel .pair { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; }
+@media (max-width: 800px) { .parallel .pair { grid-template-columns: minmax(0, 1fr); } }
+.parallel .pair div { display: grid; gap: 0.4rem; align-content: start; min-width: 0; }
+.parallel h4 { margin: 0; font-family: var(--display); font-size: 1.1rem; font-weight: 700; }
+.zh { color: var(--heather); white-space: nowrap; }
+
+/* Visit */
+.visit { display: grid; gap: 1rem; }
+.visit h3 { font-size: 1.45rem; }
+.places { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem 1rem; }
+@media (max-width: 800px) { .places { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 480px) { .places { grid-template-columns: minmax(0, 1fr); } }
+.places li { border-top: 2px solid var(--loch); padding-top: 0.6rem; display: grid; gap: 0.25rem; align-content: start; }
+.places .nm { font-weight: 700; }
+.places .tm { font-family: var(--mono); font-size: 0.75rem; color: var(--muted); }
+.places p { font-size: 1rem; }
+.remember { font-family: var(--display); font-size: 1.3rem; line-height: 1.45; max-width: 44rem; padding-block: 1.5rem; border-block: 1px solid var(--line); }
+.remember .label { display: block; margin-bottom: 0.4rem; font-family: var(--mono); }
+footer { margin-top: 3rem; font-size: 0.9rem; color: var(--muted); display: grid; gap: 0.4rem; max-width: 44rem; }
+
+[id] { scroll-margin-top: 1rem; }
+body { margin: 0; }
+.topbar { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; padding-block: 0.25rem 1rem; border-bottom: 1px solid var(--line); font-family: var(--mono); font-size: 0.8rem; color: var(--muted); }
+.topbar a { text-decoration: none; }
+.jump { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.jump a { font-family: var(--mono); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; padding: 0.3rem 0.65rem; border: 1px solid var(--line); border-radius: 999px; text-decoration: none; color: var(--muted); background: var(--surface); }
+.jump a:hover { color: var(--loch); border-color: var(--loch); }
+.block { display: grid; gap: 1rem; }
+.block h3 { font-size: 1.45rem; }
+.life { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.75rem; }
+@media (max-width: 800px) { .life { grid-template-columns: minmax(0, 1fr); gap: 1.25rem; } }
+.life > div { display: grid; gap: 0.4rem; align-content: start; min-width: 0; }
+.life h4, .people .nm { margin: 0; font-family: var(--display); font-size: 1.1rem; font-weight: 700; }
+.people { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.75rem; }
+@media (max-width: 800px) { .people { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 480px) { .people { grid-template-columns: minmax(0, 1fr); } }
+.people li { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 1rem; display: grid; gap: 0.3rem; align-content: start; min-width: 0; }
+.people .rl { font-family: var(--mono); font-size: 0.75rem; color: var(--muted); }
+.people p { font-size: 1rem; }
+.myths { list-style: none; margin: 0; padding: 0; display: grid; }
+.myths li { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 1.5rem; border-top: 1px solid var(--line); padding-block: 0.9rem; }
+.myths li:last-child { border-bottom: 1px solid var(--line); }
+@media (max-width: 700px) { .myths li { grid-template-columns: minmax(0, 1fr); gap: 0.35rem; } }
+.myths .mq { font-family: var(--display); font-style: italic; font-size: 1.15rem; line-height: 1.4; }
+.myths .ma b { color: var(--rust); font-weight: 700; }
+.words { margin: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem 1.5rem; }
+@media (max-width: 800px) { .words { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 480px) { .words { grid-template-columns: minmax(0, 1fr); } }
+.words div { border-left: 2px solid var(--lichen); padding-left: 0.8rem; border-radius: 0; min-width: 0; }
+.words dt { font-family: var(--display); font-weight: 700; font-size: 1.1rem; }
+.words dd { margin: 0; font-size: 1rem; color: var(--muted); }
+.pagenav { display: flex; justify-content: space-between; gap: 1rem; margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--line); }
+.pagenav a { display: grid; gap: 0.2rem; text-decoration: none; min-width: 0; }
+.pagenav a.next { text-align: right; margin-left: auto; }
+.pagenav .dir { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.pagenav .ttl { font-family: var(--display); font-weight: 700; font-size: 1.2rem; color: var(--ink); }
+.intro { max-width: 44rem; display: grid; gap: 0.75rem; margin-top: 2rem; color: var(--muted); }
+.i-wall { fill: var(--land); stroke: var(--land-edge); stroke-width: 1; }
+.i-floor { fill: var(--surface); stroke: var(--land-edge); stroke-width: 1; }
+.i-edge { stroke: var(--land-edge); stroke-width: 1; }
+.i-hearth { fill: var(--lichen); opacity: 0.75; }
+.i-bedding { fill: var(--moss); opacity: 0.35; }
+.i-water { fill: var(--sea); stroke: var(--loch); stroke-width: 1; }
+[hidden] { display: none !important; }
+.frame { position: relative; }
+.zoom-btn { position: absolute; top: 0.5rem; right: 0.5rem; display: inline-flex; align-items: center; gap: 0.35rem; font: 500 0.8rem var(--body); color: var(--loch); background: var(--surface); border: 1px solid var(--loch); border-radius: 999px; padding: 0.3rem 0.7rem; cursor: pointer; }
+.zoom-btn:hover { background: var(--loch); color: var(--surface); }
+figure .frame svg { cursor: zoom-in; }
+.lightbox { position: fixed; inset: 0; z-index: 50; background: var(--bg); display: flex; flex-direction: column; padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+.lb-bar { display: flex; align-items: center; gap: 0.5rem; padding: 0.6rem 1rem; border-bottom: 1px solid var(--line); background: var(--surface); }
+.lb-title { flex: 1; min-width: 0; font-family: var(--display); font-weight: 700; font-size: 1rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.lb-bar button { font: 500 1rem var(--body); min-width: 2.5rem; height: 2.5rem; padding: 0 0.8rem; border: 1px solid var(--line); border-radius: 6px; background: var(--bg); color: var(--ink); cursor: pointer; }
+.lb-bar button:hover { border-color: var(--loch); color: var(--loch); }
+.lb-bar .lb-close { background: var(--loch); color: var(--surface); border-color: var(--loch); }
+.lb-level { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); min-width: 3.2rem; text-align: center; font-variant-numeric: tabular-nums; }
+.lb-controls { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; padding: 0.5rem 1rem; border-bottom: 1px solid var(--line); background: var(--surface); }
+.lb-controls button { font: 500 1rem var(--body); min-width: 2.5rem; height: 2.5rem; padding: 0 0.8rem; border: 1px solid var(--line); border-radius: 6px; background: var(--bg); color: var(--ink); cursor: pointer; }
+.lb-controls button:hover { border-color: var(--loch); color: var(--loch); }
+.lb-controls input[type=range] { flex: 1; min-width: 8rem; accent-color: var(--loch); }
+.lb-body { flex: 1; overflow: auto; padding: 1rem; -webkit-overflow-scrolling: touch; }
+.lb-body svg { display: block; height: auto; margin: 0 auto; max-width: none; }
+.lb-hint { font-size: 0.85rem; color: var(--muted); text-align: center; padding: 0.4rem 1rem 0.6rem; }
+.t-live { fill: var(--surface); stroke: var(--loch); stroke-width: 1.5; }
+.t-dead { fill: var(--surface); stroke: var(--muted); stroke-width: 1; stroke-dasharray: 4 3; }
+.c-axis-v { stroke: var(--muted); stroke-width: 1; }
+.c-row.rust { fill: var(--rust); }
+
+body { font-size: 1.0625rem; line-height: 1.85; }
+.label { font-family: var(--body); letter-spacing: 0.12em; text-transform: none; }
+h1, h2, h3, .people .nm, .life h4, .parallel h4, .words dt, .pagenav .ttl { letter-spacing: 0.02em; }
+.bigidea, .remember, .quote, .myths .mq { line-height: 1.7; }
+.myths .mq { font-style: normal; }
+.quote { font-style: normal; }
+.m-river { fill: none; stroke: var(--river); stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; opacity: 0.85; }
+.m-route { fill: none; stroke: var(--rust); stroke-width: 2.4; stroke-linejoin: round; stroke-linecap: round; }
+.m-route2 { fill: none; stroke: var(--lichen); stroke-width: 2.6; stroke-linejoin: round; stroke-linecap: round; }
+.m-lab.river { fill: var(--river); font-style: italic; }
+.m-lab.red { fill: var(--rust); }
+.m-reg { font-family: var(--display); font-weight: 700; font-size: 15px; letter-spacing: 0.3em; paint-order: stroke; stroke: var(--land); stroke-width: 4px; stroke-linejoin: round; }
+.hk { background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--rust); border-radius: 0; padding: 1.25rem 1.5rem; display: grid; gap: 0.6rem; }
+.hk h3 { font-size: 1.35rem; }
+.hk .label { color: var(--rust); }
+.eras.cn { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+@media (max-width: 900px) { .eras.cn { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+.startlink { display: block; margin: 0 0 1.5rem; padding: 1rem 1.25rem; border: 1.5px solid var(--loch); border-radius: 6px; background: var(--surface); color: var(--ink); text-decoration: none; }
+.startlink .dir { display: block; font-family: var(--mono); font-size: 0.8rem; color: var(--loch); letter-spacing: 0.05em; }
+.startlink .ttl { display: block; margin-top: 0.25rem; font-family: var(--display); font-weight: 700; font-size: 1.05rem; }
+.startlink:hover { background: var(--sea); }
+.text .stages { margin: 0.5rem 0 1rem; }
+.stages { margin: 0; padding-left: 0; list-style: none; display: grid; gap: 0.45rem; font-size: 0.95rem; line-height: 1.7; }
+.glhint { font-size: 0.9rem; color: var(--muted); margin-top: -1.25rem; }
+button.gl { font: inherit; color: inherit; background: none; border: 0; padding: 0; margin: 0; cursor: pointer; text-decoration: underline dotted var(--loch); text-decoration-thickness: 1.5px; text-underline-offset: 4px; }
+button.gl:hover, button.gl[aria-expanded="true"] { color: var(--loch); background: color-mix(in srgb, var(--loch) 10%, transparent); }
+.glcard { position: absolute; z-index: 40; width: min(22rem, calc(100vw - 32px)); background: var(--surface); border: 1px solid var(--line); border-top: 3px solid var(--loch); border-radius: 6px; box-shadow: 0 10px 30px rgba(0,0,0,0.18); padding: 1rem 1.1rem 1.1rem; display: grid; gap: 0.35rem; }
+.glcard .gt { font-family: var(--display); font-weight: 700; font-size: 1.15rem; padding-right: 2rem; }
+.glcard .gs { font-size: 0.85rem; color: var(--muted); }
+.glcard .gb { font-size: 1rem; line-height: 1.75; }
+.glcard .gx { position: absolute; top: 0.5rem; right: 0.5rem; width: 2rem; height: 2rem; border: 0; background: none; font-size: 1.3rem; color: var(--muted); cursor: pointer; border-radius: 4px; }
+.glcard .gx:hover { background: var(--bg); color: var(--ink); }
+@media (max-width: 700px) { .glcard { position: fixed; left: 0 !important; right: 0; bottom: 0; top: auto !important; width: auto; border-radius: 12px 12px 0 0; padding-bottom: calc(1.1rem + env(safe-area-inset-bottom, 0px)); } }
+.homefig { margin-top: 2.5rem; max-width: 60rem; }
+figure.homefig .frame { padding-top: 2.75rem; }
+.frame { padding-top: 2.75rem; }
+header.mast h1 em { font-style: normal; }
+.jump a { text-transform: none; letter-spacing: 0.04em; font-family: var(--body); font-size: 0.8rem; }
+
+:root { --display: "Source Serif 4", "Noto Serif TC", Georgia, serif; --body: "Source Sans 3", "Noto Sans TC", system-ui, sans-serif; }
+body { line-height: 1.7; }
+.label { font-family: var(--mono); letter-spacing: 0.08em; text-transform: uppercase; }
+.m-reg { letter-spacing: 0.12em; }
+.myths .mq { font-style: italic; }
+.eras.cn .t { font-size: 1rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar"><a href="index.html">China Through Time</a><span>Era 2 of 10</span></div>
+  <article class="era" id="era2">
+    <div class="era-head">
+      <span class="label">Era 2</span>
+      <h2>Shang and Western Zhou</h2>
+      <span class="dates">c. 1600 – 771 BC</span>
+    </div>
+
+    <p class="bigidea">This is the first age in China to leave behind its own writing. The kings of the Shang dynasty (商) consulted their ancestors and the spirits before doing anything, by divination, and carved their questions on turtle shells and ox bones. These "oracle bone inscriptions" (甲骨文) are the ancestors of the Chinese characters used today. Shang craftsmen also cast the finest bronzes in the world at that time. Later the Zhou (周), a people from the west, overthrew the Shang. They put forward the idea of the "Mandate of Heaven" (天命, tianming): that Heaven gives the world only to a ruler with virtue. They also handed out land to their relatives, who set up one small state after another. Writing, ancestor worship, the Mandate of Heaven and politics built on the family all began in this age, and shaped China for three thousand years.</p>
+
+    <p class="glhint">Names and terms with a dotted underline can be tapped for a short explanation.</p>
+
+    <nav class="jump" aria-label="In this era">
+      <a href="#story">The story</a><a href="#life">Daily life</a><a href="#people">Key people</a><a href="#myths">Myth or fact</a><a href="#evidence">How we know</a><a href="#words">Key terms</a><a href="#world">The world</a><a href="#visit">Visit</a>
+    </nav>
+
+    <div class="cols" id="story">
+      <div class="text">
+        <section class="part">
+          <span class="when">Before we begin</span>
+          <h3>Two dynasties, and a history with writing</h3>
+          <p>This era covers two <button type="button" class="gl" data-g="dynasty" aria-haspopup="dialog">dynasties</button>. First came the <button type="button" class="gl" data-g="shang" aria-haspopup="dialog">Shang dynasty</button> (商), from about 1600 to 1046 BC, which ruled the plains of the middle and lower Yellow River (黃河), in what are now Henan (河南), Hebei (河北) and Shandong (山東). Then came the <button type="button" class="gl" data-g="zhou" aria-haspopup="dialog">Zhou dynasty</button> (周). The Zhou people originally lived further west, in the valley of the Wei River (渭河, in today's Shaanxi, 陝西), and defeated the Shang in 1046 BC. The Zhou dynasty lasted for nearly eight hundred years, and historians divide it into two parts. This era covers the first part, the <button type="button" class="gl" data-g="xizhou" aria-haspopup="dialog">Western Zhou</button> (西周), up to 771 BC.</p>
+          <p>Unlike Era 1, we at last have writing set down by people of the time themselves: the Shang's <button type="button" class="gl" data-g="oracle" aria-haspopup="dialog">oracle bone inscriptions</button>, and the Zhou's <button type="button" class="gl" data-g="jinwen" aria-haspopup="dialog">bronze inscriptions</button> (金文), cast into bronze vessels. Even so, dates before 841 BC are still only scholars' approximate calculations, and different studies can differ by several decades.</p>
+          <p>Bear in mind that neither the Shang nor the Zhou was a country with clear borders in today's sense. At the centre of each was a royal house and its capital, surrounded by tribes large and small that sometimes submitted and sometimes rebelled (see Map 1).</p>
+        </section>
+
+        <section class="part">
+          <span class="when">c. 1600 – 1300 BC</span>
+          <h3>The founding of the Shang, and a capital that kept moving</h3>
+          <p>According to later histories, <button type="button" class="gl" data-g="tang" aria-haspopup="dialog">Tang</button> (湯), leader of the Shang people, overthrew <button type="button" class="gl" data-g="jie" aria-haspopup="dialog">Jie</button> (桀), the cruel last ruler of the <button type="button" class="gl" data-g="xia" aria-haspopup="dialog">Xia dynasty</button> (夏), and founded the Shang dynasty. Later generations honoured Tang as a sage king who won the world through benevolence and virtue, but this story was only written down more than a thousand years later, and its details cannot be proved.</p>
+          <p>The great early Shang city that archaeologists have found is the <button type="button" class="gl" data-g="zhengzhou" aria-haspopup="dialog">Shang city at Zhengzhou</button> (鄭州商城), in the centre of Zhengzhou, today the capital of Henan province. Its walls were nearly seven kilometres round, built of <button type="button" class="gl" data-g="hangtu" aria-haspopup="dialog">rammed earth</button> (夯土, hangtu): earth poured layer by layer into a wooden frame and pounded hard. Parts of the walls still stand beside Zhengzhou's roads today.</p>
+          <p>The early Shang kings moved their capital many times, perhaps because of floods, war or struggles within the royal family. In about 1300 BC the Shang king <button type="button" class="gl" data-g="pangeng" aria-haspopup="dialog">Pangeng</button> (盤庚) moved the capital to a place called Yin (殷), today's Anyang (安陽) in northern Henan, and for more than two hundred years after that it never moved again. That is why the Shang dynasty is also called the <button type="button" class="gl" data-g="yin" aria-haspopup="dialog">Yin</button> (殷), or "Yin-Shang".</p>
+        </section>
+
+        <section class="part">
+          <span class="when">c. 1300 – 1046 BC</span>
+          <h3>Yinxu: the last Shang capital</h3>
+          <p>After the Shang fell, the city of Yin became a ruin, which later people called <button type="button" class="gl" data-g="yinxu" aria-haspopup="dialog">Yinxu</button> (殷墟), "the Ruins of Yin". The site covers about thirty-six square kilometres, far larger than the whole of Edinburgh's Old Town. Here archaeologists have found palaces and ancestral temples built on rammed-earth platforms, more than ten huge royal tombs, workshops for casting bronze and carving bone, and <button type="button" class="gl" data-g="chariot" aria-haspopup="dialog">chariot pits</button> (車馬坑) holding complete chariots with their horses.</p>
+          <p>Horses and horse-drawn chariots appear suddenly at Yinxu only around 1200 BC. They had never been seen in China before, and most likely came from the northern steppes, passed along through many hands. In the same period, the armies of Egypt and the Middle East were also fighting with chariots.</p>
+          <p>Yinxu also reveals the cruel side of the Shang. Around the royal tombs are thousands of sacrificial pits, holding people killed as offerings to the ancestors, many of them foreigners captured in war. This kind of <button type="button" class="gl" data-g="rensacrifice" aria-haspopup="dialog">human sacrifice</button> (人祭, renji) was very common under the Shang, and only declined greatly under the Zhou.</p>
+        </section>
+
+        <section class="part">
+          <span class="when">c. 1250 – 1046 BC</span>
+          <h3>Asking the ancestors: oracle bone divination</h3>
+          <p>The Shang believed that their dead ancestors still watched over their descendants from another world, and could send either blessings or disaster. Above the ancestors was a supreme god who controlled wind, rain and war, called <button type="button" class="gl" data-g="shangdi" aria-haspopup="dialog">Di</button> (帝) or "Shangdi" (上帝). So whatever the Shang king did, he first used <button type="button" class="gl" data-g="divination" aria-haspopup="dialog">divination</button> to ask the ancestors and spirits what they thought. Will it rain tomorrow? Will this campaign be won? Will the queen's childbirth go well? The king has toothache: is one of the ancestors causing it?</p>
+          <p>This is how the divination worked (see Figure 2). First a turtle's under-shell or an ox's shoulder blade was ground smooth, and rows of small hollows were chiselled into the back. During the divination a red-hot stick was pressed into a hollow, and with a "crack" a split burst out on the front of the bone. The diviner, called a <button type="button" class="gl" data-g="zhenren" aria-haspopup="dialog">zhenren</button> (貞人), and the king read good or bad fortune from the shape of the crack, and then carved the date, the question, and sometimes the later outcome, next to the crack. The Chinese character for divination today, 卜 (bu), looks exactly like a crack; its sound may also imitate the noise of the bone cracking.</p>
+          <p>These carvings are the oracle bone inscriptions. About 150,000 pieces of inscribed bone and shell have been dug up at Yinxu so far, bearing more than four thousand different characters, of which about a thousand or more have been deciphered by scholars. Oracle bone script was already a mature writing system able to record the language in full, and it is the direct ancestor of today's Chinese characters (see Figure 3). Chinese is the only ancient script in the world that has remained in use from more than three thousand years ago to the present day; Egyptian hieroglyphs and Mesopotamian cuneiform could no longer be read by anyone more than fifteen hundred years ago.</p>
+        </section>
+
+        <section class="part">
+          <span class="when">c. 1600 – 1046 BC</span>
+          <h3>Bronze: the metal of power</h3>
+          <p><button type="button" class="gl" data-g="bronze" aria-haspopup="dialog">Bronze</button> is a metal made by melting copper and tin together (sometimes with lead), and is harder than pure copper. Shang bronzes were not mainly farm tools. They were ritual vessels for offerings to the ancestors, holding wine, meat and grain, along with weapons and fittings for chariots. Whoever owned more, and larger, bronzes had the higher status.</p>
+          <p>Shang craftsmen used a distinctive <button type="button" class="gl" data-g="piecemould" aria-haspopup="dialog">piece-mould method</button> (塊範法, kuaifan). They first made a clay model, pressed clay moulds around the outside in several sections, and then poured molten bronze into the gap between the moulds and an inner core. This method could cast enormous vessels with extremely fine decoration. The most famous is the <button type="button" class="gl" data-g="houmuwu" aria-haspopup="dialog">Houmuwu ding</button> (后母戊鼎), more than 130 centimetres tall and weighing about 830 kilograms, as much as ten or more adults: the heaviest ancient Chinese bronze that survives.</p>
+          <p>The <button type="button" class="gl" data-g="ding" aria-haspopup="dialog">ding</button> (鼎) was originally a large three- or four-legged cauldron for cooking meat, and later became a symbol of royal power and of the state. In Chinese today, to say someone is "asking about the ding" (問鼎) of a championship means they are trying to seize the top place.</p>
+        </section>
+
+        <section class="part">
+          <span class="when">c. 1250 – 1192 BC</span>
+          <h3>Wu Ding and Fu Hao: a royal couple</h3>
+          <p>Shang kings' names often contain characters such as jia, yi, bing or ding. These are the <button type="button" class="gl" data-g="tiangan" aria-haspopup="dialog">Heavenly Stems</button> (天干, tiangan), used for counting days, and they mark the day on which each king received his offerings. <button type="button" class="gl" data-g="wuding" aria-haspopup="dialog">Wu Ding</button> (武丁) was the most powerful Shang king. He is said to have reigned for fifty-nine years and campaigned in every direction, and he left more oracle bone records than any other Shang king.</p>
+          <p>Wu Ding had several queens, the most famous of whom was <button type="button" class="gl" data-g="fuhao" aria-haspopup="dialog">Fu Hao</button> (婦好). The oracle bones record that she not only led sacrifices but also led armies into battle herself, on one occasion commanding as many as thirteen thousand men. Wu Ding often divined about her too: would her illness get better? Would her childbirth go well?</p>
+          <p>In 1976 archaeologists found Fu Hao's tomb at Yinxu. It is the only Shang royal tomb that had never been robbed and whose owner can be identified. It held nearly two thousand grave goods, including more than four hundred bronzes, more than seven hundred jades, and nearly seven thousand <button type="button" class="gl" data-g="cowrie" aria-haspopup="dialog">cowrie shells</button>, which were then treasured as wealth. Some of the bronze weapons are inscribed with the name "Fu Hao", confirming that she was a woman general.</p>
+        </section>
+
+        <section class="part">
+          <span class="when">c. 1200 – 1000 BC</span>
+          <h3>Sanxingdui: another world beyond the Shang</h3>
+          <p>The Shang was not the whole of China at that time. In the Sichuan Basin (四川盆地) in the southwest, more than a thousand kilometres from Yinxu, was a civilisation that later people called <button type="button" class="gl" data-g="shu" aria-haspopup="dialog">Ancient Shu</button> (古蜀), which developed a bronze culture completely different from the Shang's.</p>
+          <p>In 1986, at <button type="button" class="gl" data-g="sanxingdui" aria-haspopup="dialog">Sanxingdui</button> (三星堆) in Guanghan (廣漢), Sichuan (四川), two large pits packed with objects were discovered. Out of them came giant bronze masks with eyes bulging forward, a bronze sacred tree nearly four metres tall, a life-size standing bronze figure and gold face masks. Nothing shaped like these had ever been seen anywhere else in China. From 2019 archaeologists found six more pits next to them. The people of Sanxingdui knew how to obtain bronze materials from far away, but they left no writing at all. What they worshipped, and why they broke these objects, burned them and then buried them, is still a mystery.</p>
+        </section>
+
+        <section class="part">
+          <span class="when">c. 1100 – 1046 BC</span>
+          <h3>The rise of the Zhou and the Battle of Muye</h3>
+          <p>West of the Shang, on the <button type="button" class="gl" data-g="zhouyuan" aria-haspopup="dialog">Zhou Plain</button> (周原) in the Wei River valley, lived the Zhou people. They had begun as a tribe on the Shang's western edge, and had once paid tribute to the Shang king. Their leader Ji Chang (姬昌), known to later generations as <button type="button" class="gl" data-g="wenwang" aria-haspopup="dialog">King Wen of Zhou</button> (周文王), gradually united the western tribes during his rule, pushed his power eastwards, and moved his capital to <button type="button" class="gl" data-g="haojing" aria-haspopup="dialog">Haojing</button> (鎬京), near today's Xi'an (西安).</p>
+          <p>After King Wen died, his son Ji Fa (姬發), <button type="button" class="gl" data-g="wuwang" aria-haspopup="dialog">King Wu of Zhou</button> (周武王), led the Zhou army and its allies east. With the help of his military adviser <button type="button" class="gl" data-g="taigong" aria-haspopup="dialog">Jiang Taigong</button> (姜太公), he met the Shang army in a decisive battle at Muye (牧野), near the Shang capital: the <button type="button" class="gl" data-g="muye" aria-haspopup="dialog">Battle of Muye</button> (牧野之戰). According to the Zhou accounts, the Shang army, though larger, turned against its own side on the battlefield. The last Shang king, <button type="button" class="gl" data-g="dixin" aria-haspopup="dialog">Di Xin</button> (帝辛), fled back to his capital, climbed a high tower and burned himself to death. A bronze vessel dug up in 1976, the <button type="button" class="gl" data-g="ligui" aria-haspopup="dialog">Li gui</button> (利簋), has an inscription recording that King Wu took the Shang capital on the morning of a "jiazi" day. It is the only evidence of this war from the time itself.</p>
+          <p>Di Xin is more often known to later generations as "King Zhou" (紂王). "Zhou" (紂, a different word from the dynasty's name) was an insulting name given to him by the Zhou and later writers, who also portrayed him as a tyrant lost in drink and women who tortured loyal ministers. Most of these stories come from the winners and cannot be fully trusted (see "Myth or fact").</p>
+        </section>
+
+        <section class="part">
+          <span class="when">From 1046 BC</span>
+          <h3>The Mandate of Heaven: why did the Zhou have the right to rule?</h3>
+          <p>A small western tribe had overthrown the mighty Shang, and the Zhou needed to explain to the world why they should be the ones to rule. Their answer was the <button type="button" class="gl" data-g="tianming" aria-haspopup="dialog">Mandate of Heaven</button>. The Zhou called their highest god "Heaven" (天, tian). Heaven, they said, gives the power to rule the world to a virtuous ruler; if a ruler becomes cruel and lawless, Heaven takes back the mandate and gives it to someone else who is virtuous. The early Shang rulers had been virtuous, so they received the mandate; Di Xin lost his virtue, so the mandate passed to the Zhou.</p>
+          <p>This is a little like the "divine right of kings" in medieval Europe: both say a ruler's power comes from above. But there is one important difference: the Mandate of Heaven could be lost. That made it a double-edged sword. New dynasties used it to prove they were legitimate, and rebels used it to prove they were right to overthrow a tyrant. For the next three thousand years, every change of dynasty in China was explained by the Mandate of Heaven; frequent natural disasters and widespread suffering were often seen as signs that a dynasty had lost it.</p>
+          <p>Another important early Zhou bronze is the <button type="button" class="gl" data-g="hezun" aria-haspopup="dialog">He zun</button> (何尊). Its inscription contains the four characters 宅茲中國, meaning "to settle in this centre of the world". This is the earliest known use of the word <button type="button" class="gl" data-g="zhongguo" aria-haspopup="dialog">Zhongguo</button> (中國), today the Chinese name for China. At that time it meant the Central Plain (中原) around Luoyang (洛陽), not the name of a country.</p>
+        </section>
+
+        <section class="part">
+          <span class="when">c. 1043 – 1000 BC</span>
+          <h3>The Duke of Zhou and fengjian: dividing the world among relatives</h3>
+          <p>King Wu died not long after conquering the Shang. His son, <button type="button" class="gl" data-g="chengwang" aria-haspopup="dialog">King Cheng</button> (成王), was still young, so King Wu's younger brother, the <button type="button" class="gl" data-g="zhougong" aria-haspopup="dialog">Duke of Zhou</button> (周公), ruled in his place. Several of the Duke's brothers refused to accept this, and even joined forces with Di Xin's son to rebel, in what is known as the <button type="button" class="gl" data-g="sanjian" aria-haspopup="dialog">Rebellion of the Three Guardians</button> (三監之亂). It took the Duke of Zhou three years to put down the revolt. He then built a second capital in the east, <button type="button" class="gl" data-g="luoyi" aria-haspopup="dialog">Luoyi</button> (洛邑, today's Luoyang), to keep watch over the former Shang lands. When King Cheng grew up, the Duke of Zhou handed power back to him. Later Confucians (儒家) regarded the Duke of Zhou as loyal and selfless, the ideal statesman.</p>
+          <p>Zhou lands were too vast for the king to govern directly, so the Zhou used <button type="button" class="gl" data-g="fengjian" aria-haspopup="dialog">fengjian</button> (分封): granting land, and the people on it, to royal relatives and to those who had served well, who then went out and set up small states of their own, known as <button type="button" class="gl" data-g="zhuhou" aria-haspopup="dialog">vassal states</button> (諸侯, zhuhou). According to ancient texts, more than seventy states were granted in the early Zhou, more than fifty of them ruled by relatives of the king who shared his surname. For example, the Duke of Zhou's son was given <button type="button" class="gl" data-g="lu" aria-haspopup="dialog">Lu</button> (魯, today's Qufu (曲阜) in Shandong, later the home town of Confucius, 孔子), Jiang Taigong was given <button type="button" class="gl" data-g="qi" aria-haspopup="dialog">Qi</button> (齊), King Cheng's younger brother was given <button type="button" class="gl" data-g="jin" aria-haspopup="dialog">Jin</button> (晉), and another senior minister, the Duke of Shao (召公), was given <button type="button" class="gl" data-g="yan" aria-haspopup="dialog">Yan</button> (燕, near today's Beijing, 北京). Within his own state each lord could run his own affairs, but he had to attend the Zhou king's court regularly, send tribute, and bring troops to help in time of war (see Figure 4).</p>
+          <p>Fengjian is often translated into English as "feudalism", and it really does resemble the system in medieval Europe in which kings granted land to nobles in return for loyalty and military service. The biggest difference is that Zhou fengjian was based on blood: most of the lords were the Zhou king's own brothers, uncles, sons and nephews.</p>
+        </section>
+
+        <section class="part">
+          <span class="when">1046 – 771 BC</span>
+          <h3>Clan rules and ritual: the family is the state</h3>
+          <p>The Zhou organised noble families through the <button type="button" class="gl" data-g="zongfa" aria-haspopup="dialog">zongfa</button> (宗法), or clan system. At its heart was the rule that the <button type="button" class="gl" data-g="dizhangzi" aria-haspopup="dialog">eldest son of the principal wife</button> (嫡長子, dizhangzi) inherited his father's position and main property; other sons founded branch lines, of lower rank, but still had to respect the main line. The Zhou king was the greatest "main line" in the world, and the lords were branches; within each vassal state, the lord in turn was the main line. In this way the state was like one vast family, with "family" and "state" bound together: the Chinese word for country, guojia (國家), literally "state-family", reflects this idea. Inheritance by the eldest son is similar to the way the British throne and noble titles have traditionally passed to the eldest son.</p>
+          <p>The Zhou also laid down a whole system of <button type="button" class="gl" data-g="li" aria-haspopup="dialog">li</button> (禮), or ritual, setting out how many bronze vessels people of different rank could use in sacrifices, banquets, weddings and funerals, where they should stand and what music should be played. The purpose of ritual was to make everyone clear about their place and to keep social order. About five hundred years later, the order represented by these Zhou rituals was exactly what Confucius most longed for.</p>
+        </section>
+
+        <section class="part">
+          <span class="when">841 – 770 BC</span>
+          <h3>Decline: the first year of Gonghe and the fall of the Western Zhou</h3>
+          <p>After several generations the Zhou kings' power gradually weakened, and the blood ties between the lords and the king grew more and more distant. <button type="button" class="gl" data-g="liwang" aria-haspopup="dialog">King Li of Zhou</button> (周厲王) was greedy and cruel and banned the people from criticising him; it is said that when people met in the street they dared only exchange glances. In 841 BC the people of the capital finally rose up and drove him out. For the next fourteen years ministers governed in his place, a period called the <button type="button" class="gl" data-g="gonghe" aria-haspopup="dialog">Gonghe</button> (共和) regency. This year, "the first year of Gonghe", is the first year in Chinese history that can be dated exactly, because the chronological tables in the <button type="button" class="gl" data-g="shiji" aria-haspopup="dialog">Records of the Grand Historian</button> (史記, Shiji), by the Han dynasty (漢) historian Sima Qian (司馬遷), record events year by year from this point. More than two thousand years later the word gonghe was borrowed to translate the English word "republic", and that is where the "Republic" in today's "People's Republic of China" (中華人民共和國) comes from.</p>
+          <p>About seventy years later, <button type="button" class="gl" data-g="youwang" aria-haspopup="dialog">King You of Zhou</button> (周幽王) became infatuated with his consort <button type="button" class="gl" data-g="baosi" aria-haspopup="dialog">Bao Si</button> (褒姒), and deposed his queen and the crown prince. The queen's father, the Marquis of Shen (申侯), was furious, and joined forces with the <button type="button" class="gl" data-g="quanrong" aria-haspopup="dialog">Quanrong</button> (犬戎), a people from the northwest, to storm Haojing, killing King You in 771 BC. The next year the deposed crown prince took the throne as King Ping of Zhou (周平王) and moved the capital east to Luoyi.</p>
+          <p>Historians use this move as the dividing line. Before it, the capital was at Haojing in the west, and the period is called the Western Zhou; after it, the capital was at Luoyi in the east, and the period is called the <button type="button" class="gl" data-g="dongzhou" aria-haspopup="dialog">Eastern Zhou</button> (東周). After the move east, the Zhou king kept only his title, while the lords fought each other for supremacy, and China entered the next era: the Spring and Autumn (春秋) and Warring States (戰國) periods.</p>
+        </section>
+      </div>
+
+      <aside class="side">
+        <figure>
+          <div class="frame">
+            <svg viewBox="0 0 560 420" role="img" aria-labelledby="c2ma">
+              <title id="c2ma">The Shang heartland lay in the east; the Zhou rose in the Wei River valley to the west, marched east to conquer the Shang, then granted out vassal states</title>
+              <defs>
+                <clipPath id="c2clip"><path d="M560,3.9L557.9,6.2L555.3,7.7L553.1,10.2L544,24.9L540.5,26L524.3,34.8L516.2,38.3L509.8,44.5L507.7,48.1L505.8,52.2L504.7,58.4L498.9,65.9L496.9,67.5L494.8,68.2L492.3,68L489.9,68.5L485.9,67.8L481.1,70.1L475.7,72.2L470.9,67.1L467.6,65.7L462.2,67.2L459.6,69.5L454.3,80.8L452.3,87.3L452.5,90L455.5,98L459,102.5L466.8,107.6L483.3,111.1L487.2,109.9L491.4,109.9L495.7,113.2L498.5,118.7L498.8,122.5L498.8,123.8L499.8,124.9L500.4,126.8L498.7,128.3L497.3,129.2L496.2,134.9L496.2,141.4L497.6,143.5L501.2,146.5L506.7,148.9L511.8,149.5L521.5,148.3L525.4,144.4L525.2,142.8L525.3,140.6L533.9,134.9L538.7,129.8L537.9,128.5L537,127.6L537.9,127.1L540.5,126.8L552.5,121.5L560,125L560,170.1L560,170.1L559.9,170.1L556.5,168.6L554.4,168.8L553.9,169.7L556.6,172.4L557.3,174.5L557,176.1L555.5,176.8L553.2,175.6L551.2,177.3L550.3,180.1L550.3,186.8L549,188.3L545.2,189.1L541.3,191.3L539.8,190.2L539.3,189.1L539.7,186L539.3,184.5L537.5,184.6L534.6,185.5L532.6,187.6L531.9,188.8L534.6,192.7L537.2,193.1L537.9,193.9L535.8,195.9L530.7,198.7L529.8,201.1L528.3,203.4L526.2,205.2L524.7,207.1L523,208.1L520.2,209.2L516.7,213.8L514.1,218.1L511.1,220.2L508.7,227.5L504.4,231.3L502.9,237.6L504,241.4L508.6,241.3L511,242.7L515.9,247.8L521.8,251L527.8,252.8L535.2,257.5L537.3,259.4L539,263.4L542.3,274.8L544.6,280.5L544.8,283.5L548.3,289L552,298.5L556.2,306.8L557.1,313.2L555.6,316.1L555.7,320L559.9,323.5L560,323.6L560,349.4L560,349.4L559.4,349.3L553.7,343.3L549.6,341.5L545.2,340.6L534.8,345.8L532,345.4L531.3,345.9L530,346.8L535,347.9L539.8,346.3L544.6,343.8L551.3,345.1L552.5,347.4L553.6,351.1L558.3,353.7L560,354.2L560,397.7L560,397.7L558.3,400.6L557.1,403.3L554.7,404.7L548.6,403.4L543,403.5L536.7,407.3L535.1,408.8L536.1,408.6L537.1,408L539.9,408.6L544.4,406.6L548.7,412.8L557.3,411.8L560,410L560,420L0,420L0,0L560,0Z"/></clipPath>
+                <marker id="c2arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M1 1L9 5L1 9Z" fill="var(--loch)"/></marker>
+                <marker id="c2arr2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M1 1L9 5L1 9Z" fill="var(--muted)"/></marker>
+              </defs>
+              <rect class="m-sea" x="0" y="0" width="560" height="420" rx="4"/>
+              <path class="m-land" d="M560,3.9L557.9,6.2L555.3,7.7L553.1,10.2L544,24.9L540.5,26L524.3,34.8L516.2,38.3L509.8,44.5L507.7,48.1L505.8,52.2L504.7,58.4L498.9,65.9L496.9,67.5L494.8,68.2L492.3,68L489.9,68.5L485.9,67.8L481.1,70.1L475.7,72.2L470.9,67.1L467.6,65.7L462.2,67.2L459.6,69.5L454.3,80.8L452.3,87.3L452.5,90L455.5,98L459,102.5L466.8,107.6L483.3,111.1L487.2,109.9L491.4,109.9L495.7,113.2L498.5,118.7L498.8,122.5L498.8,123.8L499.8,124.9L500.4,126.8L498.7,128.3L497.3,129.2L496.2,134.9L496.2,141.4L497.6,143.5L501.2,146.5L506.7,148.9L511.8,149.5L521.5,148.3L525.4,144.4L525.2,142.8L525.3,140.6L533.9,134.9L538.7,129.8L537.9,128.5L537,127.6L537.9,127.1L540.5,126.8L552.5,121.5L560,125L560,170.1L560,170.1L559.9,170.1L556.5,168.6L554.4,168.8L553.9,169.7L556.6,172.4L557.3,174.5L557,176.1L555.5,176.8L553.2,175.6L551.2,177.3L550.3,180.1L550.3,186.8L549,188.3L545.2,189.1L541.3,191.3L539.8,190.2L539.3,189.1L539.7,186L539.3,184.5L537.5,184.6L534.6,185.5L532.6,187.6L531.9,188.8L534.6,192.7L537.2,193.1L537.9,193.9L535.8,195.9L530.7,198.7L529.8,201.1L528.3,203.4L526.2,205.2L524.7,207.1L523,208.1L520.2,209.2L516.7,213.8L514.1,218.1L511.1,220.2L508.7,227.5L504.4,231.3L502.9,237.6L504,241.4L508.6,241.3L511,242.7L515.9,247.8L521.8,251L527.8,252.8L535.2,257.5L537.3,259.4L539,263.4L542.3,274.8L544.6,280.5L544.8,283.5L548.3,289L552,298.5L556.2,306.8L557.1,313.2L555.6,316.1L555.7,320L559.9,323.5L560,323.6L560,349.4L560,349.4L559.4,349.3L553.7,343.3L549.6,341.5L545.2,340.6L534.8,345.8L532,345.4L531.3,345.9L530,346.8L535,347.9L539.8,346.3L544.6,343.8L551.3,345.1L552.5,347.4L553.6,351.1L558.3,353.7L560,354.2L560,397.7L560,397.7L558.3,400.6L557.1,403.3L554.7,404.7L548.6,403.4L543,403.5L536.7,407.3L535.1,408.8L536.1,408.6L537.1,408L539.9,408.6L544.4,406.6L548.7,412.8L557.3,411.8L560,410L560,420L0,420L0,0L560,0Z"/>
+              <g clip-path="url(#c2clip)">
+                <path d="M436.3 258.1 L437.9 250.4 L438.2 242.2 L437.1 233.7 L434.7 224.9 L431.0 216.2 L426.1 207.5 L420.0 199.2 L413.0 191.2 L405.0 183.7 L396.2 177.0 L386.9 171.1 L377.0 166.0 L366.9 162.0 L356.7 159.0 L346.5 157.1 L336.5 156.4 L326.9 156.9 L317.9 158.6 L309.6 161.3 L302.2 165.2 L295.8 170.1 L290.4 175.9 L286.3 182.5 L283.4 189.8 L281.8 197.7 L281.5 206.0 L282.6 214.6 L285.0 223.4 L288.7 232.1 L293.6 240.7 L299.7 248.9 L306.7 256.8 L314.7 264.0 L323.5 270.6 L332.8 276.4 L342.7 281.2 L352.8 285.1 L363.1 288.0 L373.2 289.8 L383.2 290.4 L392.8 290.0 L401.8 288.4 L410.1 285.7 L417.5 282.0 L423.9 277.3 L429.3 271.7 L433.4 265.3 L436.3 258.1 Z" fill="var(--rust)" opacity="0.16"/>
+                <path d="M197.0 252.8 L196.6 250.0 L195.4 247.4 L193.4 244.8 L190.7 242.3 L187.3 240.0 L183.3 238.0 L178.6 236.1 L173.5 234.6 L168.0 233.4 L162.2 232.5 L156.2 232.0 L150.0 231.8 L143.9 232.0 L137.9 232.5 L132.1 233.4 L126.6 234.6 L121.5 236.1 L116.8 238.0 L112.8 240.0 L109.4 242.3 L106.6 244.8 L104.7 247.4 L103.5 250.0 L103.1 252.8 L103.5 255.5 L104.7 258.2 L106.6 260.7 L109.4 263.2 L112.8 265.5 L116.8 267.5 L121.5 269.3 L126.6 270.8 L132.1 272.0 L137.9 272.9 L143.9 273.4 L150.0 273.6 L156.2 273.4 L162.2 272.9 L168.0 272.0 L173.5 270.8 L178.6 269.3 L183.3 267.5 L187.3 265.5 L190.7 263.2 L193.4 260.7 L195.4 258.2 L196.6 255.5 L197.0 252.8 Z" fill="var(--loch)" opacity="0.25"/>
+              </g>
+              <path class="m-river" d="M-160.0 231.8 L22.6 191.0 L99.0 96.2 L215.8 9.7 L253.4 26.1 L244.0 95.0 L231.5 193.3 L225.2 247.1 L253.4 239.4 L291.0 235.6 L328.5 235.6 L350.5 235.6 L397.4 201.1 L435.0 166.1 L503.9 124.8"/><path class="m-river" d="M-191.3 307.4 L-128.7 417.6 L-98.9 528.0 L-44.1 538.5 L47.6 461.8 L107.8 433.4 L256.5 392.2 L350.5 396.2 L403.7 428.4 L491.4 342.3 L575.9 366.6"/><path class="m-river" d="M81.2 247.1 L128.1 256.2 L159.4 254.7 L184.5 256.6 L212.7 249.0 L225.2 247.1"/>
+              <path d="M181.4 258.5 L212.7 252.8 L244.0 246.3 L278.4 239.4 L297.2 235.6 L319.1 229.9 L337.9 220.3" fill="none" stroke="var(--loch)" stroke-width="2.4" marker-end="url(#c2arr)"/>
+              <path d="M96.5 189.7 Q130.5 221.7 171.3 253.10000000000002" fill="none" stroke="var(--muted)" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#c2arr2)"/>
+              <path d="M183.3 271.1 Q234.9 311.1 288.5 253" fill="none" stroke="var(--muted)" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#c2arr2)"/>
+              <text class="m-lab" style="fill:var(--rust);font-weight:700" x="392.0" y="282.0" text-anchor="middle">Shang heartland</text>
+              <text class="m-lab" style="fill:var(--loch);font-weight:700" x="152.9" y="219.6" text-anchor="middle">Zhou homeland</text>
+              <text class="m-lab river" x="52.0" y="190.0" text-anchor="middle">Wei R.</text>
+              <text class="m-lab river" x="250.0" y="140.0" text-anchor="middle">Yellow R.</text>
+              <text class="m-lab river" x="300" y="412" text-anchor="middle">Yangtze</text>
+              <text class="m-lab sea" x="540" y="244" text-anchor="middle" style="font-size:11px">Yellow</text><text class="m-lab sea" x="540" y="257" text-anchor="middle" style="font-size:11px">Sea</text>
+              <text class="m-lab" style="font-style:italic;fill:var(--muted)" x="79" y="173.7" text-anchor="start">Quanrong</text>
+              <circle cx="350.8" cy="188.3" r="5.5" fill="var(--rust)" stroke="var(--surface)" stroke-width="1.5"/><circle cx="330.7" cy="241.3" r="5" fill="var(--rust)" stroke="var(--surface)" stroke-width="1.5"/><circle cx="34.2" cy="381.6" r="5" fill="var(--moss)" stroke="var(--surface)" stroke-width="1.5"/>
+              <circle cx="146.9" cy="251.6" r="4.5" fill="var(--loch)" stroke="var(--surface)" stroke-width="1.5"/><circle cx="177.3" cy="261.1" r="4.5" fill="var(--loch)" stroke="var(--surface)" stroke-width="1.5"/><circle cx="292.5" cy="244" r="4.5" fill="var(--loch)" stroke="var(--surface)" stroke-width="1.5"/><circle cx="337.9" cy="220.3" r="3.5" fill="var(--ink)" stroke="var(--surface)" stroke-width="1.5"/>
+              <rect x="430.7" y="204.8" width="8" height="8" fill="var(--loch)" stroke="var(--surface)" stroke-width="1.2"/><rect x="471.7" y="156.3" width="8" height="8" fill="var(--loch)" stroke="var(--surface)" stroke-width="1.2"/><rect x="255.60000000000002" y="200.9" width="8" height="8" fill="var(--loch)" stroke="var(--surface)" stroke-width="1.2"/><rect x="399.7" y="46.6" width="8" height="8" fill="var(--loch)" stroke="var(--surface)" stroke-width="1.2"/>
+              <circle cx="350.5" cy="396.2" r="3.5" fill="var(--muted)" stroke="var(--surface)" stroke-width="1.2"/><text class="m-lab mu" x="358.5" y="400.2" text-anchor="start">Wuhan</text>
+              <text class="m-lab red" x="359.8" y="185.3" text-anchor="start">Yinxu (Anyang)</text>
+              <text class="m-lab red" x="339.7" y="246.3" text-anchor="start">Zhengzhou</text>
+              <text class="m-lab" x="346.9" y="224.3" text-anchor="start">Muye</text>
+              <text class="m-lab" x="137.9" y="255.6" text-anchor="end">Zhou Plain</text>
+              <text class="m-lab" x="181.3" y="281.1" text-anchor="start">Haojing (Xi'an)</text>
+              <text class="m-lab" x="286.5" y="234.0" text-anchor="end">Luoyi (Luoyang)</text>
+              <text class="m-lab" style="fill:var(--moss)" x="43.2" y="385.6" text-anchor="start">Sanxingdui (Ancient Shu, near Chengdu)</text>
+              <text class="m-lab" x="442.7" y="212.8" text-anchor="start">Lu</text>
+              <text class="m-lab" x="483.7" y="164.3" text-anchor="start">Qi</text>
+              <text class="m-lab" x="251.6" y="208.9" text-anchor="end">Jin</text>
+              <text class="m-lab" x="411.7" y="54.6" text-anchor="start">Yan (near Beijing)</text>
+              <circle cx="146.9" cy="235.6" r="9" fill="var(--loch)" stroke="var(--surface)" stroke-width="1.5"/><text x="146.9" y="239.6" text-anchor="middle" style="font:700 11px var(--mono);fill:#fff">1</text><circle cx="163.3" cy="276.1" r="9" fill="var(--loch)" stroke="var(--surface)" stroke-width="1.5"/><text x="163.3" y="280.1" text-anchor="middle" style="font:700 11px var(--mono);fill:#fff">2</text><circle cx="323.9" cy="209.3" r="9" fill="var(--loch)" stroke="var(--surface)" stroke-width="1.5"/><text x="323.9" y="213.3" text-anchor="middle" style="font:700 11px var(--mono);fill:#fff">3</text><circle cx="306.5" cy="261.0" r="9" fill="var(--loch)" stroke="var(--surface)" stroke-width="1.5"/><text x="306.5" y="265.0" text-anchor="middle" style="font:700 11px var(--mono);fill:#fff">4</text><circle cx="434.7" cy="191.8" r="9" fill="var(--loch)" stroke="var(--surface)" stroke-width="1.5"/><text x="434.7" y="195.8" text-anchor="middle" style="font:700 11px var(--mono);fill:#fff">5</text><circle cx="66.5" cy="169.7" r="9" fill="var(--loch)" stroke="var(--surface)" stroke-width="1.5"/><text x="66.5" y="173.7" text-anchor="middle" style="font:700 11px var(--mono);fill:#fff">6</text>
+            </svg>
+          </div>
+          <div class="legend"><span><i class="sw c" style="background:var(--rust)"></i>Shang capitals</span><span><i class="sw c" style="background:var(--loch)"></i>Zhou capitals</span><span><i class="sw" style="background:var(--loch);border-radius:0;width:9px;height:9px"></i>Early Zhou vassal states (some)</span><span><i class="sw c" style="background:var(--moss)"></i>Sanxingdui</span></div>
+          <ol class="stages">
+            <li><b style="color:var(--loch)">① Zhou Plain:</b> the Zhou homeland, in the Wei River valley about 600 km west of the Shang.</li>
+            <li><b style="color:var(--loch)">② Haojing:</b> King Wen moved his capital here, ready to expand east.</li>
+            <li><b style="color:var(--loch)">③ Muye, 1046 BC:</b> King Wu marched east along the Wei and Yellow Rivers (blue arrow) and defeated the Shang army near the Shang capital, ending the Shang dynasty.</li>
+            <li><b style="color:var(--loch)">④ Luoyi:</b> the Duke of Zhou built a new capital in the east, to keep a close watch on the former Shang lands.</li>
+            <li><b style="color:var(--loch)">⑤ Fengjian:</b> the Zhou king granted lands in the east and north to relatives and loyal servants, creating vassal states such as Lu, Qi, Jin and Yan, a ring of shields protecting the royal house.</li>
+            <li><b style="color:var(--loch)">⑥ 771 BC:</b> the Quanrong sacked Haojing; the next year the Zhou court moved east to Luoyi (grey dashed line), ending the Western Zhou.</li>
+          </ol>
+          <figcaption><b>Map 1: The Shang in the east, the Zhou from the west.</b> Neither the Shang nor the Zhou had fixed borders; the pale shading only roughly shows their core areas, and the rivers are simplified. Sanxingdui in Sichuan was contemporary with the Shang but belonged to a separate, independent civilisation.</figcaption>
+        </figure>
+        <figure>
+          <div class="frame">
+            <svg viewBox="0 0 600 196" role="img" aria-labelledby="c2dv">
+              <title id="c2dv">The four steps of Shang oracle bone divination</title>
+              <g transform="translate(52 18)"><path d="M0 0 C18 -4 40 -4 58 0 C62 30 62 70 56 100 C40 106 18 106 2 100 C-4 70 -4 30 0 0 Z" fill="var(--surface)" stroke="var(--lichen)" stroke-width="1.6"/><ellipse cx="12" cy="16" rx="4" ry="6.5" fill="var(--land-edge)" opacity="0.8"/><ellipse cx="29" cy="16" rx="4" ry="6.5" fill="var(--land-edge)" opacity="0.8"/><ellipse cx="46" cy="16" rx="4" ry="6.5" fill="var(--land-edge)" opacity="0.8"/><ellipse cx="12" cy="34" rx="4" ry="6.5" fill="var(--land-edge)" opacity="0.8"/><ellipse cx="29" cy="34" rx="4" ry="6.5" fill="var(--land-edge)" opacity="0.8"/><ellipse cx="46" cy="34" rx="4" ry="6.5" fill="var(--land-edge)" opacity="0.8"/><ellipse cx="12" cy="52" rx="4" ry="6.5" fill="var(--land-edge)" opacity="0.8"/><ellipse cx="29" cy="52" rx="4" ry="6.5" fill="var(--land-edge)" opacity="0.8"/><ellipse cx="46" cy="52" rx="4" ry="6.5" fill="var(--land-edge)" opacity="0.8"/><ellipse cx="12" cy="70" rx="4" ry="6.5" fill="var(--land-edge)" opacity="0.8"/><ellipse cx="29" cy="70" rx="4" ry="6.5" fill="var(--land-edge)" opacity="0.8"/><ellipse cx="46" cy="70" rx="4" ry="6.5" fill="var(--land-edge)" opacity="0.8"/><ellipse cx="12" cy="88" rx="4" ry="6.5" fill="var(--land-edge)" opacity="0.8"/><ellipse cx="29" cy="88" rx="4" ry="6.5" fill="var(--land-edge)" opacity="0.8"/><ellipse cx="46" cy="88" rx="4" ry="6.5" fill="var(--land-edge)" opacity="0.8"/></g><text class="u-t b" x="81" y="146" text-anchor="middle">1. Prepare</text><text class="u-s" x="81" y="166" text-anchor="middle">Smooth a bone,</text><text class="u-s" x="81" y="183" text-anchor="middle">cut pits in back</text><text x="154" y="72" text-anchor="middle" style="font:700 16px var(--body);fill:var(--muted)">→</text><g transform="translate(200 18)"><path d="M0 0 C18 -4 40 -4 58 0 C62 30 62 70 56 100 C40 106 18 106 2 100 C-4 70 -4 30 0 0 Z" fill="var(--surface)" stroke="var(--lichen)" stroke-width="1.6"/><ellipse cx="29" cy="52" rx="4" ry="6.5" fill="var(--land-edge)"/><line x1="29" y1="52" x2="66" y2="18" stroke="var(--ink)" stroke-width="3" stroke-linecap="round"/><circle cx="31" cy="50" r="7" fill="var(--rust)" opacity="0.55"/><circle cx="31" cy="50" r="3.5" fill="#E8A33C"/></g><text class="u-t b" x="229" y="146" text-anchor="middle">2. Heat</text><text class="u-s" x="229" y="166" text-anchor="middle">Burn a pit with</text><text class="u-s" x="229" y="183" text-anchor="middle">a red-hot stick</text><text x="302" y="72" text-anchor="middle" style="font:700 16px var(--body);fill:var(--muted)">→</text><g transform="translate(348 18)"><path d="M0 0 C18 -4 40 -4 58 0 C62 30 62 70 56 100 C40 106 18 106 2 100 C-4 70 -4 30 0 0 Z" fill="var(--surface)" stroke="var(--lichen)" stroke-width="1.6"/><path d="M29 30 L29 76 M29 50 L44 42" fill="none" stroke="var(--ink)" stroke-width="2" stroke-linecap="round"/><path d="M29 50 L25 46" stroke="var(--ink)" stroke-width="1" /></g><text class="u-t b" x="377" y="146" text-anchor="middle">3. Read the crack</text><text class="u-s" x="377" y="166" text-anchor="middle">A crack appears;</text><text class="u-s" x="377" y="183" text-anchor="middle">its shape is read</text><text x="450" y="72" text-anchor="middle" style="font:700 16px var(--body);fill:var(--muted)">→</text><g transform="translate(496 18)"><path d="M0 0 C18 -4 40 -4 58 0 C62 30 62 70 56 100 C40 106 18 106 2 100 C-4 70 -4 30 0 0 Z" fill="var(--surface)" stroke="var(--lichen)" stroke-width="1.6"/><path d="M29 30 L29 76 M29 50 L44 42" fill="none" stroke="var(--ink)" stroke-width="1.6" stroke-linecap="round"/><rect x="8" y="22" width="5" height="7" fill="var(--rust)" opacity="0.85"/><rect x="8" y="34" width="5" height="7" fill="var(--rust)" opacity="0.85"/><rect x="8" y="46" width="5" height="7" fill="var(--rust)" opacity="0.85"/><rect x="8" y="58" width="5" height="7" fill="var(--rust)" opacity="0.85"/><rect x="8" y="70" width="5" height="7" fill="var(--rust)" opacity="0.85"/><rect x="17" y="22" width="5" height="7" fill="var(--rust)" opacity="0.85"/><rect x="17" y="34" width="5" height="7" fill="var(--rust)" opacity="0.85"/><rect x="17" y="46" width="5" height="7" fill="var(--rust)" opacity="0.85"/><rect x="17" y="58" width="5" height="7" fill="var(--rust)" opacity="0.85"/><rect x="17" y="70" width="5" height="7" fill="var(--rust)" opacity="0.85"/></g><text class="u-t b" x="525" y="146" text-anchor="middle">4. Carve</text><text class="u-s" x="525" y="166" text-anchor="middle">Carve the date,</text><text class="u-s" x="525" y="183" text-anchor="middle">question, result</text>
+            </svg>
+          </div>
+          <figcaption><b>Figure 2: How did a Shang king put a question to his ancestors?</b> The four steps of oracle bone divination, in diagram form. The first panel shows the back of the bone; the third and fourth show the front. The small red squares stand for the carved writing; on real oracle bones the writing is often arranged around the cracks.</figcaption>
+        </figure>
+        <figure>
+          <div class="frame">
+            <svg viewBox="0 0 600 172" role="img" aria-labelledby="c2gl">
+              <title id="c2gl">Six oracle bone characters compared with modern Chinese characters</title>
+              <text class="u-s" x="4" y="60">Oracle</text><text class="u-s" x="4" y="76">bone</text>
+              <text class="u-s" x="4" y="124">Today</text>
+              <text class="u-s" x="4" y="160">Meaning</text>
+              <line x1="70" y1="94" x2="596" y2="94" stroke="var(--line)"/>
+              <g transform="translate(118 64)"><rect x="-15" y="-17" width="30" height="34" rx="12" fill="none" stroke="var(--rust)" stroke-width="2.6"/><line x1="-6" y1="0" x2="6" y2="0" stroke="var(--rust)" stroke-width="2.6"/></g><text x="118" y="132" text-anchor="middle" style="font:500 34px var(--display);fill:var(--ink)">日</text><text class="u-s" x="118" y="160" text-anchor="middle">sun</text><g transform="translate(200 64)"><path d="M4 -20 C-18 -14 -20 12 2 20 C-6 8 -6 -8 4 -20 Z" fill="none" stroke="var(--rust)" stroke-width="2.6" stroke-linejoin="round"/><line x1="-6" y1="-2" x2="-2" y2="2" stroke="var(--rust)" stroke-width="2.4"/></g><text x="200" y="132" text-anchor="middle" style="font:500 34px var(--display);fill:var(--ink)">月</text><text class="u-s" x="200" y="160" text-anchor="middle">moon</text><g transform="translate(282 64)"><path d="M-20 16 L20 16 M-20 16 L-16 -2 M0 16 L0 -18 M20 16 L16 -2" fill="none" stroke="var(--rust)" stroke-width="2.6" stroke-linecap="round"/></g><text x="282" y="132" text-anchor="middle" style="font:500 34px var(--display);fill:var(--ink)">山</text><text class="u-s" x="282" y="160" text-anchor="middle">mountain</text><g transform="translate(364 64)"><path d="M0 -20 L0 20 M0 -6 L-12 -18 M0 -6 L12 -18 M0 8 L-12 20 M0 8 L12 20" fill="none" stroke="var(--rust)" stroke-width="2.6" stroke-linecap="round"/></g><text x="364" y="132" text-anchor="middle" style="font:500 34px var(--display);fill:var(--ink)">木</text><text class="u-s" x="364" y="160" text-anchor="middle">tree</text><g transform="translate(446 64)"><path d="M4 -20 C4 -4 2 8 -4 20 M3 -6 L-10 6" fill="none" stroke="var(--rust)" stroke-width="2.6" stroke-linecap="round"/></g><text x="446" y="132" text-anchor="middle" style="font:500 34px var(--display);fill:var(--ink)">人</text><text class="u-s" x="446" y="160" text-anchor="middle">person</text><g transform="translate(528 64)"><path d="M0 -20 C6 -12 -6 -4 0 4 C6 12 -6 16 0 22" fill="none" stroke="var(--rust)" stroke-width="2.6" stroke-linecap="round"/><g fill="var(--rust)"><circle cx="-11" cy="-12" r="2.3"/><circle cx="-11" cy="4" r="2.3"/><circle cx="11" cy="-4" r="2.3"/><circle cx="11" cy="12" r="2.3"/></g></g><text x="528" y="132" text-anchor="middle" style="font:500 34px var(--display);fill:var(--ink)">水</text><text class="u-s" x="528" y="160" text-anchor="middle">water</text>
+            </svg>
+          </div>
+          <figcaption><b>Figure 3: Can you still recognise characters from three thousand years ago?</b> The top row is a simplified tracing of common oracle bone forms; the bottom row is how the characters are written today. Many of the earliest Chinese characters were pictures: the sun, a crescent moon, three mountain peaks, a tree with branches and roots, a person standing side-on, flowing water with drops. Most later characters combine one part showing the meaning with another showing the sound, and are no longer simple pictures.</figcaption>
+        </figure>
+        <figure>
+          <div class="frame">
+            <svg viewBox="0 0 600 330" role="img" aria-labelledby="c2tree">
+              <title id="c2tree">Diagram of the ranks in the Western Zhou fengjian system</title>
+              <rect class="u-scot" x="180" y="10" width="240" height="48" rx="4"/>
+              <text class="u-t b" x="300" y="30" text-anchor="middle">Son of Heaven (Zhou king)</text><text class="u-s" x="300" y="48" text-anchor="middle">Holds the Mandate of Heaven</text>
+              <rect class="u-eng" x="140" y="66" width="320" height="48" rx="4"/>
+              <text class="u-t b" x="300" y="86" text-anchor="middle">Vassal lords</text><text class="u-s" x="300" y="104" text-anchor="middle">Each granted a state: Lu, Qi, Jin, Yan…</text>
+              <rect class="u-eng" x="100" y="122" width="400" height="48" rx="4"/>
+              <text class="u-t b" x="300" y="142" text-anchor="middle">Ministers and great officers</text><text class="u-s" x="300" y="160" text-anchor="middle">Senior nobles in each state, granted an estate</text>
+              <rect class="u-eng" x="60" y="178" width="480" height="48" rx="4"/>
+              <text class="u-t b" x="300" y="198" text-anchor="middle">Shi (lesser nobles)</text><text class="u-s" x="300" y="216" text-anchor="middle">The lowest nobles, mostly warriors</text>
+              <rect class="u-shared" x="20" y="234" width="560" height="48" rx="4"/>
+              <text class="u-t b" x="300" y="254" text-anchor="middle">Commoners</text><text class="u-s" x="300" y="272" text-anchor="middle">Farm the land, hand over grain, do labour and military service</text>
+              <text class="u-s" x="20" y="306">↓ Each rank grants land and people to the rank below</text>
+              <text class="u-s" x="20" y="324">↑ Each rank owes loyalty, tribute and troops to the rank above</text>
+            </svg>
+          </div>
+          <figcaption><b>Figure 4: How did fengjian work?</b> A simplified diagram. Each rank of nobles received land from the rank above and owed it loyalty, much like the "king, lords, knights, peasants" of medieval Europe. The difference is that most of the vassal lords were themselves relatives of the Zhou king. By the Eastern Zhou the king's control had greatly weakened, and each lord went his own way.</figcaption>
+        </figure>
+      </aside>
+    </div>
+
+    <section class="block" id="life" aria-labelledby="life2">
+      <span class="label">Daily life</span>
+      <h3 id="life2">How people lived</h3>
+      <div class="life">
+        <div>
+          <h4>Nobles in the capital at Yin, c. 1200 BC</h4>
+          <p>Nobles lived in timber-framed halls built on rammed-earth platforms. They used bronze vessels to offer wine and meat to their ancestors, and after the sacrifice everyone feasted together. Shang nobles were very fond of drink: their tombs often contain all kinds of wine vessels, such as the jue (爵) and gu (觚), and the Zhou later claimed that the Shang had fallen because of drunkenness. Nobles hunted from chariots and wore jade ornaments. When they died they were buried, according to rank, with bronzes, jades and even people killed to accompany them.</p>
+        </div>
+        <div>
+          <h4>Farmers and craftsmen</h4>
+          <p>The great majority of people were farmers, living in simple houses half sunk into the ground and roofed with thatch. With wooden tools and stone sickles they grew foxtail and broomcorn millet, and later wheat too, often working together on nobles' land. Around Yinxu were specialist bronze workshops, bone workshops and pottery kilns, where families of craftsmen handed down the same trade from generation to generation.</p>
+        </div>
+        <div>
+          <h4>Educating Zhou noble sons</h4>
+          <p>Boys of Zhou noble families had to learn the "Six Arts" (六藝): rites, music, archery, chariot driving, writing and arithmetic. They had to memorise how to bow, what to wear and what to say on each different occasion. This is a little like the riding, fighting skills and court manners that European knights later had to learn.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="people" aria-labelledby="people2">
+      <span class="label">Key people</span>
+      <h3 id="people2">Who's who</h3>
+      <ul class="people">
+        <li><span class="nm">Tang (湯)</span><span class="rl">Founder of the Shang, c. 1600 BC</span><p>The legendary leader of the Shang people who overthrew Jie, the tyrant of the Xia. Later generations saw him as a sage king who won the world through benevolence and virtue.</p></li>
+        <li><span class="nm">Wu Ding (武丁)</span><span class="rl">Shang king, reigned c. 1250–1192 BC</span><p>King at the height of Shang power. He is said to have reigned for fifty-nine years and campaigned in every direction, and left more oracle bone records than any other king.</p></li>
+        <li><span class="nm">Fu Hao (婦好)</span><span class="rl">Queen of Wu Ding, c. 1200 BC</span><p>A woman general who led sacrifices and commanded armies, the first woman military leader in China's written records. Her tomb is the only unrobbed Shang royal tomb at Yinxu whose owner can be identified.</p></li>
+        <li><span class="nm">Di Xin (帝辛), "King Zhou" (紂王)</span><span class="rl">Last Shang king, died 1046 BC</span><p>Burned himself to death after defeat at Muye. Later writers made him China's model tyrant, but these descriptions come mostly from the Zhou and from even later authors.</p></li>
+        <li><span class="nm">King Wen of Zhou (周文王, Ji Chang)</span><span class="rl">Zhou leader</span><p>United the western tribes and laid the groundwork for the Zhou conquest of the Shang. "King Wen" is an honorary title added after his death, meaning "the king of civil virtue".</p></li>
+        <li><span class="nm">King Wu of Zhou (周武王, Ji Fa)</span><span class="rl">Founder of the Zhou, conquered the Shang in 1046 BC</span><p>Son of King Wen. He defeated the Shang army at the Battle of Muye and founded the Zhou dynasty, but died not long after the conquest.</p></li>
+        <li><span class="nm">Duke of Zhou (周公, Ji Dan)</span><span class="rl">Younger brother of King Wu</span><p>Ruled on behalf of the young King Cheng, put down the Rebellion of the Three Guardians, built Luoyi, and established the fengjian system and the rites and music, before handing power back to King Cheng. Confucius said he often dreamed of the Duke of Zhou.</p></li>
+      </ul>
+    </section>
+
+    <section class="block" id="myths" aria-labelledby="myths2">
+      <span class="label">Myth or fact</span>
+      <h3 id="myths2">What people often get wrong</h3>
+      <ul class="myths">
+        <li><span class="mq">"King Zhou built a lake of wine and a forest of meat, doted on Daji and lived in debauchery, so he lost his kingdom."</span><span class="ma"><b>Largely a later story.</b> These descriptions appear mostly in texts written after the Zhou, and the later the book, the more exaggerated the account. Episodes such as Daji (妲己) being a fox spirit who bewitched King Zhou, and gods joining the war between Shang and Zhou, come from <i>The Investiture of the Gods</i> (封神演義), a Ming dynasty (明) fantasy novel that has recently been made into films. Even Confucius's student Zigong (子貢) said that King Zhou's wickedness was not as bad as the stories claimed. The oracle bones show that the last Shang kings were still diligent about sacrifices and campaigns.</span></li>
+        <li><span class="mq">"King You lit the beacon fires to make Bao Si laugh, tricking his lords, and in the end lost his kingdom."</span><span class="ma"><b>Very likely a later invention.</b> The story appears in the Records of the Grand Historian. But among a batch of Warring States bamboo slips acquired by Tsinghua University (清華大學) in 2008 is a history called the <i>Xinian</i> (繫年), which describes the fall of the Western Zhou without any mention of beacon fires: it says only that King You attacked the state of Shen, and Shen struck back in alliance with the Quanrong. Some scholars also point out that a system of beacon towers for sending alarms may not have appeared until a later age.</span></li>
+        <li><span class="mq">"The Chinese word for merchant, shangren (商人, literally 'Shang people'), arose because after the Shang fell, its surviving people had to turn to trade."</span><span class="ma"><b>Popular but unproven.</b> It is an entertaining idea and often repeated, but there is no reliable evidence for it, and scholars still explain the origin of the word in different ways.</span></li>
+        <li><span class="mq">"The Shang was a slave society."</span><span class="ma"><b>Disputed.</b> The Shang certainly carried out large-scale human sacrifice, and many people were forced to work. But the label "slave society" comes from a twentieth-century theory of history that divided all societies into fixed stages. Many scholars think most Shang labourers were not slaves.</span></li>
+      </ul>
+    </section>
+
+    <section class="block" id="evidence" aria-labelledby="ev2">
+      <span class="label">How we know</span>
+      <h3 id="ev2">Writing from the medicine shop</h3>
+      <div class="life">
+        <div>
+          <h4>The discovery of the oracle bones</h4>
+          <p>More than a hundred years ago, farmers at Anyang in Henan often dug up pieces of bone covered in marks in their fields, and sold them to medicine shops as "dragon bones", an ingredient in Chinese medicine. According to the popular account, in 1899 Wang Yirong (王懿榮), a Beijing official and expert in ancient writing, noticed ancient characters on bones among his medicines and began buying and studying them. In 1917 the scholar Wang Guowei (王國維) used the oracle bones to work out the names and order of the Shang kings, and found that they broadly matched the list of Shang kings recorded by Sima Qian in the Records of the Grand Historian a thousand years later. This proved that the Shiji's account of the Shang was not invented.</p>
+        </div>
+        <div>
+          <h4>Excavating Yinxu</h4>
+          <p>From 1928 to 1937 the Academia Sinica (中央研究院) carried out fifteen seasons of excavation at Yinxu, finding palaces, royal tombs and large numbers of oracle bones. This was the first large-scale scientific excavation in China led by Chinese scholars. It stopped when war with Japan broke out. In 1949 the Academia Sinica moved to Taiwan (台灣), and many of the finds from Yinxu are still kept in Taipei (台北) today.</p>
+        </div>
+        <div>
+          <h4>Bronze inscriptions and ancient books</h4>
+          <p>Zhou nobles often cast long texts into bronze vessels, recording appointments by the king, rewards, wars and even lawsuits. The Mao Gong ding (毛公鼎) in the National Palace Museum (國立故宮博物院) in Taipei has an inscription of nearly five hundred characters, and is a Western Zhou document in its own right. In addition, the <i>Book of Documents</i> (尚書, Shangshu) preserves some early Zhou proclamations, and the <i>Book of Songs</i> (詩經, Shijing) collects poems from the Western Zhou to the Spring and Autumn period. They were edited by later hands, but still keep much of the language and thinking of the time.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="words" aria-labelledby="words2">
+      <span class="label">Key terms</span>
+      <h3 id="words2">Terms from this era</h3>
+      <dl class="words">
+        <div><dt>Oracle bone inscriptions (甲骨文)</dt><dd>Shang writing carved on turtle shells and ox bones, mostly records of divination; the ancestor of today's Chinese characters.</dd></div>
+        <div><dt>Bronze inscriptions (金文)</dt><dd>Writing cast or carved on bronze vessels. It already existed under the Shang, and was most common under the Zhou.</dd></div>
+        <div><dt>Ding (鼎)</dt><dd>A large bronze cauldron with three or four legs, which later became a symbol of royal power and of the state.</dd></div>
+        <div><dt>Mandate of Heaven (天命)</dt><dd>The idea that Heaven gives the right to rule to a virtuous ruler; if the ruler loses his virtue, the mandate passes to someone else.</dd></div>
+        <div><dt>Fengjian (分封)</dt><dd>The Zhou king's granting of land and people to relatives and loyal servants, who set up vassal states.</dd></div>
+        <div><dt>Zongfa (宗法)</dt><dd>The clan system centred on inheritance by the eldest son of the principal wife, binding the family and the state together.</dd></div>
+        <div><dt>Li (禮)</dt><dd>A whole set of rules for how people of different rank should behave on every kind of occasion.</dd></div>
+        <div><dt>Gonghe (共和)</dt><dd>The period of rule by ministers after King Li of Zhou was driven out in 841 BC; the word is used today to translate "republic".</dd></div>
+      </dl>
+    </section>
+
+    <section class="parallel" id="world" aria-labelledby="w2">
+      <span class="label">Meanwhile in Europe and the world</span>
+      <h3 id="w2">A Bronze Age world</h3>
+      <div class="pair">
+        <div>
+          <h4>Tutankhamun and Fu Hao</h4>
+          <p>Around the time the Shang king Pangeng moved his capital to Yin, Egypt was ruled by the boy pharaoh Tutankhamun (c. 1332–1323 BC). His tomb, found in 1922, is one of the very few pharaohs' tombs never robbed, and like the tomb of Fu Hao, found at Yinxu more than fifty years later, it preserved a great many treasures.</p>
+        </div>
+        <div>
+          <h4>The Bronze Age collapse</h4>
+          <p>Around 1200 BC, in the time of Wu Ding and Fu Hao, several civilisations of the eastern Mediterranean, including Mycenaean Greece and the Hittite Empire in today's Turkey, collapsed one after another within a few decades; the legendary Trojan War also belongs roughly to this period. The distant Shang was untouched, and was at the height of its power.</p>
+        </div>
+        <div>
+          <h4>The birth of the alphabet</h4>
+          <p>Around 1050 BC, at about the same time as the Battle of Muye, the Phoenicians on the eastern shore of the Mediterranean were using an alphabet of just twenty-two signs. It later developed into the Greek and Latin alphabets, the ancestors of the letters used to write English today. In the same period, Chinese writing kept developing along the path of one character for each meaning, a direction completely different from the alphabet.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="visit" id="visit" aria-labelledby="v2">
+      <span class="label">See it for yourself</span>
+      <h3 id="v2">Sites and museums</h3>
+      <ul class="places">
+        <li><span class="nm">Yinxu and the Yinxu Museum (殷墟)</span><span class="tm">Anyang, Henan</span><p>A World Heritage Site. You can visit the remains of the palaces and temples, Fu Hao's tomb and the chariot pits; the museum displays large numbers of oracle bones and bronzes.</p></li>
+        <li><span class="nm">Sanxingdui Museum (三星堆博物館)</span><span class="tm">Guanghan, Sichuan</span><p>Home of the bulging-eyed bronze masks, the bronze sacred tree and the gold face masks. A new building opened in 2023.</p></li>
+        <li><span class="nm">National Museum of China (中國國家博物館)</span><span class="tm">Beijing</span><p>The Houmuwu ding and the Li gui, which records the Battle of Muye, are both on display here.</p></li>
+        <li><span class="nm">Baoji Bronze Ware Museum (寶雞青銅器博物院)</span><span class="tm">Baoji, Shaanxi</span><p>Near the Zhou Plain, the Zhou people's homeland. It holds the He zun with its inscription "settle in this centre of the world" and a great many Zhou bronzes.</p></li>
+        <li><span class="nm">National Palace Museum (國立故宮博物院) and the Academia Sinica History Museum (中央研究院歷史文物陳列館)</span><span class="tm">Taipei</span><p>The Palace Museum holds the Mao Gong ding, with its inscription of nearly five hundred characters; the Academia Sinica museum displays oracle bones and bronzes from the 1928 to 1937 excavations at Yinxu.</p></li>
+        <li><span class="nm">The Burrell Collection</span><span class="tm">Glasgow, UK · Free</span><p>The collection given by the Scottish shipping merchant Sir William Burrell, with fine Shang and Zhou bronzes and Chinese ceramics.</p></li>
+        <li><span class="nm">British Museum, China gallery</span><span class="tm">London, UK · Free</span><p>Room 33 has Shang and Zhou ritual bronzes and oracle bones.</p></li>
+      </ul>
+    </section>
+
+    <p class="remember"><span class="label">The one thing to remember</span>The Shang gave China writing and bronze; the Zhou gave China the "Mandate of Heaven" and the family-based fengjian system. Together they laid the foundations of Chinese politics and culture for the next three thousand years.</p>
+  </article>
+
+<script type="application/json" id="gloss">{"dynasty": ["Dynasty 王朝", "Concept", "A regime ruled by one family, handed down from generation to generation. Chinese history is traditionally divided by dynasty, such as the Xia, Shang, Zhou, Qin and Han, all the way to the last, the Qing."], "shang": ["Shang dynasty 商朝", "c. 1600–1046 BC", "The first Chinese dynasty that can be confirmed both by archaeological sites and by writing from its own time. It ruled the plains of the middle and lower Yellow River, and its last capital was at today's Anyang in Henan."], "zhou": ["Zhou dynasty 周朝", "1046–256 BC", "The longest dynasty in Chinese history, lasting nearly eight hundred years. The Zhou people originally lived in the Wei River valley (today's Shaanxi) and founded the dynasty after conquering the Shang. It is divided into two parts, the Western Zhou and the Eastern Zhou."], "xizhou": ["Western Zhou 西周", "1046–771 BC", "The first half of the Zhou dynasty, called the Western Zhou because its capital was at Haojing in the west (near today's Xi'an). In this period the Zhou king still held real power."], "dongzhou": ["Eastern Zhou 東周", "770–256 BC", "The second half of the Zhou dynasty, called the Eastern Zhou because the capital moved east to Luoyi (today's Luoyang). The Zhou king kept only his title. It is divided into the Spring and Autumn and Warring States periods; see Era 3."], "oracle": ["Oracle bone inscriptions 甲骨文", "Shang writing, from c. 1250 BC", "Writing carved on turtle shells and ox bones, mostly records of the Shang kings' divinations. More than four thousand different characters have been found. It is the direct ancestor of today's Chinese characters."], "jinwen": ["Bronze inscriptions 金文", "Writing on bronzes", "Writing cast or carved on bronze vessels. In ancient times bronze was called jin, 'metal', hence the Chinese name jinwen. Zhou bronze inscriptions often run to several hundred characters, recording appointments, rewards and wars."], "tang": ["Tang 湯", "Founder of the Shang, c. 1600 BC", "Leader of the Shang people who, according to legend, overthrew Jie, the tyrant of the Xia, and founded the Shang dynasty. Later honoured as 'Shang Tang' and seen as a sage king who won the world through virtue."], "xia": ["Xia dynasty 夏朝", "Traditionally c. 2070–1600 BC", "The first dynasty recorded in traditional Chinese histories. No writing from the Xia itself has yet been found, so whether it existed is still debated; see Era 1."], "jie": ["Jie 桀", "Legendary last ruler of the Xia", "The legendary Xia king, debauched and cruel, who was overthrown by Tang of Shang. Together with King Zhou of the Shang he became the model of the tyrant who loses his kingdom in Chinese tradition; the two are named together as 'Jie and Zhou'."], "zhengzhou": ["Shang city at Zhengzhou 鄭州商城", "Zhengzhou, Henan, c. 1600–1400 BC", "A great early Shang city, with walls nearly seven kilometres round. Parts of the walls still stand in the centre of Zhengzhou today."], "hangtu": ["Rammed earth 夯土", "Building technique", "Earth poured layer by layer into a wooden frame and pounded hard with wooden mallets or stone pestles, to build solid walls and platforms. Many ancient Chinese city walls and palace platforms, and even later the Great Wall, were built this way."], "pangeng": ["Pangeng 盤庚", "Shang king, c. 1300 BC", "The king who moved the Shang capital to Yin (today's Anyang in Henan). From then until the fall of the Shang the capital never moved again."], "yin": ["Yin 殷", "Later Shang capital", "The area around today's Anyang in Henan. Because it was the Shang capital for more than two hundred years in the later Shang, the dynasty is also called 'Yin' or 'Yin-Shang'."], "yinxu": ["Yinxu 殷墟", "Anyang, Henan; World Heritage Site", "The site of the later Shang capital; the name means 'the Ruins of Yin'. Excavated from 1928, it has yielded palaces, royal tombs, chariot pits, bronzes and large numbers of oracle bones."], "chariot": ["Chariot pits 車馬坑", "Finds at Yinxu", "Pits in which a whole chariot was buried along with the horses that pulled it, and sometimes its driver, as part of a noble's burial. Chariots appeared in China only around 1200 BC."], "rensacrifice": ["Human sacrifice 人祭", "Shang ritual practice", "Killing people as offerings to the ancestors and spirits. Shang oracle bones record a great deal of human sacrifice, and many of the victims were prisoners of war. The practice declined greatly from the Zhou onwards."], "shangdi": ["Di / Shangdi 帝／上帝", "Supreme god of the Shang", "The highest god the Shang believed in, in charge of wind and rain, harvests and war. From the nineteenth century Western missionaries borrowed the word 'Shangdi' to translate the Christian 'God', but the two originally had nothing to do with each other."], "divination": ["Divination 占卜", "Foretelling fortune", "Using some method to ask the spirits or ancestors their will, and so foretell whether something would turn out well or badly. The Shang heated shells and bones and read the cracks; the Zhou also counted with yarrow stalks, a practice that later developed into the Book of Changes (易經, Yijing)."], "zhenren": ["Zhenren 貞人", "Shang diviners", "The officials who carried out divinations and carved the records on the bones. The diviner's name is often recorded on the bones, and scholars know of more than a hundred."], "bronze": ["Bronze 青銅", "Alloy", "A metal made by melting copper and tin together, sometimes with lead. It is harder than pure copper and melts at a lower temperature, so it is easy to cast. The age when people used bronze is called the Bronze Age."], "piecemould": ["Piece-mould casting 塊範法", "Chinese bronze-casting method", "First a clay model of the vessel was made, and clay moulds in several sections were pressed around it. These were removed and fitted around a clay core, and molten bronze was poured into the gap between them. It differs from the 'lost-wax' method commonly used in the West and the Middle East."], "houmuwu": ["Houmuwu ding 后母戊鼎", "Late Shang, c. 1200 BC", "A huge rectangular ding 133 centimetres tall and weighing 832.84 kilograms, cast by a Shang king for offerings to his mother. It was dug up at Anyang in 1939 and is now in the National Museum of China. It used to be called the 'Simuwu ding'."], "ding": ["Ding 鼎", "Bronze vessel", "A round ding with three legs or a rectangular one with four, originally used to cook meat and to hold it for offerings. Legend says Yu of the Xia cast nine ding to represent the nine provinces of the world, so the ding later became a symbol of royal power and of the state."], "tiangan": ["Heavenly Stems 天干", "Signs for counting days", "Ten characters, jia, yi, bing, ding, wu, ji, geng, xin, ren and gui, used in rotation by the Shang to count days. After a Shang king died he received offerings on a day chosen by these stems, so his name contains a stem, as in Wu Ding and Di Xin."], "wuding": ["Wu Ding 武丁", "Shang king, reigned c. 1250–1192 BC", "King at the height of Shang power. He is said to have reigned for fifty-nine years and campaigned in every direction, and he left more oracle bone records than any other Shang king."], "fuhao": ["Fu Hao 婦好", "Queen of Wu Ding, c. 1200 BC", "A queen who led sacrifices and commanded armies, the earliest woman general in Chinese written records. Her tomb was discovered at Yinxu in 1976, never having been robbed."], "cowrie": ["Cowrie shells 海貝", "Shang wealth", "Shells from warm southern seas. In the Shang lands, far from the sea, they were highly prized and used as wealth, decoration and a means of exchange. That is why many Chinese characters to do with money contain the 'shell' component 貝, such as 財 (wealth), 貨 (goods), 買 (buy) and 貴 (expensive)."], "shu": ["Ancient Shu 古蜀", "Ancient civilisation of Sichuan", "An ancient civilisation of the Sichuan Basin, existing at the same time as the Shang but with a completely different culture. Later legends tell of Shu kings such as Cancong and Yufu, but there are no written records from the time."], "sanxingdui": ["Sanxingdui 三星堆", "Guanghan, Sichuan, c. 1200–1000 BC", "A site of the Ancient Shu civilisation. In 1986 two large pits of objects were found, yielding bulging-eyed bronze masks, bronze sacred trees, a standing bronze figure and gold face masks. Six more pits have been found since 2019."], "zhouyuan": ["Zhou Plain 周原", "Qishan and Fufeng, Baoji, Shaanxi", "A fertile plain in the Wei River valley, the homeland where the Zhou people rose. Large numbers of Zhou bronzes and oracle bones have been dug up here."], "wenwang": ["King Wen of Zhou 周文王", "Ji Chang, c. 1100 BC", "Leader of the Zhou people who united the western tribes and laid the groundwork for the conquest of the Shang, but died before it happened. 'King Wen' is an honorary title added after his death, meaning 'the king of civil virtue'."], "haojing": ["Haojing 鎬京", "Western Zhou capital, near today's Xi'an", "The capital built by King Wen and King Wu of Zhou, also called Zongzhou, beside the Wei River southwest of today's Xi'an. It was sacked by the Quanrong in 771 BC."], "wuwang": ["King Wu of Zhou 周武王", "Ji Fa, conquered the Shang in 1046 BC", "Son of King Wen. He defeated the Shang army at the Battle of Muye and founded the Zhou dynasty, but died two or three years after the conquest."], "taigong": ["Jiang Taigong 姜太公", "Lü Shang, early Zhou military adviser", "Strategist and general who helped King Wen and King Wu conquer the Shang, later given the state of Qi (in today's Shandong). Folk legend says he went fishing by a river with a straight hook, waiting for King Wen to come and ask him to serve."], "muye": ["Battle of Muye 牧野之戰", "1046 BC", "The decisive battle in which King Wu of Zhou, leading the Zhou army and its allies, defeated the Shang army at Muye near the Shang capital (around today's Xinxiang in Henan), bringing the Shang dynasty to an end. The year 1046 is a scholars' calculation, and other dates have been proposed."], "dixin": ["Di Xin 帝辛 (King Zhou 紂王)", "Last Shang king, died 1046 BC", "After his defeat at Muye he fled back to his capital, climbed a high tower and burned himself to death. Later generations called him 'Zhou' (紂), an insulting name, and portrayed him as a cruel, debauched tyrant."], "ligui": ["Li gui 利簋", "Early Western Zhou bronze", "A bronze vessel dug up at Lintong in Shaanxi in 1976. Its inscription records that King Wu took the Shang capital on the morning of a 'jiazi' day, and rewarded an official named Li with bronze. It is the only record of the Battle of Muye from the time."], "tianming": ["Mandate of Heaven 天命", "Zhou political idea", "Heaven gives the power to rule the world to a virtuous ruler; if the ruler loses his virtue, the mandate passes to someone else. For the next three thousand years every change of dynasty in China was explained in these terms."], "hezun": ["He zun 何尊", "Early Western Zhou bronze wine vessel", "Dug up at Baoji in Shaanxi in 1963. Its inscription tells of King Cheng of Zhou building Luoyi, and its phrase 宅茲中國 contains the earliest known use of the word 'Zhongguo'. It is now in the Baoji Bronze Ware Museum."], "zhongguo": ["Zhongguo 中國", "Origin of a word", "It first meant 'the central region', the area around Luoyang that was seen as the centre of the world. Only much later did it become the name of the whole country. The English word 'China', on the other hand, may come from the later Qin dynasty."], "chengwang": ["King Cheng of Zhou 周成王", "Son of King Wu", "Still young when King Wu died, so his uncle the Duke of Zhou ruled for him. He took power himself when he came of age; his reign and that of his son, King Kang, were the most stable time of the Western Zhou, known as the 'Peace of Cheng and Kang'."], "zhougong": ["Duke of Zhou 周公", "Ji Dan, younger brother of King Wu", "Ruled on behalf of the young King Cheng, put down a rebellion, built Luoyi and established the fengjian system and the rites and music, later handing power back to King Cheng. Honoured as a sage by Confucians."], "sanjian": ["Rebellion of the Three Guardians 三監之亂", "c. 1042 BC", "After conquering the Shang, King Wu sent three of his younger brothers to watch over the former Shang lands; they were called the 'Three Guardians'. After King Wu died, two of them, Guanshu and Caishu, resented the Duke of Zhou's rule and rebelled together with Di Xin's son Wugeng. The Duke of Zhou put the rebellion down."], "luoyi": ["Luoyi 洛邑", "Today's Luoyang, Henan", "The new eastern capital built by the Duke of Zhou, also called Chengzhou, to control the former Shang lands. From 770 BC it was the capital of the Eastern Zhou."], "fengjian": ["Fengjian 分封", "Zhou system", "The Zhou king granted land and people to relatives and loyal servants, who set up vassal states; the lords had to be loyal to the king, send tribute and provide troops. Often translated as 'feudalism', but because it was based on blood ties it was not quite the same as the European feudal system."], "zhuhou": ["Vassal lords 諸侯", "Rulers of granted states", "Nobles granted a small state to rule by the Zhou king. The lords were ranked as gong, hou, bo, zi and nan; much later, Chinese borrowed these words to translate Western titles such as duke, marquis and count."], "lu": ["Lu 魯", "Vassal state, today's Qufu, Shandong", "The state granted to Boqin, son of the Duke of Zhou. Lu preserved the Zhou rites more fully than anywhere else, and about five hundred years later Confucius was born here."], "qi": ["Qi 齊", "Vassal state, today's northern Shandong", "The state granted to Jiang Taigong. On the coast, it grew rich from fishing and salt-making, and later became a great power of the Spring and Autumn and Warring States periods."], "jin": ["Jin 晉", "Vassal state, today's Shanxi", "The state granted to Tangshu Yu, younger brother of King Cheng of Zhou. It later became the strongest state in the north in the Spring and Autumn period, and finally split into the three states of Han, Zhao and Wei."], "yan": ["Yan 燕", "Vassal state, around today's Beijing", "The state granted to the Duke of Shao, a senior minister of the early Zhou, on the Zhou's northeastern frontier. Beijing still has the old name 'Yanjing'."], "zongfa": ["Zongfa 宗法", "Zhou clan system", "A family system centred on inheritance by the eldest son of the principal wife, distinguishing the main line (dazong) from the branch lines (xiaozong). The Zhou king was the main line of the whole world, so family relationships and political rank were bound together."], "dizhangzi": ["Eldest son of the principal wife 嫡長子", "The heir", "The first son born to a man's principal wife. Under the zongfa system he inherited his father's position; sons of concubines could not inherit, even if they were older."], "li": ["Li (ritual) 禮", "Zhou code of conduct", "A whole set of rules for how people of different rank should behave at sacrifices, banquets, weddings, funerals and other occasions, intended to keep social order. Confucius spent his whole life calling for a return to the Zhou rites."], "liwang": ["King Li of Zhou 周厲王", "Western Zhou king, driven out in 841 BC", "Greedy and cruel, he had his critics watched and killed. In 841 BC he was driven out by the people of the capital and fled to what is now Shanxi, where he later died."], "gonghe": ["Gonghe 共和", "841–828 BC", "The fourteen years of rule by ministers after King Li of Zhou was driven out. One account says the descendants of the Duke of Zhou and the Duke of Shao governed jointly; another says a noble called Gong Bo He ruled. Today the word is used to translate the English 'republic'."], "shiji": ["Records of the Grand Historian 史記", "By Sima Qian, completed c. 90 BC", "A general history of China by the Han dynasty historian Sima Qian, running from the legendary Yellow Emperor to Emperor Wu of Han. It is one of China's most important histories, and the later official dynastic histories all followed its form."], "youwang": ["King You of Zhou 周幽王", "Last Western Zhou king, died 771 BC", "He doted on Bao Si and deposed his queen and the crown prince, so the queen's home state of Shen joined with the Quanrong to storm Haojing. He was killed at the foot of Mount Li, and the Western Zhou came to an end."], "baosi": ["Bao Si 褒姒", "Favourite consort of King You", "King You deposed his queen and the crown prince for her sake. Later legend says she never laughed, and that King You lit the beacon fires to make her laugh, but this story is very likely invented."], "quanrong": ["Quanrong 犬戎", "People of the northwest", "A people living northwest of the Zhou, sometimes at war with them and sometimes at peace. In 771 BC, invited by the Marquis of Shen, they sacked Haojing. 'Quanrong' (literally 'dog Rong') was the Zhou's insulting name for them; what they called themselves is no longer known."]}</script>
+  <nav class="pagenav" aria-label="Eras"><a class="prev" href="era1.html"><span class="dir">Previous · Era 1</span><span class="ttl">Prehistory and Legend</span></a><a class="next" href="era3.html"><span class="dir">Next · Era 3</span><span class="ttl">Spring and Autumn, Warring States</span></a></nav>
+</div>
+<div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-labelledby="lb-title">
+  <div class="lb-bar">
+    <span class="lb-title" id="lb-title"></span>
+    <button type="button" class="lb-close" id="lb-close">Close</button>
+  </div>
+  <div class="lb-controls">
+    <button type="button" id="lb-fit">Fit to screen</button>
+    <button type="button" id="lb-out" aria-label="Zoom out">&minus;</button>
+    <input type="range" id="lb-range" min="25" max="300" step="5" value="100" aria-label="Zoom level">
+    <button type="button" id="lb-in" aria-label="Zoom in">+</button>
+    <span class="lb-level" id="lb-level">100%</span>
+  </div>
+  <div class="lb-body" id="lb-body"></div>
+  <div class="lb-hint">Drag the slider or use &minus; and + to zoom from 25% to 300%. 100% fills the screen width. Scroll to move around.</div>
+</div>
+<script>
+(function () {
+  var box = document.getElementById('lightbox'), body = document.getElementById('lb-body');
+  var title = document.getElementById('lb-title'), level = document.getElementById('lb-level'), range = document.getElementById('lb-range');
+  var z = 1, MIN = 0.25, MAX = 3, current = null, opener = null;
+  function availW() { return Math.max(200, body.clientWidth - 32); }
+  function availH() { return Math.max(200, body.clientHeight - 32); }
+  function aspect() { var vb = current && current.viewBox && current.viewBox.baseVal; return vb && vb.width ? vb.height / vb.width : 0.6; }
+  function setZ(v) {
+    z = Math.min(MAX, Math.max(MIN, Math.round(v * 100) / 100));
+    if (current) current.style.width = Math.round(availW() * z) + 'px';
+    range.value = Math.round(z * 100); level.textContent = Math.round(z * 100) + '%';
+  }
+  function fit() { setZ(Math.min(1, availH() / (availW() * aspect()))); }
+  function open(svg, from) {
+    current = svg.cloneNode(true);
+    current.querySelectorAll('[id]').forEach(function (el) { el.removeAttribute('id'); });
+    current.removeAttribute('aria-labelledby');
+    var t = svg.querySelector('title'); title.textContent = t ? t.textContent : 'Diagram';
+    current.setAttribute('role', 'img'); current.setAttribute('aria-label', title.textContent);
+    body.innerHTML = ''; body.appendChild(current);
+    opener = from; box.hidden = false; document.documentElement.style.overflow = 'hidden';
+    fit(); body.scrollTop = 0; body.scrollLeft = 0;
+    document.getElementById('lb-close').focus();
+  }
+  function close() { box.hidden = true; body.innerHTML = ''; current = null; document.documentElement.style.overflow = ''; if (opener) opener.focus(); }
+  document.querySelectorAll('figure .frame').forEach(function (frame) {
+    var svg = frame.querySelector('svg'); if (!svg) return;
+    var b = document.createElement('button'); b.type = 'button'; b.className = 'zoom-btn'; b.textContent = 'Enlarge';
+    b.setAttribute('aria-label', 'Enlarge: ' + ((svg.querySelector('title') || {}).textContent || 'diagram'));
+    b.addEventListener('click', function () { open(svg, b); });
+    svg.addEventListener('click', function () { open(svg, b); });
+    frame.appendChild(b);
+  });
+  document.getElementById('lb-close').addEventListener('click', close);
+  document.getElementById('lb-fit').addEventListener('click', fit);
+  document.getElementById('lb-in').addEventListener('click', function () { setZ(z + 0.1); });
+  document.getElementById('lb-out').addEventListener('click', function () { setZ(z - 0.1); });
+  range.addEventListener('input', function () { setZ(range.value / 100); });
+  body.addEventListener('wheel', function (e) { if (!e.ctrlKey) return; e.preventDefault(); setZ(z * (e.deltaY < 0 ? 1.1 : 0.9)); }, { passive: false });
+  window.addEventListener('resize', function () { if (!box.hidden) setZ(z); });
+  document.addEventListener('keydown', function (e) {
+    if (box.hidden) return;
+    if (e.key === 'Escape') close();
+    else if (e.key === '+' || e.key === '=') setZ(z + 0.1);
+    else if (e.key === '-') setZ(z - 0.1);
+    else if (e.key === '0') fit();
+  });
+})();
+</script>
+<div class="glcard" id="glcard" role="dialog" aria-modal="false" aria-labelledby="gl-t" hidden>
+  <button type="button" class="gx" id="gl-x" aria-label="Close">×</button>
+  <span class="gt" id="gl-t"></span><span class="gs" id="gl-s"></span><p class="gb" id="gl-b"></p>
+</div>
+<script>
+(function () {
+  var el = document.getElementById('gloss'); if (!el) return;
+  var G = JSON.parse(el.textContent), card = document.getElementById('glcard'), cur = null;
+  function hide() { card.hidden = true; if (cur) { cur.setAttribute('aria-expanded', 'false'); } cur = null; }
+  function show(btn) {
+    var e = G[btn.dataset.g]; if (!e) return;
+    if (cur === btn) { hide(); return; }
+    if (cur) cur.setAttribute('aria-expanded', 'false');
+    document.getElementById('gl-t').textContent = e[0];
+    document.getElementById('gl-s').textContent = e[1];
+    document.getElementById('gl-b').textContent = e[2];
+    card.hidden = false; cur = btn; btn.setAttribute('aria-expanded', 'true');
+    if (window.innerWidth > 700) {
+      var r = btn.getBoundingClientRect(), w = card.offsetWidth, h = card.offsetHeight;
+      var left = Math.min(Math.max(16, r.left + window.scrollX), window.scrollX + document.documentElement.clientWidth - w - 16);
+      var top = r.bottom + window.scrollY + 8;
+      if (r.bottom + h + 16 > window.innerHeight && r.top > h + 16) top = r.top + window.scrollY - h - 8;
+      card.style.left = left + 'px'; card.style.top = top + 'px';
+    }
+    document.getElementById('gl-x').focus({ preventScroll: true });
+  }
+  document.querySelectorAll('button.gl').forEach(function (b) { b.setAttribute('aria-expanded', 'false'); b.addEventListener('click', function (ev) { ev.stopPropagation(); show(b); }); });
+  document.getElementById('gl-x').addEventListener('click', function () { var b = cur; hide(); if (b) b.focus(); });
+  card.addEventListener('click', function (ev) { ev.stopPropagation(); });
+  document.addEventListener('click', hide);
+  document.addEventListener('keydown', function (ev) { if (ev.key === 'Escape' && !card.hidden) { var b = cur; hide(); if (b) b.focus(); } });
+  window.addEventListener('resize', hide);
+})();
+</script>
+</body>
+</html>

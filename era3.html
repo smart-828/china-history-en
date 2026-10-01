@@ -1,0 +1,696 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Era 3: Spring and Autumn, Warring States · China Through Time</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,500;0,700;1,500&family=Source+Sans+3:wght@400;500;700&family=Noto+Serif+TC:wght@500;700&family=Noto+Sans+TC:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a field guide. Era strip across the top, then one long-form chapter per era with maps and drawings set into the text column. */
+:root {
+  --bg: #F3F4F0;
+  --surface: #FFFFFF;
+  --ink: #1E2421;
+  --muted: #5B645F;
+  --line: #D6DAD3;
+  --loch: #2B5F58;
+  --lichen: #9C7426;
+  --heather: #6A4B7C;
+  --moss: #3F6B3A;
+  --rust: #B0392B;
+  --river: #5B8DB0;
+  --sea: #D3E2E3;
+  --land: #EEEADF;
+  --land-edge: #A9AA9E;
+  --display: "Noto Serif TC", "Songti TC", "PMingLiU", serif;
+  --body: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #101614; --surface: #18201D; --ink: #E4E8E4; --muted: #9BA6A0; --line: #2B3632; --loch: #85C1B6; --lichen: #D8B458; --heather: #BFA0D2; --moss: #93C08A; --rust: #E4806C; --river: #7FB2D4; --sea: #15252A; --land: #2A302C; --land-edge: #5D6660;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #101614; --surface: #18201D; --ink: #E4E8E4; --muted: #9BA6A0; --line: #2B3632; --loch: #85C1B6; --lichen: #D8B458; --heather: #BFA0D2; --moss: #93C08A; --rust: #E4806C; --river: #7FB2D4; --sea: #15252A; --land: #2A302C; --land-edge: #5D6660;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 1.125rem; line-height: 1.65; }
+.wrap { max-width: 68rem; margin: 0 auto; padding-inline: 1.25rem; padding-block: 2.5rem 4rem; }
+h1, h2, h3 { font-family: var(--display); font-weight: 700; line-height: 1.15; text-wrap: balance; margin: 0; }
+p { margin: 0; }
+a { color: var(--loch); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--loch); outline-offset: 3px; border-radius: 3px; }
+.label { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+
+/* Masthead */
+header.mast { display: grid; gap: 1rem; padding-block: 1rem 2.5rem; border-bottom: 1px solid var(--line); }
+header.mast h1 { font-size: clamp(2.6rem, 7vw, 4.6rem); letter-spacing: -0.01em; }
+header.mast h1 em { font-style: italic; font-weight: 500; color: var(--loch); }
+header.mast .lede { max-width: 38rem; color: var(--muted); font-size: 1.2rem; }
+
+/* Era strip */
+.eras { list-style: none; margin: 2rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.5rem; }
+@media (max-width: 760px) { .eras { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.eras li { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 0.75rem 0.85rem; display: grid; gap: 0.15rem; min-width: 0; }
+.eras li.open { border-color: var(--loch); }
+.eras .n { font-family: var(--mono); font-size: 0.75rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.eras .t { font-family: var(--display); font-weight: 700; font-size: 1.05rem; line-height: 1.2; }
+.eras .cn { font-size: 0.85rem; color: var(--heather); }
+.eras .st { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.eras li.open .st { color: var(--loch); }
+.eras li:hover { border-color: var(--loch); }
+.eras a { color: inherit; text-decoration: none; display: grid; gap: 0.15rem; }
+.threads { margin-top: 1.25rem; color: var(--muted); font-size: 1rem; max-width: 44rem; }
+
+/* Chapter */
+article.era { margin-top: 3.5rem; display: grid; gap: 2.5rem; }
+.era-head { display: grid; gap: 0.6rem; }
+.era-head h2 { font-size: clamp(2rem, 5vw, 3rem); }
+.era-head .dates { font-family: var(--mono); color: var(--loch); font-size: 0.95rem; }
+.bigidea { font-family: var(--display); font-size: 1.35rem; line-height: 1.45; max-width: 44rem; border-left: 3px solid var(--lichen); padding-left: 1.1rem; }
+.cols { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 26rem); gap: 3rem; align-items: start; }
+@media (max-width: 900px) { .cols { grid-template-columns: minmax(0, 1fr); gap: 2rem; } }
+.text { display: grid; gap: 2.25rem; min-width: 0; max-width: 40rem; }
+.part { display: grid; gap: 0.7rem; }
+.part h3 { font-size: 1.45rem; }
+.part .when { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.part ul { margin: 0; padding-left: 1.2rem; display: grid; gap: 0.5rem; }
+.part li::marker { color: var(--lichen); }
+.events { list-style: none; padding: 0 !important; display: grid; gap: 0.75rem !important; }
+.events li { display: grid; grid-template-columns: 6.5rem minmax(0, 1fr); gap: 0.75rem; }
+.events .y { font-family: var(--mono); font-size: 0.85rem; color: var(--loch); padding-top: 0.2rem; font-variant-numeric: tabular-nums; }
+@media (max-width: 480px) { .events li { grid-template-columns: minmax(0, 1fr); gap: 0.1rem; } }
+.quote { font-family: var(--display); font-style: italic; font-size: 1.25rem; }
+.note { font-size: 0.95rem; color: var(--muted); }
+
+/* Figures */
+figure { margin: 0; display: grid; gap: 0.6rem; min-width: 0; }
+figure .frame { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 0.75rem; overflow-x: auto; }
+figure svg { display: block; width: 100%; height: auto; }
+figcaption { font-size: 0.9rem; color: var(--muted); line-height: 1.5; }
+figcaption b { color: var(--ink); font-weight: 500; }
+.side { display: grid; gap: 2rem; }
+@media (max-width: 900px) { .side { position: static; } }
+
+/* Map text */
+.m-sea { fill: var(--sea); }
+.m-land { fill: var(--land); stroke: var(--land-edge); stroke-width: 0.8; }
+.m-wall { fill: none; stroke: var(--lichen); stroke-width: 3.2; stroke-linecap: round; stroke-linejoin: round; }
+.m-border { fill: none; stroke: var(--muted); stroke-width: 1; stroke-dasharray: 3 3; }
+.m-dot { fill: var(--loch); stroke: var(--surface); stroke-width: 1.5; }
+.m-unknown { fill: none; stroke: var(--heather); stroke-width: 1.4; stroke-dasharray: 4 3; }
+.m-lab { font-family: var(--body); font-size: 12.5px; fill: var(--ink); paint-order: stroke; stroke: var(--surface); stroke-width: 3.5px; stroke-linejoin: round; }
+.m-lab.mu { fill: var(--muted); font-size: 11.5px; }
+.m-lab.wall { fill: var(--lichen); font-weight: 700; }
+.m-lab.h { fill: var(--heather); }
+.m-lab.sea { fill: var(--muted); stroke: var(--sea); font-style: italic; font-size: 12px; letter-spacing: 0.1em; }
+.legend { display: flex; flex-wrap: wrap; gap: 0.4rem 1rem; font-size: 0.85rem; color: var(--muted); }
+.legend span { display: inline-flex; align-items: center; gap: 0.4rem; }
+.sw { width: 18px; height: 0; border-top: 3px solid var(--lichen); display: inline-block; }
+.sw.d { border-top: 2px dashed var(--muted); }
+.sw.c { width: 10px; height: 10px; border: 0; border-radius: 50%; background: var(--loch); }
+
+.m-reg { font-family: var(--display); font-weight: 700; font-size: 15px; letter-spacing: 0.18em; paint-order: stroke; stroke: var(--land); stroke-width: 4px; stroke-linejoin: round; }
+.c-axis line { stroke: var(--muted); stroke-width: 1; }
+.c-track line { stroke: var(--line); stroke-width: 2; stroke-dasharray: 3 4; }
+.c-in line { stroke: var(--loch); stroke-width: 3; stroke-linecap: round; }
+.c-pt { fill: var(--loch); stroke: var(--surface); stroke-width: 2; }
+.c-pt.rust { fill: var(--rust); }
+.c-tick { font-family: var(--mono); font-size: 11px; fill: var(--muted); }
+.c-row { font-family: var(--body); font-size: 13px; fill: var(--ink); }
+.c-val { font-family: var(--mono); font-size: 11px; fill: var(--muted); paint-order: stroke; stroke: var(--surface); stroke-width: 3px; }
+.m-dot.rust { fill: var(--rust); }
+.r-adv { fill: none; stroke: var(--rust); stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+.r-ret { fill: none; stroke: var(--loch); stroke-width: 2; stroke-dasharray: 5 4; stroke-linejoin: round; }
+.b-adult { fill: var(--muted); opacity: 0.7; }
+.b-child { fill: var(--lichen); }
+.b-yes { fill: var(--loch); }
+.c-sub { font-family: var(--body); font-size: 11.5px; fill: var(--muted); }
+.c-mid { stroke: var(--muted); stroke-width: 1; stroke-dasharray: 3 3; }
+.c-grid line { stroke: var(--line); stroke-width: 1; }
+.c-note { font-family: var(--mono); font-size: 11px; fill: var(--lichen); letter-spacing: 0.06em; }
+.u-head { font-family: var(--display); font-weight: 700; font-size: 15px; fill: var(--ink); }
+.u-t { font-family: var(--body); font-size: 14px; fill: var(--ink); }
+.u-t.b { font-weight: 700; }
+.u-s { font-family: var(--body); font-size: 12.5px; fill: var(--muted); }
+.u-shared { fill: var(--sea); stroke: var(--loch); stroke-width: 1; }
+.u-scot { fill: var(--surface); stroke: var(--lichen); stroke-width: 1.5; }
+.u-eng { fill: var(--surface); stroke: var(--land-edge); stroke-width: 1; }
+.u-link { stroke: var(--loch); stroke-width: 1.2; }
+.u-div { stroke: var(--line); stroke-width: 1; }
+/* Illustration text */
+.i-stone { fill: var(--land); stroke: var(--land-edge); stroke-width: 1; }
+.i-ground { stroke: var(--muted); stroke-width: 1.2; }
+.i-lead { stroke: var(--muted); stroke-width: 0.7; stroke-dasharray: 2 2; fill: none; }
+.i-lab { font-family: var(--body); font-size: 13px; fill: var(--ink); }
+.i-lab.mu { fill: var(--muted); font-size: 12px; }
+
+/* Parallels */
+.parallel { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 1.5rem; display: grid; gap: 1.25rem; }
+.parallel h3 { font-size: 1.45rem; }
+.parallel .pair { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; }
+@media (max-width: 800px) { .parallel .pair { grid-template-columns: minmax(0, 1fr); } }
+.parallel .pair div { display: grid; gap: 0.4rem; align-content: start; min-width: 0; }
+.parallel h4 { margin: 0; font-family: var(--display); font-size: 1.1rem; font-weight: 700; }
+.zh { color: var(--heather); white-space: nowrap; }
+
+/* Visit */
+.visit { display: grid; gap: 1rem; }
+.visit h3 { font-size: 1.45rem; }
+.places { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem 1rem; }
+@media (max-width: 800px) { .places { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 480px) { .places { grid-template-columns: minmax(0, 1fr); } }
+.places li { border-top: 2px solid var(--loch); padding-top: 0.6rem; display: grid; gap: 0.25rem; align-content: start; }
+.places .nm { font-weight: 700; }
+.places .tm { font-family: var(--mono); font-size: 0.75rem; color: var(--muted); }
+.places p { font-size: 1rem; }
+.remember { font-family: var(--display); font-size: 1.3rem; line-height: 1.45; max-width: 44rem; padding-block: 1.5rem; border-block: 1px solid var(--line); }
+.remember .label { display: block; margin-bottom: 0.4rem; font-family: var(--mono); }
+footer { margin-top: 3rem; font-size: 0.9rem; color: var(--muted); display: grid; gap: 0.4rem; max-width: 44rem; }
+
+[id] { scroll-margin-top: 1rem; }
+body { margin: 0; }
+.topbar { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; padding-block: 0.25rem 1rem; border-bottom: 1px solid var(--line); font-family: var(--mono); font-size: 0.8rem; color: var(--muted); }
+.topbar a { text-decoration: none; }
+.jump { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.jump a { font-family: var(--mono); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; padding: 0.3rem 0.65rem; border: 1px solid var(--line); border-radius: 999px; text-decoration: none; color: var(--muted); background: var(--surface); }
+.jump a:hover { color: var(--loch); border-color: var(--loch); }
+.block { display: grid; gap: 1rem; }
+.block h3 { font-size: 1.45rem; }
+.life { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.75rem; }
+@media (max-width: 800px) { .life { grid-template-columns: minmax(0, 1fr); gap: 1.25rem; } }
+.life > div { display: grid; gap: 0.4rem; align-content: start; min-width: 0; }
+.life h4, .people .nm { margin: 0; font-family: var(--display); font-size: 1.1rem; font-weight: 700; }
+.people { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.75rem; }
+@media (max-width: 800px) { .people { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 480px) { .people { grid-template-columns: minmax(0, 1fr); } }
+.people li { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 1rem; display: grid; gap: 0.3rem; align-content: start; min-width: 0; }
+.people .rl { font-family: var(--mono); font-size: 0.75rem; color: var(--muted); }
+.people p { font-size: 1rem; }
+.myths { list-style: none; margin: 0; padding: 0; display: grid; }
+.myths li { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 1.5rem; border-top: 1px solid var(--line); padding-block: 0.9rem; }
+.myths li:last-child { border-bottom: 1px solid var(--line); }
+@media (max-width: 700px) { .myths li { grid-template-columns: minmax(0, 1fr); gap: 0.35rem; } }
+.myths .mq { font-family: var(--display); font-style: italic; font-size: 1.15rem; line-height: 1.4; }
+.myths .ma b { color: var(--rust); font-weight: 700; }
+.words { margin: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem 1.5rem; }
+@media (max-width: 800px) { .words { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 480px) { .words { grid-template-columns: minmax(0, 1fr); } }
+.words div { border-left: 2px solid var(--lichen); padding-left: 0.8rem; border-radius: 0; min-width: 0; }
+.words dt { font-family: var(--display); font-weight: 700; font-size: 1.1rem; }
+.words dd { margin: 0; font-size: 1rem; color: var(--muted); }
+.pagenav { display: flex; justify-content: space-between; gap: 1rem; margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--line); }
+.pagenav a { display: grid; gap: 0.2rem; text-decoration: none; min-width: 0; }
+.pagenav a.next { text-align: right; margin-left: auto; }
+.pagenav .dir { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.pagenav .ttl { font-family: var(--display); font-weight: 700; font-size: 1.2rem; color: var(--ink); }
+.intro { max-width: 44rem; display: grid; gap: 0.75rem; margin-top: 2rem; color: var(--muted); }
+.i-wall { fill: var(--land); stroke: var(--land-edge); stroke-width: 1; }
+.i-floor { fill: var(--surface); stroke: var(--land-edge); stroke-width: 1; }
+.i-edge { stroke: var(--land-edge); stroke-width: 1; }
+.i-hearth { fill: var(--lichen); opacity: 0.75; }
+.i-bedding { fill: var(--moss); opacity: 0.35; }
+.i-water { fill: var(--sea); stroke: var(--loch); stroke-width: 1; }
+[hidden] { display: none !important; }
+.frame { position: relative; }
+.zoom-btn { position: absolute; top: 0.5rem; right: 0.5rem; display: inline-flex; align-items: center; gap: 0.35rem; font: 500 0.8rem var(--body); color: var(--loch); background: var(--surface); border: 1px solid var(--loch); border-radius: 999px; padding: 0.3rem 0.7rem; cursor: pointer; }
+.zoom-btn:hover { background: var(--loch); color: var(--surface); }
+figure .frame svg { cursor: zoom-in; }
+.lightbox { position: fixed; inset: 0; z-index: 50; background: var(--bg); display: flex; flex-direction: column; padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+.lb-bar { display: flex; align-items: center; gap: 0.5rem; padding: 0.6rem 1rem; border-bottom: 1px solid var(--line); background: var(--surface); }
+.lb-title { flex: 1; min-width: 0; font-family: var(--display); font-weight: 700; font-size: 1rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.lb-bar button { font: 500 1rem var(--body); min-width: 2.5rem; height: 2.5rem; padding: 0 0.8rem; border: 1px solid var(--line); border-radius: 6px; background: var(--bg); color: var(--ink); cursor: pointer; }
+.lb-bar button:hover { border-color: var(--loch); color: var(--loch); }
+.lb-bar .lb-close { background: var(--loch); color: var(--surface); border-color: var(--loch); }
+.lb-level { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); min-width: 3.2rem; text-align: center; font-variant-numeric: tabular-nums; }
+.lb-controls { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; padding: 0.5rem 1rem; border-bottom: 1px solid var(--line); background: var(--surface); }
+.lb-controls button { font: 500 1rem var(--body); min-width: 2.5rem; height: 2.5rem; padding: 0 0.8rem; border: 1px solid var(--line); border-radius: 6px; background: var(--bg); color: var(--ink); cursor: pointer; }
+.lb-controls button:hover { border-color: var(--loch); color: var(--loch); }
+.lb-controls input[type=range] { flex: 1; min-width: 8rem; accent-color: var(--loch); }
+.lb-body { flex: 1; overflow: auto; padding: 1rem; -webkit-overflow-scrolling: touch; }
+.lb-body svg { display: block; height: auto; margin: 0 auto; max-width: none; }
+.lb-hint { font-size: 0.85rem; color: var(--muted); text-align: center; padding: 0.4rem 1rem 0.6rem; }
+.t-live { fill: var(--surface); stroke: var(--loch); stroke-width: 1.5; }
+.t-dead { fill: var(--surface); stroke: var(--muted); stroke-width: 1; stroke-dasharray: 4 3; }
+.c-axis-v { stroke: var(--muted); stroke-width: 1; }
+.c-row.rust { fill: var(--rust); }
+
+body { font-size: 1.0625rem; line-height: 1.85; }
+.label { font-family: var(--body); letter-spacing: 0.12em; text-transform: none; }
+h1, h2, h3, .people .nm, .life h4, .parallel h4, .words dt, .pagenav .ttl { letter-spacing: 0.02em; }
+.bigidea, .remember, .quote, .myths .mq { line-height: 1.7; }
+.myths .mq { font-style: normal; }
+.quote { font-style: normal; }
+.m-river { fill: none; stroke: var(--river); stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; opacity: 0.85; }
+.m-route { fill: none; stroke: var(--rust); stroke-width: 2.4; stroke-linejoin: round; stroke-linecap: round; }
+.m-route2 { fill: none; stroke: var(--lichen); stroke-width: 2.6; stroke-linejoin: round; stroke-linecap: round; }
+.m-lab.river { fill: var(--river); font-style: italic; }
+.m-lab.red { fill: var(--rust); }
+.m-reg { font-family: var(--display); font-weight: 700; font-size: 15px; letter-spacing: 0.3em; paint-order: stroke; stroke: var(--land); stroke-width: 4px; stroke-linejoin: round; }
+.hk { background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--rust); border-radius: 0; padding: 1.25rem 1.5rem; display: grid; gap: 0.6rem; }
+.hk h3 { font-size: 1.35rem; }
+.hk .label { color: var(--rust); }
+.eras.cn { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+@media (max-width: 900px) { .eras.cn { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+.startlink { display: block; margin: 0 0 1.5rem; padding: 1rem 1.25rem; border: 1.5px solid var(--loch); border-radius: 6px; background: var(--surface); color: var(--ink); text-decoration: none; }
+.startlink .dir { display: block; font-family: var(--mono); font-size: 0.8rem; color: var(--loch); letter-spacing: 0.05em; }
+.startlink .ttl { display: block; margin-top: 0.25rem; font-family: var(--display); font-weight: 700; font-size: 1.05rem; }
+.startlink:hover { background: var(--sea); }
+.text .stages { margin: 0.5rem 0 1rem; }
+.stages { margin: 0; padding-left: 0; list-style: none; display: grid; gap: 0.45rem; font-size: 0.95rem; line-height: 1.7; }
+.glhint { font-size: 0.9rem; color: var(--muted); margin-top: -1.25rem; }
+button.gl { font: inherit; color: inherit; background: none; border: 0; padding: 0; margin: 0; cursor: pointer; text-decoration: underline dotted var(--loch); text-decoration-thickness: 1.5px; text-underline-offset: 4px; }
+button.gl:hover, button.gl[aria-expanded="true"] { color: var(--loch); background: color-mix(in srgb, var(--loch) 10%, transparent); }
+.glcard { position: absolute; z-index: 40; width: min(22rem, calc(100vw - 32px)); background: var(--surface); border: 1px solid var(--line); border-top: 3px solid var(--loch); border-radius: 6px; box-shadow: 0 10px 30px rgba(0,0,0,0.18); padding: 1rem 1.1rem 1.1rem; display: grid; gap: 0.35rem; }
+.glcard .gt { font-family: var(--display); font-weight: 700; font-size: 1.15rem; padding-right: 2rem; }
+.glcard .gs { font-size: 0.85rem; color: var(--muted); }
+.glcard .gb { font-size: 1rem; line-height: 1.75; }
+.glcard .gx { position: absolute; top: 0.5rem; right: 0.5rem; width: 2rem; height: 2rem; border: 0; background: none; font-size: 1.3rem; color: var(--muted); cursor: pointer; border-radius: 4px; }
+.glcard .gx:hover { background: var(--bg); color: var(--ink); }
+@media (max-width: 700px) { .glcard { position: fixed; left: 0 !important; right: 0; bottom: 0; top: auto !important; width: auto; border-radius: 12px 12px 0 0; padding-bottom: calc(1.1rem + env(safe-area-inset-bottom, 0px)); } }
+.homefig { margin-top: 2.5rem; max-width: 60rem; }
+figure.homefig .frame { padding-top: 2.75rem; }
+.frame { padding-top: 2.75rem; }
+header.mast h1 em { font-style: normal; }
+.jump a { text-transform: none; letter-spacing: 0.04em; font-family: var(--body); font-size: 0.8rem; }
+
+:root { --display: "Source Serif 4", "Noto Serif TC", Georgia, serif; --body: "Source Sans 3", "Noto Sans TC", system-ui, sans-serif; }
+body { line-height: 1.7; }
+.label { font-family: var(--mono); letter-spacing: 0.08em; text-transform: uppercase; }
+.m-reg { letter-spacing: 0.12em; }
+.myths .mq { font-style: italic; }
+.eras.cn .t { font-size: 1rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar"><a href="index.html">China Through Time</a><span>Era 3 of 10</span></div>
+  <article class="era" id="era3">
+    <div class="era-head">
+      <span class="label">Era 3</span>
+      <h2>Spring and Autumn, Warring States</h2>
+      <span class="dates">770 – 221 BC</span>
+    </div>
+
+    <p class="bigidea">After the Zhou (周) royal house moved east, the Zhou king kept only a title. The regional lords swallowed one another up, and for more than five hundred years war hardly stopped: more than a hundred states shrank to seven, and in the end to one. Yet this was also the liveliest age of ideas in Chinese history. Confucius (孔子), Laozi (老子), Mozi (墨子), Mencius (孟子), Han Fei (韓非) and others all put forward their own answers on how to govern and how to live, an age known as the "Hundred Schools of Thought" (百家爭鳴, baijia zhengming), at roughly the same time as Socrates and Plato in ancient Greece. In the end the western state of Qin (秦), made the strongest by sweeping reforms, unified the country in 221 BC.</p>
+
+    <p class="glhint">Names and terms with a dotted underline can be tapped for a short explanation.</p>
+
+    <nav class="jump" aria-label="In this era">
+      <a href="#story">The story</a><a href="#life">Daily life</a><a href="#people">Key people</a><a href="#myths">Myth or fact</a><a href="#evidence">How we know</a><a href="#words">Key terms</a><a href="#hk">Hong Kong</a><a href="#world">The world</a><a href="#visit">Visit</a>
+    </nav>
+
+    <div class="cols" id="story">
+      <div class="text">
+        <section class="part">
+          <span class="when">Before we start</span>
+          <h3>Two names for one long age of turmoil</h3>
+          <p>In 770 BC the Zhou royal house was forced to move its capital from Haojing (鎬京) in the west to Luoyi (洛邑) in the east (see Era 2), and from then on the dynasty is called the Eastern Zhou (東周). The Eastern Zhou is itself split into two halves. The first half is called the <button type="button" class="gl" data-g="chunqiu" aria-haspopup="dialog">Spring and Autumn period</button> (春秋), after a chronicle from the state of Lu (魯) called the Spring and Autumn Annals (春秋, Chunqiu). The second half is called the <button type="button" class="gl" data-g="zhanguo" aria-haspopup="dialog">Warring States period</button> (戰國), after a book compiled in the Han dynasty (漢), the Strategies of the Warring States (戰國策, Zhanguo ce): the name means "states at war with one another". The dividing line is usually put at around 475 BC.</p>
+          <p>Throughout this time the Zhou king was still in name the "Son of Heaven" (天子, tianzi), and every state recognised his position. But he controlled only a small patch of land around Luoyang (洛陽), with no army of his own and no power over the lords. It was a little like the emperor of the <button type="button" class="gl" data-g="hre" aria-haspopup="dialog">Holy Roman Empire</button> in medieval Europe: a grand title, while the real power lay with princes and lords across the land.</p>
+          <p>At the start of the Spring and Autumn period China had more than a hundred states, large and small. After centuries of swallowing one another up, by the Warring States period only seven large states and a few small ones were left, and in the end all of them were unified by Qin (see Map 1).</p>
+        </section>
+
+        <section class="part">
+          <span class="when">770 – 476 BC</span>
+          <h3>Spring and Autumn: the age of the hegemons</h3>
+          <p>The Zhou king was too weak to keep order, so powerful lords stepped forward as leaders, called <button type="button" class="gl" data-g="ba" aria-haspopup="dialog">hegemons</button> (霸主, bazhu). A hegemon summoned the rulers of the other states to meetings to make alliances, settled disputes and led them against outside enemies, under the slogan <button type="button" class="gl" data-g="zunwang" aria-haspopup="dialog">"Honour the king, expel the barbarians"</button> (尊王攘夷, zunwang rangyi): respect the Zhou king and fight off foreign peoples. The first hegemon was <button type="button" class="gl" data-g="huangong" aria-haspopup="dialog">Duke Huan of Qi</button> (齊桓公), ruler of the eastern state of Qi (齊). He made <button type="button" class="gl" data-g="guanzhong" aria-haspopup="dialog">Guan Zhong</button> (管仲), a man of common birth, his chief minister, and Guan Zhong built up fishing and salt production and made Qi rich and strong. Confucius later said that without Guan Zhong, we would all be living under foreign rule.</p>
+          <p>After that, the northern state of Jin (晉) became the strongest. <button type="button" class="gl" data-g="wengong" aria-haspopup="dialog">Duke Wen of Jin</button> (晉文公) had been driven abroad as a young man by court power struggles and spent nineteen years in exile, coming home to take the throne only in his sixties, yet within a few years he became hegemon. In the south, in the Yangtze (長江, Changjiang) valley, the state of <button type="button" class="gl" data-g="chu" aria-haspopup="dialog">Chu</button> (楚) also rose fast. The northern states regarded Chu as half "barbarian", but it was large, rich in resources and had a culture all its own. Its ruler, <button type="button" class="gl" data-g="zhuangwang" aria-haspopup="dialog">King Zhuang of Chu</button> (楚莊王), once led his army to the outskirts of Luoyang and asked the Zhou king's envoy how large and how heavy the Zhou royal house's nine sacred bronze cauldrons (九鼎, jiuding) were, a hint that he wanted to replace the Zhou king. The Chinese expression "asking about the cauldrons" (問鼎), meaning to aim for supreme power, still comes from this story.</p>
+          <p>At the end of the Spring and Autumn period the southeastern states of Wu (吳) and Yue (越) (in today's Jiangsu (江蘇) and Zhejiang (浙江)) fought a famous war of revenge. <button type="button" class="gl" data-g="goujian" aria-haspopup="dialog">Goujian</button> (勾踐), King of Yue, was defeated by the King of Wu and forced to surrender. It is said that after he returned home he tasted a piece of bitter gall every day to remind himself never to forget the humiliation, and twenty years later he finally destroyed Wu. The Chinese saying "sleeping on brushwood and tasting gall" (臥薪嘗膽) means enduring hardship and humiliation while working to rise again. The <button type="button" class="gl" data-g="goujiansword" aria-haspopup="dialog">Sword of Goujian</button> (越王勾踐劍), dug up in Hubei (湖北) in 1965, had lain buried for more than two thousand years, yet when it was found it had no rust and was still extremely sharp.</p>
+        </section>
+
+        <section class="part">
+          <span class="when">551 – 479 BC</span>
+          <h3>Confucius: a teacher who failed in his lifetime</h3>
+          <p><button type="button" class="gl" data-g="kongzi" aria-haspopup="dialog">Confucius</button> (孔子, Kongzi) is the most influential thinker in Chinese history. His English name comes from the Catholic missionaries who came to China in the sixteenth and seventeenth centuries and Latinised "Kong Fuzi" (孔夫子, Master Kong). He was born in the state of Lu (today's Qufu (曲阜) in Shandong (山東)). His father was a low-ranking warrior who died when Confucius was three, and the family was poor. As a young man he held minor posts looking after granaries and pastures, but he was a passionate learner.</p>
+          <p>In Confucius's time, lords did not respect the Zhou king, ministers seized power from their rulers and the old order was crumbling: people at the time described it as "ritual collapsing and music in ruins" (禮崩樂壞). Confucius believed the answer was to return to the <button type="button" class="gl" data-g="li" aria-haspopup="dialog">rites</button> (禮, li) laid down by the Duke of Zhou (周公), with everyone playing their proper part: a ruler should act as a ruler, a minister as a minister, a father as a father and a son as a son. The virtue he valued most was <button type="button" class="gl" data-g="ren" aria-haspopup="dialog">ren</button> (仁), caring for others. He said, "Do not do to others what you would not want done to yourself": what you do not want yourself, do not force on others. This is very close to what the West calls the "Golden Rule". His ideal person was the <button type="button" class="gl" data-g="junzi" aria-haspopup="dialog">junzi</button> (君子): a person of good character and cultivation, not merely a person of noble birth.</p>
+          <p>All his life Confucius wanted an official post so he could put his ideas into practice, but he had little success. In his fifties he left Lu with his students and travelled from state to state for fourteen years, hoping to find a ruler who would employ him. He was turned away everywhere, and once he was even surrounded and cut off from food. In old age he returned to Lu and devoted himself to teaching and to editing ancient texts. He held that <button type="button" class="gl" data-g="youjiao" aria-haspopup="dialog">education should be open to all</button>: anyone willing to learn could be his student, whatever their background, breaking the nobility's monopoly on education. His sayings and deeds were collected by his students and their students into the <button type="button" class="gl" data-g="lunyu" aria-haspopup="dialog">Analects</button> (論語, Lunyu). Only more than three hundred years after his death did his teachings become the state's official ideology (see Era 4), and for the next two thousand years they shaped China, Korea, Japan and Vietnam.</p>
+        </section>
+
+        <section class="part">
+          <span class="when">c. 500 – 300 BC</span>
+          <h3>Laozi and Zhuangzi: going with nature</h3>
+          <p>In contrast to Confucius, <button type="button" class="gl" data-g="laozi" aria-haspopup="dialog">Laozi</button> (老子) believed society was in chaos precisely because people chased too many rules, too much knowledge and too many desires. He is said to have been an official in charge of the Zhou royal library, and he left a book of about five thousand characters, the <button type="button" class="gl" data-g="daodejing" aria-haspopup="dialog">Daodejing</button> (道德經). He said that everything in the universe follows an invisible pattern, called the <button type="button" class="gl" data-g="dao" aria-haspopup="dialog">Dao</button> (道, "the Way"), and that the best ruler practises <button type="button" class="gl" data-g="wuwei" aria-haspopup="dialog">wuwei</button> (無為), not interfering on purpose and letting the people live naturally. However, almost nothing about Laozi's life can be verified, and whether the book was written by one person at one time is also disputed.</p>
+          <p><button type="button" class="gl" data-g="zhuangzi" aria-haspopup="dialog">Zhuangzi</button> (莊子), who lived in the Warring States period, carried on and developed Laozi's ideas. He made his points through a great many parables, the most famous being "Zhuangzi dreams of a butterfly" (莊周夢蝶): Zhuangzi dreamed he had become a butterfly, and when he woke up he did not know whether he was Zhuangzi who had dreamed of being a butterfly, or a butterfly dreaming of being Zhuangzi. This school of thought later became known as <button type="button" class="gl" data-g="daojia" aria-haspopup="dialog">Daoism</button> (道家), also spelled Taoism in English. It stresses going with nature and not caring much for fame and fortune, and it deeply influenced Chinese poetry, painting and traditional medicine. It is also one of the sources of the later Daoist religion.</p>
+        </section>
+
+        <section class="part">
+          <span class="when">475 – 221 BC</span>
+          <h3>The seven Warring States: wars grow ever larger</h3>
+          <p>Towards the end of the Spring and Autumn period, great noble families inside the strong states gradually took power away from their rulers. Jin, the strongest state in the north, was carved up by three great families, Han (韓), Zhao (趙) and Wei (魏), an event known as the <button type="button" class="gl" data-g="sanjia" aria-haspopup="dialog">Partition of Jin</button>; in the east, the ruler of Qi was replaced by the Tian (田) family of ministers. By the Warring States period there were seven great states: <button type="button" class="gl" data-g="qin" aria-haspopup="dialog">Qin</button> (秦) in the west, Chu in the south, Qi in the east, Yan (燕) in the northeast, and Han, Zhao and Wei in the middle, together called the <button type="button" class="gl" data-g="qixiong" aria-haspopup="dialog">Seven Warring States</button> (戰國七雄, zhanguo qixiong) (see Map 1).</p>
+          <p>The way wars were fought changed completely too. In the Spring and Autumn period battles were mainly fought by nobles in horse-drawn chariots, with a strong sense of etiquette, and a war was often over in a single day. In the Warring States period <button type="button" class="gl" data-g="iron" aria-haspopup="dialog">iron</button> tools and weapons became common, and states organised huge numbers of peasants into infantry armed with long halberds and the <button type="button" class="gl" data-g="crossbow" aria-haspopup="dialog">crossbow</button>, a bow fired by a trigger mechanism. Chinese armies used crossbows on a large scale more than a thousand years before Europe. A single campaign could involve more than a hundred thousand men, and a war could go on for years. <button type="button" class="gl" data-g="wulingwang" aria-haspopup="dialog">King Wuling of Zhao</button> (趙武靈王), in the north, saw how nimbly the horsemen of the northern grasslands fought, and ordered his soldiers to wear the grassland peoples' short tunics and trousers and learn to shoot from horseback, a reform known as "nomad dress and mounted archery" (胡服騎射, hufu qishe). The states also built long walls along their borders, the forerunners of the later Great Wall (長城).</p>
+        </section>
+
+        <section class="part">
+          <span class="when">356 – 338 BC</span>
+          <h3>Shang Yang's reforms: why did Qin become the strongest?</h3>
+          <p>Under fierce competition, every state tried to carry out <button type="button" class="gl" data-g="bianfa" aria-haspopup="dialog">reform</button> (變法, bianfa), an overhaul of the whole system, to make the country rich and its army strong. The western state of Qin went furthest. Qin had been a backward state on the fringes, looked down on by the states of the east. In 361 BC a foreigner named <button type="button" class="gl" data-g="shangyang" aria-haspopup="dialog">Shang Yang</button> (商鞅) arrived in Qin, won the trust of its young ruler, <button type="button" class="gl" data-g="xiaogong" aria-haspopup="dialog">Duke Xiao of Qin</button> (秦孝公), and was put in charge of reform.</p>
+          <p>To make people believe the new laws meant exactly what they said, Shang Yang is said to have set up a wooden pole at the south gate of the capital and announced that whoever carried it to the north gate would be rewarded with ten pieces of gold. Nobody believed him, so he raised the reward to fifty. At last someone carried the pole across, and Shang Yang paid him the full amount on the spot. This is the story of "moving the pole to win trust" (移木立信).</p>
+          <p>The main points of Shang Yang's reforms were:</p>
+          <ul class="stages">
+            <li><b>Rank for military merit:</b> nobles' status was no longer inherited; anyone who killed enemies on the battlefield could rise in rank and receive land.</li>
+            <li><b>Encouraging farming:</b> those who worked hard on the land and delivered more grain were excused labour service; merchants and idlers were punished.</li>
+            <li><b>Setting up <button type="button" class="gl" data-g="xian" aria-haspopup="dialog">counties</button> (縣, xian):</b> the whole state was divided into more than thirty counties, run by officials appointed directly by the ruler rather than granted to nobles.</li>
+            <li><b><button type="button" class="gl" data-g="lianzuo" aria-haspopup="dialog">Collective punishment</button> (連坐, lianzuo):</b> people were organised into groups of five or ten households to keep watch on one another; if one person broke the law and the others in the group did not report it, they were punished too.</li>
+            <li><b>Standard weights and measures:</b> the whole state used the same standard units of length, volume and weight.</li>
+          </ul>
+          <p>From then on Qin became an efficient war machine, but its laws were also extremely harsh. After Duke Xiao died, nobles whom Shang Yang had offended falsely accused him of treason, and he was executed by being torn apart by chariots. But his new laws remained in force, and more than a hundred years later they helped Qin unify the country.</p>
+        </section>
+
+        <section class="part">
+          <span class="when">c. 500 – 230 BC</span>
+          <h3>The Hundred Schools of Thought: how can the world be at peace?</h3>
+          <p>Every ruler needed talented people, so learned men could travel from state to state, selling their ideas to rulers and staying on as officials wherever they were appreciated. The eastern state of Qi even set up the <button type="button" class="gl" data-g="jixia" aria-haspopup="dialog">Jixia Academy</button> (稷下學宮) in its capital, Linzi (臨淄), supporting scholars from everywhere and letting them debate freely, a little like the academies of ancient Athens. Later generations called this free competition of ideas the <button type="button" class="gl" data-g="baijia" aria-haspopup="dialog">Hundred Schools of Thought</button>. The four most influential schools were these (see Figure 3):</p>
+          <p><b>Confucianism</b> (儒家, rujia): the followers of Confucius. In the Warring States period <button type="button" class="gl" data-g="mengzi" aria-haspopup="dialog">Mencius</button> (孟子, Mengzi) argued that human nature is good, and that rulers should govern with benevolence. He said, "The people matter most, the state comes next, and the ruler matters least": the people are more important than the state or the ruler, and if a tyrant loses the people's hearts, it is right for them to overthrow him. Another Confucian, <button type="button" class="gl" data-g="xunzi" aria-haspopup="dialog">Xunzi</button> (荀子), argued instead that human nature is bad and must be reshaped through ritual and education.</p>
+          <p><b>Mohism</b> (墨家, mojia): its founder, <button type="button" class="gl" data-g="mozi" aria-haspopup="dialog">Mozi</button> (墨子), came from a craftsman background. He taught <button type="button" class="gl" data-g="jianai" aria-haspopup="dialog">universal love</button> (兼愛, jian'ai), loving all people equally whether close to you or not, and "non-aggression" (非攻, feigong), opposing wars of conquest. His followers were highly disciplined and often helped weaker states defend their cities. Mohist writings also record knowledge of optics and mechanics, for example that light passing through a small hole forms an upside-down image.</p>
+          <p><b>Legalism</b> (法家, fajia): it held that a state should be governed by strict laws, rewards and punishments, and that the ruler's power should be strengthened. Shang Yang was its leading example. <button type="button" class="gl" data-g="hanfei" aria-haspopup="dialog">Han Fei</button> (韓非), a student of Xunzi at the end of the Warring States period, brought Legalist thought together into a complete system, and Ying Zheng (嬴政), the King of Qin, greatly admired his writings when he read them.</p>
+          <p><b>Daoism</b>: the ideas of Laozi and Zhuangzi (see above). There was also the military thinker <button type="button" class="gl" data-g="sunzi" aria-haspopup="dialog">Sun Tzu</button> (孫子, Sunzi), whose <button type="button" class="gl" data-g="sunzibingfa" aria-haspopup="dialog">Art of War</button> (孫子兵法) stresses that "know the enemy and know yourself, and in a hundred battles you will never be in danger". It is still studied at military academies and business schools around the world.</p>
+        </section>
+
+        <section class="part">
+          <span class="when">260 BC</span>
+          <h3>The Battle of Changping: the bloodiest battle</h3>
+          <p>In the later Warring States period, Qin kept expanding eastwards. The six eastern states tried at times to join forces against Qin, a strategy called the <button type="button" class="gl" data-g="hezong" aria-haspopup="dialog">"vertical alliance"</button> (合縱, hezong); Qin, for its part, tried to make separate alliances with individual states and pick them off one by one, a strategy called the "horizontal alliance" (連橫, lianheng). But the six states distrusted one another, and their alliances always fell apart quickly.</p>
+          <p>In 260 BC Qin and the northern state of Zhao fought a decisive battle at Changping (長平, in today's Gaoping (高平), Shanxi (山西)). Zhao's position had been firmly held by the veteran general Lian Po (廉頗), but Qin spread rumours that led the King of Zhao to replace him with the young <button type="button" class="gl" data-g="zhaokuo" aria-haspopup="dialog">Zhao Kuo</button> (趙括). Zhao Kuo had read every book on warfare but had no experience of real battle, and he was surrounded by the famous Qin general <button type="button" class="gl" data-g="baiqi" aria-haspopup="dialog">Bai Qi</button> (白起). According to the Records of the Grand Historian (史記, Shiji), after the Zhao army surrendered, four hundred thousand men were buried alive by the Qin army. The figure may be exaggerated, but pits of human bones found there in 1995 confirm that a mass killing really did take place. After this battle, no single state could stand up to Qin on its own. The Chinese saying "talking about war on paper" (紙上談兵) uses Zhao Kuo as the example of someone who knows only theory and cannot put it into practice.</p>
+        </section>
+
+        <section class="part">
+          <span class="when">433 – 278 BC</span>
+          <h3>The culture of Chu in the south: bells and a poet</h3>
+          <p>The culture of Chu, on the middle Yangtze, was very different from the north: full of myth, and fond of brightly coloured lacquerware and silk. In 1978 archaeologists in Suizhou (隨州), Hubei, found the tomb of <button type="button" class="gl" data-g="zenghouyi" aria-haspopup="dialog">Marquis Yi of Zeng</button> (曾侯乙), ruler of a small state near Chu, buried in 433 BC. It contained a complete set of <button type="button" class="gl" data-g="bianzhong" aria-haspopup="dialog">bronze bells</button> (編鐘, bianzhong): sixty-five bronze bells hung on a three-tier wooden frame, weighing more than 2,500 kilograms in all. Each bell gives two different notes when struck in two different places, the whole set spans five octaves, and it can still be played today.</p>
+          <p>The most famous figure of Chu is the poet <button type="button" class="gl" data-g="quyuan" aria-haspopup="dialog">Qu Yuan</button> (屈原). A Chu nobleman, he argued for an alliance with Qi against Qin, but the king pushed him aside and sent him into exile. In exile he wrote the long poem <button type="button" class="gl" data-g="lisao" aria-haspopup="dialog">Encountering Sorrow</button> (離騷, Li Sao), expressing his fears for his country and his lonely anger. In 278 BC Qin captured the Chu capital, Ying (郢), and Qu Yuan, it is said, drowned himself in grief in the Miluo River (汨羅江). Legend says the local people rowed out in boats to save him and threw rice into the river so the fish would not eat his body. This is said to be the origin of dragon boat racing and eating rice dumplings at the <button type="button" class="gl" data-g="duanwu" aria-haspopup="dialog">Dragon Boat Festival</button> (端午節, Duanwu) (see "Hong Kong" below).</p>
+        </section>
+
+        <section class="part">
+          <span class="when">256 – 246 BC</span>
+          <h3>Two great waterworks</h3>
+          <p>Qin was not only good at war; it also took farming seriously. In about 256 BC <button type="button" class="gl" data-g="libing" aria-haspopup="dialog">Li Bing</button> (李冰), the official Qin had appointed in Sichuan (四川), built the <button type="button" class="gl" data-g="dujiangyan" aria-haspopup="dialog">Dujiangyan</button> (都江堰) irrigation system on the Min River (岷江). Instead of damming the river, it uses a levee shaped like a fish's mouth to split the river in two: one channel carries away floodwater, the other carries water for irrigation. From then on the Chengdu Plain (成都平原) rarely suffered floods or droughts and became known as the "Land of Abundance" (天府之國, tianfu zhi guo). Dujiangyan is still in use today and is a World Heritage Site.</p>
+          <p>The other project, the <button type="button" class="gl" data-g="zhengguoqu" aria-haspopup="dialog">Zheng Guo Canal</button> (鄭國渠), comes with an interesting story. In about 246 BC the eastern state of Han, afraid of a Qin attack, sent a water engineer named Zheng Guo (鄭國) to Qin to persuade it to dig a long canal, hoping the vast project would drain Qin's manpower and resources. The plot was later discovered, and Zheng Guo said: "This canal may have bought Han a few years, but it will bring Qin benefits for ten thousand generations." Qin let him finish the work, the farmland of the Guanzhong Plain (關中) was irrigated, and Qin grew richer and stronger than ever.</p>
+        </section>
+
+        <section class="part">
+          <span class="when">246 – 221 BC</span>
+          <h3>Qin unifies China</h3>
+          <p>In 246 BC the thirteen-year-old <button type="button" class="gl" data-g="yingzheng" aria-haspopup="dialog">Ying Zheng</button> (嬴政) became King of Qin. He had been born in Handan (邯鄲), the capital of Zhao, where his father, a Qin prince, was then being held as a hostage. When he came of age, Ying Zheng took power himself, relied on the Legalist <button type="button" class="gl" data-g="lisi" aria-haspopup="dialog">Li Si</button> (李斯), and from 230 BC launched his wars of unification.</p>
+          <p>The eastern states were helpless. In 227 BC the crown prince of Yan sent the assassin <button type="button" class="gl" data-g="jingke" aria-haspopup="dialog">Jing Ke</button> (荊軻) to get close to the King of Qin on the pretext of presenting a map, with a dagger hidden inside the rolled-up map, an episode remembered as "when the map is unrolled, the dagger appears". The assassination failed, Jing Ke was killed, and the attempt only hastened Yan's destruction. Over ten years Qin destroyed the six states one after another: Han, Zhao, Wei, Chu, Yan and Qi (see Map 1). In 221 BC Qi, the last state, surrendered. More than five hundred years of division were over, and for the first time China became a single unified state. The next era begins with this first "emperor".</p>
+        </section>
+      </div>
+
+      <aside class="side">
+        <figure>
+          <div class="frame">
+            <svg viewBox="0 0 560 430" role="img" aria-labelledby="c3ma">
+              <title id="c3ma">Where the Seven Warring States were, and the order in which Qin conquered the other six</title>
+              <rect class="m-sea" x="0" y="0" width="560" height="430" rx="4"/>
+              <path class="m-land" d="M560,85.8L558.2,85.1L556.2,85.3L555,87.2L556,89.6L555.5,90.6L551.6,91.9L545.7,92.7L543.3,94.3L542.4,95.2L541.2,95.7L539.9,92.6L539.5,88.5L541.9,87.5L544,87L556.3,81.3L554.9,77.1L555.9,75.3L558.7,72.3L560,71.2L560,85.8ZM560,70.5L559.4,70.2L551.5,71.2L546.8,71.2L544.5,70.8L545.2,68.2L544.8,65.7L544.2,64.7L548.3,61.8L550.2,61.1L551.6,61.1L551.5,59.4L550.3,56.7L551.6,53.2L559.9,49.2L560,49.1L560,70.5ZM560,10.2L558.9,13.4L557.8,14.6L554,14.6L552.1,13.3L541.5,12.4L538.8,14.7L536.4,18.3L534.1,20.9L531.6,22.2L529.6,24.6L521,38.4L517.7,39.5L502.5,47.8L494.8,51L488.9,56.8L486.9,60.3L485.1,64.1L484,70L478.6,77L476.7,78.6L474.8,79.2L472.3,79L470.1,79.4L466.4,78.8L461.8,81L456.7,82.9L452.3,78.1L449.1,76.8L444,78.2L441.6,80.4L436.6,91.1L434.8,97.2L434.9,99.7L437.8,107.2L441,111.4L448.4,116.2L464,119.6L467.6,118.4L471.5,118.4L475.6,121.5L478.2,126.7L478.5,130.3L478.5,131.5L479.4,132.5L480,134.3L478.4,135.8L477.1,136.5L476,141.9L476,148L477.3,150L480.7,152.8L485.9,155.1L490.7,155.6L499.8,154.6L503.5,150.9L503.3,149.4L503.4,147.3L511.5,141.9L516,137.2L515.3,135.9L514.4,135.1L515.3,134.6L517.7,134.3L529,129.3L537.8,133.4L542.8,138L547.7,138.9L551.2,141.2L555.2,143.2L560,143.4L560,163.9L560,163.9L556,166.3L548.5,169.9L540.5,172.8L537.9,174.6L536,175.1L532.8,173.7L530.8,173.8L530.4,174.7L532.9,177.2L533.5,179.2L533.2,180.7L531.8,181.4L529.7,180.2L527.8,181.8L527,184.5L527,190.8L525.7,192.2L522.2,192.9L518.5,194.9L517.1,194L516.6,192.9L517,190L516.6,188.6L514.9,188.7L512.2,189.5L510.3,191.5L509.7,192.6L512.2,196.3L514.7,196.7L515.3,197.5L513.3,199.3L508.5,202L507.7,204.2L506.3,206.4L504.3,208.1L502.9,209.8L501.3,210.8L498.6,211.9L495.4,216.1L492.9,220.2L490,222.2L487.8,229L483.8,232.7L482.3,238.5L483.4,242.1L487.7,242.1L489.9,243.4L494.6,248.1L500.1,251.2L505.7,252.9L512.7,257.3L514.8,259.1L516.4,262.9L519.4,273.6L521.6,278.9L521.8,281.7L525.1,286.9L528.6,295.9L532.5,303.6L533.3,309.7L531.9,312.5L532.1,316L536,319.4L545,323.2L546.4,324.3L548.2,326.2L548.2,331.9L549.6,333.8L550.8,334.9L556.2,337.4L558.5,339.4L560,341.4L560,349.5L560,349.5L558.8,349.5L556.3,349.1L546.7,344.1L544.1,343.9L540.6,344.6L535.6,343.6L530.1,338L526.3,336.3L522.2,335.4L512.3,340.3L509.8,340L509,340.5L507.9,341.3L512.5,342.4L517.1,340.8L521.6,338.4L527.9,339.7L529,341.8L530,345.4L534.5,347.8L538,348.9L542.3,352L546.7,357L555.8,362.7L559.5,368L560,369.3L560,377.6L560,377.6L559,378.1L556.2,378.4L551.9,379.1L548.7,380.9L545.4,384L536.3,388.8L534.5,391.9L533.3,394.5L531.1,395.8L525.4,394.5L520.1,394.7L514.1,398.2L512.6,399.6L513.6,399.4L514.5,398.9L517.2,399.5L521.4,397.6L525.5,403.4L533.5,402.4L541.1,397.6L543.9,397.5L546.4,398.3L549,400.2L556.3,408.6L560,409.4L560,418.3L560,418.3L556.2,422L553.3,423.6L551.2,425.4L556.7,424.5L560,421.8L560,430L0,430L0,0L560,0ZM560,357.4L559.3,357.7L551.7,354.8L546.3,351.4L543,347.5L542.6,345.9L546.3,346.2L550,347.6L550.8,349.8L552.3,350.4L553.3,351.7L560,354.6L560,357.4Z"/>
+              <path class="m-river" d="M-141.3 233.1 L30.5 194.7 L102.3 105.5 L212.2 24.1 L247.6 39.6 L238.8 104.4 L227.0 196.9 L221.1 247.5 L247.6 240.3 L282.9 236.7 L318.3 236.7 L338.9 236.7 L383.1 204.2 L418.5 171.3 L483.3 132.5"/><path class="m-river" d="M-170.8 304.2 L-111.8 407.9 L-83.9 511.8 L-32.3 521.7 L54.0 449.5 L110.6 422.8 L250.5 384.0 L338.9 387.7 L389.0 418.1 L471.5 337.0 L551.1 359.9"/><path class="m-river" d="M85.5 247.5 L129.7 256.0 L159.2 254.6 L182.8 256.4 L209.3 249.2 L221.1 247.5"/>
+              <text class="m-reg" style="fill:var(--loch);font-size:18px;letter-spacing:0.08em" x="100.3" y="222.3" text-anchor="middle">QIN</text><text class="m-reg" style="fill:var(--muted);font-size:18px;letter-spacing:0.08em" x="306.5" y="100.6" text-anchor="middle">ZHAO</text><text class="m-reg" style="fill:var(--muted);font-size:18px;letter-spacing:0.08em" x="452.8" y="63.1" text-anchor="middle">YAN</text><text class="m-reg" style="fill:var(--muted);font-size:18px;letter-spacing:0.08em" x="489.2" y="196.9" text-anchor="middle">QI</text><text class="m-reg" style="fill:var(--muted);font-size:18px;letter-spacing:0.08em" x="368.4" y="215.1" text-anchor="middle">WEI</text><text class="m-reg" style="fill:var(--muted);font-size:18px;letter-spacing:0.08em" x="272.8" y="285.5" text-anchor="middle">HAN</text><text class="m-reg" style="fill:var(--muted);font-size:18px;letter-spacing:0.08em" x="365.4" y="353" text-anchor="middle">CHU</text>
+              <text class="m-lab river" x="250.0" y="140.0" text-anchor="middle">Yellow River</text>
+              <text class="m-lab river" x="200.0" y="372.0" text-anchor="middle">Yangtze</text>
+              <text class="m-lab sea" x="552.0" y="262.0" text-anchor="end">Yellow</text><text class="m-lab sea" x="552.0" y="276.0" text-anchor="end">Sea</text>
+              <path d="M292.7 199.2 L302.7 209.2 M292.7 209.2 L302.7 199.2" stroke="var(--ink)" stroke-width="2.4"/>
+              <text class="m-lab" x="288.7" y="208.2" text-anchor="end">Changping, 260 BC</text>
+              <circle cx="173.9" cy="255.3" r="6" fill="var(--loch)" stroke="var(--surface)" stroke-width="1.5"/><circle cx="178.4" cy="247.5" r="3.2" fill="var(--ink)" stroke="var(--surface)" stroke-width="1.5"/><circle cx="23.7" cy="373.7" r="4" fill="var(--ink)" stroke="var(--surface)" stroke-width="1.5"/><circle cx="284.4" cy="244.6" r="3.5" fill="var(--muted)" stroke="var(--surface)" stroke-width="1.5"/><circle cx="418.5" cy="211.4" r="3.5" fill="var(--ink)" stroke="var(--surface)" stroke-width="1.5"/><circle cx="277.1" cy="394.2" r="3.5" fill="var(--muted)" stroke="var(--surface)" stroke-width="1.5"/>
+              <circle cx="322.4" cy="254.6" r="4.5" fill="var(--rust)" stroke="var(--surface)" stroke-width="1.5"/><circle cx="344.8" cy="175" r="4.5" fill="var(--rust)" stroke="var(--surface)" stroke-width="1.5"/><circle cx="340.4" cy="240.3" r="4.5" fill="var(--rust)" stroke="var(--surface)" stroke-width="1.5"/><circle cx="412.6" cy="318.2" r="4.5" fill="var(--rust)" stroke="var(--surface)" stroke-width="1.5"/><circle cx="400.8" cy="51.1" r="4.5" fill="var(--rust)" stroke="var(--surface)" stroke-width="1.5"/><circle cx="456.8" cy="165.8" r="4.5" fill="var(--rust)" stroke="var(--surface)" stroke-width="1.5"/>
+              <text class="m-lab" style="fill:var(--loch);font-weight:700" x="173.9" y="275.3" text-anchor="middle">Xianyang (Qin capital)</text>
+              <text class="m-lab" x="172.4" y="239.5" text-anchor="end">Zheng Guo Canal</text>
+              <text class="m-lab" x="31.7" y="367.7" text-anchor="start">Dujiangyan</text>
+              <text class="m-lab mu" x="278.4" y="244.6" text-anchor="end">Luoyang</text><text class="m-lab mu" x="278.4" y="257.6" text-anchor="end">(Zhou king)</text>
+              <text class="m-lab" x="426.5" y="226.4" text-anchor="start">Qufu (home of</text><text class="m-lab" x="426.5" y="240.4" text-anchor="start">Confucius)</text>
+              <text class="m-lab mu" x="285.1" y="398.2" text-anchor="start">Ying (old Chu capital)</text>
+              <text class="m-lab red" x="330.4" y="269.6" text-anchor="start">Xinzheng</text>
+              <text class="m-lab red" x="353.8" y="179.0" text-anchor="start">Handan</text>
+              <text class="m-lab red" x="349.4" y="244.3" text-anchor="start">Daliang</text>
+              <text class="m-lab red" x="421.6" y="322.2" text-anchor="start">Shouchun</text>
+              <text class="m-lab red" x="391.8" y="55.1" text-anchor="end">Ji (now Beijing)</text>
+              <text class="m-lab red" x="447.8" y="159.8" text-anchor="end">Linzi</text>
+              <circle cx="306.4" cy="266.6" r="9" fill="var(--rust)" stroke="var(--surface)" stroke-width="1.5"/><text x="306.4" y="270.6" text-anchor="middle" style="font:700 11px var(--mono);fill:#fff">1</text><circle cx="328.8" cy="165.0" r="9" fill="var(--rust)" stroke="var(--surface)" stroke-width="1.5"/><text x="328.8" y="169.0" text-anchor="middle" style="font:700 11px var(--mono);fill:#fff">2</text><circle cx="336.4" cy="223.3" r="9" fill="var(--rust)" stroke="var(--surface)" stroke-width="1.5"/><text x="336.4" y="227.3" text-anchor="middle" style="font:700 11px var(--mono);fill:#fff">3</text><circle cx="396.6" cy="308.2" r="9" fill="var(--rust)" stroke="var(--surface)" stroke-width="1.5"/><text x="396.6" y="312.2" text-anchor="middle" style="font:700 11px var(--mono);fill:#fff">4</text><circle cx="400.8" cy="34.1" r="9" fill="var(--rust)" stroke="var(--surface)" stroke-width="1.5"/><text x="400.8" y="38.1" text-anchor="middle" style="font:700 11px var(--mono);fill:#fff">5</text><circle cx="456.8" cy="182.8" r="9" fill="var(--rust)" stroke="var(--surface)" stroke-width="1.5"/><text x="456.8" y="186.8" text-anchor="middle" style="font:700 11px var(--mono);fill:#fff">6</text>
+            </svg>
+          </div>
+          <div class="legend"><span><i class="sw c" style="background:var(--loch)"></i>Qin capital</span><span><i class="sw c" style="background:var(--rust)"></i>Capitals of the six states when conquered</span><span><i class="sw c" style="background:var(--ink)"></i>Places mentioned on this page</span></div>
+          <ol class="stages">
+            <li><b style="color:var(--rust)">① Han, 230 BC:</b> Han, the weakest state and the closest to Qin, fell first.</li>
+            <li><b style="color:var(--rust)">② Zhao, 228 BC:</b> Zhao, never recovered from the Battle of Changping, lost its capital, Handan.</li>
+            <li><b style="color:var(--rust)">③ Wei, 225 BC:</b> the Qin army diverted the Yellow River to flood the capital, Daliang, and three months later the King of Wei surrendered.</li>
+            <li><b style="color:var(--rust)">④ Chu, 223 BC:</b> it took an army of 600,000 for Qin to destroy Chu, the largest state. After losing Ying, Chu moved its capital more than once, ending up at Shouchun.</li>
+            <li><b style="color:var(--rust)">⑤ Yan, 222 BC:</b> after Jing Ke's failed attempt on the King of Qin, Yan soon fell.</li>
+            <li><b style="color:var(--rust)">⑥ Qi, 221 BC:</b> Qi, which had stayed out of the fighting all along, surrendered without a fight. China was unified.</li>
+          </ol>
+          <figcaption><b>Map 1: How did Qin swallow up the other six states?</b> The large names mark the rough positions of the seven states. Their borders kept changing, so no border lines are drawn; rivers are simplified.</figcaption>
+        </figure>
+        <figure>
+          <div class="frame">
+            <svg viewBox="0 0 600 357" role="img" aria-labelledby="c3tl">
+              <title id="c3tl">Leading thinkers of the Spring and Autumn and Warring States periods, with Indian and Greek thinkers of the same time, to scale</title>
+              <g transform="translate(0 34)"><rect x="130.0" y="8" width="139.5" height="20" fill="var(--sea)" stroke="var(--loch)" stroke-width="1"/><text class="u-s" x="199.8" y="22" text-anchor="middle">Spring and Autumn</text><rect x="270.6" y="8" width="285.8" height="20" fill="var(--sea)" stroke="var(--loch)" stroke-width="1"/><text class="u-s" x="413.5" y="22" text-anchor="middle">Warring States</text><rect x="556.4" y="8" width="23.6" height="20" fill="var(--loch)"/><text class="u-s" x="580.0" y="44" text-anchor="end">Qin unifies</text><rect class="b-yes" x="185.1" y="52" width="81.0" height="13" rx="2"/><text class="c-row" x="0" y="63">Confucius</text><rect class="b-yes" x="276.2" y="73" width="88.9" height="13" rx="2"/><text class="c-row" x="0" y="84">Mozi</text><rect class="b-yes" x="366.2" y="94" width="58.5" height="13" rx="2"/><text class="c-row" x="0" y="105">Shang Yang</text><rect class="b-yes" x="386.5" y="115" width="93.4" height="13" rx="2"/><text class="c-row" x="0" y="126">Mencius</text><rect class="b-yes" x="389.9" y="136" width="93.4" height="13" rx="2"/><text class="c-row" x="0" y="147">Zhuangzi</text><rect class="b-yes" x="456.2" y="157" width="81.0" height="13" rx="2"/><text class="c-row" x="0" y="168">Xunzi</text><rect class="b-yes" x="490.0" y="178" width="52.9" height="13" rx="2"/><text class="c-row" x="0" y="189">Han Fei</text><line x1="0" y1="201" x2="580" y2="201" stroke="var(--line)"/><rect class="b-adult" x="265.0" y="207" width="90.0" height="13" rx="2"/><text class="c-row" x="0" y="218">Buddha (India)</text><rect class="b-adult" x="276.2" y="228" width="79.9" height="13" rx="2"/><text class="c-row" x="0" y="239">Socrates (Greece)</text><rect class="b-adult" x="323.5" y="249" width="90.0" height="13" rx="2"/><text class="c-row" x="0" y="260">Plato (Greece)</text><rect class="b-adult" x="373.0" y="270" width="69.8" height="13" rx="2"/><text class="c-row" x="0" y="281">Aristotle (Greece)</text><g class="c-axis"><line x1="130" y1="297" x2="580" y2="297"/></g><line class="c-axis-v" x1="130.0" y1="297" x2="130.0" y2="302"/><text class="c-tick" x="130.0" y="316" text-anchor="middle">600 BC</text><line class="c-axis-v" x1="242.5" y1="297" x2="242.5" y2="302"/><text class="c-tick" x="242.5" y="316" text-anchor="middle">500 BC</text><line class="c-axis-v" x1="355.0" y1="297" x2="355.0" y2="302"/><text class="c-tick" x="355.0" y="316" text-anchor="middle">400 BC</text><line class="c-axis-v" x1="467.5" y1="297" x2="467.5" y2="302"/><text class="c-tick" x="467.5" y="316" text-anchor="middle">300 BC</text><line class="c-axis-v" x1="580.0" y1="297" x2="580.0" y2="302"/><text class="c-tick" x="580.0" y="316" text-anchor="middle">200 BC</text></g>
+            </svg>
+          </div>
+          <div class="legend"><span><i class="sw c" style="background:var(--loch);border-radius:2px"></i>China</span><span><i class="sw c" style="background:var(--lichen);border-radius:2px"></i>India and Greece</span></div>
+          <figcaption><b>Figure 2: Were Confucius and Socrates alive at the same time?</b> Almost. The lifespans of the thinkers mentioned on this page, drawn to scale. Many of the dates are only approximate; the Buddha's dates are especially disputed, and the later of the main estimates is used here.</figcaption>
+        </figure>
+        <figure>
+          <div class="frame">
+            <svg viewBox="0 0 600 362" role="img" aria-labelledby="c3sc">
+              <title id="c3sc">Comparison of the four main schools: Confucian, Daoist, Mohist and Legalist</title>
+              <rect class="u-scot" x="10" y="10" width="285" height="170" rx="4"/><text class="u-t b" x="26" y="36">Confucianism</text><text class="u-s" x="26" y="58">Key figures: Confucius, Mencius, Xunzi</text><text class="u-s" x="26" y="82">Ideas: benevolence, the rites, rule</text><text class="u-s" x="26" y="100">by virtue; education and family</text><text class="u-t" style="font-style:italic" x="26" y="124">“Do not do to others what you</text><text class="u-t" style="font-style:italic" x="26" y="142">would not want done to you.”</text><text class="u-s" x="26" y="160">Later: state ideology from the Han on</text>
+              <rect class="u-eng" x="305" y="10" width="285" height="170" rx="4"/><text class="u-t b" x="321" y="36">Daoism</text><text class="u-s" x="321" y="58">Key figures: Laozi, Zhuangzi</text><text class="u-s" x="321" y="82">Ideas: go with nature, wuwei,</text><text class="u-s" x="321" y="100">do not force things</text><text class="u-t" style="font-style:italic" x="321" y="128">“The highest good is like water.”</text><text class="u-s" x="321" y="152">Later: shaped Daoist religion, poetry,</text><text class="u-s" x="321" y="168">painting and Chinese medicine</text>
+              <rect class="u-eng" x="10" y="186" width="285" height="170" rx="4"/><text class="u-t b" x="26" y="212">Mohism</text><text class="u-s" x="26" y="234">Key figure: Mozi</text><text class="u-s" x="26" y="258">Ideas: universal love, non-aggression,</text><text class="u-s" x="26" y="276">thrift, employing the able</text><text class="u-t" style="font-style:italic" x="26" y="304">“Love all alike, benefit all alike.”</text><text class="u-s" x="26" y="336">Later: faded away after the Qin and Han</text>
+              <rect class="u-eng" x="305" y="186" width="285" height="170" rx="4"/><text class="u-t b" x="321" y="212">Legalism</text><text class="u-s" x="321" y="234">Key figures: Shang Yang, Han Fei, Li Si</text><text class="u-s" x="321" y="258">Ideas: harsh laws, clear rewards and</text><text class="u-s" x="321" y="276">punishments, a strong ruler and army</text><text class="u-t" style="font-style:italic" x="321" y="300">“Law as the teaching, officials</text><text class="u-t" style="font-style:italic" x="321" y="318">as the teachers.”</text><text class="u-s" x="321" y="336">Later: how Qin was governed</text>
+            </svg>
+          </div>
+          <figcaption><b>Figure 3: How did the schools' answers differ?</b> The four most influential schools, with one typical saying from each. They were all answering the same question: how can the age of chaos be brought to an end? Later generations often said Chinese government was "Confucian on the outside, Legalist on the inside": it talked of benevolence and righteousness, but in practice relied on laws and punishments.</figcaption>
+        </figure>
+      </aside>
+    </div>
+
+    <section class="block" id="life" aria-labelledby="life3">
+      <span class="label">Daily life</span>
+      <h3 id="life3">How people lived</h3>
+      <div class="life">
+        <div>
+          <h4>Iron ploughs and oxen</h4>
+          <p>From the late Spring and Autumn period, iron ploughs and hoes gradually became common, and people began using oxen to pull ploughs. Large areas of wasteland were brought under cultivation, and grain harvests rose sharply. Farmers worked the land in small families of about five people, paying grain to the state and serving it with labour and military service. In Qin, an ordinary farmer's son who distinguished himself on the battlefield had a chance to win rank and land.</p>
+        </div>
+        <div>
+          <h4>Busy big cities</h4>
+          <p>Linzi, the capital of Qi, is said to have had seventy thousand households, with so many carts in the streets that their axles knocked together and passers-by rubbed shoulders. Its people played the yu (竽, a mouth organ) and the se (瑟, a zither), held cockfights and dog races, played board games and enjoyed a ball-kicking game called cuju (蹴鞠), which FIFA recognises as one of the earliest origins of football. Each state cast its own metal coins, some shaped like small knives (knife money, 刀幣), others like farm tools (spade money, 布幣).</p>
+        </div>
+        <div>
+          <h4>Travelling scholars and retainers</h4>
+          <p>Educated men no longer served just one state: they could travel from state to state with their ideas, seeking an audience with rulers. Powerful nobles competed to attract talented people and support them in their households as "retainers". Lord Mengchang (孟嘗君) of Qi is said to have had three thousand retainers, among them scholars and swordsmen, but also men whose only skills were imitating a cock's crow or stealing. Yet even these men later saved him in a crisis, which gave rise to the saying "crowing like a cock and stealing like a dog" (雞鳴狗盜).</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="people" aria-labelledby="people3">
+      <span class="label">Key people</span>
+      <h3 id="people3">Who's who</h3>
+      <ul class="people">
+        <li><span class="nm">Confucius (孔子)</span><span class="rl">Thinker and teacher, 551–479 BC</span><p>Founder of Confucianism, who taught benevolence (ren) and the rites. Unsuccessful in his lifetime, after his death he was honoured as the "Supreme Sage and Foremost Teacher" (至聖先師) and shaped East Asia for more than two thousand years. Known in Chinese as Kongzi.</p></li>
+        <li><span class="nm">Laozi (老子)</span><span class="rl">Thinker, dates unknown</span><p>Said to have been an official in charge of the Zhou royal library, the author of the Daodejing and the founder of Daoism. His life and the date of his book are still disputed.</p></li>
+        <li><span class="nm">Mozi (墨子)</span><span class="rl">Thinker, c. 470–391 BC</span><p>From a craftsman background, he taught universal love and non-aggression, led his followers in helping weak states defend their cities, and also studied optics and mechanics.</p></li>
+        <li><span class="nm">Sun Wu (孫武, Sun Tzu)</span><span class="rl">Military thinker, c. 500 BC</span><p>Traditionally said to have been a general of the state of Wu and the author of The Art of War. Known in English as Sun Tzu.</p></li>
+        <li><span class="nm">Shang Yang (商鞅)</span><span class="rl">Reformer, c. 390–338 BC</span><p>Led the reforms in Qin that laid the foundations for Qin's unification of China, but was himself executed after his patron, Duke Xiao of Qin, died.</p></li>
+        <li><span class="nm">Mencius (孟子)</span><span class="rl">Thinker, c. 372–289 BC</span><p>The most important Confucian after Confucius. He taught that human nature is good and that the people matter most, and held that the people have the right to overthrow a tyrant. Known in Chinese as Mengzi.</p></li>
+        <li><span class="nm">Qu Yuan (屈原)</span><span class="rl">Poet, c. 340–278 BC</span><p>A Chu nobleman who wrote Encountering Sorrow after being sent into exile. He is China's first great poet known by name, and the Dragon Boat Festival commemorates him.</p></li>
+        <li><span class="nm">Ying Zheng (嬴政)</span><span class="rl">King of Qin, came to the throne 246 BC</span><p>Came to the throne at thirteen, destroyed the six other states in ten years and unified China in 221 BC, becoming the first emperor, Qin Shi Huang (秦始皇) (see Era 4).</p></li>
+      </ul>
+    </section>
+
+    <section class="block" id="myths" aria-labelledby="myths3">
+      <span class="label">Myth or fact</span>
+      <h3 id="myths3">What people often get wrong</h3>
+      <ul class="myths">
+        <li><span class="mq">"Confucius was greatly honoured in his own lifetime."</span><span class="ma"><b>No.</b> For most of his life Confucius failed to get anywhere. On his travels he was once surrounded and cut off from food, and someone even described him as looking "like a stray dog". It was only in the Han dynasty, more than three hundred years after his death, that the state raised him to supreme status.</span></li>
+        <li><span class="mq">"Confucius taught blind obedience to rulers and fathers."</span><span class="ma"><b>Too simple.</b> Confucius expected rulers and fathers to do their duty as well; Mencius went further and said a tyrant did not deserve to be called a ruler. The idea of absolute obedience in the "Three Bonds" (三綱, sangang) was developed by Confucian scholars from the Han dynasty onwards.</span></li>
+        <li><span class="mq">"The Daodejing was written by Laozi alone, at one time."</span><span class="ma"><b>Not settled.</b> A Warring States bamboo-slip copy of the Laozi found at Guodian (郭店), Hubei, in 1993 contains less than today's version, in a different order, which suggests the book may have been added to and edited over a long period.</span></li>
+        <li><span class="mq">"The Art of War was really written by Sun Bin."</span><span class="ma"><b>Cleared up.</b> Sun Bin (孫臏) was a descendant of Sun Wu and also a military thinker, in the Warring States period. In the past some people thought the two men's works on warfare were the same book. In 1972 a Han tomb at Yinqueshan (銀雀山) in Shandong yielded both The Art of War and Sun Bin's Art of War, proving they are two different works.</span></li>
+      </ul>
+    </section>
+
+    <section class="block" id="evidence" aria-labelledby="ev3">
+      <span class="label">How we know</span>
+      <h3 id="ev3">Histories, bamboo slips and tombs</h3>
+      <div class="life">
+        <div>
+          <h4>Histories handed down</h4>
+          <p>The Spring and Autumn Annals, and the Zuo Commentary (左傳, Zuozhuan) that explains it, record the history of the Spring and Autumn period in detail; for the Warring States period we rely mainly on the Strategies of the Warring States and on the Records of the Grand Historian by Sima Qian (司馬遷) of the Han dynasty. These books are vividly written, but they also mix in a good deal of later imagination and exaggeration: many of the long speeches by persuaders, for example, were composed by later writers.</p>
+        </div>
+        <div>
+          <h4>Bamboo slips from the ground</h4>
+          <p>People at the time wrote on strips of bamboo, then tied them together with cord into rolls, called "slips" (簡). In recent decades large numbers of bamboo slips have been found in Warring States, Qin and Han tombs, including early versions of ancient books as well as laws and government documents. They let scholars check, and even rewrite, what the histories handed down tell us.</p>
+        </div>
+        <div>
+          <h4>Archaeological digs</h4>
+          <p>City walls of the states' capitals, nobles' tombs, weapons, coins and everyday objects keep coming out of the ground. The tomb of Marquis Yi of Zeng and the bone pits at Changping both let us see the life and warfare of the time directly.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="words" aria-labelledby="words3">
+      <span class="label">Key terms</span>
+      <h3 id="words3">Terms from this era</h3>
+      <dl class="words">
+        <div><dt>Spring and Autumn / Warring States (春秋 / 戰國)</dt><dd>The first and second halves of the Eastern Zhou, named after two books: the Spring and Autumn Annals and the Strategies of the Warring States.</dd></div>
+        <div><dt>Hegemon (霸主)</dt><dd>In the Spring and Autumn period, the ruler of a powerful state who summoned the lords and kept order in place of the Zhou king.</dd></div>
+        <div><dt>Hundred Schools of Thought (百家爭鳴)</dt><dd>The free debate and competition between many schools of thought in the Spring and Autumn and Warring States periods.</dd></div>
+        <div><dt>Ren (仁)</dt><dd>The virtue Confucius valued most: caring for others.</dd></div>
+        <div><dt>Dao (道)</dt><dd>In Daoism, the fundamental pattern by which everything in the universe works.</dd></div>
+        <div><dt>Reform (變法)</dt><dd>An overhaul of a state's whole system; the most famous is Shang Yang's reform of Qin.</dd></div>
+        <div><dt>County (縣)</dt><dd>A local unit run by an official sent directly by the ruler, replacing grants of land to nobles. China still has counties today.</dd></div>
+        <div><dt>Vertical and horizontal alliances (合縱連橫)</dt><dd>The diplomatic strategies of the six states uniting against Qin (vertical) and of Qin winning over states one at a time (horizontal).</dd></div>
+      </dl>
+    </section>
+
+    <section class="hk" id="hk" aria-labelledby="hk3">
+      <span class="label">Hong Kong</span>
+      <h3 id="hk3">The Dragon Boat Festival in Hong Kong</h3>
+      <p>Qu Yuan's story is still played out in Hong Kong today. The Dragon Boat Festival, on the fifth day of the fifth lunar month, is a public holiday in Hong Kong, where people call it the "Fifth Month Festival" (五月節). On that day there are dragon boat races in the bays of Stanley (赤柱), Tai Po (大埔), Sai Kung (西貢), Cheung Chau (長洲) and elsewhere, with crews paddling together to the beat of a drum, and families eat zongzi (糉子), glutinous rice wrapped in bamboo leaves.</p>
+      <p>In the Lantau (大嶼山) fishing village of Tai O (大澳), the Dragon Boat Water Parade (端午龍舟遊涌) has a history of more than a hundred years: fishermen row dragon boats towing small sampans carrying statues of deities through the waterways, to bless the community. It is listed as national intangible cultural heritage. Every year the Hong Kong Tourism Board also holds international dragon boat races in Victoria Harbour (維多利亞港), drawing teams from around the world, and Britain has plenty of dragon boat clubs too.</p>
+    </section>
+
+    <section class="parallel" id="world" aria-labelledby="w3">
+      <span class="label">Meanwhile in Europe and the world</span>
+      <h3 id="w3">An age of great thinkers</h3>
+      <div class="pair">
+        <div>
+          <h4>Thinkers appearing at the same time</h4>
+          <p>Around Confucius's lifetime, the Buddha was also teaching in India (his exact dates are still debated); about ten years after Confucius died, Socrates was born in Athens; and Mencius was almost an exact contemporary of Aristotle (see Figure 2). The German philosopher Karl Jaspers called these few centuries the "Axial Age": in several parts of the world, thinkers each independently put forward fundamental ideas that would shape the next two thousand years and more.</p>
+        </div>
+        <div>
+          <h4>Athens, Alexander and Rome</h4>
+          <p>While China's lords were swallowing one another up, the Greek city-states were also at war, and Athens developed democracy. From 336 to 323 BC Alexander the Great fought his way from Greece to the borders of India, but he never reached China. Three years after Qin unified China, the Carthaginian general Hannibal crossed the Alps to attack Rome.</p>
+        </div>
+        <div>
+          <h4>Iron Age Scotland</h4>
+          <p>In the same period Britain was in the Iron Age, and people lived in hillforts and round wooden houses. People in the north and west of Scotland began building tall round stone towers called brochs, some of which still stand today, such as the Broch of Mousa in Shetland.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="visit" id="visit" aria-labelledby="v3">
+      <span class="label">See it for yourself</span>
+      <h3 id="v3">Sites and museums</h3>
+      <ul class="places">
+        <li><span class="nm">Temple, Mansion and Cemetery of Confucius (孔廟、孔府、孔林)</span><span class="tm">Qufu, Shandong</span><p>A World Heritage Site in Confucius's home town. The cemetery is where Confucius and his descendants are buried.</p></li>
+        <li><span class="nm">Dujiangyan (都江堰)</span><span class="tm">Chengdu, Sichuan</span><p>A World Heritage Site: a waterworks more than 2,200 years old that still irrigates the Chengdu Plain today.</p></li>
+        <li><span class="nm">Hubei Provincial Museum (湖北省博物館)</span><span class="tm">Wuhan, Hubei</span><p>Home to the bells of Marquis Yi of Zeng and the Sword of Goujian, with regular performances on a replica set of the bells.</p></li>
+        <li><span class="nm">Qi Capital Site Museum and China Ancient Chariot Museum (齊國故城遺址博物館、中國古車博物館)</span><span class="tm">Linzi, Zibo, Shandong</span><p>The site of the Qi capital, a large pit of sacrificed horses, and ancient chariots and horses.</p></li>
+        <li><span class="nm">Jingzhou Museum (荊州博物館)</span><span class="tm">Jingzhou, Hubei</span><p>The site of Ying, the Chu capital; the museum holds large collections of Chu silks, lacquerware and bamboo slips.</p></li>
+        <li><span class="nm">Confucius Hall (孔聖堂)</span><span class="tm">Causeway Bay, Hong Kong</span><p>Completed in 1935, an institution promoting Confucian learning in Hong Kong, with a secondary school attached.</p></li>
+        <li><span class="nm">British Museum, China gallery</span><span class="tm">London, UK · Free</span><p>Shows Eastern Zhou bronzes, jades and coins, including knife money and spade money.</p></li>
+      </ul>
+    </section>
+
+    <p class="remember"><span class="label">The one thing to remember</span>Once the Zhou king lost his power, the lords fought for five hundred years and the number of states kept shrinking, while ideas flourished as never before; in the end Qin, turned into a war machine by sweeping reform, unified China.</p>
+  </article>
+
+<script type="application/json" id="gloss">{"chunqiu": ["Spring and Autumn period 春秋", "770–476 BC", "The first half of the Eastern Zhou. Its name comes from the Spring and Autumn Annals, a chronicle of the state of Lu said to have been edited by Confucius, which records the main events from 722 to 481 BC."], "zhanguo": ["Warring States period 戰國", "475–221 BC", "The second half of the Eastern Zhou, when seven great states fought one another until Qin unified them. Its name comes from the Strategies of the Warring States, compiled by Liu Xiang in the Han dynasty, a collection of the speeches and stories of persuaders at the various courts."], "hre": ["Holy Roman Empire 神聖羅馬帝國", "Europe, 962–1806", "A medieval empire centred on the German lands. The emperor's title was grand, but real power lay mostly with regional princes, rather like the Zhou king under the Eastern Zhou."], "ba": ["Hegemon 霸主", "Spring and Autumn period", "The ruler of the most powerful state, able to summon other rulers to alliances and keep order in place of the powerless Zhou king. Tradition speaks of the 'Five Hegemons of the Spring and Autumn period', but there are different versions of the list."], "zunwang": ["Honour the king, expel the barbarians 尊王攘夷", "Spring and Autumn slogan", "Respect the Zhou king's position and fight off the attacks of foreign peoples. Hegemons used this slogan to rally other states behind them."], "huangong": ["Duke Huan of Qi 齊桓公", "Ruler of Qi, reigned 685–643 BC", "The first hegemon of the Spring and Autumn period. He bore no grudges: he made Guan Zhong, who had once wounded him with an arrow, his chief minister, and made Qi the strongest state."], "guanzhong": ["Guan Zhong 管仲", "Chief minister of Qi, c. 720–645 BC", "A man of common birth who had once been a merchant. He helped Duke Huan of Qi carry out reforms, put salt and iron under state control and developed trade, making Qi rich and strong. He is one of the earliest famous statesmen in China."], "wengong": ["Duke Wen of Jin 晉文公", "Ruler of Jin, reigned 636–628 BC", "His personal name was Chong'er. Driven out by court power struggles, he wandered from state to state in exile for nineteen years and came home to take the throne only in his sixties. In 632 BC he defeated Chu at the Battle of Chengpu and became hegemon."], "chu": ["Chu 楚國", "Great state of the middle Yangtze", "A state in the area of today's Hubei and Hunan, the largest of all the states in area. The northern states once regarded it as half barbarian, but its culture, including lacquerware, silk, poetry and myth, was brilliant."], "zhuangwang": ["King Zhuang of Chu 楚莊王", "Ruler of Chu, reigned 613–591 BC", "One of the hegemons of the Spring and Autumn period. Legend says that for three years after taking the throne he ignored government, then 'astonished the world with a single cry' and pushed through major reforms. His question to the Zhou king's envoy about the weight of the nine cauldrons gave Chinese the expression 'asking about the cauldrons'."], "goujian": ["Goujian 勾踐", "King of Yue, reigned c. 496–465 BC", "After being defeated by Wu he swallowed the humiliation and surrendered, then went home and worked to make Yue strong again, destroying Wu in 473 BC. The story of 'sleeping on brushwood and tasting gall' is about him."], "goujiansword": ["Sword of Goujian 越王勾踐劍", "Bronze sword, late Spring and Autumn period", "Found in 1965 in a Chu tomb at Jingzhou, Hubei. Its blade bears an eight-character inscription meaning 'Made for his own use by Jiuqian (that is, Goujian), King of Yue', and has a black diamond pattern. When dug up it had no rust and was still sharp. It is now in the Hubei Provincial Museum."], "kongzi": ["Confucius 孔子", "Kong Qiu, 551–479 BC", "Founder of Confucianism, born in the state of Lu. He taught benevolence and the rites and was famous as a teacher. 'Zi' was a respectful title for a man in ancient times, so 'Kongzi' means 'Master Kong'. The English name Confucius comes from 'Kong Fuzi'."], "li": ["Rites 禮", "Rules handed down from the Zhou", "The rules for how people of different status should behave on every occasion, including sacrifices, weddings, funerals and dealings with others. Confucius believed that restoring the rites was the way to rebuild order."], "ren": ["Ren 仁", "Central Confucian virtue", "Caring for others, starting with devotion to one's parents and respect for one's elder brothers and extending to everyone. Confucius said 'the benevolent person loves others', and also 'do not do to others what you would not want done to yourself'."], "junzi": ["Junzi 君子", "Confucian ideal person", "Originally meaning the son of a noble, Confucius turned it into a word for a person of good character, learning and cultivation, the opposite of the 'petty person' who cares only for his own gain. Rather like the English word 'gentleman', which shifted from meaning birth to meaning character."], "youjiao": ["Education for all 有教無類", "Confucius's view of teaching", "Education should make no distinction between rich and poor, high and low: anyone willing to learn can be taught. It is said that Confucius would accept any student who brought a bundle of dried meat as a fee."], "lunyu": ["Analects 論語", "Confucian classic", "A book in which Confucius's students and their students recorded his words and deeds, in twenty chapters, mostly short conversations and sayings. In English it is called The Analects."], "laozi": ["Laozi 老子", "Founder of Daoism, dates unknown", "Legend says his name was Li Er, that he was an official in charge of the Zhou royal library and that Confucius once asked him about the rites. In old age he rode west on a black ox through the Hangu Pass, and at the request of the officer guarding the pass he wrote the Daodejing. All of this is legend."], "daodejing": ["Daodejing 道德經", "Daoist classic", "Also called the Laozi: about five thousand characters in eighty-one short chapters, discussing the 'Way' (dao) and 'virtue' (de) in brief, thought-provoking lines. It is one of the most translated Chinese books in the world."], "dao": ["Dao 道", "Central Daoist idea", "Its original meaning is 'road' or 'way'. Daoists used it for the fundamental pattern by which everything in the universe comes into being and works. It has no form and no sound and is hard to put into words: the first line of the Daodejing says 'The Way that can be spoken of is not the constant Way'."], "wuwei": ["Wuwei 無為", "Daoist teaching", "Not forcing things, not striving, acting in harmony with nature. In politics it means a ruler should not interfere too much in people's lives. It does not mean doing nothing at all."], "zhuangzi": ["Zhuangzi 莊子", "Zhuang Zhou, c. 369–286 BC", "A Daoist thinker of the Warring States period who once worked as a minor official in charge of a lacquer-tree garden. He used a wealth of vivid parables to talk about freedom, life and death and the equality of all things, and his writing is a classic of Chinese literature."], "daojia": ["Daoism 道家", "School of thought", "The school represented by Laozi and Zhuangzi, which teaches going with nature, stillness and wuwei. The later religion, also called Daoism (道教), worships Laozi as a god, but the philosophy and the religion are not exactly the same."], "sanjia": ["Partition of Jin 三家分晉", "453–403 BC", "The three great families of the state of Jin, Han, Zhao and Wei, wiped out their rivals and divided Jin's lands between them. In 403 BC the Zhou king formally recognised them as lords; this is often taken as one of the markers of the start of the Warring States period."], "qin": ["Qin 秦國", "Western state", "A state in the area of today's Shaanxi and Gansu. Its people had originally raised horses for the Zhou king, and they were made lords for escorting King Ping of Zhou east when the Western Zhou fell. Long seen as backward by the eastern states, it became the strongest after Shang Yang's reforms and finally unified China."], "qixiong": ["Seven Warring States 戰國七雄", "Seven great states of the Warring States period", "Qin, Chu, Qi, Yan, Han, Zhao and Wei. There were also the Zhou royal house and a few small states such as Song, Wey and Lu, but the great states swallowed them up one by one."], "iron": ["Iron 鐵器", "Technology", "China began using iron in roughly the Spring and Autumn period, and it became common in the Warring States period. China mastered cast iron, melting iron and pouring it into moulds, very early, more than a thousand years before Europe, so farm tools and weapons could be mass-produced."], "crossbow": ["Crossbow 弩", "Weapon", "A bow mounted crosswise on a wooden stock and fired with a trigger. It had a long range and great power, and could be used without long training, so it suited large armies of peasant soldiers. Warring States crossbows already had precise bronze trigger mechanisms."], "wulingwang": ["King Wuling of Zhao 趙武靈王", "King of Zhao, reigned 325–299 BC", "He introduced 'nomad dress and mounted archery', making his soldiers wear the short tunics and trousers of the northern grassland peoples, which were easier to ride in, and formed cavalry units. For a time Zhao became the strongest state after Qin."], "bianfa": ["Reform 變法", "Reform", "A complete change in a state's laws and system. In the Warring States period Wei, Chu, Han, Qi, Qin and other states all carried out reforms; Shang Yang's reform of Qin was the most thorough and the most successful."], "shangyang": ["Shang Yang 商鞅", "Reformer, c. 390–338 BC", "Originally a nobleman of the state of Wey, also called Wei Yang. Qin rewarded him with lands at Shang, which is why he is called Shang Yang. He ran Qin's reforms for twenty years and made Qin rich and strong, but he offended many nobles and was finally executed."], "xiaogong": ["Duke Xiao of Qin 秦孝公", "Ruler of Qin, reigned 361–338 BC", "When he came to the throne Qin was looked down on by the eastern states. He issued a call for talented men and employed Shang Yang to carry out reforms. After his death Shang Yang lost his protection and was killed."], "xian": ["County 縣", "Unit of local government", "A local unit run by officials appointed directly by the ruler, who could not pass their posts to their sons, replacing the system of granting land to nobles. China still has counties today, a system that has lasted more than two thousand years."], "lianzuo": ["Collective punishment 連坐", "Qin law", "When one person committed a crime, their family, neighbours or group members were punished as well. The aim was to make people watch and report on one another; it was later criticised as a cruel system."], "jixia": ["Jixia Academy 稷下學宮", "Qi, c. 4th–3rd centuries BC", "An institution of learning set up by Qi near a gate of its capital, Linzi, which supported scholars from everywhere so they could teach and debate without having to hold office. Mencius and Xunzi both spent time there."], "baijia": ["Hundred Schools of Thought 百家爭鳴", "Intellectual life of the Spring and Autumn and Warring States periods", "The situation in which many schools of thought freely put forward their views and debated with one another. 'Hundred' just means 'many': the main schools were the Confucians, Daoists, Mohists, Legalists, Yin-Yang school, School of Names and military strategists."], "mengzi": ["Mencius 孟子", "Meng Ke, c. 372–289 BC", "The most important Confucian thinker after Confucius. He taught that human nature is good and that rulers should govern with benevolence, and said 'the people matter most, the ruler matters least'. Known in Chinese as Mengzi."], "xunzi": ["Xunzi 荀子", "Xun Kuang, c. 310–238 BC", "A Confucian thinker of the late Warring States period who taught that human nature is bad and must be reshaped by ritual and education. His students Han Fei and Li Si both became Legalists."], "mozi": ["Mozi 墨子", "Mo Di, c. 470–391 BC", "Founder of Mohism, from a craftsman background. He opposed the Confucians' elaborate rituals and lavish funerals, and taught universal love, non-aggression and thrift. In the Warring States period Mohism was as famous as Confucianism, but it declined after the Qin and Han."], "jianai": ["Universal love 兼愛", "Mohist teaching", "Loving all people equally, whether close to you or not. Confucians instead taught that love has degrees, starting with one's own family and extending outwards, which is why Mencius attacked the Mohists for 'not acknowledging their fathers'."], "hanfei": ["Han Fei 韓非", "c. 280–233 BC", "A member of the royal family of the state of Han who brought Legalist thought together into a complete system, arguing that a state should be ruled by law, technique and the power of position. On a mission to Qin he was framed by his fellow student Li Si and died in prison."], "sunzi": ["Sun Tzu 孫子", "Sun Wu, c. 500 BC", "Traditionally said to have been a man of Qi who became a general in Wu and helped Wu defeat Chu. Known in English as Sun Tzu."], "sunzibingfa": ["The Art of War 孫子兵法", "Book on warfare", "China's most famous book on warfare, in thirteen chapters. It argues that the best victory is 'to subdue the enemy without fighting', and stresses intelligence, strategy and avoiding wasteful conflict. It was translated into French and English from the eighteenth century; its English title is The Art of War."], "hezong": ["Vertical and horizontal alliances 合縱連橫", "Warring States diplomacy", "The six states, lined up north to south, uniting against Qin in the west was called the 'vertical alliance'; Qin winning over states along an east–west line and defeating them one by one was called the 'horizontal alliance'. The best-known figures are the persuaders Su Qin and Zhang Yi."], "zhaokuo": ["Zhao Kuo 趙括", "Zhao general, died 260 BC", "Son of the famous general Zhao She. He had read every book on warfare, and when discussing strategy even his father could not beat him in argument, but he had no experience of real battle. Surrounded at the Battle of Changping, he was shot dead trying to break out."], "baiqi": ["Bai Qi 白起", "Qin general, died 257 BC", "One of the most famous generals of the Warring States period. In more than seventy battles, large and small, he never lost, and he is said to have killed over a million enemy soldiers. He later fell out with the King of Qin and was forced to kill himself."], "zenghouyi": ["Marquis Yi of Zeng 曾侯乙", "Ruler of Zeng, buried c. 433 BC", "Zeng was a small state around Suizhou in Hubei, closely tied to Chu. His tomb was excavated in 1978, yielding more than fifteen thousand objects, including bells, bronzes, lacquerware and bamboo slips."], "bianzhong": ["Bronze bells 編鐘", "Musical instrument", "Bronze bells of different sizes hung in order of pitch on a wooden frame and played by striking them with wooden mallets. They were ritual instruments used by Zhou nobles at sacrifices and banquets, and a symbol of status."], "quyuan": ["Qu Yuan 屈原", "Chu poet, c. 340–278 BC", "A Chu nobleman who held high office and argued for reform and for an alliance with Qi against Qin, but was slandered and sent into exile. Tradition says he drowned himself in the Miluo River after Qin captured the Chu capital, Ying."], "lisao": ["Encountering Sorrow 離騷", "Qu Yuan's long poem", "About 2,500 characters long, one of the longest lyric poems of ancient China. It is full of myths and the symbolism of flowers and plants, and expresses the poet's loyalty and lonely anger. It belongs to a southern style of poetry known as the Songs of Chu (楚辭, Chuci)."], "duanwu": ["Dragon Boat Festival 端午節", "Fifth day of the fifth lunar month", "A traditional Chinese festival whose customs include dragon boat racing, eating zongzi (rice dumplings) and hanging up mugwort. It is popularly said to commemorate Qu Yuan, but some of its customs may be older than him. In 2009 it was added to UNESCO's list of the Intangible Cultural Heritage of Humanity."], "libing": ["Li Bing 李冰", "Qin governor of Shu, c. 3rd century BC", "The governor Qin sent to Sichuan, who oversaw the building of Dujiangyan. The people of Sichuan later built the Two Kings Temple in memory of him and his son."], "dujiangyan": ["Dujiangyan 都江堰", "Sichuan, c. 256 BC", "A waterworks on the Min River that uses a 'fish mouth' levee to split the river into an inner and an outer channel: the inner channel carries water to irrigate the Chengdu Plain, the outer one carries away floods. It is still in use and was made a World Heritage Site in 2000."], "zhengguoqu": ["Zheng Guo Canal 鄭國渠", "Shaanxi, begun c. 246 BC", "An irrigation canal dug by Qin across the Guanzhong Plain, more than a hundred kilometres long, named after its designer, Zheng Guo, a water engineer from the state of Han. It made Guanzhong a grain-growing region and gave Qin the material base for unification."], "yingzheng": ["Ying Zheng 嬴政", "King of Qin, 259–210 BC", "Came to the throne in 246 BC aged thirteen. Between 230 and 221 BC he destroyed the six other states and unified China, calling himself the 'First Emperor': Qin Shi Huang."], "lisi": ["Li Si 李斯", "Qin chancellor, c. 284–208 BC", "A man of Chu and a student of Xunzi who went to Qin to make his career. He helped Ying Zheng conquer the six states and carried out policies such as standardising the writing system. After the First Emperor's death he was caught up in court power struggles and executed."], "jingke": ["Jing Ke 荊軻", "Assassin, died 227 BC", "A man of Wey, asked by Crown Prince Dan of Yan to assassinate the King of Qin. He sought an audience bringing the head of a Qin general who had defected and a map of Yan's territory. When the map was unrolled to its end he snatched up the dagger hidden inside, but he failed and was killed on the spot."]}</script>
+  <nav class="pagenav" aria-label="Eras"><a class="prev" href="era2.html"><span class="dir">Previous · Era 2</span><span class="ttl">Shang and Western Zhou</span></a><a class="next" href="era4.html"><span class="dir">Next · Era 4</span><span class="ttl">Qin and Han</span></a></nav>
+</div>
+<div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-labelledby="lb-title">
+  <div class="lb-bar">
+    <span class="lb-title" id="lb-title"></span>
+    <button type="button" class="lb-close" id="lb-close">Close</button>
+  </div>
+  <div class="lb-controls">
+    <button type="button" id="lb-fit">Fit to screen</button>
+    <button type="button" id="lb-out" aria-label="Zoom out">&minus;</button>
+    <input type="range" id="lb-range" min="25" max="300" step="5" value="100" aria-label="Zoom level">
+    <button type="button" id="lb-in" aria-label="Zoom in">+</button>
+    <span class="lb-level" id="lb-level">100%</span>
+  </div>
+  <div class="lb-body" id="lb-body"></div>
+  <div class="lb-hint">Drag the slider or use &minus; and + to zoom from 25% to 300%. 100% fills the screen width. Scroll to move around.</div>
+</div>
+<script>
+(function () {
+  var box = document.getElementById('lightbox'), body = document.getElementById('lb-body');
+  var title = document.getElementById('lb-title'), level = document.getElementById('lb-level'), range = document.getElementById('lb-range');
+  var z = 1, MIN = 0.25, MAX = 3, current = null, opener = null;
+  function availW() { return Math.max(200, body.clientWidth - 32); }
+  function availH() { return Math.max(200, body.clientHeight - 32); }
+  function aspect() { var vb = current && current.viewBox && current.viewBox.baseVal; return vb && vb.width ? vb.height / vb.width : 0.6; }
+  function setZ(v) {
+    z = Math.min(MAX, Math.max(MIN, Math.round(v * 100) / 100));
+    if (current) current.style.width = Math.round(availW() * z) + 'px';
+    range.value = Math.round(z * 100); level.textContent = Math.round(z * 100) + '%';
+  }
+  function fit() { setZ(Math.min(1, availH() / (availW() * aspect()))); }
+  function open(svg, from) {
+    current = svg.cloneNode(true);
+    current.querySelectorAll('[id]').forEach(function (el) { el.removeAttribute('id'); });
+    current.removeAttribute('aria-labelledby');
+    var t = svg.querySelector('title'); title.textContent = t ? t.textContent : 'Diagram';
+    current.setAttribute('role', 'img'); current.setAttribute('aria-label', title.textContent);
+    body.innerHTML = ''; body.appendChild(current);
+    opener = from; box.hidden = false; document.documentElement.style.overflow = 'hidden';
+    fit(); body.scrollTop = 0; body.scrollLeft = 0;
+    document.getElementById('lb-close').focus();
+  }
+  function close() { box.hidden = true; body.innerHTML = ''; current = null; document.documentElement.style.overflow = ''; if (opener) opener.focus(); }
+  document.querySelectorAll('figure .frame').forEach(function (frame) {
+    var svg = frame.querySelector('svg'); if (!svg) return;
+    var b = document.createElement('button'); b.type = 'button'; b.className = 'zoom-btn'; b.textContent = 'Enlarge';
+    b.setAttribute('aria-label', 'Enlarge: ' + ((svg.querySelector('title') || {}).textContent || 'diagram'));
+    b.addEventListener('click', function () { open(svg, b); });
+    svg.addEventListener('click', function () { open(svg, b); });
+    frame.appendChild(b);
+  });
+  document.getElementById('lb-close').addEventListener('click', close);
+  document.getElementById('lb-fit').addEventListener('click', fit);
+  document.getElementById('lb-in').addEventListener('click', function () { setZ(z + 0.1); });
+  document.getElementById('lb-out').addEventListener('click', function () { setZ(z - 0.1); });
+  range.addEventListener('input', function () { setZ(range.value / 100); });
+  body.addEventListener('wheel', function (e) { if (!e.ctrlKey) return; e.preventDefault(); setZ(z * (e.deltaY < 0 ? 1.1 : 0.9)); }, { passive: false });
+  window.addEventListener('resize', function () { if (!box.hidden) setZ(z); });
+  document.addEventListener('keydown', function (e) {
+    if (box.hidden) return;
+    if (e.key === 'Escape') close();
+    else if (e.key === '+' || e.key === '=') setZ(z + 0.1);
+    else if (e.key === '-') setZ(z - 0.1);
+    else if (e.key === '0') fit();
+  });
+})();
+</script>
+<div class="glcard" id="glcard" role="dialog" aria-modal="false" aria-labelledby="gl-t" hidden>
+  <button type="button" class="gx" id="gl-x" aria-label="Close">×</button>
+  <span class="gt" id="gl-t"></span><span class="gs" id="gl-s"></span><p class="gb" id="gl-b"></p>
+</div>
+<script>
+(function () {
+  var el = document.getElementById('gloss'); if (!el) return;
+  var G = JSON.parse(el.textContent), card = document.getElementById('glcard'), cur = null;
+  function hide() { card.hidden = true; if (cur) { cur.setAttribute('aria-expanded', 'false'); } cur = null; }
+  function show(btn) {
+    var e = G[btn.dataset.g]; if (!e) return;
+    if (cur === btn) { hide(); return; }
+    if (cur) cur.setAttribute('aria-expanded', 'false');
+    document.getElementById('gl-t').textContent = e[0];
+    document.getElementById('gl-s').textContent = e[1];
+    document.getElementById('gl-b').textContent = e[2];
+    card.hidden = false; cur = btn; btn.setAttribute('aria-expanded', 'true');
+    if (window.innerWidth > 700) {
+      var r = btn.getBoundingClientRect(), w = card.offsetWidth, h = card.offsetHeight;
+      var left = Math.min(Math.max(16, r.left + window.scrollX), window.scrollX + document.documentElement.clientWidth - w - 16);
+      var top = r.bottom + window.scrollY + 8;
+      if (r.bottom + h + 16 > window.innerHeight && r.top > h + 16) top = r.top + window.scrollY - h - 8;
+      card.style.left = left + 'px'; card.style.top = top + 'px';
+    }
+    document.getElementById('gl-x').focus({ preventScroll: true });
+  }
+  document.querySelectorAll('button.gl').forEach(function (b) { b.setAttribute('aria-expanded', 'false'); b.addEventListener('click', function (ev) { ev.stopPropagation(); show(b); }); });
+  document.getElementById('gl-x').addEventListener('click', function () { var b = cur; hide(); if (b) b.focus(); });
+  card.addEventListener('click', function (ev) { ev.stopPropagation(); });
+  document.addEventListener('click', hide);
+  document.addEventListener('keydown', function (ev) { if (ev.key === 'Escape' && !card.hidden) { var b = cur; hide(); if (b) b.focus(); } });
+  window.addEventListener('resize', hide);
+})();
+</script>
+</body>
+</html>

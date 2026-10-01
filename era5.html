@@ -1,0 +1,738 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Era 5: Division, Sui and Tang · China Through Time</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,500;0,700;1,500&family=Source+Sans+3:wght@400;500;700&family=Noto+Serif+TC:wght@500;700&family=Noto+Sans+TC:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a field guide. Era strip across the top, then one long-form chapter per era with maps and drawings set into the text column. */
+:root {
+  --bg: #F3F4F0;
+  --surface: #FFFFFF;
+  --ink: #1E2421;
+  --muted: #5B645F;
+  --line: #D6DAD3;
+  --loch: #2B5F58;
+  --lichen: #9C7426;
+  --heather: #6A4B7C;
+  --moss: #3F6B3A;
+  --rust: #B0392B;
+  --river: #5B8DB0;
+  --sea: #D3E2E3;
+  --land: #EEEADF;
+  --land-edge: #A9AA9E;
+  --display: "Noto Serif TC", "Songti TC", "PMingLiU", serif;
+  --body: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #101614; --surface: #18201D; --ink: #E4E8E4; --muted: #9BA6A0; --line: #2B3632; --loch: #85C1B6; --lichen: #D8B458; --heather: #BFA0D2; --moss: #93C08A; --rust: #E4806C; --river: #7FB2D4; --sea: #15252A; --land: #2A302C; --land-edge: #5D6660;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #101614; --surface: #18201D; --ink: #E4E8E4; --muted: #9BA6A0; --line: #2B3632; --loch: #85C1B6; --lichen: #D8B458; --heather: #BFA0D2; --moss: #93C08A; --rust: #E4806C; --river: #7FB2D4; --sea: #15252A; --land: #2A302C; --land-edge: #5D6660;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 1.125rem; line-height: 1.65; }
+.wrap { max-width: 68rem; margin: 0 auto; padding-inline: 1.25rem; padding-block: 2.5rem 4rem; }
+h1, h2, h3 { font-family: var(--display); font-weight: 700; line-height: 1.15; text-wrap: balance; margin: 0; }
+p { margin: 0; }
+a { color: var(--loch); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--loch); outline-offset: 3px; border-radius: 3px; }
+.label { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+
+/* Masthead */
+header.mast { display: grid; gap: 1rem; padding-block: 1rem 2.5rem; border-bottom: 1px solid var(--line); }
+header.mast h1 { font-size: clamp(2.6rem, 7vw, 4.6rem); letter-spacing: -0.01em; }
+header.mast h1 em { font-style: italic; font-weight: 500; color: var(--loch); }
+header.mast .lede { max-width: 38rem; color: var(--muted); font-size: 1.2rem; }
+
+/* Era strip */
+.eras { list-style: none; margin: 2rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.5rem; }
+@media (max-width: 760px) { .eras { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.eras li { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 0.75rem 0.85rem; display: grid; gap: 0.15rem; min-width: 0; }
+.eras li.open { border-color: var(--loch); }
+.eras .n { font-family: var(--mono); font-size: 0.75rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.eras .t { font-family: var(--display); font-weight: 700; font-size: 1.05rem; line-height: 1.2; }
+.eras .cn { font-size: 0.85rem; color: var(--heather); }
+.eras .st { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.eras li.open .st { color: var(--loch); }
+.eras li:hover { border-color: var(--loch); }
+.eras a { color: inherit; text-decoration: none; display: grid; gap: 0.15rem; }
+.threads { margin-top: 1.25rem; color: var(--muted); font-size: 1rem; max-width: 44rem; }
+
+/* Chapter */
+article.era { margin-top: 3.5rem; display: grid; gap: 2.5rem; }
+.era-head { display: grid; gap: 0.6rem; }
+.era-head h2 { font-size: clamp(2rem, 5vw, 3rem); }
+.era-head .dates { font-family: var(--mono); color: var(--loch); font-size: 0.95rem; }
+.bigidea { font-family: var(--display); font-size: 1.35rem; line-height: 1.45; max-width: 44rem; border-left: 3px solid var(--lichen); padding-left: 1.1rem; }
+.cols { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 26rem); gap: 3rem; align-items: start; }
+@media (max-width: 900px) { .cols { grid-template-columns: minmax(0, 1fr); gap: 2rem; } }
+.text { display: grid; gap: 2.25rem; min-width: 0; max-width: 40rem; }
+.part { display: grid; gap: 0.7rem; }
+.part h3 { font-size: 1.45rem; }
+.part .when { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.part ul { margin: 0; padding-left: 1.2rem; display: grid; gap: 0.5rem; }
+.part li::marker { color: var(--lichen); }
+.events { list-style: none; padding: 0 !important; display: grid; gap: 0.75rem !important; }
+.events li { display: grid; grid-template-columns: 6.5rem minmax(0, 1fr); gap: 0.75rem; }
+.events .y { font-family: var(--mono); font-size: 0.85rem; color: var(--loch); padding-top: 0.2rem; font-variant-numeric: tabular-nums; }
+@media (max-width: 480px) { .events li { grid-template-columns: minmax(0, 1fr); gap: 0.1rem; } }
+.quote { font-family: var(--display); font-style: italic; font-size: 1.25rem; }
+.note { font-size: 0.95rem; color: var(--muted); }
+
+/* Figures */
+figure { margin: 0; display: grid; gap: 0.6rem; min-width: 0; }
+figure .frame { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 0.75rem; overflow-x: auto; }
+figure svg { display: block; width: 100%; height: auto; }
+figcaption { font-size: 0.9rem; color: var(--muted); line-height: 1.5; }
+figcaption b { color: var(--ink); font-weight: 500; }
+.side { display: grid; gap: 2rem; }
+@media (max-width: 900px) { .side { position: static; } }
+
+/* Map text */
+.m-sea { fill: var(--sea); }
+.m-land { fill: var(--land); stroke: var(--land-edge); stroke-width: 0.8; }
+.m-wall { fill: none; stroke: var(--lichen); stroke-width: 3.2; stroke-linecap: round; stroke-linejoin: round; }
+.m-border { fill: none; stroke: var(--muted); stroke-width: 1; stroke-dasharray: 3 3; }
+.m-dot { fill: var(--loch); stroke: var(--surface); stroke-width: 1.5; }
+.m-unknown { fill: none; stroke: var(--heather); stroke-width: 1.4; stroke-dasharray: 4 3; }
+.m-lab { font-family: var(--body); font-size: 12.5px; fill: var(--ink); paint-order: stroke; stroke: var(--surface); stroke-width: 3.5px; stroke-linejoin: round; }
+.m-lab.mu { fill: var(--muted); font-size: 11.5px; }
+.m-lab.wall { fill: var(--lichen); font-weight: 700; }
+.m-lab.h { fill: var(--heather); }
+.m-lab.sea { fill: var(--muted); stroke: var(--sea); font-style: italic; font-size: 12px; letter-spacing: 0.1em; }
+.legend { display: flex; flex-wrap: wrap; gap: 0.4rem 1rem; font-size: 0.85rem; color: var(--muted); }
+.legend span { display: inline-flex; align-items: center; gap: 0.4rem; }
+.sw { width: 18px; height: 0; border-top: 3px solid var(--lichen); display: inline-block; }
+.sw.d { border-top: 2px dashed var(--muted); }
+.sw.c { width: 10px; height: 10px; border: 0; border-radius: 50%; background: var(--loch); }
+
+.m-reg { font-family: var(--display); font-weight: 700; font-size: 15px; letter-spacing: 0.18em; paint-order: stroke; stroke: var(--land); stroke-width: 4px; stroke-linejoin: round; }
+.c-axis line { stroke: var(--muted); stroke-width: 1; }
+.c-track line { stroke: var(--line); stroke-width: 2; stroke-dasharray: 3 4; }
+.c-in line { stroke: var(--loch); stroke-width: 3; stroke-linecap: round; }
+.c-pt { fill: var(--loch); stroke: var(--surface); stroke-width: 2; }
+.c-pt.rust { fill: var(--rust); }
+.c-tick { font-family: var(--mono); font-size: 11px; fill: var(--muted); }
+.c-row { font-family: var(--body); font-size: 13px; fill: var(--ink); }
+.c-val { font-family: var(--mono); font-size: 11px; fill: var(--muted); paint-order: stroke; stroke: var(--surface); stroke-width: 3px; }
+.m-dot.rust { fill: var(--rust); }
+.r-adv { fill: none; stroke: var(--rust); stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+.r-ret { fill: none; stroke: var(--loch); stroke-width: 2; stroke-dasharray: 5 4; stroke-linejoin: round; }
+.b-adult { fill: var(--muted); opacity: 0.7; }
+.b-child { fill: var(--lichen); }
+.b-yes { fill: var(--loch); }
+.c-sub { font-family: var(--body); font-size: 11.5px; fill: var(--muted); }
+.c-mid { stroke: var(--muted); stroke-width: 1; stroke-dasharray: 3 3; }
+.c-grid line { stroke: var(--line); stroke-width: 1; }
+.c-note { font-family: var(--mono); font-size: 11px; fill: var(--lichen); letter-spacing: 0.06em; }
+.u-head { font-family: var(--display); font-weight: 700; font-size: 15px; fill: var(--ink); }
+.u-t { font-family: var(--body); font-size: 14px; fill: var(--ink); }
+.u-t.b { font-weight: 700; }
+.u-s { font-family: var(--body); font-size: 12.5px; fill: var(--muted); }
+.u-shared { fill: var(--sea); stroke: var(--loch); stroke-width: 1; }
+.u-scot { fill: var(--surface); stroke: var(--lichen); stroke-width: 1.5; }
+.u-eng { fill: var(--surface); stroke: var(--land-edge); stroke-width: 1; }
+.u-link { stroke: var(--loch); stroke-width: 1.2; }
+.u-div { stroke: var(--line); stroke-width: 1; }
+/* Illustration text */
+.i-stone { fill: var(--land); stroke: var(--land-edge); stroke-width: 1; }
+.i-ground { stroke: var(--muted); stroke-width: 1.2; }
+.i-lead { stroke: var(--muted); stroke-width: 0.7; stroke-dasharray: 2 2; fill: none; }
+.i-lab { font-family: var(--body); font-size: 13px; fill: var(--ink); }
+.i-lab.mu { fill: var(--muted); font-size: 12px; }
+
+/* Parallels */
+.parallel { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 1.5rem; display: grid; gap: 1.25rem; }
+.parallel h3 { font-size: 1.45rem; }
+.parallel .pair { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; }
+@media (max-width: 800px) { .parallel .pair { grid-template-columns: minmax(0, 1fr); } }
+.parallel .pair div { display: grid; gap: 0.4rem; align-content: start; min-width: 0; }
+.parallel h4 { margin: 0; font-family: var(--display); font-size: 1.1rem; font-weight: 700; }
+.zh { color: var(--heather); white-space: nowrap; }
+
+/* Visit */
+.visit { display: grid; gap: 1rem; }
+.visit h3 { font-size: 1.45rem; }
+.places { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem 1rem; }
+@media (max-width: 800px) { .places { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 480px) { .places { grid-template-columns: minmax(0, 1fr); } }
+.places li { border-top: 2px solid var(--loch); padding-top: 0.6rem; display: grid; gap: 0.25rem; align-content: start; }
+.places .nm { font-weight: 700; }
+.places .tm { font-family: var(--mono); font-size: 0.75rem; color: var(--muted); }
+.places p { font-size: 1rem; }
+.remember { font-family: var(--display); font-size: 1.3rem; line-height: 1.45; max-width: 44rem; padding-block: 1.5rem; border-block: 1px solid var(--line); }
+.remember .label { display: block; margin-bottom: 0.4rem; font-family: var(--mono); }
+footer { margin-top: 3rem; font-size: 0.9rem; color: var(--muted); display: grid; gap: 0.4rem; max-width: 44rem; }
+
+[id] { scroll-margin-top: 1rem; }
+body { margin: 0; }
+.topbar { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; padding-block: 0.25rem 1rem; border-bottom: 1px solid var(--line); font-family: var(--mono); font-size: 0.8rem; color: var(--muted); }
+.topbar a { text-decoration: none; }
+.jump { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.jump a { font-family: var(--mono); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; padding: 0.3rem 0.65rem; border: 1px solid var(--line); border-radius: 999px; text-decoration: none; color: var(--muted); background: var(--surface); }
+.jump a:hover { color: var(--loch); border-color: var(--loch); }
+.block { display: grid; gap: 1rem; }
+.block h3 { font-size: 1.45rem; }
+.life { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.75rem; }
+@media (max-width: 800px) { .life { grid-template-columns: minmax(0, 1fr); gap: 1.25rem; } }
+.life > div { display: grid; gap: 0.4rem; align-content: start; min-width: 0; }
+.life h4, .people .nm { margin: 0; font-family: var(--display); font-size: 1.1rem; font-weight: 700; }
+.people { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.75rem; }
+@media (max-width: 800px) { .people { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 480px) { .people { grid-template-columns: minmax(0, 1fr); } }
+.people li { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 1rem; display: grid; gap: 0.3rem; align-content: start; min-width: 0; }
+.people .rl { font-family: var(--mono); font-size: 0.75rem; color: var(--muted); }
+.people p { font-size: 1rem; }
+.myths { list-style: none; margin: 0; padding: 0; display: grid; }
+.myths li { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 1.5rem; border-top: 1px solid var(--line); padding-block: 0.9rem; }
+.myths li:last-child { border-bottom: 1px solid var(--line); }
+@media (max-width: 700px) { .myths li { grid-template-columns: minmax(0, 1fr); gap: 0.35rem; } }
+.myths .mq { font-family: var(--display); font-style: italic; font-size: 1.15rem; line-height: 1.4; }
+.myths .ma b { color: var(--rust); font-weight: 700; }
+.words { margin: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem 1.5rem; }
+@media (max-width: 800px) { .words { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 480px) { .words { grid-template-columns: minmax(0, 1fr); } }
+.words div { border-left: 2px solid var(--lichen); padding-left: 0.8rem; border-radius: 0; min-width: 0; }
+.words dt { font-family: var(--display); font-weight: 700; font-size: 1.1rem; }
+.words dd { margin: 0; font-size: 1rem; color: var(--muted); }
+.pagenav { display: flex; justify-content: space-between; gap: 1rem; margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--line); }
+.pagenav a { display: grid; gap: 0.2rem; text-decoration: none; min-width: 0; }
+.pagenav a.next { text-align: right; margin-left: auto; }
+.pagenav .dir { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.pagenav .ttl { font-family: var(--display); font-weight: 700; font-size: 1.2rem; color: var(--ink); }
+.intro { max-width: 44rem; display: grid; gap: 0.75rem; margin-top: 2rem; color: var(--muted); }
+.i-wall { fill: var(--land); stroke: var(--land-edge); stroke-width: 1; }
+.i-floor { fill: var(--surface); stroke: var(--land-edge); stroke-width: 1; }
+.i-edge { stroke: var(--land-edge); stroke-width: 1; }
+.i-hearth { fill: var(--lichen); opacity: 0.75; }
+.i-bedding { fill: var(--moss); opacity: 0.35; }
+.i-water { fill: var(--sea); stroke: var(--loch); stroke-width: 1; }
+[hidden] { display: none !important; }
+.frame { position: relative; }
+.zoom-btn { position: absolute; top: 0.5rem; right: 0.5rem; display: inline-flex; align-items: center; gap: 0.35rem; font: 500 0.8rem var(--body); color: var(--loch); background: var(--surface); border: 1px solid var(--loch); border-radius: 999px; padding: 0.3rem 0.7rem; cursor: pointer; }
+.zoom-btn:hover { background: var(--loch); color: var(--surface); }
+figure .frame svg { cursor: zoom-in; }
+.lightbox { position: fixed; inset: 0; z-index: 50; background: var(--bg); display: flex; flex-direction: column; padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+.lb-bar { display: flex; align-items: center; gap: 0.5rem; padding: 0.6rem 1rem; border-bottom: 1px solid var(--line); background: var(--surface); }
+.lb-title { flex: 1; min-width: 0; font-family: var(--display); font-weight: 700; font-size: 1rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.lb-bar button { font: 500 1rem var(--body); min-width: 2.5rem; height: 2.5rem; padding: 0 0.8rem; border: 1px solid var(--line); border-radius: 6px; background: var(--bg); color: var(--ink); cursor: pointer; }
+.lb-bar button:hover { border-color: var(--loch); color: var(--loch); }
+.lb-bar .lb-close { background: var(--loch); color: var(--surface); border-color: var(--loch); }
+.lb-level { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); min-width: 3.2rem; text-align: center; font-variant-numeric: tabular-nums; }
+.lb-controls { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; padding: 0.5rem 1rem; border-bottom: 1px solid var(--line); background: var(--surface); }
+.lb-controls button { font: 500 1rem var(--body); min-width: 2.5rem; height: 2.5rem; padding: 0 0.8rem; border: 1px solid var(--line); border-radius: 6px; background: var(--bg); color: var(--ink); cursor: pointer; }
+.lb-controls button:hover { border-color: var(--loch); color: var(--loch); }
+.lb-controls input[type=range] { flex: 1; min-width: 8rem; accent-color: var(--loch); }
+.lb-body { flex: 1; overflow: auto; padding: 1rem; -webkit-overflow-scrolling: touch; }
+.lb-body svg { display: block; height: auto; margin: 0 auto; max-width: none; }
+.lb-hint { font-size: 0.85rem; color: var(--muted); text-align: center; padding: 0.4rem 1rem 0.6rem; }
+.t-live { fill: var(--surface); stroke: var(--loch); stroke-width: 1.5; }
+.t-dead { fill: var(--surface); stroke: var(--muted); stroke-width: 1; stroke-dasharray: 4 3; }
+.c-axis-v { stroke: var(--muted); stroke-width: 1; }
+.c-row.rust { fill: var(--rust); }
+
+body { font-size: 1.0625rem; line-height: 1.85; }
+.label { font-family: var(--body); letter-spacing: 0.12em; text-transform: none; }
+h1, h2, h3, .people .nm, .life h4, .parallel h4, .words dt, .pagenav .ttl { letter-spacing: 0.02em; }
+.bigidea, .remember, .quote, .myths .mq { line-height: 1.7; }
+.myths .mq { font-style: normal; }
+.quote { font-style: normal; }
+.m-river { fill: none; stroke: var(--river); stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; opacity: 0.85; }
+.m-route { fill: none; stroke: var(--rust); stroke-width: 2.4; stroke-linejoin: round; stroke-linecap: round; }
+.m-route2 { fill: none; stroke: var(--lichen); stroke-width: 2.6; stroke-linejoin: round; stroke-linecap: round; }
+.m-lab.river { fill: var(--river); font-style: italic; }
+.m-lab.red { fill: var(--rust); }
+.m-reg { font-family: var(--display); font-weight: 700; font-size: 15px; letter-spacing: 0.3em; paint-order: stroke; stroke: var(--land); stroke-width: 4px; stroke-linejoin: round; }
+.hk { background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--rust); border-radius: 0; padding: 1.25rem 1.5rem; display: grid; gap: 0.6rem; }
+.hk h3 { font-size: 1.35rem; }
+.hk .label { color: var(--rust); }
+.eras.cn { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+@media (max-width: 900px) { .eras.cn { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+.startlink { display: block; margin: 0 0 1.5rem; padding: 1rem 1.25rem; border: 1.5px solid var(--loch); border-radius: 6px; background: var(--surface); color: var(--ink); text-decoration: none; }
+.startlink .dir { display: block; font-family: var(--mono); font-size: 0.8rem; color: var(--loch); letter-spacing: 0.05em; }
+.startlink .ttl { display: block; margin-top: 0.25rem; font-family: var(--display); font-weight: 700; font-size: 1.05rem; }
+.startlink:hover { background: var(--sea); }
+.text .stages { margin: 0.5rem 0 1rem; }
+.stages { margin: 0; padding-left: 0; list-style: none; display: grid; gap: 0.45rem; font-size: 0.95rem; line-height: 1.7; }
+.glhint { font-size: 0.9rem; color: var(--muted); margin-top: -1.25rem; }
+button.gl { font: inherit; color: inherit; background: none; border: 0; padding: 0; margin: 0; cursor: pointer; text-decoration: underline dotted var(--loch); text-decoration-thickness: 1.5px; text-underline-offset: 4px; }
+button.gl:hover, button.gl[aria-expanded="true"] { color: var(--loch); background: color-mix(in srgb, var(--loch) 10%, transparent); }
+.glcard { position: absolute; z-index: 40; width: min(22rem, calc(100vw - 32px)); background: var(--surface); border: 1px solid var(--line); border-top: 3px solid var(--loch); border-radius: 6px; box-shadow: 0 10px 30px rgba(0,0,0,0.18); padding: 1rem 1.1rem 1.1rem; display: grid; gap: 0.35rem; }
+.glcard .gt { font-family: var(--display); font-weight: 700; font-size: 1.15rem; padding-right: 2rem; }
+.glcard .gs { font-size: 0.85rem; color: var(--muted); }
+.glcard .gb { font-size: 1rem; line-height: 1.75; }
+.glcard .gx { position: absolute; top: 0.5rem; right: 0.5rem; width: 2rem; height: 2rem; border: 0; background: none; font-size: 1.3rem; color: var(--muted); cursor: pointer; border-radius: 4px; }
+.glcard .gx:hover { background: var(--bg); color: var(--ink); }
+@media (max-width: 700px) { .glcard { position: fixed; left: 0 !important; right: 0; bottom: 0; top: auto !important; width: auto; border-radius: 12px 12px 0 0; padding-bottom: calc(1.1rem + env(safe-area-inset-bottom, 0px)); } }
+.homefig { margin-top: 2.5rem; max-width: 60rem; }
+figure.homefig .frame { padding-top: 2.75rem; }
+.frame { padding-top: 2.75rem; }
+header.mast h1 em { font-style: normal; }
+.jump a { text-transform: none; letter-spacing: 0.04em; font-family: var(--body); font-size: 0.8rem; }
+
+:root { --display: "Source Serif 4", "Noto Serif TC", Georgia, serif; --body: "Source Sans 3", "Noto Sans TC", system-ui, sans-serif; }
+body { line-height: 1.7; }
+.label { font-family: var(--mono); letter-spacing: 0.08em; text-transform: uppercase; }
+.m-reg { letter-spacing: 0.12em; }
+.myths .mq { font-style: italic; }
+.eras.cn .t { font-size: 1rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar"><a href="index.html">China Through Time</a><span>Era 5 of 10</span></div>
+  <article class="era" id="era5">
+    <div class="era-head">
+      <span class="label">Era 5</span>
+      <h2>Division, Sui and Tang</h2>
+      <span class="dates">AD 220 – 907</span>
+    </div>
+
+    <p class="bigidea">After the Han dynasty (漢朝) fell, China was divided for more than three hundred years. First came the Three Kingdoms (三國); later, nomadic peoples from the north moved south one after another and set up their own states, while the Han Chinese court retreated south of the Yangtze (長江), leaving north and south facing each other. In the same period the Western Roman Empire also collapsed, but Europe was never reunited, whereas China was reunited by the Sui dynasty (隋朝) in AD 589. The Tang dynasty (唐朝) that followed was one of the most open and international periods in Chinese history: its capital, Chang'an (長安), was home to people from Central Asia, Persia, Japan and Korea; Buddhism, which had come from India, took root in China; and Tang poetry (唐詩) became the high point of Chinese literature. In the end, a rebellion turned the Tang from glory to decline.</p>
+
+    <p class="glhint">Names and terms with a dotted underline can be tapped for a short explanation.</p>
+
+    <nav class="jump" aria-label="In this era">
+      <a href="#story">The story</a><a href="#life">Daily life</a><a href="#people">Key people</a><a href="#myths">Myth or fact</a><a href="#evidence">How we know</a><a href="#words">Key terms</a><a href="#hk">Hong Kong</a><a href="#world">The world</a><a href="#visit">Visit</a>
+    </nav>
+
+    <div class="cols" id="story">
+      <div class="text">
+        <section class="part">
+          <span class="when">Before we start</span>
+          <h3>Nearly seven hundred years, in three stages</h3>
+          <p>This era is long, with a great many dynasty names, and it is the easiest one to get confused by. It can be simplified into three stages (see Figure 2):</p>
+          <ul class="stages">
+            <li><b>Division (220–589):</b> first the Three Kingdoms, then a brief reunification under the Jin dynasty (晉朝); after that the north was ruled by a succession of states founded by different peoples, and the south by a succession of Han Chinese courts. This is called the <button type="button" class="gl" data-g="nanbeichao" aria-haspopup="dialog">Northern and Southern Dynasties</button> (南北朝).</li>
+            <li><b>Sui (581–618):</b> a short-lived dynasty that reunited China and dug the Grand Canal (大運河).</li>
+            <li><b>Tang (618–907):</b> a great unified dynasty lasting nearly three hundred years, strong and open in its first half, gradually declining in its second.</li>
+          </ul>
+          <p>European readers can line it up like this: the Han dynasty was roughly contemporary with the Roman Empire; China's three-plus centuries of division were the age when the Western Roman Empire declined and fell and Germanic peoples moved in; and the Tang was contemporary with the Anglo-Saxon kingdoms of England, Charlemagne's Frankish empire and the rise of the Islamic empire. A question worth thinking about: why was China eventually reunited, when Europe was not?</p>
+        </section>
+
+        <section class="part">
+          <span class="when">AD 208 – 280</span>
+          <h3>The Three Kingdoms: China's most famous age of chaos</h3>
+          <p>At the end of the Eastern Han (東漢), warlords carved up the country until three powers were left: <button type="button" class="gl" data-g="caocao" aria-haspopup="dialog">Cao Cao</button> (曹操) in the north, <button type="button" class="gl" data-g="liubei" aria-haspopup="dialog">Liu Bei</button> (劉備) in Sichuan (四川) in the southwest, and <button type="button" class="gl" data-g="sunquan" aria-haspopup="dialog">Sun Quan</button> (孫權) on the lower Yangtze. In AD 208 Cao Cao led a huge army south, hoping to unify the realm at a stroke, but at <button type="button" class="gl" data-g="chibi" aria-haspopup="dialog">Red Cliffs</button> (赤壁), on the Yangtze, he was defeated by the allied forces of Sun Quan and Liu Bei, who attacked with fire. After this the three sides stood like the three legs of a tripod. In AD 220 Cao Pi (曹丕) deposed the Han emperor and made himself emperor of a new state, Wei (魏); Liu Bei and Sun Quan also declared themselves emperors in turn, founding Shu Han (蜀漢) and Wu (吳). Historians call this the <button type="button" class="gl" data-g="sanguo" aria-haspopup="dialog">Three Kingdoms</button> (see Map 1).</p>
+          <p>Liu Bei's chief minister, <button type="button" class="gl" data-g="zhugeliang" aria-haspopup="dialog">Zhuge Liang</button> (諸葛亮), is for Chinese people the very picture of wisdom and loyalty. After Liu Bei died, he served Liu Bei's son, led several northern campaigns against Wei, and finally died of illness while with the army.</p>
+          <p>The Three Kingdoms lasted only about sixty years, yet it is the period of history Chinese people know best, mainly because of a Ming dynasty (明朝) novel written more than a thousand years later, the <button type="button" class="gl" data-g="sgyy" aria-haspopup="dialog">Romance of the Three Kingdoms</button> (三國演義). The novel mixes real history with a great deal of invented story: Liu Bei is written as a benevolent ruler and Cao Cao as a cunning villain. The Three Kingdoms are well known in the West today too, for example through the video games <i>Total War: Three Kingdoms</i> and <i>Dynasty Warriors</i>, and John Woo's film <i>Red Cliff</i>. In the end, the Sima (司馬) family, the powerful ministers of Wei, seized the throne and founded the <button type="button" class="gl" data-g="jin" aria-haspopup="dialog">Jin dynasty</button>, which unified China in AD 280.</p>
+        </section>
+
+        <section class="part">
+          <span class="when">AD 291 – 420</span>
+          <h3>The northern peoples move south, and the elite flee south</h3>
+          <p>The Jin unification was very short-lived. Eight princes of the Jin royal family fought each other for power for more than ten years, in what is known as the <button type="button" class="gl" data-g="bawang" aria-haspopup="dialog">War of the Eight Princes</button> (八王之亂), and the state was badly weakened. These princes also recruited nomadic peoples from the north as soldiers. In AD 311 an army of the Xiongnu (匈奴) captured Luoyang (洛陽) and took the Jin emperor prisoner; a few years later Chang'an fell as well, and Jin rule in the north was over.</p>
+          <p>For more than a century after this, the north was ruled in turn by regimes of many different peoples, traditionally known together as the <button type="button" class="gl" data-g="wuhu" aria-haspopup="dialog">Five Barbarians</button> and Sixteen Kingdoms (五胡十六國). "Hu" (胡) was the general word the Han Chinese of the time used for foreign peoples to the north and west. Large numbers of northern aristocrats, scholars and ordinary people fled south of the Yangtze, and the Jin royal family rebuilt its court at Jiankang (建康, today's Nanjing); this is called the <button type="button" class="gl" data-g="dongjin" aria-haspopup="dialog">Eastern Jin</button> (東晉). This great migration is known as the <button type="button" class="gl" data-g="yiguan" aria-haspopup="dialog">"southward crossing of the robes and caps"</button> (衣冠南渡, yiguan nandu). The south had been thinly populated, and the northern migrants brought labour and skills; from then on the Yangtze valley gradually developed, and in the end overtook the north economically.</p>
+          <p>In AD 383 Fu Jian (苻堅), emperor of the Former Qin (前秦), who had unified the north, led an army said to number nearly a million south to destroy the Eastern Jin, but at the Fei River (淝水) he was routed by a much smaller Jin army. It is said that his fleeing soldiers took the sound of the wind and the cries of cranes for pursuing troops, and mistook the grass and trees on the hills for enemy soldiers. The Chinese sayings "wind's sound and crane's cry" (風聲鶴唳) and "every tree and blade of grass a soldier" (草木皆兵), both used for jumpy panic, come from this <button type="button" class="gl" data-g="feishui" aria-haspopup="dialog">Battle of the Fei River</button> (淝水之戰). The battle saved the Han Chinese state in the south.</p>
+        </section>
+
+        <section class="part">
+          <span class="when">AD 386 – 589</span>
+          <h3>The Northern and Southern Dynasties: two different worlds</h3>
+          <p>In AD 439 the <button type="button" class="gl" data-g="beiwei" aria-haspopup="dialog">Northern Wei</button> (北魏), founded by the Xianbei (鮮卑) people, unified the north. The Xianbei were originally nomads from the northeast. Once they ruled the heartland of China and faced far larger numbers of Han Chinese, they had to decide whether to keep their own traditions or adopt Han Chinese institutions. <button type="button" class="gl" data-g="xiaowendi" aria-haspopup="dialog">Emperor Xiaowen</button> (孝文帝) of the Northern Wei chose thorough sinicisation: in AD 494 he moved the capital from Pingcheng (平城, today's Datong (大同) in Shanxi (山西)) in the north to Luoyang, and ordered that only Chinese be spoken at court. Xianbei nobles had to wear Han Chinese dress and take Han Chinese surnames; even the royal family changed its own surname from "Tuoba" (拓跋) to "Yuan" (元). He also encouraged marriage between Xianbei and Han Chinese. These reforms sped up the mixing of peoples, but they also angered the Xianbei soldiers left on the northern frontier, and the Northern Wei later split apart. In fact, many Chinese people today have Xianbei and other northern peoples among their ancestors.</p>
+          <p>The south, meanwhile, went through four dynasties in turn, Song, Qi, Liang and Chen (宋、齊、梁、陳), all with their capital at Jiankang, known together as the <button type="button" class="gl" data-g="nanchao" aria-haspopup="dialog">Southern Dynasties</button> (南朝). Southern politics was dominated by a few great families, illustrious for generations, who cared about pedigree, refined conversation and elegance. This was an important period for Chinese calligraphy, poetry and the appreciation of landscape: <button type="button" class="gl" data-g="wangxizhi" aria-haspopup="dialog">Wang Xizhi</button> (王羲之) of the Eastern Jin is revered as the "Sage of Calligraphy" (書聖), and the poet <button type="button" class="gl" data-g="taoyuanming" aria-haspopup="dialog">Tao Yuanming</button> (陶淵明) gave up office to live as a farmer, writing The Peach Blossom Spring (桃花源記), a description of an ideal world.</p>
+        </section>
+
+        <section class="part">
+          <span class="when">AD 366 – 589</span>
+          <h3>Buddhism in an age of chaos</h3>
+          <p>Buddhism had already reached China under the Eastern Han, but it only truly flourished in the war-torn Northern and Southern Dynasties. Buddhism taught that life is suffering but that one can be freed from it through religious practice, and it had ideas of karma and rebirth, which brought comfort to people living through chaotic times. The non-Han rulers of the north were also happy to support a religion that did not come from the Han Chinese tradition.</p>
+          <p>Northern rulers had huge cave temples cut into cliffs, filled with carved and painted Buddhas: work on the <button type="button" class="gl" data-g="mogao" aria-haspopup="dialog">Mogao Caves</button> (莫高窟) at Dunhuang (敦煌) in Gansu (甘肅) began in AD 366; the Northern Wei cut the <button type="button" class="gl" data-g="yungang" aria-haspopup="dialog">Yungang Grottoes</button> (雲岡石窟) near Pingcheng, and after moving the capital, the <button type="button" class="gl" data-g="longmen" aria-haspopup="dialog">Longmen Grottoes</button> (龍門石窟) near Luoyang. All three are World Heritage Sites today. In the south, Emperor Wu of Liang (梁武帝) was a devout Buddhist who four times "gave himself" to a monastery as a monk, so that his ministers had to buy him back with huge sums. The Tang poet Du Mu (杜牧) wrote of "the Southern Dynasties' four hundred and eighty temples" to describe how many there were.</p>
+          <p>Chinese monks also travelled to India in search of scriptures. The Eastern Jin monk <button type="button" class="gl" data-g="faxian" aria-haspopup="dialog">Faxian</button> (法顯) set out from Chang'an in AD 399, was already in his sixties when he reached India, and came home by sea by way of Sri Lanka. The journey took fourteen years in all, more than two hundred years before the more famous Xuanzang (玄奘).</p>
+        </section>
+
+        <section class="part">
+          <span class="when">AD 581 – 618</span>
+          <h3>Sui: a short-lived but important reunification</h3>
+          <p>In AD 581 <button type="button" class="gl" data-g="yangjian" aria-haspopup="dialog">Yang Jian</button> (楊堅), a minister in the north, seized power and founded the Sui dynasty, becoming Emperor Wen of Sui (隋文帝). In AD 589 Sui armies crossed the Yangtze and destroyed the southern Chen dynasty, and China, divided for nearly three hundred years, was united again. Emperor Wen was frugal and hard-working, put the institutions of government in order, and the state quickly became rich and strong.</p>
+          <p>His son, <button type="button" class="gl" data-g="yangdi" aria-haspopup="dialog">Emperor Yang of Sui</button> (隋煬帝), was even more ambitious. He used millions of labourers to dig a <button type="button" class="gl" data-g="dayunhe" aria-haspopup="dialog">Grand Canal</button> linking north and south (see Map 3). China's main rivers all flow from west to east, and there was no waterway connecting north and south; yet by now the south had become an important grain-growing region, while the political and military centre was in the north. The Grand Canal, centred on Luoyang, ran south to Hangzhou (杭州) and north to near today's Beijing (北京), more than two thousand kilometres in all, carrying grain and goods from the south to the north. Parts of it are still in use today, and it is a World Heritage Site.</p>
+          <p>The Sui also began choosing officials by examination: the beginning of what later became the <button type="button" class="gl" data-g="keju" aria-haspopup="dialog">civil service examination</button> (科舉, keju). But Emperor Yang drove his people too hard. As well as digging the canal and building an eastern capital, he sent huge armies three times against Goguryeo (高句麗) in the north of the Korean peninsula; the first expedition alone is said to have mobilised more than a million men, and all three failed. Uprisings broke out everywhere, and in AD 618 Emperor Yang was killed by his own men at Yangzhou (揚州). The Sui was very like the Qin (秦): both unified China, both set up institutions with long-lasting influence, and both fell within two generations because they overworked the people.</p>
+        </section>
+
+        <section class="part">
+          <span class="when">AD 618 – 649</span>
+          <h3>The founding of the Tang and Emperor Taizong</h3>
+          <p>In AD 618 <button type="button" class="gl" data-g="liyuan" aria-haspopup="dialog">Li Yuan</button> (李淵), a Sui aristocrat, founded the Tang dynasty at Chang'an. His second son, <button type="button" class="gl" data-g="taizong" aria-haspopup="dialog">Li Shimin</button> (李世民), had done most of the fighting to win the empire, but he was not the crown prince. In AD 626 Li Shimin ambushed and killed his elder brother (the crown prince) and his younger brother at the Xuanwu Gate (玄武門), the north gate of the palace, in what is known as the <button type="button" class="gl" data-g="xuanwumen" aria-haspopup="dialog">Xuanwu Gate Incident</button> (玄武門之變). Two months later his father was forced to hand the throne to him, and he became Emperor Taizong of Tang (唐太宗).</p>
+          <p>This emperor, who came to power in such a bloody way, became one of the most praised rulers in Chinese history. He was good at choosing people and encouraged his ministers to criticise him frankly. One of them, <button type="button" class="gl" data-g="weizheng" aria-haspopup="dialog">Wei Zheng</button> (魏徵), remonstrated with him more than two hundred times, often leaving Taizong red-faced. After Wei Zheng died, Taizong said: "With bronze as a mirror, one can straighten one's clothes and cap; with people as a mirror, one can see one's successes and failures. I have lost a mirror." His reign brought good government and economic recovery, and is known as the <button type="button" class="gl" data-g="zhenguan" aria-haspopup="dialog">Reign of Zhenguan</button> (貞觀之治). In AD 630 Tang armies defeated the powerful Eastern Turks (東突厥) on the northern steppe, and the steppe peoples honoured Taizong as the <button type="button" class="gl" data-g="tiankehan" aria-haspopup="dialog">Heavenly Khagan</button> (天可汗, tian kehan), the supreme leader of all their peoples.</p>
+        </section>
+
+        <section class="part">
+          <span class="when">7th – 8th centuries AD</span>
+          <h3>Chang'an: a city of the world</h3>
+          <p>The Tang capital, Chang'an, was one of the largest cities in the world at the time, with about a million people and an area of more than eighty square kilometres, seven or eight times the size of the old city of Xi'an (西安) today. The city was laid out neatly like a chessboard, divided by straight avenues into more than a hundred walled residential wards called <i>fang</i> (坊). Every day at sunset drums were beaten and the ward gates closed, and walking in the avenues at night was forbidden. The East Market (東市) and West Market (西市) were two large marketplaces, and the West Market in particular had many foreign merchants.</p>
+          <p>Chang'an was home to people from many places: <button type="button" class="gl" data-g="sogdian" aria-haspopup="dialog">Sogdian</button> (粟特) merchants from Central Asia ran the trade on the Silk Road (絲綢之路), Persians kept jewellery shops, and students from Japan and Korea came here to study. Japan sent more than ten <button type="button" class="gl" data-g="kentoshi" aria-haspopup="dialog">embassies to Tang China</button> (遣唐使), which brought back Tang institutions, writing, Buddhism and architecture; the layouts of Japan's old capitals, Nara and Kyoto, were modelled on Chang'an. Chang'an was also a city of many religions: besides Buddhism and Daoism (道教), there was Zoroastrianism and Manichaeism from Persia, Islam brought by Arab merchants, and a Christian church from Syria, which the Chinese called <button type="button" class="gl" data-g="jingjiao" aria-haspopup="dialog">Jingjiao</button> (景教, the "Luminous Religion"). People in the Tang loved to wear "barbarian" (<i>hu</i>) clothes, eat "barbarian" flatbreads and listen to music and dance from the Western Regions (西域); the court orchestra had many Central Asian instruments, one of which was the pipa (琵琶), a kind of lute.</p>
+        </section>
+
+        <section class="part">
+          <span class="when">AD 629 – 645</span>
+          <h3>Xuanzang: the real "Journey to the West"</h3>
+          <p>Early in the Tang, a young monk named <button type="button" class="gl" data-g="xuanzang" aria-haspopup="dialog">Xuanzang</button> felt that China's translations of Buddhist scriptures were full of errors, and resolved to go to India, the birthplace of Buddhism, to find the original texts. At the time the court forbade ordinary people to leave the country, so in AD 629 he slipped out of Chang'an secretly and crossed the Gobi Desert (戈壁沙漠), the Tianshan (天山) mountains and the Hindu Kush alone, reaching India by way of Central Asia (see Map 4). He studied for five years at <button type="button" class="gl" data-g="nalanda" aria-haspopup="dialog">Nalanda</button> (那爛陀寺), the greatest Buddhist centre of learning in India at the time, and became a famous scholar.</p>
+          <p>In AD 645 Xuanzang returned to Chang'an with more than 650 Buddhist texts, and was received with great ceremony by Emperor Taizong. For nearly twenty years after that he led the translation of the scriptures, and also dictated the <button type="button" class="gl" data-g="xiyuji" aria-haspopup="dialog">Records of the Western Regions of the Great Tang</button> (大唐西域記), describing the land and people of more than a hundred countries along his route. It is still an important source for the ancient history of Central Asia and India. The Big Wild Goose Pagoda (大雁塔) in Chang'an was built to house the scriptures he brought back.</p>
+          <p>More than nine hundred years later, the Ming novel <button type="button" class="gl" data-g="xiyouji" aria-haspopup="dialog">Journey to the West</button> (西遊記) turned Xuanzang's story into a fantasy: the Tang monk travels with the all-powerful Monkey, Sun Wukong (孫悟空), together with Pigsy (豬八戒) and Sandy (沙僧), defeating demons all the way. British readers may remember <i>Monkey</i>, the Japanese television series shown on the BBC in the late 1970s, which told this very story.</p>
+        </section>
+
+        <section class="part">
+          <span class="when">AD 690 – 705</span>
+          <h3>Wu Zetian: the only female emperor</h3>
+          <p><button type="button" class="gl" data-g="wuzetian" aria-haspopup="dialog">Wu Zetian</button> (武則天) began as a low-ranking consort of Emperor Taizong; after Taizong died, she became empress to his son, Emperor Gaozong (高宗). Gaozong was often ill, and Empress Wu gradually took control of the government. After Gaozong died, she put two of her own sons on the throne and removed them in turn, and in AD 690 took the throne herself, renaming the dynasty "Zhou" (周). She was the only woman in Chinese history to become emperor formally, in her own name.</p>
+          <p>Her rule was harsh: she employed cruel officials, encouraged informers, and killed large numbers of royal family members and ministers who opposed her. But she also valued the civil service examination as a way to recruit able people of humble birth, and the country was broadly stable. In AD 705, while ill, she was forced to abdicate and the Tang was restored. After her death she was buried with Gaozong, and in front of the tomb stands a stone tablet with no inscription, known as the "Wordless Stele" (無字碑). People have explained it in various ways, for example as leaving her achievements and failings for later generations to judge.</p>
+        </section>
+
+        <section class="part">
+          <span class="when">Sui – Tang</span>
+          <h3>The civil service examination: choosing officials by exam</h3>
+          <p>From the Han dynasty onwards, officials were mainly recommended by local authorities, and by the Northern and Southern Dynasties almost every chance of office had been monopolised by the great families. The <button type="button" class="gl" data-g="keju" aria-haspopup="dialog">civil service examination</button>, begun under the Sui and Tang, allowed educated men to become officials by passing an exam. The most prestigious in the Tang was the <i>jinshi</i> (進士) degree, which tested poetry and views on current affairs. Only twenty or thirty candidates passed each year, and there was a saying, "fifty is young for a <i>jinshi</i>": passing at fifty still counted as young.</p>
+          <p>Even so, under the Tang the sons of great families still made up most officials, and the examination was only one way in; it was not until the Song dynasty (宋朝) that the examination became the main route into government (see Era 6). The system lasted until it was abolished in 1905. In the nineteenth century Britain began to choose its civil servants by open competitive examination, and some scholars believe this was inspired by China's examination system.</p>
+        </section>
+
+        <section class="part">
+          <span class="when">AD 701 – 770</span>
+          <h3>Tang poetry</h3>
+          <p>The Tang was the golden age of Chinese poetry: the Complete Tang Poems (全唐詩), compiled under the Qing (清朝), contains nearly fifty thousand poems by more than two thousand poets. The two most famous poets are <button type="button" class="gl" data-g="libai" aria-haspopup="dialog">Li Bai</button> (李白) and <button type="button" class="gl" data-g="dufu" aria-haspopup="dialog">Du Fu</button> (杜甫). Li Bai was bold and free-spirited, loved wine and travel, and wrote lines of soaring imagination; he is called the "Immortal of Poetry" (詩仙). Almost every Chinese child can recite his lines: "Before my bed, the bright moonlight; I wonder if it is frost on the ground. I lift my head and gaze at the bright moon; I lower my head and think of home." Du Fu lived through the wars that turned the Tang from glory to decline, and his poems are full of compassion for the suffering of ordinary people; he is called the "Sage of Poetry" (詩聖).</p>
+          <p>Woodblock printing also appeared under the Tang: a whole page of text was carved in reverse on a wooden block, inked and printed on paper. The oldest surviving printed book in the world that bears a clear date is a scroll of the Buddhist <button type="button" class="gl" data-g="jingangjing" aria-haspopup="dialog">Diamond Sutra</button> (金剛經), printed in AD 868. It was found at Dunhuang and is now in the British Library in London.</p>
+        </section>
+
+        <section class="part">
+          <span class="when">AD 712 – 763</span>
+          <h3>The golden age and the An Lushan Rebellion</h3>
+          <p>The first part of the reign of <button type="button" class="gl" data-g="xuanzong" aria-haspopup="dialog">Emperor Xuanzong</button> (唐玄宗), known as the <button type="button" class="gl" data-g="kaiyuan" aria-haspopup="dialog">Kaiyuan golden age</button> (開元盛世), was the most prosperous time of the Tang. Du Fu remembered how then "the rice ran rich with oil, the millet was white, and public and private granaries were all full". But in his later years Xuanzong gave himself up to pleasure and doted on his consort <button type="button" class="gl" data-g="yangguifei" aria-haspopup="dialog">Yang Guifei</button> (楊貴妃); it is said that to bring her fresh lychees, he had them carried from the south to Chang'an by relays of fast horses. The government fell into the hands of Yang Guozhong (楊國忠), her cousin, and others.</p>
+          <p>To defend its long frontiers, the Tang set up large military regions on the borders, each under a <button type="button" class="gl" data-g="jiedushi" aria-haspopup="dialog">military governor</button> (節度使, jiedushi) who controlled the army, finances and administration at once. One of them was <button type="button" class="gl" data-g="anlushan" aria-haspopup="dialog">An Lushan</button> (安祿山), of Sogdian and Turkic descent, who was military governor of three regions at once and commanded more than a hundred thousand crack troops. In AD 755 he rose in revolt, claiming to be moving against Yang Guozhong, and quickly captured Luoyang and Chang'an; Xuanzong fled in haste towards Sichuan. On the way, the soldiers escorting him mutinied, killed Yang Guozhong, and forced Xuanzong to order Yang Guifei's death.</p>
+          <p>The rebellion was led first by An Lushan and then by his general Shi Siming (史思明), and lasted eight years; it is known as the <button type="button" class="gl" data-g="anshi" aria-haspopup="dialog">An Lushan Rebellion</button> (安史之亂). The Tang's registered population fell from about 53 million in AD 754 to under 17 million a few years later (see the note under Figure 2). This does not mean that two thirds of the people died: many fled or simply dropped off the household registers. But it shows how hard the state had been hit. Although the Tang eventually put down the rebellion, from then on it was in decline.</p>
+        </section>
+
+        <section class="part">
+          <span class="when">AD 763 – 907</span>
+          <h3>The decline and fall of the Tang</h3>
+          <p>After the An Lushan Rebellion, military governors all over the country used their armies to make themselves independent; some even passed their posts from father to son, becoming almost independent kingdoms. This is known as the <button type="button" class="gl" data-g="fanzhen" aria-haspopup="dialog">rule of the regional warlords</button> (藩鎮割據, fanzhen geju). At court, eunuchs took control of the emperor's palace guard and could even put emperors on the throne or remove them. In the Western Regions, Tang power was replaced by that of Tibet (吐蕃) and the Uyghurs (回鶻); in AD 751 a Tang army was defeated by the army of the Arab Abbasid Caliphate at <button type="button" class="gl" data-g="talas" aria-haspopup="dialog">Talas</button> (怛羅斯) in Central Asia, marking the end of Tang expansion into Central Asia.</p>
+          <p>In AD 845 Emperor Wuzong of Tang (唐武宗) ordered more than four thousand monasteries to be pulled down and forced more than two hundred thousand monks and nuns to return to lay life, in what is known as the "Huichang persecution of Buddhism" (會昌滅佛). Foreign religions other than Buddhism were also attacked, and the open atmosphere of the Tang gradually faded. In the late Tang, <button type="button" class="gl" data-g="huangchao" aria-haspopup="dialog">Huang Chao</button> (黃巢), a former salt smuggler, led a huge rebellion that fought its way across the whole country; according to Arab accounts, when he took Guangzhou (廣州) he killed large numbers of foreign merchants. The rebellion was put down, but by then the Tang existed in name only. In AD 907 Zhu Wen (朱溫), a military governor who had once been one of Huang Chao's generals before going over to the Tang, deposed the last Tang emperor. The Tang dynasty was over, and China was divided once again.</p>
+        </section>
+      </div>
+
+      <aside class="side">
+        <figure>
+          <div class="frame">
+            <svg viewBox="0 0 520 470" role="img" aria-labelledby="c5ma"><title id="c5ma">Where the Three Kingdoms were: Wei in the north, Shu in the southwest, Wu in the southeast</title><rect class="m-sea" x="0" y="0" width="520" height="470" rx="4"/><path class="m-land" d="M449.2,449.9L448,452.6L446.9,455.4L446.4,458.1L446.5,460.8L446.2,463.3L445.7,465.7L443.6,465L442.5,463.3L442.3,460.4L440.8,456.9L440.2,455.9L438.1,454L436.2,453L434.6,451.6L434.9,451.7L433.7,449.7L432.9,447.7L431.2,441.8L430.6,440.4L429.8,439.1L429.6,437.8L429.8,436.4L430.6,434.3L431,432.2L430.6,429.2L430.8,426.3L431.4,425L441.2,407.3L444,403.6L445.6,401.7L447,399.6L448.3,396.9L449.9,394.5L451.1,393.8L456.7,391.6L458.5,389.5L459.9,388.9L461.5,388.9L462.6,389.9L463.5,391.1L464.4,391.7L466.9,392.8L468.1,394L468.5,395.9L467,397.7L466.3,399.4L466.1,401.2L466.4,403.6L466.4,406.1L464.5,411.8L462.5,415.4L461.9,417.1L461.3,421.6L460.1,426L459.1,431.6L457.4,437.3L456.4,439.7L455.2,442L452.4,446.3ZM520,22.9L519.3,22.3L519.9,19.9L519.6,19.7L519.4,19.4L517.7,21.9L514.3,24.1L507,24.6L504.7,23L503.9,24.1L503.2,25.6L501.3,26.1L498.4,26.2L496.7,27.2L495.8,28.3L491.7,28.7L490.2,30.2L487.7,30.7L477.1,37.1L474.8,39.7L472.6,42.8L471,44.4L469.7,45.5L468.4,46L467.2,47.1L466,47.2L464.7,46.7L463.2,46.9L462.3,48.2L463.1,49.9L462.7,50.6L459.9,51.5L455.7,52.1L454,53.3L453.4,53.9L452.5,54.2L451.6,52L451.3,49.1L453,48.4L454.5,48.1L463.3,44L462.2,41L463,39.7L465,37.6L466.3,36.5L465.5,36.1L459.8,36.8L456.5,36.8L454.8,36.5L455.4,34.7L455.1,32.9L454.7,32.2L457.6,30.1L458.9,29.6L459.9,29.6L459.8,28.4L459,26.5L459.9,24L465.9,21.1L467.3,18.5L469.7,16L474,9.9L474.3,8.9L475.6,6L475.8,4.9L473.8,3.2L473,0.8L471.9,0L520,0ZM448.3,0L447.4,0.9L445.7,1.9L444.3,3.6L438.1,13.4L435.8,14.2L424.9,20.1L419.5,22.4L415.2,26.6L413.8,29L412.5,31.8L411.7,35.9L407.9,41L406.5,42.1L405.2,42.5L403.4,42.3L401.8,42.7L399.2,42.2L395.9,43.8L392.3,45.2L389.1,41.7L386.9,40.8L383.2,41.8L381.5,43.4L377.9,51L376.7,55.3L376.7,57.1L378.8,62.5L381.1,65.5L386.3,68.9L397.4,71.3L400,70.4L402.8,70.4L405.8,72.7L407.6,76.4L407.8,78.9L407.8,79.8L408.5,80.5L408.9,81.8L407.7,82.8L406.8,83.4L406.1,87.2L406.1,91.6L407,93L409.4,95L413.1,96.6L416.5,97L423,96.2L425.7,93.6L425.5,92.5L425.6,91.1L431.3,87.2L434.6,83.8L434,83L433.4,82.4L434,82L435.8,81.8L443.8,78.3L450.1,81.1L453.6,84.4L457.2,85L459.7,86.7L462.5,88.2L466.2,88.3L469.3,88.6L470.3,87.2L471.2,86.3L472.3,86.5L473.6,88.3L477.1,89.6L480.4,89.5L482.7,89L484,89.7L482.1,91.9L482.4,95.5L480.9,96.7L479.4,98.5L480.2,99.7L481,100.2L480.9,101.7L479.6,102.5L477.2,104.7L475.8,104.7L475.1,104.3L474.7,103.4L474.3,102.2L473.4,101.4L471.1,101.1L468.6,101.3L463.1,104.6L457.7,107.2L452,109.2L450.2,110.5L448.8,110.9L446.5,109.9L445.1,110L444.8,110.6L446.6,112.4L447.1,113.8L446.8,114.9L445.8,115.4L444.3,114.5L443,115.7L442.4,117.6L442.4,122L441.5,123L439,123.6L436.3,125L435.3,124.3L435,123.6L435.3,121.5L435,120.5L433.7,120.6L431.9,121.1L430.5,122.5L430,123.4L431.9,126L433.6,126.2L434,126.8L432.6,128.1L429.2,130L428.6,131.6L427.6,133.2L426.2,134.4L425.2,135.6L424.1,136.3L422.2,137.1L419.8,140.1L418.1,143L416,144.5L414.5,149.3L411.6,151.9L410.5,156.1L411.3,158.7L414.4,158.6L416,159.6L419.3,162.9L423.2,165.1L427.2,166.3L432.2,169.5L433.7,170.7L434.8,173.4L437,181.1L438.5,184.9L438.7,186.9L441,190.6L443.5,197L446.3,202.5L446.9,206.8L445.9,208.8L446,211.4L448.8,213.7L455.2,216.5L456.2,217.2L457.5,218.6L457.5,222.7L458.5,224L459.4,224.8L463.2,226.6L464.8,228L466.6,230.3L467,232.4L467.2,235.1L465,235.2L463.3,234.9L456.4,231.3L454.6,231.2L452.1,231.7L448.5,231L444.6,227L441.9,225.8L439,225.2L431.9,228.7L430.1,228.4L429.6,228.8L428.8,229.4L432.1,230.1L435.3,229L438.5,227.3L443,228.2L443.8,229.7L444.6,232.3L447.7,234L450.2,234.8L453.3,237L456.4,240.5L462.9,244.6L465.6,248.4L466.6,250.9L467.5,254.5L465.2,255.6L463.2,255.8L460.1,256.3L457.9,257.6L455.5,259.8L449,263.3L447.7,265.4L446.9,267.3L445.3,268.2L441.2,267.3L437.4,267.4L433.2,269.9L432.2,270.9L432.8,270.8L433.5,270.4L435.4,270.8L438.4,269.5L441.3,273.6L447.1,272.9L452.4,269.5L454.5,269.4L456.2,270L458.1,271.3L463.3,277.3L466.1,278L468.9,279.4L470.4,279.5L471.8,280L468.1,282.2L463.2,286.9L461.1,288L459.7,289.3L463.5,288.7L466.3,286.4L467.7,285.8L468.8,286.3L469.4,289.2L468.3,297.7L466.9,297.9L465.7,295.5L464.1,294.8L462.8,295.3L460.3,295.3L459.3,296.3L458.5,297.8L460,298.1L463,300.7L463.3,302.1L462.5,303L460.4,302.6L462.9,304.5L462.2,306.5L461.4,307.3L459.9,307.8L459,309.6L460.4,312.4L461.7,316.1L461.9,317.9L459.8,317.1L456.5,319.4L454.8,319.5L453.6,316.6L452.1,317.1L451.1,317.9L449.8,321.1L448.2,324L446.7,324.8L445.1,324.6L443.7,324.6L444.1,325.4L445.5,326.3L445.5,327.4L442.4,330.9L441.9,332.3L442,333.4L440.4,334.8L441.2,337.2L440.8,338.8L439.3,341L437.9,342.5L436.1,344.9L433.9,346.2L430.9,351.2L430.1,353.7L429.9,356.3L428.9,357.1L427.4,358.3L425.6,357.7L425.5,356L424.7,355.8L424.3,354.7L424.1,353.3L424.4,352.2L423.6,352.5L423.2,353.8L421.9,354.9L420.7,354.5L419.4,353.6L419.5,354.9L420.1,356.2L420.4,357.5L422.2,357.7L423.5,359.2L424.5,361.5L424.7,362.3L425.4,363.3L425.5,364.2L423.8,365L421.6,366.5L418.9,369L416.7,370.7L414.8,370.7L413.6,370.5L411.9,369.6L409.9,369.1L412.6,372.6L414,373.2L415.8,373.1L417.6,371.8L420.1,371.9L420.7,373.9L420,376.1L418.6,379L418.4,381.5L420.1,385.1L420.1,386.2L419.5,386.7L417.5,385.8L415.9,384.6L414.2,384.9L412.6,384.4L410.8,384.8L410.1,385.7L410.6,387L412.1,388.2L413,389.9L412,390.5L407.6,390.1L406.5,390.4L405.2,392.3L406.1,395.2L405.1,396.9L403.3,397.4L400.8,398.8L399.4,399.1L399.5,399.7L400.5,400.3L401.2,401.2L399.8,404.1L397.8,405L394.6,404.5L392.2,405.2L390.1,403.9L387.8,403.9L386.3,405.5L386.2,407.3L384.7,407.4L383.8,407.3L382.7,407.4L382.9,408.4L383.5,409.2L386.6,409.6L387.1,410.8L387.2,412.7L384,415.9L382.6,418.1L380.6,418L379.1,419.7L378.2,422.1L377.2,421.7L374.8,422L374.1,423.1L374.7,423.6L374.8,424.4L373.8,427.1L372.7,427.8L372.3,426.7L372,425L371.1,424.9L369.8,426.5L368.1,427.6L366.7,428L365.7,427L363.1,426.5L362.1,430.9L359.9,432.5L359,433L357.2,433.2L358.4,433.8L358.7,434.9L358.1,436L356.3,436.3L355.3,437.2L355,441.1L353.9,442.5L351.2,442.6L349.3,441.7L348.7,442.4L348.4,443.1L347.3,443.8L345.3,444L340.9,445.8L338.9,445.3L336.5,444.6L334.8,445.3L334.2,446.6L333.5,447.7L331.1,447.7L329.1,446.4L327.1,445.4L324.9,446.2L323.3,447.9L321.2,448.4L320.8,449.5L319.9,450L317.7,449.8L316.9,447.2L315.7,446.9L314.5,448.1L314,449.2L313.4,449.9L313.7,452L312.5,452L310.9,450.8L309.1,450.5L307.6,451.7L308.1,452.7L308,453.6L308.8,454.1L309.1,455L308.1,455.5L308.1,456.6L307.6,457.3L304.9,456.1L302.7,455.5L300.7,455.7L300,455L299.8,454.3L302.2,453L302.3,452.4L300.6,452L298.4,450.2L296.9,447.3L294.9,445.8L294,444.4L293.7,442L293.3,440.8L293.5,439.5L294,438.4L291.9,438.9L290.4,440L290.7,441.4L290.3,442.6L288,443.3L288.1,443.8L288.3,444.4L290.1,446.1L290.5,447.5L291.2,448.3L292.6,450.5L292.6,454.8L293.4,456.1L293.1,457.2L292.5,458.9L291.5,459.4L289.8,460L288.7,460.3L287.9,460.7L286.6,462L284.1,462.3L282.9,459.3L281.1,461.3L280.7,465.4L280,466.1L279,466.7L277,465.2L275.3,466.2L273.9,467.2L273.3,468.1L272.3,469L270.4,468.1L268.8,466.7L269.2,465.6L269.1,465L268.3,464.4L267.5,464.5L267.9,465.9L268.2,468.5L267.5,469.2L266.4,469.8L264.1,469.4L262.5,468.4L260.5,467.6L258.8,467.4L258.5,469L257.7,470L189.9,470L189.9,470L188.9,469.2L188.4,468.2L188.9,467L188.4,466.3L186,466.2L186.1,467.9L186.3,469.9L186.4,470L0,470L0,0ZM306.9,459.2L306.3,459.6L304.9,457.9L304.8,457.4L306,457.3L307.2,458L307.2,458.7ZM518.2,406.5L517,410.1L515.9,410.6L514.9,410.3L513.8,408.3L514.6,407.5L515.6,407.9L516.5,407.8L518.4,404.8L518.9,405.3ZM509.7,411.9L508.4,412.2L506.8,411.8L505.4,411.7L505.4,411L506.9,410.3L506.9,409.3L507.2,408.8L510.7,410L510.6,410.9ZM394.6,406.3L395.5,407.9L395.1,408.8L392.2,408.3L392.1,407.4L393.1,407.5ZM389.9,406.9L389.1,408.3L387.9,408.1L387.9,407.1L387.6,406.8L388,405.9L388.2,405.6L389.6,406.4ZM467.2,240.4L465.4,241L460,239L456.1,236.6L453.8,233.8L453.5,232.6L456.1,232.8L458.8,233.9L459.4,235.4L460.4,235.9L461.1,236.8L466,238.9L466.8,239.5ZM476.2,277.7L475.9,278.2L473.4,276.8L470.6,276.5L469.6,275.3L469.4,273.4L472.4,273.4L476,275.2L476.8,276.1ZM473.7,284.6L473.6,285L471.8,283.5L470.9,283.2L471.3,282.3L472.5,282.1L473.5,284.1ZM478.5,279.4L478.4,280.6L477.8,280.4L477,278.4L477.4,277.9L478.5,278ZM424.3,384.7L422.7,385.7L421.7,385.2L421.7,383.8L422.2,382.5L421.6,381.5L422.2,380.4L423.4,380.1L423.8,380.8L424.4,381.2L424.7,381.5L424.7,382.3L424,383.5L424.5,384.1ZM454.3,322.8L452.5,323.4L451.8,323.4L451.8,321.6L453.3,320L453.9,320.5L454.3,321.4ZM292.6,445.7L292.9,446.8L291.2,445.2L290.8,445.1L289.9,444.5L289.5,443.5L290.8,443.5L292,444.6ZM276,470L276.5,469.2L277.6,469.3L278.1,469.6L277.7,470L276,470ZM301.9,459.2L299.4,459.2L298.9,459L298.6,458.5L299.5,457.6L302.9,456.5L302.1,457.7Z"/>
+              <path class="m-river" d="M-34.1 152.2 L88.4 124.9 L139.6 61.3 L218 3.2 L243.2 14.3 L236.9 60.4 L228.5 126.4 L224.3 162.5 L243.2 157.3 L268.4 154.8 L293.6 154.8 L308.3 154.8 L339.8 131.6 L365 108.2 L411.2 80.5"/><path class="m-river" d="M-55.1 202.9 L-13.1 276.8 L6.9 350.9 L43.7 357.9 L105.2 306.5 L145.5 287.5 L245.3 259.8 L308.3 262.5 L344 284.1 L402.8 226.3 L459.5 242.6"/><path class="m-river" d="M287.3 217.9 L333.5 217.9 L371.3 205.4 L396.5 202.9 L410.2 190.3 L434.3 177.7"/>
+              <text class="m-reg" style="fill:var(--loch);font-size:24px" x="291.5" y="95" text-anchor="middle">Wei</text><text class="m-reg" style="fill:var(--rust);font-size:20px" x="108.8" y="324.9" text-anchor="middle">Shu Han</text><text class="m-reg" style="fill:var(--lichen);font-size:24px" x="354.5" y="336.7" text-anchor="middle">Wu</text>
+              <text class="m-lab river" x="150.0" y="150.0" text-anchor="middle">Yellow River</text><text class="m-lab river" x="200.0" y="300.0" text-anchor="middle">Yangtze</text><text class="m-lab river" x="352.0" y="216.0" text-anchor="middle">Huai River</text>
+              <circle cx="269.5" cy="160.4" r="6" fill="var(--loch)" stroke="var(--surface)" stroke-width="1.5"/><circle cx="93.4" cy="260.8" r="6" fill="var(--rust)" stroke="var(--surface)" stroke-width="1.5"/><circle cx="402.8" cy="226.3" r="6" fill="var(--lichen)" stroke="var(--surface)" stroke-width="1.5"/><circle cx="195.9" cy="170.9" r="4.5" fill="var(--ink)" stroke="var(--surface)" stroke-width="1.5"/><circle cx="287.3" cy="17.6" r="4.5" fill="var(--ink)" stroke="var(--surface)" stroke-width="1.5"/>
+              <path d="M288 274 L300 286 M288 286 L300 274" stroke="var(--ink)" stroke-width="2.6"/>
+              <circle cx="352.4" cy="22.5" r="3.5" fill="var(--muted)" stroke="var(--surface)" stroke-width="1.5"/><circle cx="305.6" cy="457.2" r="3.5" fill="var(--muted)" stroke="var(--surface)" stroke-width="1.5"/>
+              <text class="m-lab" style="fill:var(--loch);font-weight:700" x="278.5" y="164.4" text-anchor="start">Luoyang (Wei capital)</text>
+              <text class="m-lab" style="fill:var(--rust);font-weight:700" x="102.4" y="264.8" text-anchor="start">Chengdu (Shu capital)</text>
+              <text class="m-lab" style="fill:var(--lichen);font-weight:700" x="394.8" y="214.3" text-anchor="end">Jianye/Jiankang (Nanjing)</text>
+              <text class="m-lab" x="304.0" y="284.0" text-anchor="start">Red Cliffs, 208</text>
+              <text class="m-lab" x="195.9" y="188.9" text-anchor="middle">Chang'an</text>
+              <text class="m-lab" x="279.3" y="21.6" text-anchor="end">Pingcheng (early N. Wei capital)</text>
+              <text class="m-lab mu" x="359.4" y="26.5" text-anchor="start">Beijing</text><text class="m-lab mu" x="312.6" y="461.2" text-anchor="start">Hong Kong</text>
+            </svg>
+          </div>
+          <div class="legend"><span><i class="sw" style="border-top-color:var(--river)"></i>Rivers (simplified)</span><span><i class="sw c" style="background:var(--muted)"></i>Modern cities (for reference)</span></div>
+          <figcaption><b>Map 1: Where were the Three Kingdoms?</b> The names of the states are placed roughly where they were; no borders are drawn. In the Northern and Southern Dynasties that followed, the line between north and south ran roughly from the Huai River to the Yangtze: the northern courts were first at Pingcheng, later at Luoyang and Chang'an; the southern courts were always at Jiankang. River courses are simplified.</figcaption>
+        </figure>
+        <figure>
+          <div class="frame">
+            <svg viewBox="0 0 600 220" role="img" aria-labelledby="c5tl">
+              <title id="c5tl">Dynasties of north and south China, AD 220 to 907, to scale</title>
+              <g transform="translate(0 22)"><text class="c-row" x="0" y="45">North</text><text class="c-row" x="0" y="101">South</text><rect class="b-adult" x="60.0" y="30" width="33.9" height="22" rx="2"/><text class="u-s" x="77.0" y="45" text-anchor="middle" style="fill:#fff">Wei</text><rect class="b-yes" x="93.9" y="30" width="38.4" height="22" rx="2"/><text class="u-s" x="113.1" y="45" text-anchor="middle" style="fill:#fff">W. Jin</text><rect class="b-adult" x="132.3" y="30" width="92.7" height="22" rx="2"/><text class="u-s" x="178.7" y="45" text-anchor="middle" style="fill:#fff">16 Kingdoms</text><rect class="b-adult" x="225.0" y="30" width="71.6" height="22" rx="2"/><text class="u-s" x="260.8" y="45" text-anchor="middle" style="fill:#fff">N. Wei</text><rect class="b-adult" x="296.6" y="30" width="35.4" height="22" rx="2"/><rect class="b-yes" x="332.1" y="30" width="27.9" height="22" rx="2"/><text class="u-s" x="346.0" y="45" text-anchor="middle" style="fill:#fff">Sui</text><rect class="b-yes" x="359.9" y="30" width="217.8" height="22" rx="2"/><text class="u-s" x="468.8" y="45" text-anchor="middle" style="fill:#fff">Tang</text><rect class="b-child" x="60.8" y="86" width="44.5" height="22" rx="2"/><text class="u-s" x="83.0" y="101" text-anchor="middle" style="fill:#fff;font-size:9px">Shu, Wu</text><rect class="b-yes" x="105.2" y="86" width="27.1" height="22" rx="2"/><rect class="b-child" x="133.1" y="86" width="77.6" height="22" rx="2"/><text class="u-s" x="171.9" y="101" text-anchor="middle" style="fill:#fff">E. Jin</text><rect class="b-child" x="210.7" y="86" width="127.4" height="22" rx="2"/><text class="u-s" x="274.4" y="101" text-anchor="middle" style="fill:#fff">Song Qi Liang Chen</text><rect class="b-yes" x="338.1" y="86" width="21.9" height="22" rx="2"/><rect class="b-yes" x="359.9" y="86" width="217.8" height="22" rx="2"/><rect x="359.9" y="30" width="217.8" height="78" fill="none" stroke="var(--loch)" stroke-width="1.5" rx="3"/><text class="u-s" x="468.5" y="82" text-anchor="middle" style="fill:var(--loch)">All China united</text><line x1="463.2" y1="112" x2="463.2" y2="130" stroke="var(--rust)" stroke-width="1.4"/><text class="u-s" x="463.2" y="143" text-anchor="middle" style="fill:var(--rust)">An Lushan 755</text><line x1="338.1" y1="112" x2="338.1" y2="130" stroke="var(--loch)" stroke-width="1.4"/><text class="u-s" x="338.1" y="143" text-anchor="middle" style="fill:var(--loch)">Sui reunites 589</text><line x1="252.9" y1="150" x2="252.9" y2="166" stroke="var(--muted)" stroke-width="1.4"/><text class="u-s" x="248.9" y="163" text-anchor="end">Fall of Rome 476</text><g class="c-axis"><line x1="60" y1="170" x2="580" y2="170"/></g><line class="c-axis-v" x1="120.3" y1="170" x2="120.3" y2="175"/><text class="c-tick" x="120.3" y="189" text-anchor="middle">300</text><line class="c-axis-v" x1="195.7" y1="170" x2="195.7" y2="175"/><text class="c-tick" x="195.7" y="189" text-anchor="middle">400</text><line class="c-axis-v" x1="271.0" y1="170" x2="271.0" y2="175"/><text class="c-tick" x="271.0" y="189" text-anchor="middle">500</text><line class="c-axis-v" x1="346.4" y1="170" x2="346.4" y2="175"/><text class="c-tick" x="346.4" y="189" text-anchor="middle">600</text><line class="c-axis-v" x1="421.7" y1="170" x2="421.7" y2="175"/><text class="c-tick" x="421.7" y="189" text-anchor="middle">700</text><line class="c-axis-v" x1="497.1" y1="170" x2="497.1" y2="175"/><text class="c-tick" x="497.1" y="189" text-anchor="middle">800</text><line class="c-axis-v" x1="572.5" y1="170" x2="572.5" y2="175"/><text class="c-tick" x="572.5" y="189" text-anchor="middle">900</text></g>
+            </svg>
+          </div>
+          <div class="legend"><span><i class="sw c" style="background:var(--loch);border-radius:2px"></i>Dynasties ruling all China</span><span><i class="sw c" style="background:var(--muted);border-radius:2px"></i>Northern states</span><span><i class="sw c" style="background:var(--lichen);border-radius:2px"></i>Southern states</span></div>
+          <figcaption><b>Figure 2: Who ruled the north, and who ruled the south?</b> The dynasties from AD 220 to 907, drawn to scale. After the Northern Wei, the north was ruled in turn by the Eastern Wei, Western Wei, Northern Qi and Northern Zhou, which are not labelled one by one. The Tang's registered population fell from about 53 million in 754 to about 17 million in 760, a sign of how hard the An Lushan Rebellion hit the state; but many people had simply dropped off the household registers rather than died.</figcaption>
+        </figure>
+        <figure>
+          <div class="frame">
+            <svg viewBox="0 0 480 600" role="img" aria-labelledby="c5mc"><title id="c5mc">The Sui Grand Canal: centred on Luoyang, linking Hangzhou with Zhuojun in the north</title><rect class="m-sea" x="0" y="0" width="480" height="600" rx="4"/><path class="m-land" d="M411.1,565L409.5,568.4L408.2,571.9L407.6,575.3L407.7,578.7L407.3,581.8L406.7,584.8L404.1,583.9L402.7,581.8L402.4,578.2L400.5,573.8L399.9,572.5L397.2,570.1L394.8,568.9L392.9,567.1L393.1,567.3L391.7,564.8L390.7,562.3L388.5,554.9L387.8,553.2L386.8,551.6L386.5,549.9L386.8,548.1L387.8,545.5L388.3,542.8L387.8,539.1L388,535.5L388.8,533.9L401.1,511.8L404.5,507L406.6,504.7L408.3,502.1L409.9,498.8L412,495.7L413.4,494.8L420.5,492.1L422.7,489.4L424.5,488.6L426.5,488.7L427.8,489.9L428.9,491.4L430.2,492.2L433.3,493.6L434.7,495L435.3,497.4L433.4,499.7L432.4,501.8L432.2,504L432.6,507.1L432.6,510.2L430.2,517.3L427.7,521.8L427,524L426.2,529.6L424.7,535.1L423.4,542.1L421.4,549.3L420.1,552.3L418.6,555.2L415.1,560.6ZM480,31.5L479.6,32.2L478.7,34L476.3,34.7L472.6,34.8L470.6,36L469.4,37.4L464.3,37.9L462.4,39.7L459.2,40.3L446,48.3L443.1,51.7L440.4,55.6L438.4,57.6L436.7,58.9L435.2,59.5L433.6,60.9L432,61L430.4,60.4L428.6,60.6L427.5,62.3L428.4,64.4L428,65.3L424.5,66.4L419.3,67.2L417.1,68.6L416.3,69.4L415.2,69.8L414.1,67.1L413.7,63.5L415.9,62.6L417.8,62.1L428.7,57.1L427.4,53.3L428.4,51.6L430.8,49L432.4,47.6L431.5,47.1L424.4,48L420.2,48L418.1,47.7L418.8,45.4L418.4,43.1L417.9,42.2L421.5,39.6L423.2,39L424.5,39L424.4,37.4L423.3,35.1L424.5,32L432,28.4L433.7,25.1L436.7,22L442.2,14.4L442.5,13.1L444.1,9.5L444.3,8L441.9,5.9L440.8,3L436.8,0L480,0ZM411.5,0L410.9,0.8L408.9,3.1L406.7,4.3L404.9,6.4L397.2,18.7L394.3,19.7L380.7,27.1L373.8,30L368.5,35.2L366.7,38.3L365.1,41.7L364.2,46.9L359.4,53.2L357.7,54.6L356,55.1L353.8,54.9L351.8,55.3L348.5,54.8L344.4,56.8L339.9,58.5L335.9,54.2L333.1,53L328.5,54.3L326.3,56.2L321.9,65.7L320.3,71.2L320.4,73.4L322.9,80.2L325.9,83.9L332.4,88.2L346.3,91.2L349.5,90.1L353,90.1L356.7,92.9L359,97.5L359.3,100.7L359.3,101.8L360.1,102.7L360.6,104.3L359.2,105.6L358,106.3L357.1,111.1L357.1,116.5L358.2,118.3L361.3,120.8L365.9,122.9L370.2,123.4L378.3,122.4L381.6,119.1L381.4,117.7L381.5,115.9L388.7,111.1L392.8,106.9L392.1,105.8L391.4,105L392.1,104.6L394.3,104.3L404.3,99.9L412.2,103.5L416.6,107.6L421.1,108.4L424.2,110.4L427.7,112.3L432.3,112.4L436.2,112.8L437.4,111.1L438.7,110L440,110.2L441.6,112.4L446.1,114.1L450.1,114L453,113.4L454.7,114.2L452.2,117L452.6,121.5L450.7,123L448.9,125.2L449.9,126.7L450.9,127.4L450.8,129.2L449.2,130.3L446.1,133L444.3,133L443.5,132.4L442.9,131.4L442.5,129.9L441.4,128.8L438.5,128.4L435.4,128.8L428.4,132.8L421.7,136.1L414.6,138.7L412.3,140.2L410.6,140.7L407.7,139.4L405.9,139.6L405.5,140.4L407.8,142.6L408.4,144.4L408.1,145.7L406.9,146.3L405,145.3L403.3,146.7L402.5,149.1L402.5,154.7L401.4,155.9L398.3,156.6L394.9,158.4L393.7,157.6L393.2,156.6L393.6,154L393.2,152.8L391.7,152.8L389.4,153.6L387.7,155.3L387.1,156.3L389.4,159.6L391.5,160L392.1,160.7L390.3,162.3L386.1,164.7L385.3,166.7L384.1,168.6L382.3,170.1L381,171.7L379.6,172.6L377.2,173.5L374.3,177.3L372.1,181L369.6,182.8L367.6,188.8L364,192.1L362.7,197.3L363.6,200.5L367.5,200.5L369.5,201.6L373.7,205.9L378.6,208.6L383.6,210.1L389.8,214L391.6,215.7L393.1,219L395.8,228.6L397.7,233.3L397.9,235.8L400.8,240.5L403.9,248.5L407.4,255.4L408.2,260.8L407,263.3L407.1,266.5L410.6,269.5L418.6,272.9L419.8,273.8L421.4,275.5L421.4,280.6L422.7,282.3L423.8,283.3L428.6,285.5L430.6,287.3L432.8,290.2L433.4,292.8L433.7,296.2L430.9,296.3L428.7,296L420.1,291.5L417.8,291.3L414.7,291.9L410.2,291.1L405.4,286.1L402,284.6L398.3,283.8L389.5,288.1L387.2,287.8L386.5,288.3L385.5,289L389.6,290L393.7,288.6L397.7,286.5L403.4,287.6L404.3,289.5L405.3,292.6L409.2,294.8L412.4,295.8L416.2,298.5L420.1,303L428.3,308.1L431.6,312.9L432.8,316L433.9,320.4L431.1,321.9L428.6,322.1L424.8,322.8L421.9,324.3L419,327.1L410.8,331.4L409.2,334.1L408.2,336.5L406.2,337.6L401.1,336.5L396.4,336.6L391.1,339.8L389.7,341.1L390.6,340.8L391.4,340.4L393.8,340.9L397.6,339.2L401.2,344.4L408.4,343.5L415.1,339.2L417.7,339.2L419.8,339.8L422.2,341.5L428.7,349L432.2,349.9L435.7,351.6L437.6,351.8L439.3,352.3L434.7,355.1L428.6,361L426,362.4L424.2,364L429,363.2L432.5,360.4L434.2,359.7L435.6,360.3L436.3,363.8L435,374.6L433.3,374.7L431.7,371.8L429.8,370.9L428.1,371.5L424.9,371.5L423.7,372.8L422.7,374.7L424.6,375L428.4,378.3L428.7,380L427.7,381.2L425,380.7L428.3,383.1L427.4,385.6L426.4,386.6L424.5,387.2L423.3,389.4L425,393L426.7,397.6L426.9,399.8L424.3,398.9L420.2,401.7L418,401.9L416.5,398.2L414.7,398.8L413.5,399.9L411.8,403.9L409.8,407.4L408,408.4L405.9,408.1L404.2,408.2L404.7,409.2L406.5,410.4L406.5,411.8L402.6,416.1L402,417.8L402,419.2L400.1,421L401.1,423.9L400.5,426L398.7,428.8L396.9,430.6L394.7,433.6L391.9,435.3L388.2,441.5L387.2,444.6L386.9,447.9L385.7,448.9L383.8,450.4L381.5,449.6L381.4,447.5L380.5,447.3L379.9,445.9L379.7,444.1L380,442.7L379,443.1L378.5,444.8L377,446.2L375.5,445.6L373.7,444.5L373.8,446.1L374.7,447.7L375.1,449.3L377.3,449.6L379,451.5L380.2,454.3L380.4,455.4L381.3,456.7L381.4,457.8L379.2,458.8L376.5,460.6L373.2,463.8L370.4,465.9L368,465.9L366.6,465.7L364.4,464.5L361.9,464L365.2,468.3L367,469L369.3,468.9L371.5,467.3L374.6,467.4L375.4,469.9L374.5,472.7L372.8,476.3L372.5,479.5L374.6,483.9L374.7,485.3L373.8,486L371.4,484.8L369.4,483.3L367.3,483.7L365.2,483.1L363.1,483.6L362.1,484.6L362.8,486.4L364.7,487.8L365.8,489.9L364.5,490.7L359,490.2L357.7,490.6L356.1,493L357.1,496.5L355.9,498.7L353.6,499.3L350.6,501L348.8,501.4L348.9,502.2L350.2,503L350.9,504L349.2,507.7L346.8,508.8L342.8,508.2L339.8,509.1L337.1,507.5L334.3,507.5L332.4,509.4L332.2,511.7L330.3,511.9L329.3,511.7L327.8,511.9L328,513.1L328.8,514.1L332.7,514.6L333.3,516.1L333.5,518.5L329.5,522.5L327.8,525.2L325.2,525.1L323.3,527.3L322.3,530.3L320.9,529.7L318,530.1L317.1,531.5L317.8,532.1L317.9,533.1L316.7,536.5L315.4,537.3L314.8,536L314.4,533.9L313.4,533.8L311.7,535.7L309.6,537.1L307.9,537.6L306.6,536.4L303.3,535.7L302.1,541.3L299.4,543.3L298.1,543.9L296,544.1L297.4,544.9L297.8,546.3L297,547.7L294.8,548L293.6,549.1L293.1,554L291.8,555.8L288.5,555.9L286,554.7L285.3,555.7L284.9,556.5L283.6,557.4L281.1,557.7L275.5,559.9L273.1,559.2L270,558.4L267.8,559.2L267.2,560.9L266.2,562.2L263.2,562.2L260.8,560.6L258.3,559.4L255.5,560.4L253.5,562.5L250.9,563.2L250.4,564.5L249.3,565.1L246.6,564.9L245.5,561.7L244,561.2L242.5,562.8L241.9,564.1L241.2,565L241.4,567.7L239.9,567.7L237.9,566.1L235.8,565.8L233.9,567.3L234.5,568.5L234.3,569.7L235.4,570.3L235.7,571.4L234.5,572.1L234.4,573.4L233.9,574.3L230.5,572.8L227.7,572L225.2,572.3L224.3,571.4L224.1,570.5L227.1,568.9L227.2,568.1L225.1,567.6L222.3,565.4L220.4,561.8L218,559.9L216.8,558.2L216.5,555.1L216,553.6L216.2,552L216.8,550.6L214.2,551.3L212.3,552.7L212.7,554.3L212.2,555.9L209.3,556.7L209.5,557.4L209.6,558.1L211.9,560.2L212.4,562L213.3,563L215.1,565.8L215,571.2L216.1,572.7L215.7,574.2L214.9,576.3L213.7,576.9L211.5,577.6L210.2,578L209.2,578.6L207.6,580.1L204.4,580.5L202.9,576.8L200.8,579.3L200.2,584.4L199.3,585.3L198,586L195.5,584.2L193.4,585.5L191.7,586.7L190.9,587.8L189.7,589L187.3,587.8L185.3,586L185.8,584.7L185.6,583.9L184.7,583.2L183.7,583.3L184.2,585L184.6,588.3L183.6,589.2L182.3,590L179.4,589.4L177.4,588.2L174.9,587.1L172.8,586.9L172.4,589L170.9,590.7L169.7,590.9L168.4,590.6L166.7,592.4L165.9,593.8L163.8,595.2L158.4,595.8L156.4,597.2L153.8,597L151.8,597.3L150.6,597.2L149.6,596.5L148.4,596.5L147.9,598.8L144.8,599.8L142.4,600L119.7,600L119.7,600L119.9,597.4L117.2,597.3L115.4,595.1L114.9,596L113.5,596.1L111,592L110.3,591.4L109.1,591.3L109.7,595.8L106.9,597.4L104.5,598.1L101.2,598.4L99.3,598.9L97.6,598.5L98,597.2L98.9,595.6L98.1,594.2L96.2,593.3L93.3,593.3L91.3,593L89.5,593.1L88.7,592.5L86.9,590.5L85.3,589.2L84.6,587.9L85.3,586.4L84.7,585.5L81.7,585.4L81.8,587.5L82.1,590.1L82.9,592L82.4,593.1L80.8,593.8L79.2,591.7L78.5,591.3L77.6,591.3L77.1,593.4L75.6,595.2L73,595L70.9,596.1L68.4,596.6L67.2,596.8L64.1,596.9L61.4,599.5L60.6,600L0,600L0,0ZM232.9,576.7L232.3,577.1L230.5,575.1L230.4,574.4L231.8,574.3L233.3,575.2L233.3,576ZM342.7,510.5L343.8,512.4L343.4,513.6L339.8,513L339.6,511.8L340.9,512ZM336.8,511.3L335.9,513L334.4,512.7L334.4,511.5L334,511.1L334.5,510L334.8,509.6L336.5,510.6ZM433.6,302.8L431.4,303.6L424.6,301L419.7,298.1L416.8,294.6L416.4,293.1L419.7,293.3L423.1,294.6L423.8,296.6L425.1,297.2L426,298.3L432.1,300.9L433.1,301.7ZM444.9,349.5L444.5,350.1L441.3,348.4L437.8,348L436.6,346.5L436.4,344.1L440.1,344.2L444.6,346.3L445.7,347.4ZM441.7,358.1L441.6,358.7L439.3,356.8L438.3,356.4L438.8,355.3L440.3,355L441.5,357.5ZM447.8,351.7L447.6,353.1L446.8,352.9L445.9,350.4L446.4,349.8L447.8,349.9ZM379.9,483.4L377.9,484.7L376.7,484.1L376.7,482.3L377.3,480.6L376.6,479.5L377.2,478.1L378.8,477.7L379.2,478.5L380.1,479L380.4,479.5L380.4,480.4L379.5,481.9L380.2,482.7ZM417.5,406L415.2,406.6L414.3,406.6L414.3,404.5L416.2,402.5L417,403.1L417.5,404.2ZM215.1,559.8L215.4,561.1L213.3,559.1L212.8,559L211.7,558.3L211.2,557L212.8,557L214.3,558.5ZM195.1,594L194.5,594.5L193.7,593.5L193.6,592L193,591.3L194.3,590.2L194.9,589.1L196.3,589.3L197,589.7L195.6,590.8L195.4,591.3ZM191.2,592.9L188.6,593.5L188.1,593.4L189,591.9L191.3,590.9ZM226.8,576.7L223.7,576.7L223,576.4L222.6,575.8L223.7,574.7L228,573.2L227,574.8Z"/>
+              <path class="m-river" d="M-193.8 192.5 L-40.5 158.2 L23.6 78.6 L121.7 6 L153.2 19.8 L145.4 77.6 L134.8 160.2 L129.6 205.3 L153.2 198.9 L184.8 195.7 L216.3 195.7 L234.7 195.7 L274.2 166.7 L305.7 137.3 L363.6 102.7"/><path class="m-river" d="M-220 255.9 L-167.5 348.4 L-142.5 441.1 L-96.5 449.9 L-19.5 385.5 L31 361.7 L155.9 327.1 L234.7 330.4 L279.4 357.5 L353 285.2 L424 305.6"/><path class="m-river" d="M208.5 274.6 L266.3 274.6 L313.6 259 L345.2 255.9 L362.2 240.2 L392.5 224.4"/>
+              <g fill="none" stroke="var(--rust)" stroke-width="3" stroke-linejoin="round"><path d="M186.1 202.7 L200.6 192.5 L224.2 182.8 L242.6 163.4 L261 142.2 L287.3 112.6 L301.8 84.3 L311 57.4 L289.9 30.1"/><path d="M186.1 202.7 L217.7 200.5 L236.1 198.9 L270.2 211.7 L304.9 235.4 L345.2 255.9"/><path d="M345.2 255.9 L362.2 240.2 L369.6 274.6 L370.1 280.9"/><path d="M370.1 280.9 L383.3 293.3 L400.4 308.7 L388.5 340.2"/><path d="M94.1 215.8 L108.6 208.5 L129.6 205.3"/></g>
+              <text class="m-lab river" x="118.0" y="172.0" text-anchor="middle">Yellow River</text><text class="m-lab river" x="150.0" y="330.0" text-anchor="middle">Yangtze</text><text class="m-lab river" x="330.0" y="238.0" text-anchor="middle">Huai River</text>
+              <text class="m-lab" style="fill:var(--rust);font-size:11px" x="268.0" y="120.0" text-anchor="start">Yongji Canal</text><text class="m-lab" style="fill:var(--rust);font-size:11px" x="262.0" y="228.0" text-anchor="middle">Tongji Canal</text><text class="m-lab" style="fill:var(--rust);font-size:10px" x="396.0" y="312.0" text-anchor="start">Jiangnan Canal</text>
+              <circle cx="94.1" cy="215.8" r="5.5" fill="var(--loch)" stroke="var(--surface)" stroke-width="1.5"/><circle cx="186.1" cy="202.7" r="6" fill="var(--loch)" stroke="var(--surface)" stroke-width="1.5"/><circle cx="289.9" cy="30.1" r="4.5" fill="var(--ink)" stroke="var(--surface)" stroke-width="1.5"/><circle cx="369.6" cy="274.6" r="4.5" fill="var(--ink)" stroke="var(--surface)" stroke-width="1.5"/><circle cx="388.5" cy="340.2" r="4.5" fill="var(--ink)" stroke="var(--surface)" stroke-width="1.5"/><circle cx="207.7" cy="550.5" r="4.5" fill="var(--ink)" stroke="var(--surface)" stroke-width="1.5"/><circle cx="226.1" cy="571.6" r="4" fill="var(--rust)" stroke="var(--surface)" stroke-width="1.5"/>
+              <text class="m-lab" style="fill:var(--loch);font-weight:700" x="94.1" y="233.8" text-anchor="middle">Chang'an (capital)</text>
+              <text class="m-lab" style="fill:var(--loch);font-weight:700" x="198.0" y="207.0" text-anchor="start">Luoyang (eastern capital)</text>
+              <text class="m-lab" x="281.9" y="34.1" text-anchor="end">Zhuojun (Beijing)</text>
+              <text class="m-lab" x="378.6" y="278.6" text-anchor="start">Yangzhou</text>
+              <text class="m-lab" x="397.5" y="344.2" text-anchor="start">Hangzhou</text>
+              <text class="m-lab" x="198.7" y="554.5" text-anchor="end">Guangzhou</text>
+              <text class="m-lab red" x="234.1" y="575.6" text-anchor="start">Tuen Mun (Hong Kong)</text>
+              <circle cx="372.5" cy="342.2" r="9" fill="var(--rust)" stroke="var(--surface)" stroke-width="1.5"/><text x="372.5" y="346.2" text-anchor="middle" style="font:700 11px var(--mono);fill:#fff">1</text><circle cx="351.6" cy="278.6" r="9" fill="var(--rust)" stroke="var(--surface)" stroke-width="1.5"/><text x="351.6" y="282.6" text-anchor="middle" style="font:700 11px var(--mono);fill:#fff">2</text><circle cx="188.1" cy="184.7" r="9" fill="var(--rust)" stroke="var(--surface)" stroke-width="1.5"/><text x="188.1" y="188.7" text-anchor="middle" style="font:700 11px var(--mono);fill:#fff">3</text><circle cx="305.9" cy="34.1" r="9" fill="var(--rust)" stroke="var(--surface)" stroke-width="1.5"/><text x="305.9" y="38.1" text-anchor="middle" style="font:700 11px var(--mono);fill:#fff">4</text><circle cx="94.1" cy="197.8" r="9" fill="var(--rust)" stroke="var(--surface)" stroke-width="1.5"/><text x="94.1" y="201.8" text-anchor="middle" style="font:700 11px var(--mono);fill:#fff">5</text><circle cx="214.1" cy="587.6" r="9" fill="var(--rust)" stroke="var(--surface)" stroke-width="1.5"/><text x="214.1" y="591.6" text-anchor="middle" style="font:700 11px var(--mono);fill:#fff">6</text>
+            </svg>
+          </div>
+          <ol class="stages">
+            <li><b style="color:var(--rust)">① Hangzhou:</b> the southern end of the Grand Canal, linked to the rich lower Yangtze (Jiangnan).</li>
+            <li><b style="color:var(--rust)">② Yangzhou:</b> where the canal meets the Yangtze; one of the richest trading cities of the Tang.</li>
+            <li><b style="color:var(--rust)">③ Luoyang:</b> the centre of the canal network, where grain shipped from the south was collected.</li>
+            <li><b style="color:var(--rust)">④ Zhuojun:</b> the northern end of the canal, where Emperor Yang of Sui gathered troops and supplies for his expeditions against Goguryeo.</li>
+            <li><b style="color:var(--rust)">⑤ Chang'an:</b> the capital, linked to the Yellow River by a shorter canal (the Guangtong Canal).</li>
+            <li><b style="color:var(--rust)">⑥ Tuen Mun:</b> the Tang stationed troops here to protect foreign merchant ships sailing to and from Guangzhou (see "Hong Kong").</li>
+          </ol>
+          <figcaption><b>Map 3: Why dig the Grand Canal?</b> China's great rivers all flow from west to east, so there was no waterway between north and south. The Grand Canal carried grain from the south to the political and military centre in the north. The canal's route is simplified; from the Yuan dynasty onwards it was changed to link Beijing and Hangzhou directly, no longer going round by Luoyang.</figcaption>
+        </figure>
+        <figure>
+          <div class="frame">
+            <svg viewBox="0 0 600 320" role="img" aria-labelledby="c5md"><title id="c5md">The Tang and the world: Xuanzang's route, Talas, Baghdad, Japan and Guangzhou</title><rect class="m-sea" x="0" y="0" width="600" height="320" rx="4"/><path class="m-land" d="M373.9,320L371.3,315.2L367.5,311.9L362.2,305.5L361.8,302.5L365,302.8L372.8,303.9L377.3,309.6L381.2,313.5L384,315.9L387.1,320L373.9,320ZM442.5,320L442.7,318.7L444.9,317.6L450.9,316.4L454.4,311.8L456.9,308.1L458.8,305.9L463.1,302.7L466.9,298.7L469.3,294.1L471.4,294.1L474,297L474.3,299.6L477.6,301.2L481.8,302.9L481.5,305.2L478.1,305.5L479.1,308.4L475.4,310.3L472.6,315.6L475.6,320L442.5,320ZM517.6,285.4L518.2,289.3L518.5,292.6L517,297.9L515,292L512.7,294.9L514.4,299.2L513,301.9L507.1,298.6L505.6,294.3L507,291.6L503.8,288.8L502.2,291.2L499.9,291L496.2,294.3L495.4,292.5L497.2,287.6L500.3,286L503,283.8L504.9,286.4L508.6,284.8L509.4,282.2L512.9,282.1L512.5,277.6L516.6,280.4L517.1,283.3ZM291.1,298.3L286.7,299.7L284.3,295L283.4,286.7L285.7,277.2L289.2,280.4L291.5,284.6L293.9,290.6L293.2,296.7ZM505.2,274.6L503.5,276.5L502,280.2L500.5,281.9L497.3,277.9L498.3,276.3L499.5,274.7L499.9,271L502.6,270.7L502,274.6L505.5,269ZM477.9,280.2L471.4,285.7L473.8,281.6L477.3,278L480.2,274L482.6,268.2L483.6,273L480.4,276.2ZM494.4,265.2L497.4,267L500.6,267L500.6,269.4L498.4,271.9L495.3,273.6L495,270.9L495.2,267.9ZM512.4,263.6L514,270.1L510.1,268.5L510.3,270.5L511.7,274.1L509.3,275.4L509,271.3L507.5,271L506.5,267.5L509.5,267.9L509.3,265.7L506.1,261.3L510.9,261.4ZM492.3,258.3L491.2,263.3L488.9,260.4L486.2,256L490.5,256.2ZM489.7,226.6L492.8,228.2L494.3,226.7L494.8,228.2L494.1,230.6L496.1,234.8L495,239.6L492.2,241.6L491.7,246.3L493,250.9L495.7,251.6L497.8,250.9L504.2,254.1L503.9,257.3L505.6,258.7L505.2,261.4L501.2,258.5L499.2,255.5L498,257.6L494.7,254.1L490.2,255L487.6,253.7L487.8,251.3L489.3,249.8L487.7,248.4L487.2,250.6L484.5,247.2L483.7,244.7L483.2,239.1L485.3,241L485.4,231.8L486.7,226.5ZM435.3,225.5L431.1,228.3L427,226.5L426.6,221.5L428.9,218.9L434.3,217.2L437.1,217.3L438.3,219.6L436.3,222.2ZM487.3,201.5L485.5,206.3L482.6,201.3L481.7,197L484.2,191.2L487.7,186.8L490.1,188.5L489.5,192.1ZM545.1,134.9L546,136.9L543.8,140.4L541.6,138.6L539.3,139.9L538.6,143.4L535.2,141.7L534.9,138.9L537,135.4L539.8,136.1L541.4,133.6ZM70.9,126L67.4,128.5L67.6,129.6L67.6,130.1L62.4,132.4L60.2,131.7L59.5,129.3L61.8,129.1L62.1,129.1L63,127.7L66.4,127.7ZM19.6,125.8L21.8,127.8L25.6,127.4L29,127.8L28.7,128.9L31.4,128.2L30.5,129.9L23.6,130.4L23.8,129.4L18.3,128.3ZM572,117.4L571.1,122.1L572.5,125L570.7,129.1L565.2,131.9L556.9,132.2L551.2,138.9L547.6,136.7L546.8,132.3L538.7,133.6L533.5,136.3L527.9,136.4L533.4,140.8L531.5,150.7L528.7,153.2L526.1,150.9L526.6,145.6L523.4,143.9L520.9,139.9L525.2,138.1L527.1,134.4L531.5,131.4L534.3,127.4L543.5,125.6L548.7,126.8L551.9,116.4L555.5,119.2L561.3,113.4L563.6,111.1L565.1,104L563,97.5L564.2,93.8L568.9,92.7L573.1,100.8L573.9,105.5L570.8,111.4ZM576.8,76.6L580.3,77.8L582.9,75.4L585.5,81.8L579.1,83.4L576.4,89.2L568.3,85.2L567.2,91.5L562.1,91.6L560.2,85.9L561.5,81.4L566.3,81.1L565.8,73.1L566,68.7L572.8,74.6ZM565.6,39.2L572.9,49.2L565.8,47.3L565.3,55.5L571.2,61.3L572.1,65.3L567.8,61.9L566,66.3L563.9,61.5L563,55.9L560.9,49.8L560.7,45.5L558.8,38L554.7,32.5L552.8,24.9L556,22.4L553.5,19.8L555.1,19L557.4,22.7L560.6,28L562.1,33.5ZM0,10.8L0.2,12.2L0.2,12.2L0,12.4L0,10.8ZM143.2,93.3L145.1,97.4L147.2,97.7L148.4,99.3L144.6,99.7L143.2,104.2L142.2,106.3L140.4,107.6L140.2,110.5L141.2,114.8L145.5,116L148.5,119L155.1,120L162.5,118.4L163.1,117.1L162.6,112.9L163.9,106.8L160.4,104.9L162,100.9L159,100.6L160.5,95.7L164.7,97.1L169,95.2L166,91.7L165,88.4L161.1,89.9L160.2,94.2L159.2,90.4L159.1,89L160.5,86.6L159.8,84.6L154.7,82.6L153.3,77.4L150.9,75.9L151,74.1L155.4,74.6L156.1,70.4L160,69.5L163.9,70.3L165.4,64.8L165,61.2L160.5,61.5L156.8,60.1L151.3,62.6L147,63.8L144.4,67.2L139.9,68.1L134.6,74.1L138,79.5L137,83.4L141.1,90.2ZM538.8,0L534.8,4.2L522.3,17L529.3,17.7L532.3,21.2L536.9,22.4L538.8,19.6L543.6,20L551.7,26.1L553.2,30.8L551.4,36.4L552.9,43.1L553.3,52.2L548.6,60.4L548.1,64.3L543.5,71L538.8,77.7L536.6,81.1L531.1,84.4L528.3,84.5L524.8,81.7L519.5,85.9L519.1,87.9L517.3,87.5L515.7,89.5L514.7,91.5L515.5,95.6L513.4,96.9L512.7,97.9L511.3,99.6L508.3,100.6L506.6,102.2L506.8,104.7L506.4,105.3L508.4,106.3L511.4,108.8L516.5,115.7L518.2,119.5L519.3,126.2L518,129.4L513.8,130.6L510.4,133L506.1,133.5L505.2,130.3L505.5,125.9L502.6,119.8L505.9,118.9L502,113.9L499.6,112.7L499.1,113.8L497.8,114.3L497.5,113.2L496.2,112.7L494.8,111.8L495.8,109.2L496.8,108.5L496.2,107.4L496.9,104.3L496.5,103.3L493.6,102.7L491.2,101.2L485,102.8L481.9,105.6L477.1,107.2L479.2,104.5L478,102.2L481.1,98.3L478.2,95.2L474.5,97.3L469.8,101.3L467.4,105.1L462.9,105.4L460.8,108.1L463.8,112L467.7,113L468.2,115.6L472.1,117.3L476.8,113.1L481.3,115.4L484.3,115.6L485.5,118.6L479,120.3L477.2,123.4L473,126.3L471,130.4L476.5,133.7L479,139.4L482.5,144.8L486.2,149.3L486.6,153.7L483.7,155.2L485.2,158.4L488.2,160.2L487.9,165L487.1,169.6L484.5,170.1L481.5,176.5L478.2,184.2L474.2,191.2L467.9,196.6L461.4,201.5L455.9,202.2L453,204.8L451.2,202.9L448.6,205.8L441.9,208.7L436.7,209.6L435.3,215.8L432.6,216.2L431.1,211.9L432.2,209.6L425.5,207.8L423.2,208.7L416.8,213.7L413,219.3L412,223.3L416,229.5L420.9,237.1L425.6,240.7L428.8,245.4L431.4,256.2L431,266.5L426.9,270.3L421.3,274.1L417.3,278.9L411.1,284.3L409.2,280.6L410.6,276.7L406.8,273.4L402.6,272.5L400.5,269.5L397.8,263.4L393.3,260.8L389,260.9L389.7,256.3L385.3,256.3L385,262.7L382.5,271.3L380.9,276.4L381.3,280.6L384.6,280.8L386.7,286.1L387.6,291.2L390.5,294.5L393.5,295.2L396.2,298.2L397.3,298.8L400.3,302.3L402.4,306.2L402.8,310.1L402.3,312.7L402.8,314.7L403.1,318.2L404.9,319.8L405,320L394.6,320L394.6,320L392.5,318.4L391.9,315.4L389,311.5L388.3,306.7L386.4,303.5L386.9,299.3L385.8,296.8L383.8,294.6L382.9,291.7L380.2,288.4L377.8,285.6L377,289L376,285.8L376.5,282.2L377.9,276.6L377.3,272.3L378.8,267.8L377.1,264.3L377.4,258L375.3,255L373.6,248L372.5,240.6L370.3,235.8L367,238.7L361.5,242.9L358.7,242.3L355.6,241L357.2,233.7L356,228.2L352,221.5L352.6,219.4L349.7,218.6L346.1,213.9L344.7,210.8L344.3,207.8L343.3,205L341.2,201.6L336.7,201.4L337.2,203.8L335.7,207.1L333.6,205.9L332.9,206.9L331.5,206.3L329.6,205.8L328.9,207.9L325.5,207.8L319.5,209L319.8,213.5L317.2,216.9L310.1,220.9L304.6,227.7L300.9,231.4L295.9,235.2L295.9,237.9L293.5,239.4L289,241.5L286.7,241.8L285.1,246.2L286.2,253.8L286.4,258.7L284.3,264.2L284.3,274.1L281.7,274.4L279.4,278.8L280.9,280.8L276.3,282.4L274.6,286.4L272.6,288L267.9,282.6L265.6,274.4L263.7,268.6L262,265.8L259.3,260.2L258.2,252.9L257.3,249.3L252.9,241.2L251,229.9L249.6,222.4L249.7,215.3L248.8,209.9L241.6,213.4L238.1,212.7L231.9,205.6L234.3,203.5L232.9,201.2L227.3,196.2L223.7,194.7L222.4,190.5L218.7,186L209.7,187.1L201.8,187.3L194.9,188.1L185.8,186.3L180.5,184.9L175.1,184.2L173.4,177L171.1,176L167.3,177L162.2,179.8L156.4,177.9L151.8,173.4L147.3,171.7L144.4,166.2L141.5,158.3L138.8,159.3L135.9,157.4L133.9,159.6L131.1,159.4L131.9,161.9L131.3,163.3L132.5,167.7L134,172.8L136.3,174.1L137,176.2L140.1,178.6L140.2,181L139.6,183L140.1,185L141.4,186.6L141.9,188.5L142.6,190L142.5,185.7L144,182.6L145.4,182L146.8,183.8L146.6,187.3L145.3,190.7L146.1,193L147,192.7L147.1,194.3L151,193.3L155,193.5L158,193.7L161.6,189.7L165.4,186L168.7,182.3L170.2,180.3L170.8,180.9L170.2,183.3L169.5,184.3L169.9,189L171.9,193L174.5,195.1L178.1,195.9L180.9,196.9L183,200.3L184.2,202.2L186,203L185.9,204.3L184,207.8L183.1,209.4L181,211.3L179,215.3L176.8,215L175.7,216.4L174.8,219.3L175.2,223.3L174.7,224L172.5,224L169.3,226.1L168.7,229L167.5,230.2L164.4,230.2L162.4,231.6L162.4,234L159.9,235.6L157.2,235.1L153.8,237L151.5,237.4L147.8,238.9L146.8,241.5L146.6,243.5L141.5,246L133.5,248.7L128.8,252.8L126.6,253.2L125.2,252.8L122.1,255.2L118.9,256.4L114.7,256.7L113.5,257L112.3,258.5L111,259L110.2,260.4L107.7,260.3L106,261.1L102.6,260.8L101.5,257.4L101.7,254.2L101,252.5L100.2,248.2L98.9,245.8L99.9,245.5L99.5,242.8L100.2,241.7L100.1,239.2L99.6,236.7L98.2,234.9L97.9,232.6L95.5,230.5L93.1,225.6L92,220.8L88.9,216.8L86.7,215.8L83.9,210.2L83.6,206.2L84.1,202.7L81.8,196.2L79.7,193.9L77.2,192.7L75.9,189.4L76.3,188L75.2,185L73.9,183.7L72.5,179.3L70,174.6L67.9,170.6L65.5,170.6L66.6,167.4L67.1,165.3L67.9,163L67.9,162.1L66.2,164.5L64.7,168.9L63.1,172L61.8,173L60.4,171.1L58.5,168.5L56.1,160.1L55.5,160.6L56.8,166.8L59.1,172.7L61.8,181.8L63.2,185L64.5,188.3L68.2,194.8L67.2,195.8L67,199.6L72.3,204.9L73,206.1L74.2,211.8L73,212.9L73.3,218.9L74.6,225.9L76.4,227.3L79,229.5L81.4,236.3L82.5,241.6L85.1,244.5L91.6,250L94.2,253.3L96.8,256.7L98.2,258.7L100.6,260.4L101.7,262.3L101.5,264.7L98.6,266.1L100.7,267.7L102.3,268.7L103.2,271.1L105.3,273.6L107.8,273.6L112.6,272.1L118,271.4L122.5,269.6L125,269.2L126.8,268.2L129.7,268L131.3,267.9L133.6,267L136.3,266.4L138.7,264.4L140.6,264.4L140.7,266L140.1,269.4L140,272.4L138.9,274.6L137.4,280.9L134.8,287.4L131.6,294.8L127.1,303.3L122.7,309.9L116.7,317.8L114.4,320L0,320L0,145.5L3,143.3L6.4,142.5L12.7,143.7L13.9,146.4L15.7,146.4L17.1,147.4L21.7,148.1L22.6,150L29,149.9L33.4,151.5L37.9,153.2L40,154.1L43.9,152.3L46.1,150.6L50.4,150.1L53.7,150.8L54.6,153.7L56,151.8L59.7,153.2L63.4,153.5L65.9,152.1L67.6,150.1L67.3,149.8L68.9,147.1L70.4,142.6L71.3,141.2L71.5,141.1L73.8,136.3L76.7,132.2L76.8,132L77,127.5L78.5,125.1L77.1,122.5L79.2,120.3L76.3,120.8L72.5,119.4L68.8,122.8L61.6,123.4L58.2,120.3L53.2,120.1L51.7,122.5L48.3,123.2L44.3,120.1L39.2,120.2L37.4,114.4L34.5,111.2L37.7,106.6L35.2,103.9L41.5,98.3L48.6,98.1L51.4,93.7L60.1,94.4L66.3,90.7L72,89L79.6,88.9L87,93L93.2,95.2L98.7,94.3L102.6,94.9L108.5,91.8L109.6,89.4L109,85.4L106.7,83.3L104.3,82.6L102.9,80.8L97.9,76L93.1,73.8L89.8,70.4L93.3,69.5L97.9,64.7L95.8,62.5L102.8,60.1L102.9,58.9L98.8,59.8L95.1,60.3L91.7,62.1L87.5,62.4L83.2,64.5L82.8,68.1L84.7,69.5L89.4,69.1L88.1,71.2L83,72.2L76.2,75.5L73.9,74.3L75.4,71.6L70.8,70L71.8,68.9L76.5,66.9L75.5,65.6L68.8,64.2L68.9,62.1L64.6,62.8L62.3,65.9L57.9,70.1L57.6,71.6L55.2,72.9L53.9,72.3L51.2,79.3L48.3,81.7L45.8,85.8L46.6,89.1L46.7,91.3L50.4,93.2L49.2,94.6L43.7,94.9L41.4,96.7L36.9,99.9L36,97.2L36.3,96L33.5,95.8L31.2,95.2L25.3,96.8L27.8,100L25.3,101L22.7,101L20.8,98L19.7,99.3L20,102.7L21.8,105.5L19.8,106.7L21.9,109.4L23.8,111.1L23.3,114.4L19.2,112.9L20,115.8L17,116.4L17.8,121.6L14.6,121.7L11.3,119.1L10.4,114.5L10.4,110.6L9.1,107.9L7.4,104.6L7.4,102.9L6.7,102.5L6.9,101.2L4.8,99.3L5,96.5L6.3,92.6L7.3,90.8L6.7,89.8L5.9,89.4L5,87.5L3.3,86.4L0,84.5L0,20L0,20L1.2,20.6L2.6,22.4L6.1,20.8L13.7,18.2L19.7,16.4L23.7,17.3L23.6,18.6L27.7,18.7L29.5,16.3L35.9,14.5L36.5,9.9L38,5.8L41.2,2.4L45.8,0.6L47.8,4.6L51.2,4.5L53.4,0.4L53.5,0L538.8,0ZM0,98.6L0.1,98.7L0.4,99.8L0,100.3L0,98.6ZM21.3,0L18.9,4.4L14.7,9.5L9.8,9L5.8,13.3L0.8,13.6L1.3,8.4L0.2,2.3L0.1,0L21.3,0Z"/>
+              <text class="m-reg" style="fill:var(--loch);font-size:20px" x="394.4" y="153.9" text-anchor="middle">Tang</text><text class="m-reg" style="fill:var(--muted);font-size:13px" x="140.8" y="159.2" text-anchor="middle">Abbasids</text><text class="m-reg" style="fill:var(--muted);font-size:14px" x="323.7" y="153.5" text-anchor="middle">Tibet</text><text class="m-reg" style="fill:var(--muted);font-size:13px" x="71.2" y="106.6" text-anchor="middle">Byzantium</text>
+              <path d="M423 134.2 L398 123.7 L353.7 99.9 L328 83.6 L299.4 90.9 L264.3 84.5 L235.9 93.2 L225.1 102.8 L225.9 117.1 L227.8 131 L245.1 135.8 L268.5 159.2 L275.6 175.6 L299.9 186.8 L311.8 187.7" fill="none" stroke="var(--rust)" stroke-width="2.2" stroke-linejoin="round"/>
+              <circle cx="423" cy="134.2" r="5.5" fill="var(--loch)" stroke="var(--surface)" stroke-width="1.5"/><circle cx="311.8" cy="187.7" r="4.5" fill="var(--rust)" stroke="var(--surface)" stroke-width="1.5"/><circle cx="225.1" cy="102.8" r="4.5" fill="var(--ink)" stroke="var(--surface)" stroke-width="1.5"/><circle cx="115.8" cy="139.9" r="4.5" fill="var(--ink)" stroke="var(--surface)" stroke-width="1.5"/><circle cx="50" cy="94.9" r="4.5" fill="var(--ink)" stroke="var(--surface)" stroke-width="1.5"/><circle cx="550.1" cy="131.8" r="4.5" fill="var(--ink)" stroke="var(--surface)" stroke-width="1.5"/><circle cx="517.8" cy="125" r="4.5" fill="var(--ink)" stroke="var(--surface)" stroke-width="1.5"/><circle cx="448.4" cy="199.5" r="4.5" fill="var(--ink)" stroke="var(--surface)" stroke-width="1.5"/><circle cx="353.7" cy="99.9" r="4.5" fill="var(--ink)" stroke="var(--surface)" stroke-width="1.5"/>
+              <path d="M245 81.2 L255 91.2 M245 91.2 L255 81.2" stroke="var(--ink)" stroke-width="2.4"/>
+              <text class="m-lab" style="fill:var(--loch);font-weight:700" x="431.0" y="148.2" text-anchor="start">Chang'an</text>
+              <text class="m-lab red" x="319.8" y="191.7" text-anchor="start">Nalanda</text>
+              <text class="m-lab" x="219.1" y="116.8" text-anchor="end">Samarkand</text>
+              <text class="m-lab" x="250.0" y="77.2" text-anchor="middle">Talas</text>
+              <text class="m-lab" x="115.8" y="131.9" text-anchor="middle">Baghdad</text>
+              <text class="m-lab" x="52.0" y="86.9" text-anchor="start">Constantinople</text>
+              <text class="m-lab" x="541.0" y="147.8" text-anchor="middle">Nara</text>
+              <text class="m-lab" x="513.8" y="117.0" text-anchor="end">Silla</text>
+              <text class="m-lab" x="456.4" y="203.5" text-anchor="start">Guangzhou</text>
+              <text class="m-lab" x="353.7" y="91.9" text-anchor="middle">Dunhuang</text>
+              <circle cx="423.0" cy="117.2" r="9" fill="var(--rust)" stroke="var(--surface)" stroke-width="1.5"/><text x="423.0" y="121.2" text-anchor="middle" style="font:700 11px var(--mono);fill:#fff">1</text><circle cx="295.8" cy="197.7" r="9" fill="var(--rust)" stroke="var(--surface)" stroke-width="1.5"/><text x="295.8" y="201.7" text-anchor="middle" style="font:700 11px var(--mono);fill:#fff">2</text><circle cx="232.0" cy="90.2" r="9" fill="var(--rust)" stroke="var(--surface)" stroke-width="1.5"/><text x="232.0" y="94.2" text-anchor="middle" style="font:700 11px var(--mono);fill:#fff">3</text><circle cx="97.8" cy="143.9" r="9" fill="var(--rust)" stroke="var(--surface)" stroke-width="1.5"/><text x="97.8" y="147.9" text-anchor="middle" style="font:700 11px var(--mono);fill:#fff">4</text><circle cx="566.1" cy="135.8" r="9" fill="var(--rust)" stroke="var(--surface)" stroke-width="1.5"/><text x="566.1" y="139.8" text-anchor="middle" style="font:700 11px var(--mono);fill:#fff">5</text><circle cx="432.4" cy="205.5" r="9" fill="var(--rust)" stroke="var(--surface)" stroke-width="1.5"/><text x="432.4" y="209.5" text-anchor="middle" style="font:700 11px var(--mono);fill:#fff">6</text>
+            </svg>
+          </div>
+          <ol class="stages">
+            <li><b style="color:var(--rust)">① Chang'an:</b> about a million people, including people from Central Asia, Persia, Japan and Korea.</li>
+            <li><b style="color:var(--rust)">② Nalanda:</b> the goal of Xuanzang's journey west in search of the scriptures (the red line is the approximate route of his outward journey).</li>
+            <li><b style="color:var(--rust)">③ Talas, 751:</b> the Tang army was defeated by an Arab army, and Tang expansion into Central Asia stopped here.</li>
+            <li><b style="color:var(--rust)">④ Baghdad:</b> the new capital founded by the Abbasid Caliphate in 762; like Chang'an, one of the world's great cities.</li>
+            <li><b style="color:var(--rust)">⑤ Nara:</b> Japan sent embassies to learn from the Tang, and Nara's city plan was modelled on Chang'an.</li>
+            <li><b style="color:var(--rust)">⑥ Guangzhou:</b> a seaport crowded with Arab and Persian merchant ships, with its own quarter for foreigners.</li>
+          </ol>
+          <figcaption><b>Map 4: How was the Tang connected to the world?</b> The names of states are placed roughly where they were; no borders are drawn, and the route is simplified.</figcaption>
+        </figure>
+      </aside>
+    </div>
+
+    <section class="block" id="life" aria-labelledby="life5">
+      <span class="label">Daily life</span>
+      <h3 id="life5">How people lived</h3>
+      <div class="life">
+        <div>
+          <h4>A day in Chang'an</h4>
+          <p>Before dawn, the city gates and ward gates opened to the sound of drums, and officials rode to the morning audience at court. At noon, drums opened the East and West Markets, where merchants sold silk, spices, jewels and horses, and in the taverns women from Central Asia served the customers. Before sunset the drums sounded again and people had to hurry back to their own wards; anyone caught walking in the avenues at night would be beaten by the soldiers on night patrol. Festivals such as the Lantern Festival (元宵節) were the exception, when the city stayed open all night to view the lanterns.</p>
+        </div>
+        <div>
+          <h4>Women in the Tang</h4>
+          <p>Tang women were much freer than in later times. Aristocratic women could ride horses and play polo, go out dressed in men's clothes, and some took part in politics. Divorce and remarriage were not unusual; even princesses remarried. The women shown in Tang pottery figures and wall paintings, with their hair piled high, long brightly coloured skirts and full faces, are seen as the ideal of beauty of the time.</p>
+        </div>
+        <div>
+          <h4>The life of farmers</h4>
+          <p>In the early Tang the state ran the <button type="button" class="gl" data-g="juntian" aria-haspopup="dialog">equal-field system</button> (均田制, juntianzhi): it gave farmers land to cultivate, and in return they paid the state in grain and cloth and did labour service. The system came from the Northern Wei and worked well after wars, when people were few and empty land was plentiful. But by the mid-Tang, with the population growing and land being bought up by the powerful, it could no longer be kept going, and was replaced by taxes based on property.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="people" aria-labelledby="people5">
+      <span class="label">Key people</span>
+      <h3 id="people5">Who's who</h3>
+      <ul class="people">
+        <li><span class="nm">Zhuge Liang (諸葛亮)</span><span class="rl">Chief minister of Shu Han, AD 181–234</span><p>Served Liu Bei and his son, giving everything "until his dying breath". In the Romance of the Three Kingdoms he is a sage who can summon the wind and rain, and for Chinese people he is the very picture of wisdom.</p></li>
+        <li><span class="nm">Emperor Xiaowen of Northern Wei (北魏孝文帝)</span><span class="rl">Xianbei emperor, AD 467–499</span><p>Moved the capital to Luoyang and carried out sweeping reforms to adopt Han Chinese ways. A key figure in the mixing of peoples.</p></li>
+        <li><span class="nm">Emperor Yang of Sui (隋煬帝, Yang Guang)</span><span class="rl">Sui emperor, AD 569–618</span><p>Dug the Grand Canal and attacked Goguryeo three times. He lost his dynasty by overworking the people and is remembered as a tyrant, but the institutions and canal he left behind had a lasting influence.</p></li>
+        <li><span class="nm">Emperor Taizong of Tang (唐太宗, Li Shimin)</span><span class="rl">Tang emperor, AD 598–649</span><p>Seized the throne in the Xuanwu Gate Incident, yet became a wise ruler famous for accepting criticism and choosing good people, and created the Reign of Zhenguan.</p></li>
+        <li><span class="nm">Xuanzang (玄奘)</span><span class="rl">Monk and translator, AD 602–664</span><p>Travelled alone to India and back over seventeen years, bringing home a great many Buddhist texts and leading their translation. The real person behind the Tang monk in Journey to the West.</p></li>
+        <li><span class="nm">Wu Zetian (武則天)</span><span class="rl">China's only female emperor, AD 624–705</span><p>Rose from consort to empress and finally declared herself emperor, founding the Zhou dynasty and reigning for fifteen years.</p></li>
+        <li><span class="nm">Li Bai (李白) and Du Fu (杜甫)</span><span class="rl">Poets, AD 701–762; 712–770</span><p>China's two greatest poets, one bold and romantic, the other sombre and realistic. The two knew each other and wrote poems for one another.</p></li>
+      </ul>
+    </section>
+
+    <section class="block" id="myths" aria-labelledby="myths5">
+      <span class="label">Myth or fact</span>
+      <h3 id="myths5">What people often get wrong</h3>
+      <ul class="myths">
+        <li><span class="mq">"The Romance of the Three Kingdoms is the history of the Three Kingdoms."</span><span class="ma"><b>No.</b> The Romance of the Three Kingdoms is a Ming novel, often said to be "seven parts fact, three parts fiction". Famous episodes such as Zhuge Liang's "Empty Fort Strategy" (空城計) and "borrowing arrows with straw boats" (草船借箭) cannot be found in the historical records, or originally involved other people. To learn about the real Three Kingdoms, read the Records of the Three Kingdoms (三國志, Sanguozhi), a history written by Chen Shou (陳壽) of the Western Jin (西晉).</span></li>
+        <li><span class="mq">"In the Tang, fat was beautiful."</span><span class="ma"><b>Too simple.</b> In paintings of court ladies and pottery figures from the mid-Tang, women are indeed fuller-figured, but this was only the fashion of one period. Images of women from the early Tang are rather slender, and there is no evidence that Yang Guifei was fat.</span></li>
+        <li><span class="mq">"The Tang royal family was purely Han Chinese."</span><span class="ma"><b>No.</b> The mother of the Tang founder Li Yuan, and the mother and wife of Emperor Taizong, all came from aristocratic families with strong Xianbei roots. The ruling class of the Sui and Tang was itself a product of the mixing of peoples under the Northern Dynasties, and this is one reason the Tang was so open to foreign cultures.</span></li>
+        <li><span class="mq">"Yang Guifei caused the An Lushan Rebellion."</span><span class="ma"><b>Blaming a woman.</b> The underlying causes of the rebellion were the excessive power of the military governors, the imbalance between troops on the frontier and troops at the centre, and corruption at court. The idea that beautiful women bring ruin to states is very common in Chinese histories, but it is not fair.</span></li>
+      </ul>
+    </section>
+
+    <section class="block" id="evidence" aria-labelledby="ev5">
+      <span class="label">How we know</span>
+      <h3 id="ev5">A library in a cave</h3>
+      <div class="life">
+        <div>
+          <h4>Official histories</h4>
+          <p>Every dynasty of this era has an official history compiled by the state, such as the Records of the Three Kingdoms, the Book of Jin (晉書) and the Book of Sui (隋書); the Tang has two, the Old Book of Tang (舊唐書) and the New Book of Tang (新唐書). But the histories of the Northern and Southern Dynasties often run each other down: the south called northerners "braided barbarians" (索虜), and the north called southerners "island savages" (島夷), so they need to be read with care.</p>
+        </div>
+        <div>
+          <h4>The Dunhuang Library Cave</h4>
+          <p>In 1900 Wang Yuanlu (王圓籙), a Daoist priest who looked after the Mogao Caves, chanced upon a small cave that had been sealed for about nine hundred years. Inside were about fifty thousand manuscripts and printed items from the fourth to the eleventh centuries, including Buddhist scriptures, contracts, account books, letters and schoolchildren's exercises. In the early twentieth century many of them were bought cheaply and taken away by foreign explorers such as Aurel Stein from Britain and Paul Pelliot from France, and today they are scattered across London, Paris, St Petersburg, Beijing and elsewhere. This is still a sore point for many Chinese people.</p>
+        </div>
+        <div>
+          <h4>Tombs and wall paintings</h4>
+          <p>The tombs of Tang royalty and aristocrats contain many wall paintings and pottery figures showing court life, polo matches, processions and foreign envoys. Among the brightly coloured "Tang three-colour" (唐三彩, <i>sancai</i>) pottery figures, Central Asian merchants riding camels are common: direct evidence of a thriving Silk Road.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="words" aria-labelledby="words5">
+      <span class="label">Key terms</span>
+      <h3 id="words5">Terms from this era</h3>
+      <dl class="words">
+        <div><dt>Three Kingdoms (三國)</dt><dd>The period after the Eastern Han when the three states of Wei, Shu and Wu existed side by side (220–280).</dd></div>
+        <div><dt>Five Barbarians and Sixteen Kingdoms (五胡十六國)</dt><dd>The period after the collapse of the Western Jin when the north was ruled by states of many different peoples.</dd></div>
+        <div><dt>Northern and Southern Dynasties (南北朝)</dt><dd>The period when Han Chinese courts in the south faced courts founded by the Xianbei and other peoples in the north (420–589).</dd></div>
+        <div><dt>Grand Canal (大運河)</dt><dd>The artificial waterway dug under the Sui, centred on Luoyang, linking north and south.</dd></div>
+        <div><dt>Civil service examination (科舉)</dt><dd>The system of choosing officials by examination, begun under the Sui and only abolished in 1905.</dd></div>
+        <div><dt>Military governor (節度使)</dt><dd>The commander of a large Tang frontier military region, holding military and civil power; the root of the An Lushan Rebellion and of the later regional warlords.</dd></div>
+        <div><dt>Embassies to Tang China (遣唐使)</dt><dd>Official missions sent by Japan to learn from the Tang.</dd></div>
+        <div><dt>Tang people (唐人)</dt><dd>Overseas Chinese often call themselves "Tang people", which is where the Chinese name for Chinatown, "Tang people's street" (唐人街), comes from.</dd></div>
+      </dl>
+    </section>
+
+    <section class="hk" id="hk" aria-labelledby="hk5">
+      <span class="label">Hong Kong</span>
+      <h3 id="hk5">Tuen Mun in the Tang</h3>
+      <p>Tang Guangzhou was China's biggest port for foreign trade, with a constant stream of merchant ships from Arabia, Persia and Southeast Asia. Every foreign ship sailing to or from Guangzhou had to pass Tuen Mun (屯門), outside the mouth of the Pearl River (珠江). Around AD 736 the Tang set up a military garrison at Tuen Mun, with about two thousand troops, to protect the shipping lane and the merchant ships (see Map 3). The Tang writers Han Yu (韓愈) and Liu Yuxi (劉禹錫) both mention Tuen Mun in their poems. This is one of the earliest records of troops stationed in the Hong Kong area.</p>
+      <p>Legend has it that in the Northern and Southern Dynasties an eminent monk, Pui To (杯渡禪師), who crossed the sea in a wooden cup, practised his religion on Castle Peak (青山) in Tuen Mun; today's Castle Peak Monastery (青山禪院) and Pui To Rock (杯渡岩) on the mountain take their names from him. But this is legend.</p>
+    </section>
+
+    <section class="parallel" id="world" aria-labelledby="w5">
+      <span class="label">Meanwhile in Europe and the world</span>
+      <h3 id="w5">Empires collapse and new powers rise</h3>
+      <div class="pair">
+        <div>
+          <h4>The fall of Rome</h4>
+          <p>In AD 410 the Visigoths sacked the city of Rome; in AD 476 the Western Roman Empire came to an end. This was about a hundred years after the Western Jin was overthrown by northern peoples and the Jin court moved south, and the two are often compared. The difference is that China was reunited in 589, while Western Europe split into many kingdoms, as it remains today. Roman troops left Britain around AD 410, and afterwards the Anglo-Saxons founded several kingdoms in England.</p>
+        </div>
+        <div>
+          <h4>The Islamic empire and Talas</h4>
+          <p>In the seventh century Islam arose in the Arabian peninsula, and the Arab empire expanded rapidly into Central Asia, where it met Tang power. In AD 751 the two armies fought at Talas, on today's border between Kazakhstan and Kyrgyzstan, and the Tang army was defeated. In 762 the Abbasid Caliphate founded a new capital, Baghdad, which ranked alongside Chang'an as one of the largest cities in the world.</p>
+        </div>
+        <div>
+          <h4>The Vikings and Iona</h4>
+          <p>In the later Tang period, the Vikings began raiding the coasts of Britain. In AD 795 they first plundered the monastery on Iona, off Scotland's west coast; the magnificent illuminated gospel book, the Book of Kells, was very probably made by monks there in this period. In AD 800 Charlemagne, King of the Franks, was crowned emperor in Rome.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="visit" id="visit" aria-labelledby="v5">
+      <span class="label">See it for yourself</span>
+      <h3 id="v5">Places to visit</h3>
+      <ul class="places">
+        <li><span class="nm">Mogao Caves (莫高窟)</span><span class="tm">Dunhuang, Gansu</span><p>A World Heritage Site with more than seven hundred caves and over 45,000 square metres of wall paintings, painted from the Northern Dynasties right through to the Yuan.</p></li>
+        <li><span class="nm">Longmen Grottoes (龍門石窟)</span><span class="tm">Luoyang, Henan</span><p>A World Heritage Site. The great Vairocana Buddha of Fengxian Temple is seventeen metres tall; its face is said to have been carved in the likeness of Wu Zetian, but there is no reliable evidence for this.</p></li>
+        <li><span class="nm">Yungang Grottoes (雲岡石窟)</span><span class="tm">Datong, Shanxi</span><p>A World Heritage Site: giant early Northern Wei Buddhas with clear Central Asian and Indian influence.</p></li>
+        <li><span class="nm">Big Wild Goose Pagoda (大雁塔), Xi'an Stele Forest (西安碑林) and Shaanxi History Museum (陝西歷史博物館)</span><span class="tm">Xi'an, Shaanxi</span><p>The pagoda was built to house Xuanzang's scriptures; the Stele Forest holds the Nestorian Stele (大秦景教流行中國碑), which records the spread of Jingjiao Christianity in the Tang; the museum has many Tang wall paintings and three-colour pottery figures.</p></li>
+        <li><span class="nm">Yangzhou (揚州) and the Grand Canal (大運河)</span><span class="tm">Yangzhou, Jiangsu, and elsewhere</span><p>A World Heritage Site. Yangzhou is where Emperor Yang of Sui met his death, and was one of the richest trading cities of the Tang.</p></li>
+        <li><span class="nm">Castle Peak Monastery (青山禪院)</span><span class="tm">Tuen Mun, Hong Kong</span><p>Linked by legend to the monk Pui To of the Northern and Southern Dynasties, and one of Hong Kong's oldest Buddhist temples.</p></li>
+        <li><span class="nm">British Library and British Museum</span><span class="tm">London · Free</span><p>The British Library holds the Diamond Sutra of AD 868 and a large collection of Dunhuang manuscripts; the British Museum has Tang three-colour camel figures and silk paintings from Dunhuang.</p></li>
+      </ul>
+    </section>
+
+    <p class="remember"><span class="label">The one thing to remember</span>After the Han, China was divided for more than three hundred years, while northern peoples and Han Chinese gradually mixed and Buddhism took root; the Sui reunited the country and dug the Grand Canal, and the Tang became an open, international golden age until the An Lushan Rebellion sent it into decline.</p>
+  </article>
+
+<script type="application/json" id="gloss">{"nanbeichao": ["Northern and Southern Dynasties 南北朝", "AD 420–589", "In the south, four Han Chinese courts ruled in turn: Song, Qi, Liang and Chen. The north was ruled by the Northern Wei, founded by the Xianbei, and the dynasties that followed it. The two sides faced each other for a long time along a line around the Huai River."], "caocao": ["Cao Cao 曹操", "AD 155–220", "The most powerful warlord at the end of the Eastern Han, who unified north China and controlled the Han emperor. In the Romance of the Three Kingdoms he is the classic cunning villain, but in real history he was also an outstanding statesman and poet."], "liubei": ["Liu Bei 劉備", "Emperor Zhaolie of Shu Han, AD 161–223", "Claimed descent from the Han royal family; as a young man he made a living weaving mats and selling sandals, and won people's loyalty through his kindness. With Zhuge Liang's help he took Sichuan, and in AD 221 declared himself emperor of a state called Han, known to historians as Shu Han."], "sunquan": ["Sun Quan 孫權", "Great Emperor of Wu, AD 182–252", "Inherited the power his father and elder brother had built on the lower Yangtze, and allied with Liu Bei to defeat Cao Cao at Red Cliffs. In AD 229 he declared himself emperor, with his capital at Jianye, today's Nanjing."], "chibi": ["Battle of Red Cliffs 赤壁之戰", "AD 208", "The allied forces of Sun Quan and Liu Bei attacked Cao Cao's warships with fire on the middle Yangtze; Cao Cao's army, also stricken by disease, was badly beaten and retreated north. The battle set up the three-way division of the Three Kingdoms. The exact site of the battle is still debated."], "sanguo": ["Three Kingdoms 三國", "AD 220–280", "The period when three states existed side by side: Wei (in the north, capital Luoyang), Shu Han (in the southwest, capital Chengdu) and Wu (in the southeast, capital Jianye). They were finally united by the Jin dynasty, which replaced Wei."], "zhugeliang": ["Zhuge Liang 諸葛亮", "Courtesy name Kongming, AD 181–234", "Liu Bei's chief minister, famous for his strategy and loyalty. Liu Bei had to visit him three times at his thatched cottage before he agreed to serve, a story known as \"three visits to the thatched cottage\". His Memorial on Sending Out the Troops (出師表) is a piece Chinese people still read and recite."], "sgyy": ["Romance of the Three Kingdoms 三國演義", "Ming novel, c. 14th century", "Traditionally said to have been compiled by Luo Guanzhong from the histories and from storytellers' tales, it is one of the Four Great Classical Novels of China. It shaped how Chinese people see the figures of the Three Kingdoms; for example, the red-faced general Guan Yu came to be worshipped as a god, Guandi."], "jin": ["Jin dynasty 晉朝", "AD 266–420", "The dynasty founded by Sima Yan when he replaced Wei; it unified China in 280. While its capital was at Luoyang it is called the Western Jin; after the north was lost in 316, the royal family rebuilt it at Jiankang, where it is called the Eastern Jin."], "bawang": ["War of the Eight Princes 八王之亂", "AD 291–306", "A civil war in which eight princes of the Western Jin royal family fought one another for control of the government. It badly weakened the Jin and opened the door for northern peoples to take over the Chinese heartland."], "wuhu": ["Five Barbarians 五胡", "Northern peoples", "Traditionally the five peoples Xiongnu, Xianbei, Jie, Di and Qiang. \"Hu\" was the ancient Han Chinese word for foreign peoples to the north and west, and it carries a somewhat disparaging tone. They founded many states in the north, known together as the Sixteen Kingdoms, though there were in fact more than sixteen."], "dongjin": ["Eastern Jin 東晉", "AD 317–420", "The court rebuilt in the south by the Jin royal family, with its capital at Jiankang (today's Nanjing), ruling the lands south of the Yangtze. Government was dominated by great families that had moved south, such as the Wang and the Xie, hence the saying \"the Wang and the Ma (the royal Sima family) share the realm\"."], "yiguan": ["Southward crossing of the robes and caps 衣冠南渡", "Early 4th century AD", "When the Western Jin fell, northern aristocrats, scholars and great numbers of ordinary people fled south of the Yangtze. \"Robes and caps\" means scholars of rank. This was the first large-scale migration south in Chinese history; there were two more, at the end of the Tang and under the Song."], "feishui": ["Battle of the Fei River 淝水之戰", "AD 383", "Fu Jian, emperor of the Former Qin, led a great army south against the Eastern Jin, and at the Fei River (in today's Anhui) was routed by the much smaller force of the Eastern Jin general Xie Xuan. The Former Qin soon collapsed and the north was divided again."], "beiwei": ["Northern Wei 北魏", "AD 386–534", "The dynasty founded by the Tuoba clan of the Xianbei people. It unified the north in 439, with its capital first at Pingcheng (today's Datong) and then at Luoyang. It later split into the Eastern Wei and the Western Wei."], "xiaowendi": ["Emperor Xiaowen of Northern Wei 北魏孝文帝", "Tuoba Hong (later Yuan Hong), reigned AD 471–499", "Carried out thorough sinicisation: he moved the capital to Luoyang, banned the Xianbei language at court, made people wear Han Chinese dress and take Han Chinese surnames, encouraged marriage with Han Chinese, and adopted Han Chinese systems of government and ritual."], "nanchao": ["Southern Dynasties 南朝", "AD 420–589", "The four dynasties founded one after another in the south after the Eastern Jin: Song, Qi, Liang and Chen, all with their capital at Jiankang. Each was short-lived; even the longest, the Song, lasted only about sixty years."], "wangxizhi": ["Wang Xizhi 王羲之", "Eastern Jin calligrapher, AD 303–361", "Revered as the \"Sage of Calligraphy\". His Preface to the Orchid Pavilion Poems (蘭亭集序) is considered the finest piece of running script ever written. Legend says Emperor Taizong of Tang loved it so much that he took the original with him into his tomb; only copies survive today."], "taoyuanming": ["Tao Yuanming 陶淵明", "Eastern Jin poet, c. AD 365–427", "Held several minor posts, but resigned and went home to farm because he would \"not bow for five pecks of rice\", and wrote many poems about country life. His The Peach Blossom Spring describes a peaceful village cut off from the world, and gave Chinese the phrase for an earthly paradise, \"a peach blossom land beyond the world\"."], "mogao": ["Mogao Caves 莫高窟", "Dunhuang, Gansu, from AD 366", "A group of Buddhist cave temples on the Silk Road, cut continuously from the fourth to the fourteenth century. More than seven hundred caves survive, with a wealth of wall paintings and painted sculptures. A World Heritage Site since 1987."], "yungang": ["Yungang Grottoes 雲岡石窟", "Datong, Shanxi, from AD 460", "Cave temples cut by the Northern Wei near its capital, Pingcheng. The largest Buddha is seventeen metres tall, and the style shows the influence of Central Asia and India."], "longmen": ["Longmen Grottoes 龍門石窟", "Luoyang, Henan, from AD 493", "Begun after the Northern Wei moved its capital to Luoyang, and reaching their height under the Tang. More than a hundred thousand Buddhist figures survive."], "faxian": ["Faxian 法顯", "Eastern Jin monk, c. AD 337–422", "Set out from Chang'an in AD 399 and travelled through Central Asia to India in search of scriptures, returning by sea via Sri Lanka and Indonesia. His Record of the Buddhist Kingdoms (佛國記) describes India and Southeast Asia at the time."], "yangjian": ["Yang Jian 楊堅", "Emperor Wen of Sui, reigned AD 581–604", "A relative by marriage of the Northern Zhou royal family and one of its ministers, he seized power and founded the Sui, then destroyed the Chen in 589 to unify China. Frugal and hard-working, he put the institutions of government in order and rebuilt a unified state."], "yangdi": ["Emperor Yang of Sui 隋煬帝", "Yang Guang, reigned AD 604–618", "Second son of Emperor Wen. He dug the Grand Canal, built Luoyang as an eastern capital and failed in three expeditions against Goguryeo, provoking uprisings everywhere; he was killed by his own men at Yangzhou. \"Yang\" is an unflattering posthumous name given to him by the Tang."], "dayunhe": ["Grand Canal 大運河", "Sui dynasty, AD 605–610", "An artificial waterway centred on Luoyang, linking five great river systems: the Hai, the Yellow River, the Huai, the Yangtze and the Qiantang. Under the Yuan it was rerouted to link Beijing and Hangzhou directly. A World Heritage Site since 2014."], "keju": ["Civil service examination 科舉", "7th century AD – 1905", "A system of choosing officials through examinations in different subjects. It began under the Sui, developed under the Tang, and from the Song onwards became the main route into government. Candidates had to know the Confucian classics thoroughly; those who passed the highest level were called jinshi."], "liyuan": ["Li Yuan 李淵", "Emperor Gaozu of Tang, reigned AD 618–626", "A Sui aristocrat and governor of Taiyuan who raised an army at the end of the Sui, took Chang'an and founded the Tang. In 626 he was forced by his son Li Shimin to give up the throne."], "taizong": ["Emperor Taizong of Tang 唐太宗", "Li Shimin, reigned AD 626–649", "The second Tang emperor, famous for judging people well and listening humbly to criticism, and seen by later generations as the model of a wise ruler. His discussions with his ministers on how to govern were collected as the Essentials of Government of the Zhenguan Era (貞觀政要)."], "xuanwumen": ["Xuanwu Gate Incident 玄武門之變", "AD 626", "Li Shimin ambushed and killed the crown prince, Li Jiancheng, and his younger brother Li Yuanji at the Xuanwu Gate, the north gate of the palace in Chang'an. He was then made crown prince, and became emperor two months later."], "weizheng": ["Wei Zheng 魏徵", "Tang minister, AD 580–643", "Originally served the crown prince Li Jiancheng; after Li Shimin became emperor he put the past aside and employed him. Wei Zheng dared to criticise the emperor to his face, and is the classic example in Chinese history of a minister who remonstrates."], "zhenguan": ["Reign of Zhenguan 貞觀之治", "AD 627–649", "The reign of Emperor Taizong (reign title Zhenguan), a time of good government and social stability, seen by later generations as the ideal of traditional Chinese government."], "tiankehan": ["Heavenly Khagan 天可汗", "Title", "\"Khagan\" was the title of the supreme leader among the steppe peoples. After the Tang defeated the Eastern Turks in 630, the leaders of the peoples of the northwest honoured Emperor Taizong as \"Heavenly Khagan\", meaning he was the ruler of all their peoples together."], "sogdian": ["Sogdians 粟特人", "Central Asian people", "A people living around Samarkand in today's Uzbekistan, who spoke an Iranian language and were skilled traders, the most important merchants of the Silk Road. Many Sogdians settled in Tang China; An Lushan had Sogdian ancestry."], "kentoshi": ["Embassies to Tang China 遣唐使", "Official Japanese missions, AD 630–894", "More than ten missions sent by Japan to the Tang, each with several hundred people, including officials, students and monks. They brought back Tang law, writing, Buddhism, architecture and ways of life, and had a huge influence on Japan."], "jingjiao": ["Jingjiao 景教", "A branch of Christianity", "The Church of the East from Syria (often called Nestorian in the West), brought to Chang'an by a Persian missionary in 635. The Nestorian Stele (大秦景教流行中國碑), set up in 781, records its spread under the Tang and is the oldest Christian monument in China."], "xuanzang": ["Xuanzang 玄奘", "Tang monk, AD 602–664", "Left China without permission in 629 to seek scriptures in India, and returned in 645 with more than 650 texts. He led the translation of more than 1,300 scrolls of Buddhist scripture, and is one of the greatest translators in Chinese history."], "nalanda": ["Nalanda 那爛陀寺", "Bihar, India, 5th–12th centuries AD", "The largest Buddhist monastery and centre of learning in ancient India; at its height more than ten thousand monks studied there, and it is called one of the world's first universities. It was destroyed by invading armies at the end of the twelfth century; the ruins are a World Heritage Site."], "xiyuji": ["Records of the Western Regions of the Great Tang 大唐西域記", "Dictated by Xuanzang, completed AD 646", "Records the geography, products, customs and religions of more than a hundred countries and regions that Xuanzang visited or heard about. In the nineteenth century British archaeologists used it to find a number of Buddhist sites in India."], "xiyouji": ["Journey to the West 西遊記", "Ming novel, 16th century", "Traditionally attributed to Wu Cheng'en, one of the Four Great Classical Novels of China. It tells how the Tang monk, protected by Sun Wukong, Pigsy and Sandy, travels west for scriptures and survives eighty-one ordeals. In English it is usually called Journey to the West or Monkey."], "wuzetian": ["Wu Zetian 武則天", "Wu Zhao, reigned AD 690–705", "The only woman in Chinese history to formally declare herself emperor. She began as a junior consort of Emperor Taizong, later became empress to Emperor Gaozong, declared herself emperor in 690 with the dynasty name Zhou, and was forced to abdicate in 705."], "libai": ["Li Bai 李白", "Tang poet, AD 701–762", "Called the \"Immortal of Poetry\", his poems are bold and romantic, often about the moon, wine and landscapes. He is said to have been born at Suyab in Central Asia (in today's Kyrgyzstan); he grew up in Sichuan and spent his life wandering."], "dufu": ["Du Fu 杜甫", "Tang poet, AD 712–770", "Called the \"Sage of Poetry\". He lived through the turmoil of the An Lushan Rebellion, and his poems record the war and the suffering of ordinary people, so they are also called \"history in verse\"."], "jingangjing": ["Diamond Sutra 金剛經 (printed AD 868)", "Oldest surviving dated printed book", "A Buddhist scripture on a scroll about five metres long, with a woodcut illustration of the Buddha preaching at the start, and a note at the end saying it was printed in AD 868. The British explorer Aurel Stein took it from Dunhuang in 1907; it is now in the British Library."], "xuanzong": ["Emperor Xuanzong of Tang 唐玄宗", "Li Longji, reigned AD 712–756", "In the first part of his reign he governed energetically and created the Kaiyuan golden age; later he gave himself up to pleasure and doted on Yang Guifei, leading to the An Lushan Rebellion, after which he had to flee to Sichuan and hand the throne to his son. He was also a skilled musician, and is honoured by Chinese opera performers as the founder of their art."], "kaiyuan": ["Kaiyuan golden age 開元盛世", "AD 713–741", "The first part of Emperor Xuanzong's reign (reign title Kaiyuan), the most prosperous period of the Tang, when population, economy and culture all reached their peak."], "yangguifei": ["Yang Guifei 楊貴妃", "Yang Yuhuan, AD 719–756", "Emperor Xuanzong's favourite consort, who had originally been the wife of one of his sons. She fled with Xuanzong during the An Lushan Rebellion, and at Mawei the mutinous soldiers forced him to order her death. Bai Juyi's long poem The Song of Everlasting Sorrow (長恨歌) tells their story."], "jiedushi": ["Military governor 節度使", "Tang regional commander", "The commander of one of the large military regions the Tang set up on its frontiers. At first they handled only military matters, but later took over finances and civil government too, and grew more and more powerful. After the An Lushan Rebellion military governors were set up everywhere, leading to rule by regional warlords."], "anlushan": ["An Lushan 安祿山", "c. AD 703–757", "A Tang general of Sogdian and Turkic descent who spoke several languages and enjoyed the favour of Xuanzong and Yang Guifei, and was military governor of three regions at once. In 755 he rebelled and declared himself emperor of a state called Great Yan; in 757 he was killed by his own son."], "anshi": ["An Lushan Rebellion 安史之亂", "AD 755–763", "The rebellion led first by An Lushan and then by his general Shi Siming. It lasted eight years, and both Chang'an and Luoyang fell. It was the turning point at which the Tang went from glory to decline."], "fanzhen": ["Rule of the regional warlords 藩鎮割據", "AD 763–907", "The situation after the An Lushan Rebellion in which military governors controlled their own armies and finances, appointed their own officials, even passed their posts from father to son, and ignored orders from the court."], "talas": ["Battle of Talas 怛羅斯之戰", "AD 751", "A battle in Central Asia between the army of the Tang general Gao Xianzhi and the army of the Arab Abbasid Caliphate. The Tang army was badly defeated when its allies changed sides. Legend says captured Tang craftsmen brought papermaking to Samarkand, but some scholars question this."], "huangchao": ["Huang Chao 黃巢", "? – AD 884", "A smuggler of salt who repeatedly failed the civil service examination. He joined a rebellion from 875 and later became its leader; in 880 he took Chang'an and declared himself emperor, and in 884 he was defeated and killed."], "juntian": ["Equal-field system 均田制", "c. AD 485–780", "A land system begun by the Northern Wei: the state gave farmers land to cultivate according to the number of people in the household, and part of the land had to be returned to the state when they died. It broke down in the mid-Tang as the powerful bought up land, and in 780 was replaced by the \"Two Tax\" system based on property."]}</script>
+  <nav class="pagenav" aria-label="Eras"><a class="prev" href="era4.html"><span class="dir">Previous · Era 4</span><span class="ttl">Qin and Han</span></a><a class="next" href="era6.html"><span class="dir">Next · Era 6</span><span class="ttl">Song and Yuan</span></a></nav>
+</div>
+<div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-labelledby="lb-title">
+  <div class="lb-bar">
+    <span class="lb-title" id="lb-title"></span>
+    <button type="button" class="lb-close" id="lb-close">Close</button>
+  </div>
+  <div class="lb-controls">
+    <button type="button" id="lb-fit">Fit to screen</button>
+    <button type="button" id="lb-out" aria-label="Zoom out">&minus;</button>
+    <input type="range" id="lb-range" min="25" max="300" step="5" value="100" aria-label="Zoom level">
+    <button type="button" id="lb-in" aria-label="Zoom in">+</button>
+    <span class="lb-level" id="lb-level">100%</span>
+  </div>
+  <div class="lb-body" id="lb-body"></div>
+  <div class="lb-hint">Drag the slider or use &minus; and + to zoom from 25% to 300%. 100% fills the screen width. Scroll to move around.</div>
+</div>
+<script>
+(function () {
+  var box = document.getElementById('lightbox'), body = document.getElementById('lb-body');
+  var title = document.getElementById('lb-title'), level = document.getElementById('lb-level'), range = document.getElementById('lb-range');
+  var z = 1, MIN = 0.25, MAX = 3, current = null, opener = null;
+  function availW() { return Math.max(200, body.clientWidth - 32); }
+  function availH() { return Math.max(200, body.clientHeight - 32); }
+  function aspect() { var vb = current && current.viewBox && current.viewBox.baseVal; return vb && vb.width ? vb.height / vb.width : 0.6; }
+  function setZ(v) {
+    z = Math.min(MAX, Math.max(MIN, Math.round(v * 100) / 100));
+    if (current) current.style.width = Math.round(availW() * z) + 'px';
+    range.value = Math.round(z * 100); level.textContent = Math.round(z * 100) + '%';
+  }
+  function fit() { setZ(Math.min(1, availH() / (availW() * aspect()))); }
+  function open(svg, from) {
+    current = svg.cloneNode(true);
+    current.querySelectorAll('[id]').forEach(function (el) { el.removeAttribute('id'); });
+    current.removeAttribute('aria-labelledby');
+    var t = svg.querySelector('title'); title.textContent = t ? t.textContent : 'Diagram';
+    current.setAttribute('role', 'img'); current.setAttribute('aria-label', title.textContent);
+    body.innerHTML = ''; body.appendChild(current);
+    opener = from; box.hidden = false; document.documentElement.style.overflow = 'hidden';
+    fit(); body.scrollTop = 0; body.scrollLeft = 0;
+    document.getElementById('lb-close').focus();
+  }
+  function close() { box.hidden = true; body.innerHTML = ''; current = null; document.documentElement.style.overflow = ''; if (opener) opener.focus(); }
+  document.querySelectorAll('figure .frame').forEach(function (frame) {
+    var svg = frame.querySelector('svg'); if (!svg) return;
+    var b = document.createElement('button'); b.type = 'button'; b.className = 'zoom-btn'; b.textContent = 'Enlarge';
+    b.setAttribute('aria-label', 'Enlarge: ' + ((svg.querySelector('title') || {}).textContent || 'diagram'));
+    b.addEventListener('click', function () { open(svg, b); });
+    svg.addEventListener('click', function () { open(svg, b); });
+    frame.appendChild(b);
+  });
+  document.getElementById('lb-close').addEventListener('click', close);
+  document.getElementById('lb-fit').addEventListener('click', fit);
+  document.getElementById('lb-in').addEventListener('click', function () { setZ(z + 0.1); });
+  document.getElementById('lb-out').addEventListener('click', function () { setZ(z - 0.1); });
+  range.addEventListener('input', function () { setZ(range.value / 100); });
+  body.addEventListener('wheel', function (e) { if (!e.ctrlKey) return; e.preventDefault(); setZ(z * (e.deltaY < 0 ? 1.1 : 0.9)); }, { passive: false });
+  window.addEventListener('resize', function () { if (!box.hidden) setZ(z); });
+  document.addEventListener('keydown', function (e) {
+    if (box.hidden) return;
+    if (e.key === 'Escape') close();
+    else if (e.key === '+' || e.key === '=') setZ(z + 0.1);
+    else if (e.key === '-') setZ(z - 0.1);
+    else if (e.key === '0') fit();
+  });
+})();
+</script>
+<div class="glcard" id="glcard" role="dialog" aria-modal="false" aria-labelledby="gl-t" hidden>
+  <button type="button" class="gx" id="gl-x" aria-label="Close">×</button>
+  <span class="gt" id="gl-t"></span><span class="gs" id="gl-s"></span><p class="gb" id="gl-b"></p>
+</div>
+<script>
+(function () {
+  var el = document.getElementById('gloss'); if (!el) return;
+  var G = JSON.parse(el.textContent), card = document.getElementById('glcard'), cur = null;
+  function hide() { card.hidden = true; if (cur) { cur.setAttribute('aria-expanded', 'false'); } cur = null; }
+  function show(btn) {
+    var e = G[btn.dataset.g]; if (!e) return;
+    if (cur === btn) { hide(); return; }
+    if (cur) cur.setAttribute('aria-expanded', 'false');
+    document.getElementById('gl-t').textContent = e[0];
+    document.getElementById('gl-s').textContent = e[1];
+    document.getElementById('gl-b').textContent = e[2];
+    card.hidden = false; cur = btn; btn.setAttribute('aria-expanded', 'true');
+    if (window.innerWidth > 700) {
+      var r = btn.getBoundingClientRect(), w = card.offsetWidth, h = card.offsetHeight;
+      var left = Math.min(Math.max(16, r.left + window.scrollX), window.scrollX + document.documentElement.clientWidth - w - 16);
+      var top = r.bottom + window.scrollY + 8;
+      if (r.bottom + h + 16 > window.innerHeight && r.top > h + 16) top = r.top + window.scrollY - h - 8;
+      card.style.left = left + 'px'; card.style.top = top + 'px';
+    }
+    document.getElementById('gl-x').focus({ preventScroll: true });
+  }
+  document.querySelectorAll('button.gl').forEach(function (b) { b.setAttribute('aria-expanded', 'false'); b.addEventListener('click', function (ev) { ev.stopPropagation(); show(b); }); });
+  document.getElementById('gl-x').addEventListener('click', function () { var b = cur; hide(); if (b) b.focus(); });
+  card.addEventListener('click', function (ev) { ev.stopPropagation(); });
+  document.addEventListener('click', hide);
+  document.addEventListener('keydown', function (ev) { if (ev.key === 'Escape' && !card.hidden) { var b = cur; hide(); if (b) b.focus(); } });
+  window.addEventListener('resize', hide);
+})();
+</script>
+</body>
+</html>

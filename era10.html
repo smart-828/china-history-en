@@ -1,0 +1,680 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Era 10: People's Republic of China · China Through Time</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,500;0,700;1,500&family=Source+Sans+3:wght@400;500;700&family=Noto+Serif+TC:wght@500;700&family=Noto+Sans+TC:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a field guide. Era strip across the top, then one long-form chapter per era with maps and drawings set into the text column. */
+:root {
+  --bg: #F3F4F0;
+  --surface: #FFFFFF;
+  --ink: #1E2421;
+  --muted: #5B645F;
+  --line: #D6DAD3;
+  --loch: #2B5F58;
+  --lichen: #9C7426;
+  --heather: #6A4B7C;
+  --moss: #3F6B3A;
+  --rust: #B0392B;
+  --river: #5B8DB0;
+  --sea: #D3E2E3;
+  --land: #EEEADF;
+  --land-edge: #A9AA9E;
+  --display: "Noto Serif TC", "Songti TC", "PMingLiU", serif;
+  --body: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #101614; --surface: #18201D; --ink: #E4E8E4; --muted: #9BA6A0; --line: #2B3632; --loch: #85C1B6; --lichen: #D8B458; --heather: #BFA0D2; --moss: #93C08A; --rust: #E4806C; --river: #7FB2D4; --sea: #15252A; --land: #2A302C; --land-edge: #5D6660;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #101614; --surface: #18201D; --ink: #E4E8E4; --muted: #9BA6A0; --line: #2B3632; --loch: #85C1B6; --lichen: #D8B458; --heather: #BFA0D2; --moss: #93C08A; --rust: #E4806C; --river: #7FB2D4; --sea: #15252A; --land: #2A302C; --land-edge: #5D6660;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 1.125rem; line-height: 1.65; }
+.wrap { max-width: 68rem; margin: 0 auto; padding-inline: 1.25rem; padding-block: 2.5rem 4rem; }
+h1, h2, h3 { font-family: var(--display); font-weight: 700; line-height: 1.15; text-wrap: balance; margin: 0; }
+p { margin: 0; }
+a { color: var(--loch); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--loch); outline-offset: 3px; border-radius: 3px; }
+.label { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+
+/* Masthead */
+header.mast { display: grid; gap: 1rem; padding-block: 1rem 2.5rem; border-bottom: 1px solid var(--line); }
+header.mast h1 { font-size: clamp(2.6rem, 7vw, 4.6rem); letter-spacing: -0.01em; }
+header.mast h1 em { font-style: italic; font-weight: 500; color: var(--loch); }
+header.mast .lede { max-width: 38rem; color: var(--muted); font-size: 1.2rem; }
+
+/* Era strip */
+.eras { list-style: none; margin: 2rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.5rem; }
+@media (max-width: 760px) { .eras { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.eras li { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 0.75rem 0.85rem; display: grid; gap: 0.15rem; min-width: 0; }
+.eras li.open { border-color: var(--loch); }
+.eras .n { font-family: var(--mono); font-size: 0.75rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.eras .t { font-family: var(--display); font-weight: 700; font-size: 1.05rem; line-height: 1.2; }
+.eras .cn { font-size: 0.85rem; color: var(--heather); }
+.eras .st { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.eras li.open .st { color: var(--loch); }
+.eras li:hover { border-color: var(--loch); }
+.eras a { color: inherit; text-decoration: none; display: grid; gap: 0.15rem; }
+.threads { margin-top: 1.25rem; color: var(--muted); font-size: 1rem; max-width: 44rem; }
+
+/* Chapter */
+article.era { margin-top: 3.5rem; display: grid; gap: 2.5rem; }
+.era-head { display: grid; gap: 0.6rem; }
+.era-head h2 { font-size: clamp(2rem, 5vw, 3rem); }
+.era-head .dates { font-family: var(--mono); color: var(--loch); font-size: 0.95rem; }
+.bigidea { font-family: var(--display); font-size: 1.35rem; line-height: 1.45; max-width: 44rem; border-left: 3px solid var(--lichen); padding-left: 1.1rem; }
+.cols { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 26rem); gap: 3rem; align-items: start; }
+@media (max-width: 900px) { .cols { grid-template-columns: minmax(0, 1fr); gap: 2rem; } }
+.text { display: grid; gap: 2.25rem; min-width: 0; max-width: 40rem; }
+.part { display: grid; gap: 0.7rem; }
+.part h3 { font-size: 1.45rem; }
+.part .when { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.part ul { margin: 0; padding-left: 1.2rem; display: grid; gap: 0.5rem; }
+.part li::marker { color: var(--lichen); }
+.events { list-style: none; padding: 0 !important; display: grid; gap: 0.75rem !important; }
+.events li { display: grid; grid-template-columns: 6.5rem minmax(0, 1fr); gap: 0.75rem; }
+.events .y { font-family: var(--mono); font-size: 0.85rem; color: var(--loch); padding-top: 0.2rem; font-variant-numeric: tabular-nums; }
+@media (max-width: 480px) { .events li { grid-template-columns: minmax(0, 1fr); gap: 0.1rem; } }
+.quote { font-family: var(--display); font-style: italic; font-size: 1.25rem; }
+.note { font-size: 0.95rem; color: var(--muted); }
+
+/* Figures */
+figure { margin: 0; display: grid; gap: 0.6rem; min-width: 0; }
+figure .frame { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 0.75rem; overflow-x: auto; }
+figure svg { display: block; width: 100%; height: auto; }
+figcaption { font-size: 0.9rem; color: var(--muted); line-height: 1.5; }
+figcaption b { color: var(--ink); font-weight: 500; }
+.side { display: grid; gap: 2rem; }
+@media (max-width: 900px) { .side { position: static; } }
+
+/* Map text */
+.m-sea { fill: var(--sea); }
+.m-land { fill: var(--land); stroke: var(--land-edge); stroke-width: 0.8; }
+.m-wall { fill: none; stroke: var(--lichen); stroke-width: 3.2; stroke-linecap: round; stroke-linejoin: round; }
+.m-border { fill: none; stroke: var(--muted); stroke-width: 1; stroke-dasharray: 3 3; }
+.m-dot { fill: var(--loch); stroke: var(--surface); stroke-width: 1.5; }
+.m-unknown { fill: none; stroke: var(--heather); stroke-width: 1.4; stroke-dasharray: 4 3; }
+.m-lab { font-family: var(--body); font-size: 12.5px; fill: var(--ink); paint-order: stroke; stroke: var(--surface); stroke-width: 3.5px; stroke-linejoin: round; }
+.m-lab.mu { fill: var(--muted); font-size: 11.5px; }
+.m-lab.wall { fill: var(--lichen); font-weight: 700; }
+.m-lab.h { fill: var(--heather); }
+.m-lab.sea { fill: var(--muted); stroke: var(--sea); font-style: italic; font-size: 12px; letter-spacing: 0.1em; }
+.legend { display: flex; flex-wrap: wrap; gap: 0.4rem 1rem; font-size: 0.85rem; color: var(--muted); }
+.legend span { display: inline-flex; align-items: center; gap: 0.4rem; }
+.sw { width: 18px; height: 0; border-top: 3px solid var(--lichen); display: inline-block; }
+.sw.d { border-top: 2px dashed var(--muted); }
+.sw.c { width: 10px; height: 10px; border: 0; border-radius: 50%; background: var(--loch); }
+
+.m-reg { font-family: var(--display); font-weight: 700; font-size: 15px; letter-spacing: 0.18em; paint-order: stroke; stroke: var(--land); stroke-width: 4px; stroke-linejoin: round; }
+.c-axis line { stroke: var(--muted); stroke-width: 1; }
+.c-track line { stroke: var(--line); stroke-width: 2; stroke-dasharray: 3 4; }
+.c-in line { stroke: var(--loch); stroke-width: 3; stroke-linecap: round; }
+.c-pt { fill: var(--loch); stroke: var(--surface); stroke-width: 2; }
+.c-pt.rust { fill: var(--rust); }
+.c-tick { font-family: var(--mono); font-size: 11px; fill: var(--muted); }
+.c-row { font-family: var(--body); font-size: 13px; fill: var(--ink); }
+.c-val { font-family: var(--mono); font-size: 11px; fill: var(--muted); paint-order: stroke; stroke: var(--surface); stroke-width: 3px; }
+.m-dot.rust { fill: var(--rust); }
+.r-adv { fill: none; stroke: var(--rust); stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+.r-ret { fill: none; stroke: var(--loch); stroke-width: 2; stroke-dasharray: 5 4; stroke-linejoin: round; }
+.b-adult { fill: var(--muted); opacity: 0.7; }
+.b-child { fill: var(--lichen); }
+.b-yes { fill: var(--loch); }
+.c-sub { font-family: var(--body); font-size: 11.5px; fill: var(--muted); }
+.c-mid { stroke: var(--muted); stroke-width: 1; stroke-dasharray: 3 3; }
+.c-grid line { stroke: var(--line); stroke-width: 1; }
+.c-note { font-family: var(--mono); font-size: 11px; fill: var(--lichen); letter-spacing: 0.06em; }
+.u-head { font-family: var(--display); font-weight: 700; font-size: 15px; fill: var(--ink); }
+.u-t { font-family: var(--body); font-size: 14px; fill: var(--ink); }
+.u-t.b { font-weight: 700; }
+.u-s { font-family: var(--body); font-size: 12.5px; fill: var(--muted); }
+.u-shared { fill: var(--sea); stroke: var(--loch); stroke-width: 1; }
+.u-scot { fill: var(--surface); stroke: var(--lichen); stroke-width: 1.5; }
+.u-eng { fill: var(--surface); stroke: var(--land-edge); stroke-width: 1; }
+.u-link { stroke: var(--loch); stroke-width: 1.2; }
+.u-div { stroke: var(--line); stroke-width: 1; }
+/* Illustration text */
+.i-stone { fill: var(--land); stroke: var(--land-edge); stroke-width: 1; }
+.i-ground { stroke: var(--muted); stroke-width: 1.2; }
+.i-lead { stroke: var(--muted); stroke-width: 0.7; stroke-dasharray: 2 2; fill: none; }
+.i-lab { font-family: var(--body); font-size: 13px; fill: var(--ink); }
+.i-lab.mu { fill: var(--muted); font-size: 12px; }
+
+/* Parallels */
+.parallel { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 1.5rem; display: grid; gap: 1.25rem; }
+.parallel h3 { font-size: 1.45rem; }
+.parallel .pair { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; }
+@media (max-width: 800px) { .parallel .pair { grid-template-columns: minmax(0, 1fr); } }
+.parallel .pair div { display: grid; gap: 0.4rem; align-content: start; min-width: 0; }
+.parallel h4 { margin: 0; font-family: var(--display); font-size: 1.1rem; font-weight: 700; }
+.zh { color: var(--heather); white-space: nowrap; }
+
+/* Visit */
+.visit { display: grid; gap: 1rem; }
+.visit h3 { font-size: 1.45rem; }
+.places { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem 1rem; }
+@media (max-width: 800px) { .places { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 480px) { .places { grid-template-columns: minmax(0, 1fr); } }
+.places li { border-top: 2px solid var(--loch); padding-top: 0.6rem; display: grid; gap: 0.25rem; align-content: start; }
+.places .nm { font-weight: 700; }
+.places .tm { font-family: var(--mono); font-size: 0.75rem; color: var(--muted); }
+.places p { font-size: 1rem; }
+.remember { font-family: var(--display); font-size: 1.3rem; line-height: 1.45; max-width: 44rem; padding-block: 1.5rem; border-block: 1px solid var(--line); }
+.remember .label { display: block; margin-bottom: 0.4rem; font-family: var(--mono); }
+footer { margin-top: 3rem; font-size: 0.9rem; color: var(--muted); display: grid; gap: 0.4rem; max-width: 44rem; }
+
+[id] { scroll-margin-top: 1rem; }
+body { margin: 0; }
+.topbar { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; padding-block: 0.25rem 1rem; border-bottom: 1px solid var(--line); font-family: var(--mono); font-size: 0.8rem; color: var(--muted); }
+.topbar a { text-decoration: none; }
+.jump { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.jump a { font-family: var(--mono); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; padding: 0.3rem 0.65rem; border: 1px solid var(--line); border-radius: 999px; text-decoration: none; color: var(--muted); background: var(--surface); }
+.jump a:hover { color: var(--loch); border-color: var(--loch); }
+.block { display: grid; gap: 1rem; }
+.block h3 { font-size: 1.45rem; }
+.life { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.75rem; }
+@media (max-width: 800px) { .life { grid-template-columns: minmax(0, 1fr); gap: 1.25rem; } }
+.life > div { display: grid; gap: 0.4rem; align-content: start; min-width: 0; }
+.life h4, .people .nm { margin: 0; font-family: var(--display); font-size: 1.1rem; font-weight: 700; }
+.people { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.75rem; }
+@media (max-width: 800px) { .people { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 480px) { .people { grid-template-columns: minmax(0, 1fr); } }
+.people li { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 1rem; display: grid; gap: 0.3rem; align-content: start; min-width: 0; }
+.people .rl { font-family: var(--mono); font-size: 0.75rem; color: var(--muted); }
+.people p { font-size: 1rem; }
+.myths { list-style: none; margin: 0; padding: 0; display: grid; }
+.myths li { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 1.5rem; border-top: 1px solid var(--line); padding-block: 0.9rem; }
+.myths li:last-child { border-bottom: 1px solid var(--line); }
+@media (max-width: 700px) { .myths li { grid-template-columns: minmax(0, 1fr); gap: 0.35rem; } }
+.myths .mq { font-family: var(--display); font-style: italic; font-size: 1.15rem; line-height: 1.4; }
+.myths .ma b { color: var(--rust); font-weight: 700; }
+.words { margin: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem 1.5rem; }
+@media (max-width: 800px) { .words { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 480px) { .words { grid-template-columns: minmax(0, 1fr); } }
+.words div { border-left: 2px solid var(--lichen); padding-left: 0.8rem; border-radius: 0; min-width: 0; }
+.words dt { font-family: var(--display); font-weight: 700; font-size: 1.1rem; }
+.words dd { margin: 0; font-size: 1rem; color: var(--muted); }
+.pagenav { display: flex; justify-content: space-between; gap: 1rem; margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--line); }
+.pagenav a { display: grid; gap: 0.2rem; text-decoration: none; min-width: 0; }
+.pagenav a.next { text-align: right; margin-left: auto; }
+.pagenav .dir { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.pagenav .ttl { font-family: var(--display); font-weight: 700; font-size: 1.2rem; color: var(--ink); }
+.intro { max-width: 44rem; display: grid; gap: 0.75rem; margin-top: 2rem; color: var(--muted); }
+.i-wall { fill: var(--land); stroke: var(--land-edge); stroke-width: 1; }
+.i-floor { fill: var(--surface); stroke: var(--land-edge); stroke-width: 1; }
+.i-edge { stroke: var(--land-edge); stroke-width: 1; }
+.i-hearth { fill: var(--lichen); opacity: 0.75; }
+.i-bedding { fill: var(--moss); opacity: 0.35; }
+.i-water { fill: var(--sea); stroke: var(--loch); stroke-width: 1; }
+[hidden] { display: none !important; }
+.frame { position: relative; }
+.zoom-btn { position: absolute; top: 0.5rem; right: 0.5rem; display: inline-flex; align-items: center; gap: 0.35rem; font: 500 0.8rem var(--body); color: var(--loch); background: var(--surface); border: 1px solid var(--loch); border-radius: 999px; padding: 0.3rem 0.7rem; cursor: pointer; }
+.zoom-btn:hover { background: var(--loch); color: var(--surface); }
+figure .frame svg { cursor: zoom-in; }
+.lightbox { position: fixed; inset: 0; z-index: 50; background: var(--bg); display: flex; flex-direction: column; padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+.lb-bar { display: flex; align-items: center; gap: 0.5rem; padding: 0.6rem 1rem; border-bottom: 1px solid var(--line); background: var(--surface); }
+.lb-title { flex: 1; min-width: 0; font-family: var(--display); font-weight: 700; font-size: 1rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.lb-bar button { font: 500 1rem var(--body); min-width: 2.5rem; height: 2.5rem; padding: 0 0.8rem; border: 1px solid var(--line); border-radius: 6px; background: var(--bg); color: var(--ink); cursor: pointer; }
+.lb-bar button:hover { border-color: var(--loch); color: var(--loch); }
+.lb-bar .lb-close { background: var(--loch); color: var(--surface); border-color: var(--loch); }
+.lb-level { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); min-width: 3.2rem; text-align: center; font-variant-numeric: tabular-nums; }
+.lb-controls { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; padding: 0.5rem 1rem; border-bottom: 1px solid var(--line); background: var(--surface); }
+.lb-controls button { font: 500 1rem var(--body); min-width: 2.5rem; height: 2.5rem; padding: 0 0.8rem; border: 1px solid var(--line); border-radius: 6px; background: var(--bg); color: var(--ink); cursor: pointer; }
+.lb-controls button:hover { border-color: var(--loch); color: var(--loch); }
+.lb-controls input[type=range] { flex: 1; min-width: 8rem; accent-color: var(--loch); }
+.lb-body { flex: 1; overflow: auto; padding: 1rem; -webkit-overflow-scrolling: touch; }
+.lb-body svg { display: block; height: auto; margin: 0 auto; max-width: none; }
+.lb-hint { font-size: 0.85rem; color: var(--muted); text-align: center; padding: 0.4rem 1rem 0.6rem; }
+.t-live { fill: var(--surface); stroke: var(--loch); stroke-width: 1.5; }
+.t-dead { fill: var(--surface); stroke: var(--muted); stroke-width: 1; stroke-dasharray: 4 3; }
+.c-axis-v { stroke: var(--muted); stroke-width: 1; }
+.c-row.rust { fill: var(--rust); }
+
+body { font-size: 1.0625rem; line-height: 1.85; }
+.label { font-family: var(--body); letter-spacing: 0.12em; text-transform: none; }
+h1, h2, h3, .people .nm, .life h4, .parallel h4, .words dt, .pagenav .ttl { letter-spacing: 0.02em; }
+.bigidea, .remember, .quote, .myths .mq { line-height: 1.7; }
+.myths .mq { font-style: normal; }
+.quote { font-style: normal; }
+.m-river { fill: none; stroke: var(--river); stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; opacity: 0.85; }
+.m-route { fill: none; stroke: var(--rust); stroke-width: 2.4; stroke-linejoin: round; stroke-linecap: round; }
+.m-route2 { fill: none; stroke: var(--lichen); stroke-width: 2.6; stroke-linejoin: round; stroke-linecap: round; }
+.m-lab.river { fill: var(--river); font-style: italic; }
+.m-lab.red { fill: var(--rust); }
+.m-reg { font-family: var(--display); font-weight: 700; font-size: 15px; letter-spacing: 0.3em; paint-order: stroke; stroke: var(--land); stroke-width: 4px; stroke-linejoin: round; }
+.hk { background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--rust); border-radius: 0; padding: 1.25rem 1.5rem; display: grid; gap: 0.6rem; }
+.hk h3 { font-size: 1.35rem; }
+.hk .label { color: var(--rust); }
+.eras.cn { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+@media (max-width: 900px) { .eras.cn { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+.startlink { display: block; margin: 0 0 1.5rem; padding: 1rem 1.25rem; border: 1.5px solid var(--loch); border-radius: 6px; background: var(--surface); color: var(--ink); text-decoration: none; }
+.startlink .dir { display: block; font-family: var(--mono); font-size: 0.8rem; color: var(--loch); letter-spacing: 0.05em; }
+.startlink .ttl { display: block; margin-top: 0.25rem; font-family: var(--display); font-weight: 700; font-size: 1.05rem; }
+.startlink:hover { background: var(--sea); }
+.text .stages { margin: 0.5rem 0 1rem; }
+.stages { margin: 0; padding-left: 0; list-style: none; display: grid; gap: 0.45rem; font-size: 0.95rem; line-height: 1.7; }
+.glhint { font-size: 0.9rem; color: var(--muted); margin-top: -1.25rem; }
+button.gl { font: inherit; color: inherit; background: none; border: 0; padding: 0; margin: 0; cursor: pointer; text-decoration: underline dotted var(--loch); text-decoration-thickness: 1.5px; text-underline-offset: 4px; }
+button.gl:hover, button.gl[aria-expanded="true"] { color: var(--loch); background: color-mix(in srgb, var(--loch) 10%, transparent); }
+.glcard { position: absolute; z-index: 40; width: min(22rem, calc(100vw - 32px)); background: var(--surface); border: 1px solid var(--line); border-top: 3px solid var(--loch); border-radius: 6px; box-shadow: 0 10px 30px rgba(0,0,0,0.18); padding: 1rem 1.1rem 1.1rem; display: grid; gap: 0.35rem; }
+.glcard .gt { font-family: var(--display); font-weight: 700; font-size: 1.15rem; padding-right: 2rem; }
+.glcard .gs { font-size: 0.85rem; color: var(--muted); }
+.glcard .gb { font-size: 1rem; line-height: 1.75; }
+.glcard .gx { position: absolute; top: 0.5rem; right: 0.5rem; width: 2rem; height: 2rem; border: 0; background: none; font-size: 1.3rem; color: var(--muted); cursor: pointer; border-radius: 4px; }
+.glcard .gx:hover { background: var(--bg); color: var(--ink); }
+@media (max-width: 700px) { .glcard { position: fixed; left: 0 !important; right: 0; bottom: 0; top: auto !important; width: auto; border-radius: 12px 12px 0 0; padding-bottom: calc(1.1rem + env(safe-area-inset-bottom, 0px)); } }
+.homefig { margin-top: 2.5rem; max-width: 60rem; }
+figure.homefig .frame { padding-top: 2.75rem; }
+.frame { padding-top: 2.75rem; }
+header.mast h1 em { font-style: normal; }
+.jump a { text-transform: none; letter-spacing: 0.04em; font-family: var(--body); font-size: 0.8rem; }
+
+:root { --display: "Source Serif 4", "Noto Serif TC", Georgia, serif; --body: "Source Sans 3", "Noto Sans TC", system-ui, sans-serif; }
+body { line-height: 1.7; }
+.label { font-family: var(--mono); letter-spacing: 0.08em; text-transform: uppercase; }
+.m-reg { letter-spacing: 0.12em; }
+.myths .mq { font-style: italic; }
+.eras.cn .t { font-size: 1rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar"><a href="index.html">China Through Time</a><span>Era 10 of 10</span></div>
+  <article class="era" id="era10">
+    <div class="era-head">
+      <span class="label">Era 10</span>
+      <h2>People's Republic of China</h2>
+      <span class="dates">1949 – today</span>
+    </div>
+
+    <p class="bigidea">Since 1949 mainland China has been ruled by the Chinese Communist Party (中國共產黨), for more than seventy years now. This history falls roughly into two halves. In the first thirty years, under Mao Zedong (毛澤東), the country went through a string of political campaigns, including land reform (土地改革), the Great Leap Forward (大躍進) and the Great Famine (大饑荒), and the Cultural Revolution (文化大革命), and it was closed and poor. In the forty-plus years since, under the "reform and opening up" (改革開放) begun by Deng Xiaoping (鄧小平), China brought in a market economy and opened to the world; hundreds of millions of people escaped poverty, and China became the world's second-largest economy and the "workshop of the world" (世界工廠). Throughout these seventy-plus years, one-party rule by the Communist Party has never changed. Hong Kong (香港) and Macau (澳門) returned to China in 1997 and 1999, while Taiwan (台灣) has remained under the government of the Republic of China (中華民國).</p>
+
+    <p class="glhint">Names and terms with a dotted underline can be tapped for a short explanation. This page was written in 2026; the events of recent years are still unfolding, and some details may have changed.</p>
+
+    <nav class="jump" aria-label="In this era">
+      <a href="#story">The story</a><a href="#life">Daily life</a><a href="#people">Key people</a><a href="#myths">Myth or fact</a><a href="#evidence">How we know</a><a href="#words">Key terms</a><a href="#hk">Hong Kong</a><a href="#world">The world</a><a href="#visit">Visit</a>
+    </nav>
+
+    <div class="cols" id="story">
+      <div class="text">
+        <section class="part">
+          <span class="when">Before we begin</span>
+          <h3>One party, two eras</h3>
+          <p>On 1 October 1949, <button type="button" class="gl" data-g="maozedong" aria-haspopup="dialog">Mao Zedong</button> stood on the gate tower of Tiananmen (天安門) in Beijing (北京) and proclaimed the founding of the People's Republic of China (中華人民共和國); the day is China's National Day (國慶日) today. For the more than seventy years since, the country has been led by the <button type="button" class="gl" data-g="ccp" aria-haspopup="dialog">Chinese Communist Party</button>, and its top leader has usually been the Party's General Secretary (總書記) (in Mao's time the title was Chairman). The state has a constitution, a National People's Congress (全國人民代表大會) and a government, but every important decision is made by the Communist Party. No opposition parties are allowed, and newspapers, television and the internet are censored.</p>
+          <p>This history is often divided into two eras (see Figure 1): the Mao era (1949–1976), marked by constant political campaigns and a planned economy; and the era of reform and opening up begun by <button type="button" class="gl" data-g="dengxiaoping" aria-haspopup="dialog">Deng Xiaoping</button> (1978 to today), marked by economic reform and opening to the outside world. The official Chinese position today is that neither period can be used to negate the other; but many historians, including a good number of Chinese scholars, believe that Mao's mistakes in his later years brought enormous disasters on the country.</p>
+        </section>
+
+        <section class="part">
+          <span class="when">1949 – 1956</span>
+          <h3>The early years: land reform, the Korean War and learning from the Soviet Union</h3>
+          <p>The new government's first step was to carry out <button type="button" class="gl" data-g="tugai" aria-haspopup="dialog">land reform</button> across the country: land was confiscated from landlords and handed out to poor peasants. "Struggle sessions" (批鬥大會) were held everywhere, at which many landlords were publicly denounced and even put to death; the number of deaths is generally estimated at one to two million, and some estimates are higher. At the same time the government launched campaigns to suppress "counter-revolutionaries" and to attack corrupt officials and businessmen.</p>
+          <p>In 1950 North Korea invaded South Korea. United Nations forces led by the United States struck back, pushing all the way to the Chinese–Korean border. China sent hundreds of thousands of "volunteers" (志願軍) into the war, which China calls the <button type="button" class="gl" data-g="kangmei" aria-haspopup="dialog">War to Resist America and Aid Korea</button> (抗美援朝). British troops were part of the UN forces too: at the Battle of the Imjin River (臨津江戰役) in 1951, the Gloucestershire Regiment fought Chinese forces in fierce combat and suffered heavy losses. The fighting stopped with an armistice in 1953, and the peninsula is still divided today. The Korean War (韓戰) made China and the United States enemies for twenty years, and from then on the US sent its fleet to protect Taiwan.</p>
+          <p>In the 1950s China copied the Soviet Union wholesale, building factories and steelworks with the help of Soviet experts and launching <button type="button" class="gl" data-g="wunian" aria-haspopup="dialog">Five-Year Plans</button> (五年計劃). By 1956 private business and individual farming had essentially been taken into collective or state ownership. In 1956 Mao called on intellectuals to "let a hundred flowers bloom, let a hundred schools of thought contend" (百花齊放，百家爭鳴), encouraging them to criticise the Communist Party. But once the criticism grew loud, in 1957 the government launched the <button type="button" class="gl" data-g="fanyou" aria-haspopup="dialog">Anti-Rightist Campaign</button> (反右運動): about 550,000 people were labelled "rightists", and many were sent to remote areas for years of "reform through labour" (勞動改造).</p>
+        </section>
+
+        <section class="part">
+          <span class="when">1958 – 1962</span>
+          <h3>The Great Leap Forward and the Great Famine</h3>
+          <p>In 1958 Mao launched the <button type="button" class="gl" data-g="dayuejin" aria-haspopup="dialog">Great Leap Forward</button>, aiming to "overtake Britain and catch up with America" in the output of steel and other industries within a few years. The whole countryside was organised into giant <button type="button" class="gl" data-g="gongshe" aria-haspopup="dialog">people's communes</button> (人民公社), where farmers worked together and ate in communal canteens. To make steel, hundreds of thousands of small "backyard furnaces" (土法小高爐) were built across the country. Farmers threw their iron woks and tools into the furnaces, and most of what came out was useless scrap. Officials at every level competed with each other by reporting astonishing, false grain harvests, and the state then requisitioned grain according to the inflated figures.</p>
+          <p>The result was one of the worst famines in human history. From 1959 to 1961, huge numbers of people in the countryside starved to death. Scholars' estimates of the death toll in this <button type="button" class="gl" data-g="dajihuang" aria-haspopup="dialog">Great Famine</button> range from about 15 million to 45 million, and many studies put it at about 30 million. In 1959 the defence minister, Peng Dehuai (彭德懷), wrote a letter criticising the Great Leap Forward at the Lushan Conference (廬山會議), and was dismissed by Mao for it. The Chinese government later admitted that the Great Leap Forward was a serious mistake, but it mostly calls the famine the "Three Years of Difficulty" (三年困難時期) and blames natural disasters and the withdrawal of Soviet experts.</p>
+        </section>
+
+        <section class="part">
+          <span class="when">1966 – 1976</span>
+          <h3>The Cultural Revolution</h3>
+          <p>After the failure of the Great Leap Forward, the head of state Liu Shaoqi (劉少奇), Deng Xiaoping and others adjusted policy, and the economy gradually recovered. Mao believed that people "taking the capitalist road" had appeared inside the Party. In 1966 he launched the <button type="button" class="gl" data-g="wenge" aria-haspopup="dialog">Cultural Revolution</button>, calling on young students to "rebel". Millions of secondary-school and university students formed the <button type="button" class="gl" data-g="hongweibing" aria-haspopup="dialog">Red Guards</button> (紅衛兵). Waving the Little Red Book (小紅書) of Mao's quotations, they denounced teachers, officials and intellectuals, and smashed temples, antiques and books, to destroy the "Four Olds" (四舊): old ideas, old culture, old customs and old habits. Liu Shaoqi was overthrown and died in detention in 1969; Deng Xiaoping was sent to work in a factory in Jiangxi.</p>
+          <p>The Red Guards split into rival factions that fought each other with weapons, and society fell into chaos. From 1968 Mao sent more than 17 million urban young people to work in the countryside and border regions, in what was called the <button type="button" class="gl" data-g="shangshan" aria-haspopup="dialog">"up to the mountains and down to the countryside" movement</button> (上山下鄉); many spent ten years of their youth in the villages. Schools and universities were closed for years. There are no reliable figures for the number who died in the Cultural Revolution: estimates range from several hundred thousand to two million, and those persecuted ran into the tens of millions.</p>
+          <p>In the later years of the Cultural Revolution, things began to shift. In 1971 Lin Biao (林彪), who had been named as Mao's successor, died in a plane crash while trying to flee the country. The same year, the United Nations transferred China's seat from the Republic of China to the People's Republic of China. In 1972 the American president Richard Nixon visited Beijing, and the two countries began to make peace. In 1976 Premier <button type="button" class="gl" data-g="zhouenlai" aria-haspopup="dialog">Zhou Enlai</button> (周恩來) died of illness, a great earthquake struck Tangshan (唐山), and in September Mao died. A month later Mao's wife Jiang Qing (江青) and three other leaders of the Cultural Revolution, known as the <button type="button" class="gl" data-g="sirenbang" aria-haspopup="dialog">Gang of Four</button> (四人幫), were arrested, and the Cultural Revolution came to an end.</p>
+        </section>
+
+        <section class="part">
+          <span class="when">1978 – 1988</span>
+          <h3>Reform and opening up</h3>
+          <p>After Mao's death and a two-year transfer of power, Deng Xiaoping, who had been brought down three times and come back three times, became China's leader in practice. In December 1978 the Communist Party decided to shift its focus to building the economy, a turn known as <button type="button" class="gl" data-g="gaige" aria-haspopup="dialog">reform and opening up</button>. Deng had a famous saying: "It doesn't matter whether a cat is black or white, as long as it catches mice." In other words, there was no need to stick rigidly to ideology: any method that developed the economy could be used.</p>
+          <p>Reform began in the countryside. In the winter of 1978, in a poor village in Anhui (安徽) called <button type="button" class="gl" data-g="xiaogang" aria-haspopup="dialog">Xiaogang</button> (小崗村), eighteen farming households took a risk and secretly signed an agreement to divide the commune's land among the families to farm. After handing over their full grain quota to the state, they could keep the rest. The next year the grain harvest rose sharply. This approach, called the <button type="button" class="gl" data-g="baochan" aria-haspopup="dialog">household responsibility system</button> (家庭聯產承包責任制), soon spread across the whole country, and the people's communes were dissolved.</p>
+          <p>In 1980 China set up four <button type="button" class="gl" data-g="tequ" aria-haspopup="dialog">Special Economic Zones</button> (經濟特區) on the coast of Guangdong (廣東) and Fujian (福建), one of them Shenzhen (深圳), right next to Hong Kong (see Map 2). The zones used favourable policies to attract money and technology from Hong Kong and abroad to set up factories. Shenzhen grew from a small border town of about 300,000 people into today's great city of about 18 million. In 1979 China and the United States established formal diplomatic relations. From 1980 China enforced the <button type="button" class="gl" data-g="dusheng" aria-haspopup="dialog">one-child policy</button> (獨生子女政策), which in the cities strictly limited each couple to a single child. In carrying it out, practices such as forced abortion and sterilisation occurred, and it also led to an imbalance between the numbers of men and women and, later, to an ageing population.</p>
+        </section>
+
+        <section class="part">
+          <span class="when">1989</span>
+          <h3>The 1989 protests and crackdown</h3>
+          <p>Economic reform brought inflation and corrupt officials, but it also brought new ideas. In April 1989 Hu Yaobang (胡耀邦), a former General Secretary who had supported reform, died. University students in Beijing gathered in Tiananmen Square to mourn him, and went on to demand political reform, press freedom and action against corruption. The protests lasted seven weeks and spread to many cities; at one point more than a million people took part, and some students went on hunger strike in the square.</p>
+          <p>In May the government declared martial law. On the night of 3 June and into the early hours of 4 June, the army opened fire to clear the way into central Beijing and Tiananmen Square, causing heavy civilian casualties; the event is known in Chinese as the <button type="button" class="gl" data-g="liusi" aria-haspopup="dialog">June Fourth Incident</button> (六四事件). To this day no complete official death toll has been published, and estimates from different sources range from several hundred to several thousand. The Chinese government's view is that the action was taken to put down "turmoil" and maintain stability; outside China it is widely condemned as a bloody crackdown on peaceful protesters. The subject is strictly censored in mainland China.</p>
+        </section>
+
+        <section class="part">
+          <span class="when">1992 – 2012</span>
+          <h3>The workshop of the world</h3>
+          <p>After June Fourth, reform stalled for a time. In 1992 Deng Xiaoping, aged eighty-seven, toured Shenzhen and other southern cities and gave speeches calling for faster reform, in what became known as the "Southern Tour" (南巡). After that China committed itself to a "socialist market economy" (社會主義市場經濟). Large numbers of state-owned enterprises were restructured and tens of millions of workers were laid off, while private businesses and foreign-owned factories grew rapidly.</p>
+          <p>In 2001 China joined the <button type="button" class="gl" data-g="wto" aria-haspopup="dialog">World Trade Organization</button> (世界貿易組織) and became the centre of global supply chains, earning the name "workshop of the world": most of the world's toys, clothes and electronics were made in China. Hundreds of millions of farmers left home to work in the coastal cities; they are called <button type="button" class="gl" data-g="nongmingong" aria-haspopup="dialog">migrant workers</button> (農民工). In 2008 Beijing hosted the Olympic Games; in 2010 China's economy overtook Japan's to become the second-largest in the world. According to World Bank estimates, about 800 million people in China have escaped extreme poverty since reform and opening up began, the largest reduction in poverty in human history. But the gap between city and countryside, and between rich and poor, also widened enormously, and environmental pollution became severe.</p>
+        </section>
+
+        <section class="part">
+          <span class="when">2012 – today</span>
+          <h3>A "new era"</h3>
+          <p>In 2012 <button type="button" class="gl" data-g="xijinping" aria-haspopup="dialog">Xi Jinping</button> (習近平) became General Secretary of the Communist Party. He launched a huge anti-corruption campaign in which millions of Party members and officials were punished, including many senior officials. At the same time he strengthened the Party's leadership over every part of society, and tightened control of the media, the internet and civil society. In 2013 he proposed the <button type="button" class="gl" data-g="yidaiyilu" aria-haspopup="dialog">Belt and Road Initiative</button> (一帶一路), investing in ports, railways and power stations across Asia, Africa, Europe and elsewhere. In 2018 the constitutional limit of two terms for the state president was removed; in 2022 Xi Jinping began a third term.</p>
+          <p>In this period China has advanced rapidly in science and technology: it has built the world's longest high-speed rail network, launched its own space station, and leads the world in producing electric cars and solar panels. But it also faces many challenges. The Chinese government's mass detention and "re-education" of Uyghurs (維吾爾族) and other Muslims in Xinjiang (新疆) has been strongly criticised by United Nations human rights bodies and by many countries; the Chinese government calls the sites vocational education and training centres to prevent extremism. At the end of 2019 the Covid-19 virus was first detected in Wuhan (武漢), and China followed a strict "zero-Covid" policy for nearly three years, only relaxing it at the end of 2022. China's population began to shrink in 2022 and is ageing fast; and rivalry and tension between China and the United States over trade, technology and Taiwan have been growing.</p>
+          <p>Across the strait, <button type="button" class="gl" data-g="taiwan" aria-haspopup="dialog">Taiwan</button> was under martial law for decades under Chiang Kai-shek (蔣介石) and then his son. After martial law was lifted in 1987 it gradually became a democracy, held its first direct presidential election in 1996, and today is a democratic society in which parties take turns in power. The People's Republic of China regards Taiwan as part of China's territory, says it will achieve reunification and does not rule out the use of force; people in Taiwan hold different views. This is one of the most closely watched issues in the world today.</p>
+        </section>
+      </div>
+
+      <aside class="side">
+        <figure>
+          <div class="frame">
+            <svg viewBox="0 0 600 214" role="img" aria-labelledby="c10tl">
+              <title id="c10tl">The two eras since 1949, the main leaders and key events, to scale</title>
+              <g transform="translate(0 24)"><rect class="b-adult" x="40.0" y="20" width="189.4" height="22" rx="2"/><text class="u-s" x="134.7" y="35" text-anchor="middle" style="fill:#fff">Mao era</text><rect class="b-yes" x="243.4" y="20" width="336.6" height="22" rx="2"/><text class="u-s" x="411.7" y="35" text-anchor="middle" style="fill:#fff">Reform and opening-up era</text><text class="c-row" x="0" y="66" style="font-size:10px">Leader</text><rect class="b-child" x="40.0" y="52" width="189.4" height="20" rx="2"/><text class="u-s" x="134.7" y="67" text-anchor="middle" style="fill:#fff">Mao Zedong</text><rect class="b-child" x="243.4" y="52" width="98.2" height="20" rx="2"/><text class="u-s" x="292.5" y="67" text-anchor="middle" style="fill:#fff">Deng Xiaoping</text><rect class="b-adult" x="320.5" y="80" width="91.2" height="20" rx="2"/><text class="u-s" x="366.1" y="95" text-anchor="middle" style="fill:#fff">Jiang Zemin</text><rect class="b-adult" x="411.7" y="52" width="70.1" height="20" rx="2"/><text class="u-s" x="446.8" y="67" text-anchor="middle" style="fill:#fff">Hu Jintao</text><rect class="b-child" x="481.8" y="80" width="98.2" height="20" rx="2"/><text class="u-s" x="530.9" y="95" text-anchor="middle" style="fill:#fff">Xi Jinping</text><line x1="47.0" y1="106" x2="47.0" y2="117" stroke="var(--rust)" stroke-width="1"/><circle cx="47.0" cy="106" r="3" fill="var(--rust)"/><text class="u-s" x="47.0" y="128" text-anchor="middle" style="fill:var(--rust)">Korean War</text><line x1="103.1" y1="106" x2="103.1" y2="135" stroke="var(--rust)" stroke-width="1"/><circle cx="103.1" cy="106" r="3" fill="var(--rust)"/><text class="u-s" x="103.1" y="146" text-anchor="middle" style="fill:var(--rust)">Great Leap</text><line x1="159.2" y1="106" x2="159.2" y2="117" stroke="var(--rust)" stroke-width="1"/><circle cx="159.2" cy="106" r="3" fill="var(--rust)"/><text class="u-s" x="159.2" y="128" text-anchor="middle" style="fill:var(--rust)">Cultural Rev.</text><line x1="243.4" y1="106" x2="243.4" y2="135" stroke="var(--rust)" stroke-width="1"/><circle cx="243.4" cy="106" r="3" fill="var(--rust)"/><text class="u-s" x="243.4" y="146" text-anchor="middle" style="fill:var(--rust)">Reform begins</text><line x1="320.5" y1="106" x2="320.5" y2="117" stroke="var(--rust)" stroke-width="1"/><circle cx="320.5" cy="106" r="3" fill="var(--rust)"/><text class="u-s" x="320.5" y="128" text-anchor="middle" style="fill:var(--rust)">June Fourth</text><line x1="376.6" y1="106" x2="376.6" y2="135" stroke="var(--rust)" stroke-width="1"/><circle cx="376.6" cy="106" r="3" fill="var(--rust)"/><text class="u-s" x="376.6" y="146" text-anchor="middle" style="fill:var(--rust)">HK returns</text><line x1="404.7" y1="106" x2="404.7" y2="117" stroke="var(--rust)" stroke-width="1"/><circle cx="404.7" cy="106" r="3" fill="var(--rust)"/><text class="u-s" x="404.7" y="128" text-anchor="middle" style="fill:var(--rust)">Joins WTO</text><line x1="453.8" y1="106" x2="453.8" y2="135" stroke="var(--rust)" stroke-width="1"/><circle cx="453.8" cy="106" r="3" fill="var(--rust)"/><text class="u-s" x="453.8" y="146" text-anchor="middle" style="fill:var(--rust)">Olympics</text><line x1="537.9" y1="106" x2="537.9" y2="117" stroke="var(--rust)" stroke-width="1"/><circle cx="537.9" cy="106" r="3" fill="var(--rust)"/><text class="u-s" x="537.9" y="128" text-anchor="middle" style="fill:var(--rust)">Covid</text><g class="c-axis"><line x1="40" y1="160" x2="580" y2="160"/></g><line class="c-axis-v" x1="47.0" y1="160" x2="47.0" y2="165"/><text class="c-tick" x="47.0" y="179" text-anchor="middle">1950</text><line class="c-axis-v" x1="117.1" y1="160" x2="117.1" y2="165"/><text class="c-tick" x="117.1" y="179" text-anchor="middle">1960</text><line class="c-axis-v" x1="187.3" y1="160" x2="187.3" y2="165"/><text class="c-tick" x="187.3" y="179" text-anchor="middle">1970</text><line class="c-axis-v" x1="257.4" y1="160" x2="257.4" y2="165"/><text class="c-tick" x="257.4" y="179" text-anchor="middle">1980</text><line class="c-axis-v" x1="327.5" y1="160" x2="327.5" y2="165"/><text class="c-tick" x="327.5" y="179" text-anchor="middle">1990</text><line class="c-axis-v" x1="397.7" y1="160" x2="397.7" y2="165"/><text class="c-tick" x="397.7" y="179" text-anchor="middle">2000</text><line class="c-axis-v" x1="467.8" y1="160" x2="467.8" y2="165"/><text class="c-tick" x="467.8" y="179" text-anchor="middle">2010</text><line class="c-axis-v" x1="537.9" y1="160" x2="537.9" y2="165"/><text class="c-tick" x="537.9" y="179" text-anchor="middle">2020</text></g>
+            </svg>
+          </div>
+          <figcaption><b>Figure 1: How can seventy-plus years be divided up?</b> Drawn to scale. From 1976 to 1978 there was a transitional period under Hua Guofeng. Deng Xiaoping never held the top post, but from 1978 to the early 1990s he was the leader in practice, so his bar overlaps with Jiang Zemin's time in office.</figcaption>
+        </figure>
+        <figure>
+          <div class="frame">
+            <svg viewBox="0 0 520 600" role="img" aria-labelledby="c10ma">
+              <title id="c10ma">Where reform and opening up began: Xiaogang, the Special Economic Zones, Pudong, and Hong Kong and Macau</title>
+              <rect class="m-sea" x="0" y="0" width="520" height="600" rx="4"/><path class="m-land" d="M408.6,600L408.3,597.7L411.5,585.8L412.5,583.5L413.2,581.1L413.5,577.9L415.9,577L418.2,575.7L419.3,575.8L420.5,576.1L423.3,575.5L424.3,575.4L424.3,575.4L427.6,576.6L435,580.9L437.6,582L440.4,582.8L442.6,583L444.6,582L445.4,581L446.9,578.4L448.5,578L449.5,579L450.2,580.3L450.6,582.2L450.1,584.1L448.6,585.9L447.6,588L447,595L447,597.1L447.6,599.1L447.9,600L408.6,600ZM422.4,482.9L421,485.7L419.9,488.5L419.5,491.3L419.6,494.1L419.2,496.7L418.7,499.2L416.6,498.4L415.4,496.7L415.2,493.7L413.6,490.1L413.1,489.1L410.9,487.1L408.9,486.1L407.3,484.6L407.6,484.7L406.4,482.7L405.5,480.6L403.8,474.6L403.1,473.1L402.4,471.8L402.1,470.5L402.4,469L403.1,466.8L403.6,464.6L403.2,461.6L403.4,458.6L404,457.3L414.1,439.1L416.9,435.2L418.6,433.3L420,431.1L421.3,428.4L423.1,425.9L424.2,425.1L430.1,422.9L431.8,420.7L433.3,420.1L435,420.1L436.1,421.1L437,422.3L438,423L440.6,424.2L441.7,425.3L442.2,427.3L440.6,429.2L439.9,430.9L439.7,432.7L440,435.3L440,437.8L438.1,443.7L436,447.4L435.4,449.2L434.7,453.7L433.5,458.3L432.5,464L430.8,469.9L429.7,472.4L428.5,474.8L425.6,479.2ZM203.6,543.9L204.6,544.9L205.3,546.4L205.9,549.1L206.2,551.6L204,553.2L202.1,553.9L198.2,560L197.4,561.9L196.7,562.7L196.5,563.6L196.6,564.4L195.6,567.3L194.6,571L194.1,572.4L193,573.5L191.5,574.1L190.7,574.2L189.8,574.5L187.7,576.5L185.4,578L185.8,578.6L185.8,579.3L184.7,580L183.7,579.9L180.4,580.4L179.1,581.5L177.9,583.5L177.4,583.8L175.5,584.3L173.9,584.5L171.4,583.1L170.1,582.6L166.7,582L163.3,581.1L161,580L156.3,577.3L155.7,572.4L154.9,569.7L154.9,568.8L155.2,560.6L155.5,559.7L156.1,558.9L158.2,557.1L160.6,555.6L164,552.6L166.6,551.2L168.7,549.2L167.5,549.3L166.5,549L167.5,547.3L168.4,546.4L169.5,545.9L171.7,546.3L173.8,545.9L175.3,544.4L176.8,544.1L182.3,544.6L186.1,543.9L188,542.5L188.9,542.4L191.7,542.8L192.8,544.3L192.8,543.3L192.8,542.4L193.4,542.5L197,544.3L197,542.1L197.3,541.5L198.4,540.5L199,540.6L200.5,542.3L201.8,543.4ZM520,101.8L518.3,103.2L517.4,103.5L516.4,103.4L516.5,102.7L515.4,100.1L510.8,99L509.2,98L508.4,97.7L512.8,94.8L514,94.2L513.1,93.6L512.2,93.2L508.5,93.7L506.6,92.7L503.8,93L502,92.3L505.9,89.4L506.1,87.7L506,86.4L508,82.6L510.1,80.5L515.3,77.5L517.6,77.1L519.2,77.2L520,77L520,101.8ZM520,76.4L519.2,75.8L517.8,75.2L515,75.3L512.2,73.6L512,71.8L517.5,60.2L517.5,59.1L516.7,56.3L516.4,53.5L512.5,51.9L510.8,51.7L505.8,48.6L503.8,47L503,47.5L502.8,49.9L502.1,50.5L500.8,51L500.1,48.1L499,46.1L495.7,43.9L494.5,42.8L495.1,40.3L494.8,40.1L494.6,39.8L492.8,42.3L489.3,44.7L481.8,45.2L479.5,43.5L478.6,44.7L477.9,46.2L476,46.7L472.9,46.8L471.2,47.8L470.3,49L466.1,49.4L464.5,50.9L461.9,51.4L451,58L448.7,60.7L446.4,63.9L444.8,65.6L443.4,66.7L442.1,67.2L440.8,68.3L439.6,68.4L438.2,67.9L436.8,68.1L435.8,69.4L436.6,71.2L436.2,72L433.3,72.9L429,73.5L427.3,74.6L426.6,75.3L425.7,75.7L424.8,73.4L424.5,70.4L426.2,69.7L427.8,69.3L436.8,65.1L435.7,62L436.5,60.7L438.5,58.5L439.9,57.4L439.1,57L433.2,57.7L429.8,57.7L428.1,57.4L428.7,55.5L428.3,53.7L428,53L430.9,50.8L432.3,50.3L433.3,50.3L433.2,49L432.4,47.1L433.3,44.5L439.5,41.5L441,38.8L443.4,36.3L447.9,30.1L448.2,29L449.4,26L449.7,24.8L447.6,23.1L446.8,20.7L440.7,16.3L440.2,12.5L439.6,12.6L438.7,15.3L437.9,16.2L435.1,16.2L433.7,15.2L425.9,14.6L424,16.3L422.2,18.9L420.5,20.8L418.7,21.8L417.2,23.5L410.9,33.6L408.5,34.4L397.3,40.5L391.7,42.9L387.3,47.2L385.9,49.7L384.5,52.5L383.7,56.8L379.8,62L378.4,63.1L377,63.5L375.2,63.4L373.6,63.7L370.8,63.3L367.5,64.9L363.7,66.3L360.5,62.8L358.1,61.9L354.4,62.9L352.6,64.5L349,72.3L347.6,76.8L347.7,78.6L349.8,84.2L352.2,87.2L357.6,90.8L369,93.2L371.7,92.3L374.6,92.3L377.6,94.6L379.5,98.4L379.7,101L379.7,101.9L380.4,102.7L380.8,104L379.6,105.1L378.7,105.6L377.9,109.6L377.9,114.1L378.8,115.5L381.3,117.6L385.2,119.3L388.7,119.7L395.3,118.9L398.1,116.2L397.9,115.1L398,113.5L403.9,109.6L407.3,106.1L406.7,105.2L406.1,104.6L406.7,104.2L408.5,104L416.7,100.4L423.2,103.3L426.9,106.7L430.5,107.4L433.1,109.1L436,110.6L439.8,110.7L443,111L444,109.6L445,108.7L446.1,108.9L447.4,110.7L451.1,112.1L454.4,112L456.8,111.5L458.2,112.1L456.1,114.4L456.4,118.2L454.9,119.3L453.4,121.2L454.3,122.4L455,123L455,124.5L453.6,125.4L451.1,127.6L449.7,127.6L449,127.1L448.5,126.3L448.2,125L447.3,124.2L444.8,123.9L442.3,124.1L436.6,127.5L431.1,130.1L425.2,132.3L423.3,133.6L421.9,133.9L419.6,132.9L418.1,133L417.8,133.7L419.6,135.5L420.1,137L419.9,138L418.9,138.6L417.3,137.7L415.9,138.9L415.3,140.8L415.3,145.4L414.3,146.5L411.8,147L409,148.5L408,147.8L407.6,147L408,144.9L407.6,143.9L406.4,143.9L404.5,144.5L403.1,146L402.6,146.8L404.5,149.5L406.2,149.8L406.7,150.4L405.2,151.7L401.7,153.7L401.1,155.3L400.1,156.9L398.6,158.1L397.6,159.4L396.4,160.1L394.5,160.9L392.1,164.1L390.3,167L388.2,168.5L386.6,173.5L383.6,176.2L382.5,180.5L383.3,183.1L386.5,183.1L388.1,184.1L391.5,187.5L395.6,189.8L399.7,191L404.8,194.3L406.3,195.6L407.5,198.3L409.7,206.2L411.3,210.1L411.5,212.2L413.9,216L416.4,222.6L419.3,228.3L419.9,232.7L418.9,234.7L419,237.4L421.9,239.8L428.5,242.6L429.5,243.4L430.8,244.8L430.8,249L431.8,250.4L432.8,251.2L436.8,253L438.4,254.5L440.2,256.9L440.6,259L440.9,261.9L438.6,261.9L436.8,261.6L429.7,257.9L427.9,257.8L425.3,258.3L421.6,257.6L417.6,253.5L414.8,252.3L411.8,251.6L404.5,255.2L402.7,254.9L402.1,255.3L401.3,255.9L404.7,256.7L408,255.5L411.3,253.8L416,254.7L416.7,256.3L417.5,258.9L420.8,260.7L423.4,261.5L426.6,263.7L429.7,267.4L436.4,271.6L439.2,275.5L440.2,278.1L441.1,281.8L438.8,282.9L436.8,283.1L433.6,283.7L431.2,284.9L428.8,287.2L422.1,290.8L420.8,293L419.9,294.9L418.3,295.9L414.1,295L410.2,295.1L405.9,297.7L404.8,298.7L405.5,298.5L406.2,298.2L408.1,298.6L411.2,297.2L414.2,301.4L420.1,300.7L425.6,297.2L427.7,297.1L429.5,297.7L431.5,299.1L436.8,305.3L439.7,306L442.6,307.4L444.1,307.6L445.5,308L441.7,310.2L436.8,315.1L434.6,316.3L433.1,317.6L437.1,316.9L439.9,314.6L441.3,314L442.5,314.6L443.1,317.4L442,326.3L440.6,326.4L439.2,324L437.7,323.3L436.3,323.7L433.7,323.7L432.7,324.8L431.8,326.4L433.4,326.7L436.5,329.3L436.8,330.7L436,331.7L433.8,331.3L436.4,333.3L435.7,335.3L434.9,336.1L433.3,336.6L432.4,338.4L433.8,341.4L435.2,345.2L435.4,347L433.2,346.3L429.8,348.6L428,348.7L426.8,345.7L425.3,346.2L424.3,347.1L422.9,350.3L421.3,353.3L419.8,354.1L418.1,353.9L416.7,354L417.1,354.7L418.5,355.7L418.5,356.9L415.3,360.4L414.8,361.8L414.9,363L413.2,364.4L414.1,366.9L413.6,368.5L412.2,370.8L410.7,372.3L408.8,374.8L406.6,376.2L403.5,381.3L402.7,383.9L402.4,386.5L401.4,387.4L399.9,388.6L398,388L397.9,386.2L397.1,386.1L396.7,384.9L396.5,383.5L396.7,382.3L396,382.6L395.5,384L394.3,385.2L393,384.7L391.6,383.8L391.7,385.1L392.4,386.4L392.7,387.8L394.6,388L395.9,389.6L396.9,391.9L397.1,392.7L397.8,393.8L397.9,394.7L396.1,395.5L393.9,397L391.1,399.7L388.9,401.4L386.9,401.4L385.7,401.2L383.9,400.2L381.9,399.8L384.6,403.3L386.1,404L388,403.8L389.7,402.5L392.3,402.6L392.9,404.7L392.2,407L390.8,410L390.6,412.5L392.3,416.2L392.4,417.3L391.7,417.9L389.7,416.9L388,415.7L386.3,416L384.6,415.5L382.8,415.9L382,416.8L382.6,418.2L384.1,419.4L385.1,421.1L384,421.8L379.5,421.4L378.4,421.7L377.1,423.6L377.9,426.6L376.9,428.4L375,428.8L372.5,430.3L371.1,430.6L371.1,431.2L372.2,431.9L372.9,432.7L371.5,435.7L369.4,436.7L366.2,436.2L363.7,436.9L361.5,435.6L359.2,435.5L357.6,437.2L357.4,439L355.9,439.2L355,439.1L353.9,439.2L354,440.2L354.6,441L357.8,441.4L358.4,442.7L358.5,444.6L355.2,447.9L353.8,450.1L351.7,450.1L350.1,451.8L349.3,454.3L348.2,453.8L345.8,454.2L345,455.3L345.6,455.8L345.7,456.7L344.7,459.4L343.6,460.1L343.1,459L342.8,457.3L342,457.2L340.6,458.8L338.8,459.9L337.4,460.4L336.4,459.3L333.7,458.8L332.7,463.4L330.4,465L329.4,465.5L327.6,465.7L328.8,466.3L329.2,467.5L328.5,468.6L326.7,468.9L325.7,469.8L325.3,473.9L324.2,475.3L321.5,475.4L319.5,474.4L318.8,475.2L318.5,475.9L317.4,476.6L315.4,476.8L310.8,478.7L308.8,478.1L306.3,477.4L304.5,478.1L304,479.5L303.2,480.6L300.7,480.6L298.7,479.3L296.7,478.3L294.4,479.1L292.7,480.8L290.6,481.4L290.2,482.5L289.3,483L287,482.8L286.2,480.1L284.9,479.8L283.7,481.1L283.2,482.1L282.6,482.9L282.8,485.1L281.6,485.1L279.9,483.8L278.1,483.6L276.6,484.8L277.1,485.7L277,486.7L277.8,487.2L278.1,488.1L277.1,488.7L277,489.8L276.6,490.5L273.8,489.3L271.5,488.6L269.4,488.9L268.7,488.1L268.6,487.4L271,486.1L271.1,485.5L269.3,485L267.1,483.2L265.5,480.3L263.5,478.7L262.6,477.2L262.3,474.7L261.9,473.5L262,472.2L262.6,471L260.4,471.6L258.8,472.7L259.1,474.1L258.8,475.4L256.3,476.1L256.5,476.6L256.7,477.2L258.5,479L258.9,480.4L259.7,481.2L261.2,483.5L261.1,488L261.9,489.2L261.6,490.5L261,492.2L260,492.7L258.2,493.3L257.1,493.6L256.3,494L254.9,495.3L252.4,495.6L251.1,492.6L249.3,494.6L248.9,498.8L248.2,499.6L247.1,500.2L245.1,498.7L243.3,499.7L241.9,500.7L241.2,501.6L240.2,502.6L238.3,501.6L236.7,500.2L237,499.1L236.9,498.4L236.1,497.8L235.3,497.9L235.7,499.3L236,502L235.3,502.8L234.2,503.4L231.8,502.9L230.1,501.9L228.1,501.1L226.4,500.9L226,502.6L224.8,504L223.8,504.2L222.7,503.9L221.3,505.4L220.7,506.5L219,507.7L214.5,508.2L212.8,509.4L210.7,509.2L209.1,509.5L208.1,509.4L207.3,508.8L206.3,508.8L205.9,510.7L203.3,511.5L201,511.7L198.4,514.2L196.6,515.7L195.2,515.8L194.2,515.3L193.7,513.1L193.2,512.8L192.9,514.9L192.4,516.6L191.5,517.6L188.6,519.8L187.7,521.9L188.2,523.9L192.2,524.4L192.8,525.5L192.4,526.4L191.4,527.1L191.1,528.2L195.4,531.8L195.6,533.1L194.9,533.9L194.1,535.5L191.8,536.9L187,537.7L183,536.9L181.8,535.3L181.9,534.2L182.9,534.5L184,534.4L183.7,533.4L183.2,532.8L181.3,531.9L179.8,529.4L180.2,527.3L179.3,525.7L178.4,524.4L177.5,523.6L177,522.5L178,519.4L177.4,517.6L179.1,515.3L179.6,512.8L182.6,511.9L182.9,509.5L180.6,509.4L179.1,507.7L178.8,508.4L177.6,508.5L175.6,505.1L174.9,504.6L174,504.5L174.5,508.2L172.1,509.5L170.2,510.1L167.5,510.4L165.9,510.8L164.5,510.4L164.8,509.3L165.6,508L164.9,506.9L163.3,506.1L161,506.2L159.4,505.9L157.8,506L157.2,505.5L155.7,503.8L154.4,502.8L153.8,501.7L154.4,500.5L153.9,499.7L151.4,499.7L151.5,501.4L151.7,503.5L152.4,505.1L152,506L150.7,506.6L149.4,504.9L148.8,504.5L148.1,504.5L147.6,506.2L146.5,507.7L144.3,507.5L142.6,508.5L140.5,508.9L139.5,509.1L137,509.1L134.8,511.2L133.2,512.1L130.9,512.9L128.3,514.1L127.6,516.2L127.5,517.7L127.1,519.4L123,521.8L121.9,521.6L121.1,520.7L119.9,520.9L119.1,521.3L118.1,521.3L117,521.8L115.6,521.6L114.3,520.9L113.5,520.7L112.6,520.6L112.4,521.5L113.8,525.1L114.2,526.8L109.8,531.6L110.3,534.7L109.1,537.1L106.4,539L101.5,543.9L99.2,544L97.5,545.1L93.8,553.2L93.8,556L93.2,558L93.4,559.9L91.7,563.7L90,565.4L89.7,567.4L92,571.7L92.4,572.5L93.7,574.8L94.4,576.4L95.5,578L99.3,582.2L101,583.5L103,584.5L106.8,588.2L108.6,590.7L107.8,592.3L108.2,595.8L105.5,594.8L105.9,595.2L109,597.1L111.1,600L0,600L0,0L520,0ZM275.8,492.5L275.3,492.8L273.8,491.1L273.7,490.6L274.9,490.5L276.1,491.3L276.1,492ZM442,569.1L440.7,570.7L439.9,570.2L440.7,568.7L440.7,568.1L441.3,566.9L442.5,566.4L443.5,567.7ZM427.6,564.8L427.5,566.3L426.4,565.5L426.2,564.3L426.2,563.5L426.7,562.5L427.4,563.4ZM433.4,558.4L433.6,560.4L432.3,560.4L430.4,559.1L430.2,558.5L430.3,558L430.6,557.5ZM442.9,535.3L442.5,535.6L441.9,535.5L442.5,533.3L443.6,532.7L444.5,532.9ZM441.1,525.7L440.1,527.6L439.2,527.6L439.4,526.5L440.5,524.3L440.9,524.4ZM493.3,438.2L492.1,441.9L491,442.5L489.9,442.2L488.8,440.1L489.6,439.3L490.7,439.7L491.5,439.5L493.5,436.5L494,437ZM484.6,443.8L483.2,444.1L481.6,443.7L480.1,443.6L480.1,442.9L481.7,442.2L481.7,441.2L482,440.6L485.6,441.9L485.5,442.8ZM518.2,432.8L516.4,433.4L514.4,433.1L514.7,429.7L515.4,430.2L515.8,431.3L517.3,432ZM366.1,438.1L367,439.6L366.6,440.6L363.7,440.1L363.5,439.1L364.6,439.3ZM361.3,438.7L360.5,440.1L359.2,439.9L359.2,438.8L358.9,438.6L359.3,437.6L359.5,437.3L360.9,438.1ZM440.8,267.2L439,267.9L433.4,265.8L429.4,263.4L427,260.5L426.7,259.2L429.4,259.5L432.2,260.5L432.8,262.1L433.9,262.6L434.6,263.5L439.6,265.7L440.4,266.3ZM450.1,305.6L449.8,306.2L447.2,304.7L444.3,304.4L443.3,303.2L443.1,301.2L446.2,301.3L449.9,303L450.8,304ZM447.5,312.7L447.4,313.2L445.5,311.6L444.7,311.3L445.1,310.4L446.3,310.2L447.3,312.2ZM452.5,307.4L452.3,308.6L451.7,308.4L450.9,306.4L451.4,305.9L452.5,306ZM396.7,415.7L395,416.9L394,416.3L394,414.8L394.6,413.5L393.9,412.5L394.5,411.4L395.7,411L396.1,411.8L396.8,412.2L397.1,412.5L397.1,413.3L396.4,414.5L396.9,415.2ZM192.7,518.5L193.5,519.3L195.6,518.7L196,519.7L196,520.2L195.2,521.4L193.5,520.5L191.7,520.7L190.4,520.6L190,520.1L191,518.9ZM132.5,515.6L129.4,518.5L128.2,518.5L129.3,515.2L129.8,514.4L131.7,515.6ZM130.7,522.3L129.6,523L128.1,522.9L129.8,521.7L130.7,520.3L131.4,519.9L131.4,521.1ZM120.1,526.5L119.3,526.6L117.6,524.7L118.4,523.7L120.5,524.4L120.8,524.9L120.8,525.3L120.4,526.2ZM116.6,524.9L116.3,525.4L115.2,524.3L114.5,523.8L115.1,522.3L116.3,523.9ZM506.6,53.2L505.3,54L505.3,52.6L506.3,51.4L507.2,51.2ZM427.6,352.1L425.7,352.6L425,352.6L425,350.9L426.6,349.2L427.2,349.8L427.6,350.6ZM261.2,478.6L261.4,479.7L259.7,478L259.2,477.9L258.4,477.3L257.9,476.3L259.2,476.3L260.5,477.5ZM244.7,506.7L244.2,507.1L243.6,506.3L243.4,505.1L243,504.5L244,503.6L244.5,502.7L245.7,502.9L246.2,503.2L245.1,504.1L244.9,504.5ZM241.5,505.8L239.4,506.3L238.9,506.2L239.7,505L241.6,504.1ZM270.7,492.5L268.2,492.5L267.6,492.3L267.3,491.8L268.3,490.9L271.8,489.6L270.9,490.9ZM503.1,96.3L503.3,96.6L503.3,97L503,97.2L502.5,97.7L502,98L501.2,97.9L500.5,97.3L500.7,96.3L501.3,96.5L502.5,96.1Z"/>
+              <path class="m-river" d="M109.7 315.7 L212.4 287.2 L277.3 290 L314 312.2 L374.6 252.8 L433 269.6"/><text class="m-lab river" x="150.0" y="270.0" text-anchor="middle">Yangtze</text>
+              <circle cx="322.7" cy="43" r="5.5" fill="var(--loch)" stroke="var(--surface)" stroke-width="1.2"/><circle cx="348" cy="232" r="4.5" fill="var(--rust)" stroke="var(--surface)" stroke-width="1.2"/><circle cx="328.7" cy="465.8" r="4.5" fill="var(--rust)" stroke="var(--surface)" stroke-width="1.2"/><circle cx="359.2" cy="439.1" r="4.5" fill="var(--rust)" stroke="var(--surface)" stroke-width="1.2"/><circle cx="177.8" cy="562.1" r="4.5" fill="var(--rust)" stroke="var(--surface)" stroke-width="1.2"/><circle cx="433.8" cy="274.1" r="4.5" fill="var(--rust)" stroke="var(--surface)" stroke-width="1.2"/><circle cx="206" cy="284.2" r="4.5" fill="var(--ink)" stroke="var(--surface)" stroke-width="1.2"/><circle cx="277.3" cy="290" r="3.5" fill="var(--muted)" stroke="var(--surface)" stroke-width="1.2"/><circle cx="434.2" cy="426" r="4" fill="var(--muted)" stroke="var(--surface)" stroke-width="1.2"/>
+              <circle cx="272.1" cy="484.8" r="3.5" fill="var(--rust)" stroke="var(--surface)" stroke-width="1.2"/><circle cx="261.7" cy="491.1" r="3.5" fill="var(--rust)" stroke="var(--surface)" stroke-width="1.2"/><circle cx="274.5" cy="490.4" r="3.5" fill="var(--loch)" stroke="var(--surface)" stroke-width="1.2"/><circle cx="260.9" cy="493" r="3.5" fill="var(--loch)" stroke="var(--surface)" stroke-width="1.2"/>
+              <text class="m-lab" style="fill:var(--loch);font-weight:700" x="330.7" y="47.0" text-anchor="start">Beijing</text>
+              <text class="m-lab" x="356.0" y="236.0" text-anchor="start">Xiaogang, 1978</text>
+              <text class="m-lab" x="425.8" y="268.1" text-anchor="end">Pudong, Shanghai, 1990</text>
+              <text class="m-lab red" x="367.2" y="443.1" text-anchor="start">Xiamen</text>
+              <text class="m-lab red" x="336.7" y="471.8" text-anchor="start">Shantou</text>
+              <text class="m-lab red" x="187.8" y="566.1" text-anchor="start">Hainan Island, 1988</text>
+              <text class="m-lab" x="198.0" y="288.2" text-anchor="end">Three Gorges Dam</text>
+              <text class="m-lab mu" x="284.3" y="294.0" text-anchor="start">Wuhan</text>
+              <text class="m-lab mu" x="442.2" y="430.0" text-anchor="start">Taipei</text>
+              <line x1="272.1" y1="484.8" x2="300" y2="452" stroke="var(--muted)" stroke-width="0.8"/><text class="m-lab red" x="300.0" y="456.0" text-anchor="start">Shenzhen</text>
+              <line x1="274.5" y1="490.4" x2="306" y2="518" stroke="var(--muted)" stroke-width="0.8"/><text class="m-lab" x="306.0" y="522.0" text-anchor="start">Hong Kong, 1997</text>
+              <line x1="261.7" y1="491.1" x2="222" y2="462" stroke="var(--muted)" stroke-width="0.8"/><text class="m-lab red" x="222.0" y="466.0" text-anchor="end">Zhuhai</text>
+              <line x1="260.9" y1="493" x2="226" y2="520" stroke="var(--muted)" stroke-width="0.8"/><text class="m-lab" x="226.0" y="524.0" text-anchor="end">Macau, 1999</text>
+              <circle cx="346.0" cy="216.0" r="9" fill="var(--rust)" stroke="var(--surface)" stroke-width="1.5"/><text x="346.0" y="220.0" text-anchor="middle" style="font:700 11px var(--mono);fill:#fff">1</text><circle cx="290.0" cy="440.0" r="9" fill="var(--rust)" stroke="var(--surface)" stroke-width="1.5"/><text x="290.0" y="444.0" text-anchor="middle" style="font:700 11px var(--mono);fill:#fff">2</text><circle cx="161.8" cy="556.1" r="9" fill="var(--rust)" stroke="var(--surface)" stroke-width="1.5"/><text x="161.8" y="560.1" text-anchor="middle" style="font:700 11px var(--mono);fill:#fff">3</text><circle cx="435.8" cy="292.1" r="9" fill="var(--rust)" stroke="var(--surface)" stroke-width="1.5"/><text x="435.8" y="296.1" text-anchor="middle" style="font:700 11px var(--mono);fill:#fff">4</text><circle cx="424.0" cy="518.0" r="9" fill="var(--rust)" stroke="var(--surface)" stroke-width="1.5"/><text x="424.0" y="522.0" text-anchor="middle" style="font:700 11px var(--mono);fill:#fff">5</text><circle cx="204.0" cy="268.2" r="9" fill="var(--rust)" stroke="var(--surface)" stroke-width="1.5"/><text x="204.0" y="272.2" text-anchor="middle" style="font:700 11px var(--mono);fill:#fff">6</text>
+            </svg>
+          </div>
+          <div class="legend"><span><i class="sw c" style="background:var(--rust)"></i>Reform test sites</span><span><i class="sw c" style="background:var(--loch)"></i>Hong Kong and Macau</span><span><i class="sw c" style="background:var(--muted)"></i>Other cities (for reference)</span></div>
+          <ol class="stages">
+            <li><b style="color:var(--rust)">① Xiaogang, 1978:</b> eighteen households secretly divided the land among their families, and rural reform began.</li>
+            <li><b style="color:var(--rust)">② Special Economic Zones, 1980:</b> Shenzhen, Zhuhai, Shantou and Xiamen, close to Hong Kong, Macau and Taiwan respectively, to make it easy to attract money from there.</li>
+            <li><b style="color:var(--rust)">③ Hainan Island, 1988:</b> became the largest Special Economic Zone.</li>
+            <li><b style="color:var(--rust)">④ Pudong, Shanghai, 1990:</b> developed as a new financial centre, as reform spread from the southern coast to the Yangtze valley.</li>
+            <li><b style="color:var(--rust)">⑤ Hong Kong and Macau:</b> returned to China in 1997 and 1999, under "one country, two systems".</li>
+            <li><b style="color:var(--rust)">⑥ Three Gorges Dam:</b> the world's largest hydroelectric power station; the dam was completed in 2006, and about 1.3 million people were moved.</li>
+          </ol>
+          <figcaption><b>Map 2: Where did reform and opening up begin?</b> Reforms were first tested in particular places, and spread to the whole country once they succeeded. The four places around the Pearl River estuary are very close together, so they are marked with thin lines.</figcaption>
+        </figure>
+<figure>
+          <div class="frame">
+            <svg viewBox="0 0 600 306" role="img" aria-labelledby="c10urb">
+              <title id="c10urb">Share of China's population living in towns and cities, 1949 to 2023</title><g transform="translate(0 24)">
+              <g class="c-grid"><line x1="60" y1="30" x2="590" y2="30"/><line x1="60" y1="85" x2="590" y2="85"/><line x1="60" y1="140" x2="590" y2="140"/><line x1="60" y1="195" x2="590" y2="195"/></g>
+              <line class="c-mid" x1="60" y1="112.5" x2="590" y2="112.5"/>
+              <g class="c-axis"><line x1="60" y1="250" x2="590" y2="250"/></g>
+              <text class="c-tick" x="52" y="254" text-anchor="end">0%</text><text class="c-tick" x="52" y="199" text-anchor="end">20%</text><text class="c-tick" x="52" y="144" text-anchor="end">40%</text><text class="c-tick" x="52" y="89" text-anchor="end">60%</text><text class="c-tick" x="52" y="34" text-anchor="end">80%</text>
+              <text class="c-tick" x="67" y="270" text-anchor="middle">1950</text><text class="c-tick" x="206.4" y="270" text-anchor="middle">1970</text><text class="c-tick" x="345.8" y="270" text-anchor="middle">1990</text><text class="c-tick" x="485.2" y="270" text-anchor="middle">2010</text>
+              <path d="M60 220.9 L262.1 200.8 L345.8 177.4 L415.5 150.5 L492.1 108.9 L554.9 74.3 L575.8 67.9 L575.8 250 L60 250 Z" fill="var(--loch)" opacity="0.14"/>
+              <path d="M60 220.9 L262.1 200.8 L345.8 177.4 L415.5 150.5 L492.1 108.9 L554.9 74.3 L575.8 67.9" fill="none" stroke="var(--loch)" stroke-width="2.5" stroke-linejoin="round"/>
+              <circle class="c-pt" cx="60" cy="220.9" r="4.5"/><circle class="c-pt" cx="262.1" cy="200.8" r="4.5"/><circle class="c-pt" cx="345.8" cy="177.4" r="4.5"/><circle class="c-pt" cx="415.5" cy="150.5" r="4.5"/><circle class="c-pt" cx="492.1" cy="108.9" r="4.5"/><circle class="c-pt" cx="554.9" cy="74.3" r="4.5"/><circle class="c-pt" cx="575.8" cy="67.9" r="4.5"/>
+              <text class="c-val" x="68" y="212">10.6% (1949)</text>
+              <text class="c-val" x="262.1" y="190" text-anchor="middle">17.9% (1978)</text>
+              <text class="c-val" x="345.8" y="167" text-anchor="middle">26.4% (1990)</text>
+              <text class="c-val" x="408" y="146" text-anchor="end">36.2% (2000)</text>
+              <text class="c-val" x="486" y="100" text-anchor="end">51.3% (2011)</text>
+              <text class="c-val" x="570" y="58" text-anchor="end">66.2% (2023)</text>
+              <text class="c-note" x="120" y="106">Half the population urban</text>
+            </g></svg>
+          </div>
+          <figcaption><b>Figure 3: When did Chinese people move to the cities?</b> The share of the population living in towns and cities, drawn to scale, from National Bureau of Statistics figures. When reform and opening up began in 1978, more than eight in ten Chinese people still lived in the countryside; in 2011 the urban population passed half for the first time.</figcaption>
+        </figure>
+        <figure>
+          <div class="frame">
+            <svg viewBox="0 0 600 300" role="img" aria-labelledby="c10pop">
+              <title id="c10pop">Population of mainland China, 1949 to 2024, to scale</title>
+              <g transform="translate(0 24)">
+              <line x1="60" y1="210.0" x2="580" y2="210.0" stroke="var(--line)"/><text class="c-tick" x="52" y="214.0" text-anchor="end">600m</text><line x1="60" y1="170.0" x2="580" y2="170.0" stroke="var(--line)"/><text class="c-tick" x="52" y="174.0" text-anchor="end">800m</text><line x1="60" y1="130.0" x2="580" y2="130.0" stroke="var(--line)"/><text class="c-tick" x="52" y="134.0" text-anchor="end">1bn</text><line x1="60" y1="90.0" x2="580" y2="90.0" stroke="var(--line)"/><text class="c-tick" x="52" y="94.0" text-anchor="end">1.2bn</text><line x1="60" y1="50.0" x2="580" y2="50.0" stroke="var(--line)"/><text class="c-tick" x="52" y="54.0" text-anchor="end">1.4bn</text>
+              <g class="c-axis"><line x1="60" y1="250" x2="580" y2="250"/></g><text class="c-tick" x="66.8" y="270" text-anchor="middle">1950</text><text class="c-tick" x="201.8" y="270" text-anchor="middle">1970</text><text class="c-tick" x="336.9" y="270" text-anchor="middle">1990</text><text class="c-tick" x="471.9" y="270" text-anchor="middle">2010</text>
+              <polyline points="60.0,221.7 100.5,207.1 127.5,195.6 141.0,198.3 168.1,184.9 201.8,164.0 235.6,145.2 269.4,132.6 303.1,118.3 336.9,101.3 370.6,87.8 404.4,76.5 438.2,68.5 471.9,61.8 505.7,54.0 539.5,47.6 553.0,47.6 566.5,48.3" fill="none" stroke="var(--loch)" stroke-width="2.4" stroke-linejoin="round"/>
+              <text class="u-s" x="140" y="222" text-anchor="start" style="fill:var(--rust)">Great Famine: population falls</text><line x1="269.4" y1="138.6" x2="269.4" y2="172.6" stroke="var(--muted)" stroke-dasharray="2 2"/><text class="u-s" x="275" y="186.6" text-anchor="start">One-child policy from 1980</text><text class="u-s" x="566.5" y="36.4" text-anchor="end" style="fill:var(--rust)">Shrinking since 2022</text>
+              <text class="c-val" x="64.0" y="239.8">540m (1949)</text>
+              </g>
+            </svg>
+          </div>
+          <figcaption><b>Figure 4: How has China's population changed?</b> The year-end population of mainland China, drawn to scale, from National Bureau of Statistics figures; the vertical axis starts at 400 million. Over seventy-plus years the population grew to about 2.6 times its 1949 size, but it fell during the Great Famine, and since 2022 it has been shrinking again. In 2023 India's population overtook China's.</figcaption>
+        </figure>
+      </aside>
+    </div>
+
+    <section class="block" id="life" aria-labelledby="life10">
+      <span class="label">Daily life</span>
+      <h3 id="life10">How people lived</h3>
+      <div class="life">
+        <div>
+          <h4>Work units and ration coupons (1950s–1980s)</h4>
+          <p>Almost every city dweller belonged to a "work unit" (danwei, 單位): a factory, a government office or a school. The work unit allocated housing, medical care and pensions, and you needed a letter from it to get married or travel any distance. Grain, cloth and cooking oil were rationed per person, and to buy them you had to hand over both money and coupons. The <button type="button" class="gl" data-g="hukou" aria-haspopup="dialog">hukou</button> (戶口) system divided people into urban and rural registration, and it was very hard for farmers to move to the cities.</p>
+        </div>
+        <div>
+          <h4>"Jumping into the sea" and working away (1980s–2000s)</h4>
+          <p>After reform and opening up, many people gave up secure state jobs to "jump into the sea" (下海) and go into business. Hundreds of millions of migrant workers lived in factory dormitories and worked on production lines in the coastal cities. Every Chinese New Year they crammed onto trains to go home, in the "Spring Festival rush" (春運), the largest annual movement of people in the world. Many of their children stayed behind in the villages, looked after by grandparents, and became known as "left-behind children" (留守兒童).</p>
+        </div>
+        <div>
+          <h4>The cities today</h4>
+          <p>Most Chinese people now live in cities (see Figure 3). People pay for almost everything by phone; online shopping, food delivery and shared bikes are everywhere, and high-speed trains link the major cities. But young people also face pressures such as high property prices, fierce competition for jobs and youth unemployment, and phrases like "lying flat" (躺平, opting out of the rat race) have spread online.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="people" aria-labelledby="people10">
+      <span class="label">Key people</span>
+      <h3 id="people10">Who's who</h3>
+      <ul class="people">
+        <li><span class="nm">Mao Zedong (毛澤東)</span><span class="rl">Chairman of the Communist Party, 1893–1976</span><p>Founder of the People's Republic of China. The official Chinese verdict is that "his achievements were primary and his mistakes secondary", but the Great Leap Forward and the Cultural Revolution caused the deaths and persecution of tens of millions of people. His portrait still hangs on the Tiananmen gate tower and appears on Chinese banknotes.</p></li>
+        <li><span class="nm">Zhou Enlai (周恩來)</span><span class="rl">Premier, 1898–1976</span><p>Premier for twenty-six years and a shrewd diplomat, who oversaw the reconciliation with the United States. During the Cultural Revolution he did what he could to protect some people and cultural relics, but he also carried out many of Mao's decisions. He was held in very high regard by ordinary people.</p></li>
+        <li><span class="nm">Deng Xiaoping (鄧小平)</span><span class="rl">Chief architect of reform and opening up, 1904–1997</span><p>From Sichuan (四川); he fell from power three times and came back three times. He drove economic reform and opening to the world, and proposed "one country, two systems" (一國兩制) to settle the Hong Kong question; in 1989 he was also one of the decision-makers who ordered the crackdown on the protests. He died a few months before Hong Kong's return to China.</p></li>
+        <li><span class="nm">Yuan Longping (袁隆平)</span><span class="rl">Agricultural scientist, 1930–2021</span><p>Bred high-yielding hybrid rice that greatly increased food production in China and many other countries, earning him the title "father of hybrid rice".</p></li>
+        <li><span class="nm">Tu Youyou (屠呦呦)</span><span class="rl">Pharmaceutical scientist, born 1930</span><p>Inspired by ancient Chinese medical texts, she discovered artemisinin, a treatment for malaria that has saved millions of lives. In 2015 she became the first Chinese woman to win a Nobel Prize in science.</p></li>
+        <li><span class="nm">Xi Jinping (習近平)</span><span class="rl">General Secretary of the Communist Party, born 1953</span><p>General Secretary of the Communist Party since 2012 and state president since 2013. His father, Xi Zhongxun (習仲勳), was one of the founding leaders of the People's Republic and oversaw reform in Guangdong; Xi himself was sent to the countryside in northern Shaanxi (陝北) for seven years during the Cultural Revolution.</p></li>
+      </ul>
+    </section>
+
+    <section class="block" id="myths" aria-labelledby="myths10">
+      <span class="label">Myth or fact</span>
+      <h3 id="myths10">What people often get wrong</h3>
+      <ul class="myths">
+        <li><span class="mq">"The Great Famine was mainly caused by natural disasters."</span><span class="ma"><b>It was mainly caused by policy.</b> Some areas really were hit by natural disasters at the time, but the great majority of historians believe that the people's communes, false harvest reports, excessive grain requisitioning, and continuing to export grain during the famine were the main reasons tens of millions of people died.</span></li>
+        <li><span class="mq">"Reform and opening up was applied to the whole country from the start."</span><span class="ma"><b>No.</b> Reform was worked out step by step, by trial, in what Deng Xiaoping called "crossing the river by feeling for the stones": it was first tested in particular villages and coastal special zones, and spread only when it succeeded.</span></li>
+        <li><span class="mq">"The one-child policy applied to every family."</span><span class="ma"><b>No.</b> The policy was strictly enforced mainly in the cities; many rural areas allowed a family whose first child was a girl to have another, and ethnic minorities had looser rules too. From 2016 all couples were allowed two children, and from 2021 three.</span></li>
+        <li><span class="mq">"After its return to China, Hong Kong adopted the mainland's system."</span><span class="ma"><b>No.</b> Under "one country, two systems", Hong Kong kept its own laws, currency, immigration controls and capitalist economy, with a promise that these would stay unchanged for fifty years. However, since the National Security Law (國家安全法) came into force in 2020, Hong Kong's political system and civil liberties have changed significantly, and this is highly controversial (see "Hong Kong").</span></li>
+      </ul>
+    </section>
+
+    <section class="block" id="evidence" aria-labelledby="ev10">
+      <span class="label">How we know</span>
+      <h3 id="ev10">A history still being written</h3>
+      <div class="life">
+        <div>
+          <h4>Official documents and statistics</h4>
+          <p>The Chinese government publishes a great many statistics and documents. In 1981 the Communist Party adopted a "Resolution on Certain Questions in the History of Our Party since the Founding of the People's Republic of China" (關於建國以來黨的若干歷史問題的決議), which formally repudiated the Cultural Revolution and is the official verdict on this period. But the accuracy of official statistics, especially during the Great Leap Forward and for local economic figures, is often questioned.</p>
+        </div>
+        <div>
+          <h4>Archives and censorship</h4>
+          <p>In the 2000s some provincial and city archives were opened to researchers, and scholars used them to study the Great Famine and the Cultural Revolution; but in recent years access to the archives has been tightened sharply. Topics such as the Great Famine, the Cultural Revolution and June Fourth are censored to varying degrees in mainland China, and much research can only be published in Hong Kong, Taiwan or abroad.</p>
+        </div>
+        <div>
+          <h4>Eyewitness memories</h4>
+          <p>Millions of people lived through these campaigns themselves and have left a great many memoirs, diaries and oral histories. Jung Chang (張戎)'s <i>Wild Swans: Three Daughters of China</i> (鴻), published in Britain, tells the story of three generations, her grandmother, her mother and herself, and is one of the best-known books of this kind among Western readers.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="words" aria-labelledby="words10">
+      <span class="label">Key terms</span>
+      <h3 id="words10">Terms from this era</h3>
+      <dl class="words">
+        <div><dt>People's commune (人民公社)</dt><dd>The collective rural organisation from 1958 to the early 1980s, in which land and labour were managed by the commune as a whole.</dd></div>
+        <div><dt>Cultural Revolution (文化大革命)</dt><dd>The political campaign launched by Mao Zedong from 1966 to 1976, which brought nationwide chaos and persecution.</dd></div>
+        <div><dt>Reform and opening up (改革開放)</dt><dd>The policy, from 1978, of introducing a market economy and opening to the world.</dd></div>
+        <div><dt>Special Economic Zone (經濟特區)</dt><dd>An experimental area using favourable policies to attract foreign investment; the first were Shenzhen and three other cities.</dd></div>
+        <div><dt>One country, two systems (一國兩制)</dt><dd>The arrangement under which Hong Kong and Macau kept their existing systems after returning to China.</dd></div>
+        <div><dt>Hukou (戶口)</dt><dd>The registration system dividing people into urban and rural residents, which affects education, health care and welfare.</dd></div>
+        <div><dt>Migrant workers (農民工)</dt><dd>Workers who leave the countryside to work in the cities but whose hukou is still rural.</dd></div>
+        <div><dt>Belt and Road (一帶一路)</dt><dd>An initiative, proposed in 2013, to invest in infrastructure around the world.</dd></div>
+      </dl>
+    </section>
+
+    <section class="hk" id="hk" aria-labelledby="hk10">
+      <span class="label">Hong Kong</span>
+      <h3 id="hk10">From colony to Special Administrative Region</h3>
+      <p>From the 1950s, large numbers of migrants fleeing the mainland, and capital from Shanghai (上海), turned Hong Kong into a centre of the textile, clothing, plastics and electronics industries. In 1967 leftists influenced by the Cultural Revolution launched riots and bomb attacks that went on for months. In the 1970s the governor, Sir Murray MacLehose (麥理浩), brought in a ten-year housing programme and nine years of free education, and set up the Independent Commission Against Corruption (廉政公署, ICAC) to fight corruption. Hong Kong gradually became an international financial centre.</p>
+      <p>In 1984 China and Britain signed the <button type="button" class="gl" data-g="lianhe" aria-haspopup="dialog">Sino-British Joint Declaration</button> (中英聯合聲明). On 1 July 1997 Hong Kong returned to China, becoming a Special Administrative Region (特別行政區) under <button type="button" class="gl" data-g="yiguo" aria-haspopup="dialog">"one country, two systems"</button>; Macau returned in 1999. Since then Hong Kong has seen the mass march of 2003 against legislation under Article 23 of the Basic Law (基本法), the "Umbrella Movement" (雨傘運動) of 2014 calling for universal suffrage, and the large-scale protests and clashes of 2019 sparked by amendments to the extradition law (the Fugitive Offenders Ordinance, 逃犯條例). In 2020 the Standing Committee of the National People's Congress enacted a National Security Law for Hong Kong; in 2021 the electoral system was changed; and in 2024 Hong Kong completed its own local legislation under Article 23 of the Basic Law. Supporters say these measures restored stability; critics, including the British government, say they have eroded the freedoms and autonomy promised in the Joint Declaration. Since 2021 Britain has offered a visa route for Hong Kong people holding British National (Overseas) passports to settle in the UK, and more than a hundred thousand Hong Kong people have moved to Britain, including to Scotland.</p>
+    </section>
+
+    <section class="parallel" id="world" aria-labelledby="w10">
+      <span class="label">Meanwhile in Europe and the world</span>
+      <h3 id="w10">The Cold War and globalisation</h3>
+      <div class="pair">
+        <div>
+          <h4>The shape of the Cold War</h4>
+          <p>When the People's Republic was founded, the world was splitting into two camps led by the United States and the Soviet Union. Britain recognised the People's Republic of China in 1950, one of the first Western countries to do so, but in the same year it went to war with China in Korea. In the 1960s China broke with the Soviet Union, and in the 1970s it turned instead to reconciliation with the United States.</p>
+        </div>
+        <div>
+          <h4>The other side of 1989</h4>
+          <p>In 1989 the protests in Beijing were crushed; in November of the same year the Berlin Wall fell, the communist regimes of Eastern Europe collapsed one after another, and in 1991 the Soviet Union broke up. The lesson the Chinese Communist Party drew from the Soviet collapse was that it must keep a firm grip on power while developing the economy.</p>
+        </div>
+        <div>
+          <h4>Pandas and whisky</h4>
+          <p>After reform and opening up, trade and contact between China and Britain grew enormously. From 2011 to 2023 two giant pandas, Tian Tian (甜甜) and Yang Guang (陽光), lived at Edinburgh Zoo, the only giant pandas in Britain; Scotch whisky and salmon, meanwhile, became popular exports to China. Today there are more than a hundred thousand Chinese students in Britain, one of the largest groups of international students.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="visit" id="visit" aria-labelledby="v10">
+      <span class="label">See it for yourself</span>
+      <h3 id="v10">Sites and museums</h3>
+      <ul class="places">
+        <li><span class="nm">Tiananmen Square (天安門廣場) and the National Museum of China (中國國家博物館)</span><span class="tm">Beijing</span><p>The National Museum's exhibition "The Road to Rejuvenation" (復興之路) is the official Chinese account of China's modern history.</p></li>
+        <li><span class="nm">Xiaogang Village Memorial Hall of Rural Reform (小崗村)</span><span class="tm">Fengyang, Anhui</span><p>Shows the 1978 land-sharing agreement (a replica) bearing the red thumbprints of the eighteen households: the starting point of rural reform.</p></li>
+        <li><span class="nm">Shenzhen Museum (深圳博物館) and Lianhuashan Park (蓮花山公園)</span><span class="tm">Shenzhen, Guangdong</span><p>Tells how Shenzhen grew from a small border town into a metropolis; there is a bronze statue of Deng Xiaoping on Lianhua Hill.</p></li>
+        <li><span class="nm">Lujiazui (陸家嘴), Pudong (浦東)</span><span class="tm">Shanghai</span><p>A financial district developed from 1990. Just over thirty years ago it was farmland and warehouses; today it is a forest of skyscrapers and a symbol of reform and opening up.</p></li>
+        <li><span class="nm">Hong Kong Museum of History (香港歷史博物館) and Hong Kong Palace Museum (香港故宮文化博物館)</span><span class="tm">Hong Kong</span><p>The Museum of History tells Hong Kong's story; the Palace Museum, opened in 2022, shows objects lent by the Palace Museum (故宮博物院) in Beijing.</p></li>
+        <li><span class="nm">British Museum, China gallery</span><span class="tm">London · free</span><p>The China gallery's displays run right up to the twentieth century, so you can see the whole of Chinese history in one sweep.</p></li>
+      </ul>
+    </section>
+
+    <p class="remember"><span class="label">The one thing to remember</span>The People's Republic of China went through the political campaigns and disasters of the Mao era, then became an economic giant after reform and opening up; Communist Party rule continues to this day, Hong Kong has returned to China, and the question of Taiwan remains unresolved.</p>
+  </article>
+
+<script type="application/json" id="gloss">{"maozedong": ["Mao Zedong 毛澤東", "1893–1976", "Leader of the Chinese Communist Party, who founded the People's Republic of China in 1949 and ruled China from then until his death in 1976. He launched the Great Leap Forward and the Cultural Revolution. Older Western books spell his name Mao Tse-tung."], "ccp": ["Chinese Communist Party 中國共產黨", "Founded 1921", "The party that has governed mainland China since 1949, with about 100 million members today. Its highest leadership body is the Standing Committee of the Politburo, and its top leader is the General Secretary."], "dengxiaoping": ["Deng Xiaoping 鄧小平", "1904–1997", "From Sichuan; as a young man he went to France on a work-study programme. He was brought down during the Cultural Revolution, and after 1978 became China's leader in practice, driving reform and opening up, although in the reform era he never held the post of state president or the party's top post (from 1956 to 1966 he had been General Secretary of the Party Secretariat)."], "tugai": ["Land reform 土地改革", "1950–1953", "Land was confiscated from landlords and given to peasants. Villagers were organised into meetings to 'speak bitterness' and to denounce landlords, and many landlords were beaten to death or executed. A few years later, the land the peasants had received was taken back into collective ownership."], "kangmei": ["War to Resist America and Aid Korea 抗美援朝", "The Korean War, 1950–1953", "China's name for its part in the Korean War. Chinese forces fought as the 'People's Volunteer Army' and suffered hundreds of thousands of casualties; Mao Zedong's eldest son, Mao Anying, was killed in the war. An armistice was signed in 1953, but there is still no formal peace treaty."], "wunian": ["Five-Year Plans 五年計劃", "From 1953", "Copying the Soviet Union, the state set production targets for every industry over five years and concentrated resources on heavy industry. China still draws up five-year plans today; the one beginning in 2026 is the fifteenth."], "fanyou": ["Anti-Rightist Campaign 反右運動", "1957", "Mao first encouraged intellectuals to speak their minds, then labelled the critics 'rightists'. About 550,000 people were branded in this way; many lost their jobs or were sent to labour camps or the countryside, and most were only cleared after 1978."], "dayuejin": ["Great Leap Forward 大躍進", "1958–1960", "A campaign launched by Mao to raise steel and grain output dramatically in a short time through mass mobilisation. It led to boasting and false reports, waste of resources and economic collapse."], "gongshe": ["People's communes 人民公社", "1958–1984", "Huge collective organisations formed by merging thousands, even tens of thousands, of farming households. Land and tools belonged to the collective, and farmers were paid according to 'work points'. They were dissolved after reform and opening up."], "dajihuang": ["Great Famine 大饑荒", "1959–1961", "The famine caused by the Great Leap Forward, which the Chinese government calls the 'Three Years of Difficulty' or the 'Three Years of Natural Disasters'. Estimates of the death toll generally range from 15 million to 45 million, making it one of the deadliest famines in human history."], "wenge": ["Cultural Revolution 文化大革命", "1966–1976", "A political campaign launched by Mao to purge 'representatives of the bourgeoisie' from the Party. The country fell into chaos; huge numbers of intellectuals, officials and ordinary people were persecuted, and cultural relics were destroyed. In 1981 the Communist Party formally repudiated it."], "hongweibing": ["Red Guards 紅衛兵", "1966–1968", "Students, mostly in their teens, who organised themselves in answer to Mao's call. They denounced teachers and officials, raided homes and smashed cultural relics. When fighting between factions got out of control, Mao sent them to the countryside."], "shangshan": ["Up to the mountains, down to the countryside 上山下鄉", "1968–1980", "Urban secondary-school leavers were sent to work in the countryside and border regions, under the slogan 'receive re-education from the poor and lower-middle peasants'. About 17 million young people were affected; they were called 'educated youth'. Xi Jinping was one of them."], "zhouenlai": ["Zhou Enlai 周恩來", "1898–1976", "The first premier of the People's Republic of China, in office until his death. As a young man he studied in France and Germany; he was head of the political department at the Whampoa Military Academy and a negotiator in the Xi'an Incident, and was famed for his diplomatic skill. After his death in 1976, people mourned him spontaneously, and this grew into the 'April Fifth Movement'."], "sirenbang": ["Gang of Four 四人幫", "Arrested October 1976", "Mao's wife Jiang Qing, with Zhang Chunqiao, Yao Wenyuan and Wang Hongwen: the main driving force of the Cultural Revolution. They were arrested less than a month after Mao's death, tried publicly in 1980–81 and given heavy sentences."], "gaige": ["Reform and opening up 改革開放", "From December 1978", "At home, reforming the economic system by bringing in market mechanisms and private enterprise; abroad, opening up to attract foreign investment and technology and to develop foreign trade. This policy brought China more than forty years of rapid economic growth."], "xiaogang": ["Xiaogang Village 小崗村", "Fengyang, Anhui", "An extremely poor village, where many people had gone begging during the Great Famine. In the winter of 1978, eighteen households pressed their red thumbprints onto a sheet of paper, secretly agreeing to divide the collective land among the families to farm. They agreed that if anyone went to prison for it, the others would help bring up his children."], "baochan": ["Household responsibility system 家庭聯產承包責任制", "Spread nationwide in the early 1980s", "The land still belonged to the collective, but was contracted out to individual households to farm. Once farmers had handed over the share due to the state and the collective, they kept the rest. This greatly increased their motivation, and grain output rose quickly."], "tequ": ["Special Economic Zones 經濟特區", "Set up in 1980", "Four coastal cities, Shenzhen, Zhuhai, Shantou and Xiamen, where foreign investors were given tax, land and other advantages and the market economy was tried out. In 1988 Hainan Island became the fifth Special Economic Zone."], "dusheng": ["One-child policy 獨生子女政策", "1980–2015", "A population policy limiting most urban families to one child. Those who broke it were fined or lost their jobs, and some places carried out forced abortions and sterilisations. Because of a traditional preference for sons, it led to an imbalance in the numbers of boys and girls born. It was replaced by a two-child policy in 2016 and a three-child policy in 2021."], "liusi": ["June Fourth Incident 六四事件", "3–4 June 1989", "The army's clearing and crushing of seven weeks of protests around Tiananmen Square in Beijing, causing heavy civilian casualties. In the West it is called the Tiananmen Square Massacre or the Tiananmen Square protests. The photograph of 'Tank Man', a lone man standing in front of a column of tanks, is famous around the world."], "wto": ["World Trade Organization 世界貿易組織", "China joined in 2001", "The international organisation that sets the rules of world trade. China joined only after fifteen years of negotiations, promising to cut tariffs and open its markets, and its exports then soared."], "nongmingong": ["Migrant workers 農民工", "From the 1980s", "Workers registered as rural residents who work in the cities; there are about 300 million of them today. Because they have no urban hukou, they and their children often cannot get the same education, health care and housing benefits as city residents."], "xijinping": ["Xi Jinping 習近平", "Born 1953", "General Secretary of the Chinese Communist Party since 2012 and state president since 2013. He is the most powerful Chinese leader since Mao, and has put forward slogans such as the 'Chinese Dream' and the 'great rejuvenation of the Chinese nation'."], "yidaiyilu": ["Belt and Road Initiative 一帶一路", "Proposed 2013", "Short for the 'Silk Road Economic Belt' and the '21st-Century Maritime Silk Road'. China has lent money to and invested in infrastructure in more than a hundred countries; supporters say it has promoted development, while critics worry about debt and Chinese influence."], "taiwan": ["Taiwan 台灣", "Seat of the Republic of China government", "Population about 23 million. After 1949 it was ruled by the Nationalist (Kuomintang) government and was long under martial law; martial law was lifted in 1987, Taiwan became a democracy in the 1990s, and today it is governed by elected governments. Only a few countries have formal diplomatic relations with it, but it has close unofficial ties with many."], "hukou": ["Hukou 戶口", "Strictly enforced from 1958", "Everyone is registered with an urban or rural hukou according to where they were born, and it decides where they can go to school, get medical care and receive welfare. In recent years some cities have relaxed the rules, but it is still very hard to get a hukou in the big cities."], "lianhe": ["Sino-British Joint Declaration 中英聯合聲明", "Signed 1984", "The agreement between China and Britain on Hong Kong's future: Britain would hand Hong Kong back to China on 1 July 1997, and China promised that Hong Kong would have 'one country, two systems', 'Hong Kong people ruling Hong Kong' and a high degree of autonomy, with its existing capitalist system and way of life unchanged for fifty years."], "yiguo": ["One country, two systems 一國兩制", "Proposed by Deng Xiaoping", "Within one country, the mainland follows a socialist system while Hong Kong and Macau keep a capitalist one. The idea was originally also put forward to attract Taiwan to reunify. Hong Kong's Basic Law is its legal foundation, promising to keep it until 2047."]}</script>
+  <nav class="pagenav" aria-label="Eras"><a class="prev" href="era9.html"><span class="dir">Previous · Era 9</span><span class="ttl">Republic of China</span></a></nav>
+</div>
+<div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-labelledby="lb-title">
+  <div class="lb-bar">
+    <span class="lb-title" id="lb-title"></span>
+    <button type="button" class="lb-close" id="lb-close">Close</button>
+  </div>
+  <div class="lb-controls">
+    <button type="button" id="lb-fit">Fit to screen</button>
+    <button type="button" id="lb-out" aria-label="Zoom out">&minus;</button>
+    <input type="range" id="lb-range" min="25" max="300" step="5" value="100" aria-label="Zoom level">
+    <button type="button" id="lb-in" aria-label="Zoom in">+</button>
+    <span class="lb-level" id="lb-level">100%</span>
+  </div>
+  <div class="lb-body" id="lb-body"></div>
+  <div class="lb-hint">Drag the slider or use &minus; and + to zoom from 25% to 300%. 100% fills the screen width. Scroll to move around.</div>
+</div>
+<script>
+(function () {
+  var box = document.getElementById('lightbox'), body = document.getElementById('lb-body');
+  var title = document.getElementById('lb-title'), level = document.getElementById('lb-level'), range = document.getElementById('lb-range');
+  var z = 1, MIN = 0.25, MAX = 3, current = null, opener = null;
+  function availW() { return Math.max(200, body.clientWidth - 32); }
+  function availH() { return Math.max(200, body.clientHeight - 32); }
+  function aspect() { var vb = current && current.viewBox && current.viewBox.baseVal; return vb && vb.width ? vb.height / vb.width : 0.6; }
+  function setZ(v) {
+    z = Math.min(MAX, Math.max(MIN, Math.round(v * 100) / 100));
+    if (current) current.style.width = Math.round(availW() * z) + 'px';
+    range.value = Math.round(z * 100); level.textContent = Math.round(z * 100) + '%';
+  }
+  function fit() { setZ(Math.min(1, availH() / (availW() * aspect()))); }
+  function open(svg, from) {
+    current = svg.cloneNode(true);
+    current.querySelectorAll('[id]').forEach(function (el) { el.removeAttribute('id'); });
+    current.removeAttribute('aria-labelledby');
+    var t = svg.querySelector('title'); title.textContent = t ? t.textContent : 'Diagram';
+    current.setAttribute('role', 'img'); current.setAttribute('aria-label', title.textContent);
+    body.innerHTML = ''; body.appendChild(current);
+    opener = from; box.hidden = false; document.documentElement.style.overflow = 'hidden';
+    fit(); body.scrollTop = 0; body.scrollLeft = 0;
+    document.getElementById('lb-close').focus();
+  }
+  function close() { box.hidden = true; body.innerHTML = ''; current = null; document.documentElement.style.overflow = ''; if (opener) opener.focus(); }
+  document.querySelectorAll('figure .frame').forEach(function (frame) {
+    var svg = frame.querySelector('svg'); if (!svg) return;
+    var b = document.createElement('button'); b.type = 'button'; b.className = 'zoom-btn'; b.textContent = 'Enlarge';
+    b.setAttribute('aria-label', 'Enlarge: ' + ((svg.querySelector('title') || {}).textContent || 'diagram'));
+    b.addEventListener('click', function () { open(svg, b); });
+    svg.addEventListener('click', function () { open(svg, b); });
+    frame.appendChild(b);
+  });
+  document.getElementById('lb-close').addEventListener('click', close);
+  document.getElementById('lb-fit').addEventListener('click', fit);
+  document.getElementById('lb-in').addEventListener('click', function () { setZ(z + 0.1); });
+  document.getElementById('lb-out').addEventListener('click', function () { setZ(z - 0.1); });
+  range.addEventListener('input', function () { setZ(range.value / 100); });
+  body.addEventListener('wheel', function (e) { if (!e.ctrlKey) return; e.preventDefault(); setZ(z * (e.deltaY < 0 ? 1.1 : 0.9)); }, { passive: false });
+  window.addEventListener('resize', function () { if (!box.hidden) setZ(z); });
+  document.addEventListener('keydown', function (e) {
+    if (box.hidden) return;
+    if (e.key === 'Escape') close();
+    else if (e.key === '+' || e.key === '=') setZ(z + 0.1);
+    else if (e.key === '-') setZ(z - 0.1);
+    else if (e.key === '0') fit();
+  });
+})();
+</script>
+<div class="glcard" id="glcard" role="dialog" aria-modal="false" aria-labelledby="gl-t" hidden>
+  <button type="button" class="gx" id="gl-x" aria-label="Close">×</button>
+  <span class="gt" id="gl-t"></span><span class="gs" id="gl-s"></span><p class="gb" id="gl-b"></p>
+</div>
+<script>
+(function () {
+  var el = document.getElementById('gloss'); if (!el) return;
+  var G = JSON.parse(el.textContent), card = document.getElementById('glcard'), cur = null;
+  function hide() { card.hidden = true; if (cur) { cur.setAttribute('aria-expanded', 'false'); } cur = null; }
+  function show(btn) {
+    var e = G[btn.dataset.g]; if (!e) return;
+    if (cur === btn) { hide(); return; }
+    if (cur) cur.setAttribute('aria-expanded', 'false');
+    document.getElementById('gl-t').textContent = e[0];
+    document.getElementById('gl-s').textContent = e[1];
+    document.getElementById('gl-b').textContent = e[2];
+    card.hidden = false; cur = btn; btn.setAttribute('aria-expanded', 'true');
+    if (window.innerWidth > 700) {
+      var r = btn.getBoundingClientRect(), w = card.offsetWidth, h = card.offsetHeight;
+      var left = Math.min(Math.max(16, r.left + window.scrollX), window.scrollX + document.documentElement.clientWidth - w - 16);
+      var top = r.bottom + window.scrollY + 8;
+      if (r.bottom + h + 16 > window.innerHeight && r.top > h + 16) top = r.top + window.scrollY - h - 8;
+      card.style.left = left + 'px'; card.style.top = top + 'px';
+    }
+    document.getElementById('gl-x').focus({ preventScroll: true });
+  }
+  document.querySelectorAll('button.gl').forEach(function (b) { b.setAttribute('aria-expanded', 'false'); b.addEventListener('click', function (ev) { ev.stopPropagation(); show(b); }); });
+  document.getElementById('gl-x').addEventListener('click', function () { var b = cur; hide(); if (b) b.focus(); });
+  card.addEventListener('click', function (ev) { ev.stopPropagation(); });
+  document.addEventListener('click', hide);
+  document.addEventListener('keydown', function (ev) { if (ev.key === 'Escape' && !card.hidden) { var b = cur; hide(); if (b) b.focus(); } });
+  window.addEventListener('resize', hide);
+})();
+</script>
+</body>
+</html>

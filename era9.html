@@ -1,0 +1,689 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Era 9: Republic of China · China Through Time</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,500;0,700;1,500&family=Source+Sans+3:wght@400;500;700&family=Noto+Serif+TC:wght@500;700&family=Noto+Sans+TC:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a field guide. Era strip across the top, then one long-form chapter per era with maps and drawings set into the text column. */
+:root {
+  --bg: #F3F4F0;
+  --surface: #FFFFFF;
+  --ink: #1E2421;
+  --muted: #5B645F;
+  --line: #D6DAD3;
+  --loch: #2B5F58;
+  --lichen: #9C7426;
+  --heather: #6A4B7C;
+  --moss: #3F6B3A;
+  --rust: #B0392B;
+  --river: #5B8DB0;
+  --sea: #D3E2E3;
+  --land: #EEEADF;
+  --land-edge: #A9AA9E;
+  --display: "Noto Serif TC", "Songti TC", "PMingLiU", serif;
+  --body: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #101614; --surface: #18201D; --ink: #E4E8E4; --muted: #9BA6A0; --line: #2B3632; --loch: #85C1B6; --lichen: #D8B458; --heather: #BFA0D2; --moss: #93C08A; --rust: #E4806C; --river: #7FB2D4; --sea: #15252A; --land: #2A302C; --land-edge: #5D6660;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #101614; --surface: #18201D; --ink: #E4E8E4; --muted: #9BA6A0; --line: #2B3632; --loch: #85C1B6; --lichen: #D8B458; --heather: #BFA0D2; --moss: #93C08A; --rust: #E4806C; --river: #7FB2D4; --sea: #15252A; --land: #2A302C; --land-edge: #5D6660;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 1.125rem; line-height: 1.65; }
+.wrap { max-width: 68rem; margin: 0 auto; padding-inline: 1.25rem; padding-block: 2.5rem 4rem; }
+h1, h2, h3 { font-family: var(--display); font-weight: 700; line-height: 1.15; text-wrap: balance; margin: 0; }
+p { margin: 0; }
+a { color: var(--loch); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--loch); outline-offset: 3px; border-radius: 3px; }
+.label { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+
+/* Masthead */
+header.mast { display: grid; gap: 1rem; padding-block: 1rem 2.5rem; border-bottom: 1px solid var(--line); }
+header.mast h1 { font-size: clamp(2.6rem, 7vw, 4.6rem); letter-spacing: -0.01em; }
+header.mast h1 em { font-style: italic; font-weight: 500; color: var(--loch); }
+header.mast .lede { max-width: 38rem; color: var(--muted); font-size: 1.2rem; }
+
+/* Era strip */
+.eras { list-style: none; margin: 2rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.5rem; }
+@media (max-width: 760px) { .eras { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.eras li { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 0.75rem 0.85rem; display: grid; gap: 0.15rem; min-width: 0; }
+.eras li.open { border-color: var(--loch); }
+.eras .n { font-family: var(--mono); font-size: 0.75rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.eras .t { font-family: var(--display); font-weight: 700; font-size: 1.05rem; line-height: 1.2; }
+.eras .cn { font-size: 0.85rem; color: var(--heather); }
+.eras .st { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.eras li.open .st { color: var(--loch); }
+.eras li:hover { border-color: var(--loch); }
+.eras a { color: inherit; text-decoration: none; display: grid; gap: 0.15rem; }
+.threads { margin-top: 1.25rem; color: var(--muted); font-size: 1rem; max-width: 44rem; }
+
+/* Chapter */
+article.era { margin-top: 3.5rem; display: grid; gap: 2.5rem; }
+.era-head { display: grid; gap: 0.6rem; }
+.era-head h2 { font-size: clamp(2rem, 5vw, 3rem); }
+.era-head .dates { font-family: var(--mono); color: var(--loch); font-size: 0.95rem; }
+.bigidea { font-family: var(--display); font-size: 1.35rem; line-height: 1.45; max-width: 44rem; border-left: 3px solid var(--lichen); padding-left: 1.1rem; }
+.cols { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 26rem); gap: 3rem; align-items: start; }
+@media (max-width: 900px) { .cols { grid-template-columns: minmax(0, 1fr); gap: 2rem; } }
+.text { display: grid; gap: 2.25rem; min-width: 0; max-width: 40rem; }
+.part { display: grid; gap: 0.7rem; }
+.part h3 { font-size: 1.45rem; }
+.part .when { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.part ul { margin: 0; padding-left: 1.2rem; display: grid; gap: 0.5rem; }
+.part li::marker { color: var(--lichen); }
+.events { list-style: none; padding: 0 !important; display: grid; gap: 0.75rem !important; }
+.events li { display: grid; grid-template-columns: 6.5rem minmax(0, 1fr); gap: 0.75rem; }
+.events .y { font-family: var(--mono); font-size: 0.85rem; color: var(--loch); padding-top: 0.2rem; font-variant-numeric: tabular-nums; }
+@media (max-width: 480px) { .events li { grid-template-columns: minmax(0, 1fr); gap: 0.1rem; } }
+.quote { font-family: var(--display); font-style: italic; font-size: 1.25rem; }
+.note { font-size: 0.95rem; color: var(--muted); }
+
+/* Figures */
+figure { margin: 0; display: grid; gap: 0.6rem; min-width: 0; }
+figure .frame { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 0.75rem; overflow-x: auto; }
+figure svg { display: block; width: 100%; height: auto; }
+figcaption { font-size: 0.9rem; color: var(--muted); line-height: 1.5; }
+figcaption b { color: var(--ink); font-weight: 500; }
+.side { display: grid; gap: 2rem; }
+@media (max-width: 900px) { .side { position: static; } }
+
+/* Map text */
+.m-sea { fill: var(--sea); }
+.m-land { fill: var(--land); stroke: var(--land-edge); stroke-width: 0.8; }
+.m-wall { fill: none; stroke: var(--lichen); stroke-width: 3.2; stroke-linecap: round; stroke-linejoin: round; }
+.m-border { fill: none; stroke: var(--muted); stroke-width: 1; stroke-dasharray: 3 3; }
+.m-dot { fill: var(--loch); stroke: var(--surface); stroke-width: 1.5; }
+.m-unknown { fill: none; stroke: var(--heather); stroke-width: 1.4; stroke-dasharray: 4 3; }
+.m-lab { font-family: var(--body); font-size: 12.5px; fill: var(--ink); paint-order: stroke; stroke: var(--surface); stroke-width: 3.5px; stroke-linejoin: round; }
+.m-lab.mu { fill: var(--muted); font-size: 11.5px; }
+.m-lab.wall { fill: var(--lichen); font-weight: 700; }
+.m-lab.h { fill: var(--heather); }
+.m-lab.sea { fill: var(--muted); stroke: var(--sea); font-style: italic; font-size: 12px; letter-spacing: 0.1em; }
+.legend { display: flex; flex-wrap: wrap; gap: 0.4rem 1rem; font-size: 0.85rem; color: var(--muted); }
+.legend span { display: inline-flex; align-items: center; gap: 0.4rem; }
+.sw { width: 18px; height: 0; border-top: 3px solid var(--lichen); display: inline-block; }
+.sw.d { border-top: 2px dashed var(--muted); }
+.sw.c { width: 10px; height: 10px; border: 0; border-radius: 50%; background: var(--loch); }
+
+.m-reg { font-family: var(--display); font-weight: 700; font-size: 15px; letter-spacing: 0.18em; paint-order: stroke; stroke: var(--land); stroke-width: 4px; stroke-linejoin: round; }
+.c-axis line { stroke: var(--muted); stroke-width: 1; }
+.c-track line { stroke: var(--line); stroke-width: 2; stroke-dasharray: 3 4; }
+.c-in line { stroke: var(--loch); stroke-width: 3; stroke-linecap: round; }
+.c-pt { fill: var(--loch); stroke: var(--surface); stroke-width: 2; }
+.c-pt.rust { fill: var(--rust); }
+.c-tick { font-family: var(--mono); font-size: 11px; fill: var(--muted); }
+.c-row { font-family: var(--body); font-size: 13px; fill: var(--ink); }
+.c-val { font-family: var(--mono); font-size: 11px; fill: var(--muted); paint-order: stroke; stroke: var(--surface); stroke-width: 3px; }
+.m-dot.rust { fill: var(--rust); }
+.r-adv { fill: none; stroke: var(--rust); stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+.r-ret { fill: none; stroke: var(--loch); stroke-width: 2; stroke-dasharray: 5 4; stroke-linejoin: round; }
+.b-adult { fill: var(--muted); opacity: 0.7; }
+.b-child { fill: var(--lichen); }
+.b-yes { fill: var(--loch); }
+.c-sub { font-family: var(--body); font-size: 11.5px; fill: var(--muted); }
+.c-mid { stroke: var(--muted); stroke-width: 1; stroke-dasharray: 3 3; }
+.c-grid line { stroke: var(--line); stroke-width: 1; }
+.c-note { font-family: var(--mono); font-size: 11px; fill: var(--lichen); letter-spacing: 0.06em; }
+.u-head { font-family: var(--display); font-weight: 700; font-size: 15px; fill: var(--ink); }
+.u-t { font-family: var(--body); font-size: 14px; fill: var(--ink); }
+.u-t.b { font-weight: 700; }
+.u-s { font-family: var(--body); font-size: 12.5px; fill: var(--muted); }
+.u-shared { fill: var(--sea); stroke: var(--loch); stroke-width: 1; }
+.u-scot { fill: var(--surface); stroke: var(--lichen); stroke-width: 1.5; }
+.u-eng { fill: var(--surface); stroke: var(--land-edge); stroke-width: 1; }
+.u-link { stroke: var(--loch); stroke-width: 1.2; }
+.u-div { stroke: var(--line); stroke-width: 1; }
+/* Illustration text */
+.i-stone { fill: var(--land); stroke: var(--land-edge); stroke-width: 1; }
+.i-ground { stroke: var(--muted); stroke-width: 1.2; }
+.i-lead { stroke: var(--muted); stroke-width: 0.7; stroke-dasharray: 2 2; fill: none; }
+.i-lab { font-family: var(--body); font-size: 13px; fill: var(--ink); }
+.i-lab.mu { fill: var(--muted); font-size: 12px; }
+
+/* Parallels */
+.parallel { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 1.5rem; display: grid; gap: 1.25rem; }
+.parallel h3 { font-size: 1.45rem; }
+.parallel .pair { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; }
+@media (max-width: 800px) { .parallel .pair { grid-template-columns: minmax(0, 1fr); } }
+.parallel .pair div { display: grid; gap: 0.4rem; align-content: start; min-width: 0; }
+.parallel h4 { margin: 0; font-family: var(--display); font-size: 1.1rem; font-weight: 700; }
+.zh { color: var(--heather); white-space: nowrap; }
+
+/* Visit */
+.visit { display: grid; gap: 1rem; }
+.visit h3 { font-size: 1.45rem; }
+.places { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem 1rem; }
+@media (max-width: 800px) { .places { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 480px) { .places { grid-template-columns: minmax(0, 1fr); } }
+.places li { border-top: 2px solid var(--loch); padding-top: 0.6rem; display: grid; gap: 0.25rem; align-content: start; }
+.places .nm { font-weight: 700; }
+.places .tm { font-family: var(--mono); font-size: 0.75rem; color: var(--muted); }
+.places p { font-size: 1rem; }
+.remember { font-family: var(--display); font-size: 1.3rem; line-height: 1.45; max-width: 44rem; padding-block: 1.5rem; border-block: 1px solid var(--line); }
+.remember .label { display: block; margin-bottom: 0.4rem; font-family: var(--mono); }
+footer { margin-top: 3rem; font-size: 0.9rem; color: var(--muted); display: grid; gap: 0.4rem; max-width: 44rem; }
+
+[id] { scroll-margin-top: 1rem; }
+body { margin: 0; }
+.topbar { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; padding-block: 0.25rem 1rem; border-bottom: 1px solid var(--line); font-family: var(--mono); font-size: 0.8rem; color: var(--muted); }
+.topbar a { text-decoration: none; }
+.jump { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.jump a { font-family: var(--mono); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; padding: 0.3rem 0.65rem; border: 1px solid var(--line); border-radius: 999px; text-decoration: none; color: var(--muted); background: var(--surface); }
+.jump a:hover { color: var(--loch); border-color: var(--loch); }
+.block { display: grid; gap: 1rem; }
+.block h3 { font-size: 1.45rem; }
+.life { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.75rem; }
+@media (max-width: 800px) { .life { grid-template-columns: minmax(0, 1fr); gap: 1.25rem; } }
+.life > div { display: grid; gap: 0.4rem; align-content: start; min-width: 0; }
+.life h4, .people .nm { margin: 0; font-family: var(--display); font-size: 1.1rem; font-weight: 700; }
+.people { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.75rem; }
+@media (max-width: 800px) { .people { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 480px) { .people { grid-template-columns: minmax(0, 1fr); } }
+.people li { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 1rem; display: grid; gap: 0.3rem; align-content: start; min-width: 0; }
+.people .rl { font-family: var(--mono); font-size: 0.75rem; color: var(--muted); }
+.people p { font-size: 1rem; }
+.myths { list-style: none; margin: 0; padding: 0; display: grid; }
+.myths li { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 1.5rem; border-top: 1px solid var(--line); padding-block: 0.9rem; }
+.myths li:last-child { border-bottom: 1px solid var(--line); }
+@media (max-width: 700px) { .myths li { grid-template-columns: minmax(0, 1fr); gap: 0.35rem; } }
+.myths .mq { font-family: var(--display); font-style: italic; font-size: 1.15rem; line-height: 1.4; }
+.myths .ma b { color: var(--rust); font-weight: 700; }
+.words { margin: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem 1.5rem; }
+@media (max-width: 800px) { .words { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 480px) { .words { grid-template-columns: minmax(0, 1fr); } }
+.words div { border-left: 2px solid var(--lichen); padding-left: 0.8rem; border-radius: 0; min-width: 0; }
+.words dt { font-family: var(--display); font-weight: 700; font-size: 1.1rem; }
+.words dd { margin: 0; font-size: 1rem; color: var(--muted); }
+.pagenav { display: flex; justify-content: space-between; gap: 1rem; margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--line); }
+.pagenav a { display: grid; gap: 0.2rem; text-decoration: none; min-width: 0; }
+.pagenav a.next { text-align: right; margin-left: auto; }
+.pagenav .dir { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.pagenav .ttl { font-family: var(--display); font-weight: 700; font-size: 1.2rem; color: var(--ink); }
+.intro { max-width: 44rem; display: grid; gap: 0.75rem; margin-top: 2rem; color: var(--muted); }
+.i-wall { fill: var(--land); stroke: var(--land-edge); stroke-width: 1; }
+.i-floor { fill: var(--surface); stroke: var(--land-edge); stroke-width: 1; }
+.i-edge { stroke: var(--land-edge); stroke-width: 1; }
+.i-hearth { fill: var(--lichen); opacity: 0.75; }
+.i-bedding { fill: var(--moss); opacity: 0.35; }
+.i-water { fill: var(--sea); stroke: var(--loch); stroke-width: 1; }
+[hidden] { display: none !important; }
+.frame { position: relative; }
+.zoom-btn { position: absolute; top: 0.5rem; right: 0.5rem; display: inline-flex; align-items: center; gap: 0.35rem; font: 500 0.8rem var(--body); color: var(--loch); background: var(--surface); border: 1px solid var(--loch); border-radius: 999px; padding: 0.3rem 0.7rem; cursor: pointer; }
+.zoom-btn:hover { background: var(--loch); color: var(--surface); }
+figure .frame svg { cursor: zoom-in; }
+.lightbox { position: fixed; inset: 0; z-index: 50; background: var(--bg); display: flex; flex-direction: column; padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+.lb-bar { display: flex; align-items: center; gap: 0.5rem; padding: 0.6rem 1rem; border-bottom: 1px solid var(--line); background: var(--surface); }
+.lb-title { flex: 1; min-width: 0; font-family: var(--display); font-weight: 700; font-size: 1rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.lb-bar button { font: 500 1rem var(--body); min-width: 2.5rem; height: 2.5rem; padding: 0 0.8rem; border: 1px solid var(--line); border-radius: 6px; background: var(--bg); color: var(--ink); cursor: pointer; }
+.lb-bar button:hover { border-color: var(--loch); color: var(--loch); }
+.lb-bar .lb-close { background: var(--loch); color: var(--surface); border-color: var(--loch); }
+.lb-level { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); min-width: 3.2rem; text-align: center; font-variant-numeric: tabular-nums; }
+.lb-controls { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; padding: 0.5rem 1rem; border-bottom: 1px solid var(--line); background: var(--surface); }
+.lb-controls button { font: 500 1rem var(--body); min-width: 2.5rem; height: 2.5rem; padding: 0 0.8rem; border: 1px solid var(--line); border-radius: 6px; background: var(--bg); color: var(--ink); cursor: pointer; }
+.lb-controls button:hover { border-color: var(--loch); color: var(--loch); }
+.lb-controls input[type=range] { flex: 1; min-width: 8rem; accent-color: var(--loch); }
+.lb-body { flex: 1; overflow: auto; padding: 1rem; -webkit-overflow-scrolling: touch; }
+.lb-body svg { display: block; height: auto; margin: 0 auto; max-width: none; }
+.lb-hint { font-size: 0.85rem; color: var(--muted); text-align: center; padding: 0.4rem 1rem 0.6rem; }
+.t-live { fill: var(--surface); stroke: var(--loch); stroke-width: 1.5; }
+.t-dead { fill: var(--surface); stroke: var(--muted); stroke-width: 1; stroke-dasharray: 4 3; }
+.c-axis-v { stroke: var(--muted); stroke-width: 1; }
+.c-row.rust { fill: var(--rust); }
+
+body { font-size: 1.0625rem; line-height: 1.85; }
+.label { font-family: var(--body); letter-spacing: 0.12em; text-transform: none; }
+h1, h2, h3, .people .nm, .life h4, .parallel h4, .words dt, .pagenav .ttl { letter-spacing: 0.02em; }
+.bigidea, .remember, .quote, .myths .mq { line-height: 1.7; }
+.myths .mq { font-style: normal; }
+.quote { font-style: normal; }
+.m-river { fill: none; stroke: var(--river); stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; opacity: 0.85; }
+.m-route { fill: none; stroke: var(--rust); stroke-width: 2.4; stroke-linejoin: round; stroke-linecap: round; }
+.m-route2 { fill: none; stroke: var(--lichen); stroke-width: 2.6; stroke-linejoin: round; stroke-linecap: round; }
+.m-lab.river { fill: var(--river); font-style: italic; }
+.m-lab.red { fill: var(--rust); }
+.m-reg { font-family: var(--display); font-weight: 700; font-size: 15px; letter-spacing: 0.3em; paint-order: stroke; stroke: var(--land); stroke-width: 4px; stroke-linejoin: round; }
+.hk { background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--rust); border-radius: 0; padding: 1.25rem 1.5rem; display: grid; gap: 0.6rem; }
+.hk h3 { font-size: 1.35rem; }
+.hk .label { color: var(--rust); }
+.eras.cn { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+@media (max-width: 900px) { .eras.cn { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+.startlink { display: block; margin: 0 0 1.5rem; padding: 1rem 1.25rem; border: 1.5px solid var(--loch); border-radius: 6px; background: var(--surface); color: var(--ink); text-decoration: none; }
+.startlink .dir { display: block; font-family: var(--mono); font-size: 0.8rem; color: var(--loch); letter-spacing: 0.05em; }
+.startlink .ttl { display: block; margin-top: 0.25rem; font-family: var(--display); font-weight: 700; font-size: 1.05rem; }
+.startlink:hover { background: var(--sea); }
+.text .stages { margin: 0.5rem 0 1rem; }
+.stages { margin: 0; padding-left: 0; list-style: none; display: grid; gap: 0.45rem; font-size: 0.95rem; line-height: 1.7; }
+.glhint { font-size: 0.9rem; color: var(--muted); margin-top: -1.25rem; }
+button.gl { font: inherit; color: inherit; background: none; border: 0; padding: 0; margin: 0; cursor: pointer; text-decoration: underline dotted var(--loch); text-decoration-thickness: 1.5px; text-underline-offset: 4px; }
+button.gl:hover, button.gl[aria-expanded="true"] { color: var(--loch); background: color-mix(in srgb, var(--loch) 10%, transparent); }
+.glcard { position: absolute; z-index: 40; width: min(22rem, calc(100vw - 32px)); background: var(--surface); border: 1px solid var(--line); border-top: 3px solid var(--loch); border-radius: 6px; box-shadow: 0 10px 30px rgba(0,0,0,0.18); padding: 1rem 1.1rem 1.1rem; display: grid; gap: 0.35rem; }
+.glcard .gt { font-family: var(--display); font-weight: 700; font-size: 1.15rem; padding-right: 2rem; }
+.glcard .gs { font-size: 0.85rem; color: var(--muted); }
+.glcard .gb { font-size: 1rem; line-height: 1.75; }
+.glcard .gx { position: absolute; top: 0.5rem; right: 0.5rem; width: 2rem; height: 2rem; border: 0; background: none; font-size: 1.3rem; color: var(--muted); cursor: pointer; border-radius: 4px; }
+.glcard .gx:hover { background: var(--bg); color: var(--ink); }
+@media (max-width: 700px) { .glcard { position: fixed; left: 0 !important; right: 0; bottom: 0; top: auto !important; width: auto; border-radius: 12px 12px 0 0; padding-bottom: calc(1.1rem + env(safe-area-inset-bottom, 0px)); } }
+.homefig { margin-top: 2.5rem; max-width: 60rem; }
+figure.homefig .frame { padding-top: 2.75rem; }
+.frame { padding-top: 2.75rem; }
+header.mast h1 em { font-style: normal; }
+.jump a { text-transform: none; letter-spacing: 0.04em; font-family: var(--body); font-size: 0.8rem; }
+
+:root { --display: "Source Serif 4", "Noto Serif TC", Georgia, serif; --body: "Source Sans 3", "Noto Sans TC", system-ui, sans-serif; }
+body { line-height: 1.7; }
+.label { font-family: var(--mono); letter-spacing: 0.08em; text-transform: uppercase; }
+.m-reg { letter-spacing: 0.12em; }
+.myths .mq { font-style: italic; }
+.eras.cn .t { font-size: 1rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar"><a href="index.html">China Through Time</a><span>Era 9 of 10</span></div>
+  <article class="era" id="era9">
+    <div class="era-head">
+      <span class="label">Era 9</span>
+      <h2>Republic of China</h2>
+      <span class="dates">1912 – 1949</span>
+    </div>
+
+    <p class="bigidea">After the fall of the Qing (清), China became one of Asia's first republics, but the new republic soon descended into fighting between warlords. In these thirty-seven years China had hardly a single year of complete peace: first the warlords carved up the country, then came the struggle between two political parties, the Nationalists and the Communists, then more than ten years of Japanese invasion, and finally civil war between the Nationalists and the Communists. At the same time, this was an age in which new ideas, a new literature and new ways of living emerged. In 1949 the Communists won the civil war and founded the People's Republic of China (中華人民共和國); the government of the Republic of China, led by the Kuomintang, withdrew to Taiwan, where it continues to this day.</p>
+
+    <p class="glhint">Names and terms with a dotted underline can be tapped for a short explanation.</p>
+
+    <nav class="jump" aria-label="In this era">
+      <a href="#story">The story</a><a href="#life">Daily life</a><a href="#people">Key people</a><a href="#myths">Myth or fact</a><a href="#evidence">How we know</a><a href="#words">Key terms</a><a href="#hk">Hong Kong</a><a href="#world">The world</a><a href="#visit">Visit</a>
+    </nav>
+
+    <div class="cols" id="story">
+      <div class="text">
+        <section class="part">
+          <span class="when">Before we begin</span>
+          <h3>Two parties, three wars</h3>
+          <p>The main actors in this era are two political parties. The <button type="button" class="gl" data-g="kmt" aria-haspopup="dialog">Kuomintang</button> (國民黨) was founded by Sun Yat-sen and is often called the Nationalists in English; the <button type="button" class="gl" data-g="ccp" aria-haspopup="dialog">Chinese Communist Party</button> (共產黨) was founded in 1921 and is known in English as the Communists. The two parties worked together twice, and twice went to war with each other. To make sense of this era, keep three wars in mind: the fighting between the warlords (1916–1928), the Japanese invasion (1931–1945) and the civil war between the Nationalists and the Communists (1927–1936 and 1945–1949) (see Figure 1).</p>
+          <p>Note that the <button type="button" class="gl" data-g="roc" aria-haspopup="dialog">Republic of China</button> did not disappear in 1949. Its government moved to Taiwan, and today Taiwan's official name is still the Republic of China. Taiwan's newspapers and government documents still use the "Republic calendar" (民國紀年): 2026, for example, is the year 115 of the Republic. So the history of this era still shapes relations between the two sides of the Taiwan Strait (台灣海峽) today.</p>
+          <p>A European reader can line it up like this: these thirty-seven years took in the First World War, the Russian Revolution, the Great Depression and the Second World War. For China, the Second World War did not begin in 1939 but earlier: Japan launched its full-scale invasion of China in 1937, and some people count from as early as 1931.</p>
+        </section>
+
+        <section class="part">
+          <span class="when">1912 – 1916</span>
+          <h3>The birth of the Republic, and Yuan Shikai</h3>
+          <p>On 1 January 1912 the revolutionaries founded the Republic of China in Nanjing (南京) and chose <button type="button" class="gl" data-g="sunyatsen" aria-haspopup="dialog">Sun Yat-sen</button> (孫中山) as provisional president. But the revolutionaries did not have enough troops; the man who really held military power was the Qing minister <button type="button" class="gl" data-g="yuanshikai" aria-haspopup="dialog">Yuan Shikai</button> (袁世凱). The two sides struck a deal: Yuan would persuade the six-year-old emperor <button type="button" class="gl" data-g="puyi" aria-haspopup="dialog">Puyi</button> (溥儀) to abdicate, and Sun would hand the presidency over to Yuan. On 12 February 1912 the Qing emperor abdicated, and more than two thousand years of imperial rule came to an end.</p>
+          <p>In 1913 China held its first parliamentary election, and the Kuomintang won the most seats. The Kuomintang's leader, Song Jiaoren (宋教仁), was about to become prime minister when he was assassinated at Shanghai (上海) railway station; many suspected that Yuan Shikai was behind it. Yuan then dissolved the Kuomintang, did away with parliament and took all power into his own hands. In 1915 he announced the restoration of the monarchy, with himself as emperor. Province after province opposed him, and even his own subordinates would not back him. After eighty-three days he was forced to abandon the monarchy, and soon afterwards he died of illness.</p>
+        </section>
+
+        <section class="part">
+          <span class="when">1916 – 1928</span>
+          <h3>The warlord era</h3>
+          <p>After Yuan Shikai's death, no one was able to control the whole of China. Generals who commanded armies in different regions were known as <button type="button" class="gl" data-g="junfa" aria-haspopup="dialog">warlords</button>: each carved out his own territory, collected his own taxes and fought the others. The central government in Beijing (北京), known as the <button type="button" class="gl" data-g="beiyang" aria-haspopup="dialog">Beiyang government</button>, was controlled in turn by whichever warlords were strongest, and went through dozens of cabinets in little more than ten years. In 1917 one warlord even put Puyi back on the throne, but the attempt collapsed after twelve days. For ordinary people, all this meant crushing taxes and levies, looting by soldiers and year after year of war.</p>
+          <p>In the northeast, the warlord <button type="button" class="gl" data-g="zhangzuolin" aria-haspopup="dialog">Zhang Zuolin</button> (張作霖) controlled three provinces. In the south, Sun Yat-sen set up a rival government in Guangzhou (廣州) to challenge Beijing, but he had no reliable army of his own and was driven out by local warlords several times. China was in effect broken into many pieces, much like the Five Dynasties and Ten Kingdoms (五代十國) more than a thousand years earlier.</p>
+        </section>
+
+        <section class="part">
+          <span class="when">1915 – 1925</span>
+          <h3>The New Culture Movement and the May Fourth Movement</h3>
+          <p>Many young intellectuals believed that overthrowing the emperor had not changed China, because Chinese minds were still bound by old traditions. In 1915 <button type="button" class="gl" data-g="chenduxiu" aria-haspopup="dialog">Chen Duxiu</button> (陳獨秀) founded the magazine <button type="button" class="gl" data-g="xinqingnian" aria-haspopup="dialog">New Youth</button> (新青年), which fiercely attacked Confucian moral codes and championed "Mr De" (德先生) and "Mr Sai" (賽先生), that is, democracy and science. The scholar <button type="button" class="gl" data-g="hushi" aria-haspopup="dialog">Hu Shi</button> (胡適) argued for writing in <button type="button" class="gl" data-g="baihua" aria-haspopup="dialog">vernacular Chinese</button>, based on everyday speech, in place of the classical Chinese that for two thousand years only the educated could understand. Written Chinese today is the result of this movement. In 1918 the writer <button type="button" class="gl" data-g="luxun" aria-haspopup="dialog">Lu Xun</button> (魯迅) published "A Madman's Diary" (狂人日記), China's first modern short story in the vernacular. Through the eyes of a madman, it says that every page of China's history books has the words "eat people" written on it. Together, these movements are known as the <button type="button" class="gl" data-g="xinwenhua" aria-haspopup="dialog">New Culture Movement</button>.</p>
+          <p>During the First World War, China joined the Allied side in 1917 and sent about 140,000 Chinese labourers to Europe, where they dug trenches and carried ammunition on the French front. The Chinese believed that after victory they would recover the rights Germany held in Shandong (山東). But at the Paris Peace Conference in 1919, Britain, France, the United States and others agreed to hand those rights to Japan. When the news arrived, on 4 May 1919 more than three thousand students in Beijing took to the streets to protest against their government's weakness. The movement quickly spread across the country, with workers going on strike and merchants shutting their shops, and in the end the Chinese delegates refused to sign the peace treaty. This was the <button type="button" class="gl" data-g="wusi" aria-haspopup="dialog">May Fourth Movement</button>. Many later leaders of both the Nationalists and the Communists first entered politics through this movement.</p>
+        </section>
+
+        <section class="part">
+          <span class="when">1921 – 1927</span>
+          <h3>The two parties: alliance and split</h3>
+          <p>After the Russian Revolution succeeded in 1917, Russia's new regime (later the Soviet Union) began exporting revolution to China. In July 1921 a dozen or so delegates met in secret in a house in the French Concession (法租界) in Shanghai and founded the Chinese Communist Party. One of them was a young teacher from Hunan (湖南), <button type="button" class="gl" data-g="maozedong" aria-haspopup="dialog">Mao Zedong</button> (毛澤東). At the same time, the Soviet Union also helped Sun Yat-sen reorganise the Kuomintang, supplying weapons, money and advisers, on condition that Communists be allowed to join the Kuomintang as individuals. This was known as the <button type="button" class="gl" data-g="guogong1" aria-haspopup="dialog">First United Front</button>. In 1924 the Kuomintang founded the <button type="button" class="gl" data-g="huangpu" aria-haspopup="dialog">Whampoa Military Academy</button> (黃埔軍校) near Guangzhou to train an army of its own; its commandant was <button type="button" class="gl" data-g="chiangkaishek" aria-haspopup="dialog">Chiang Kai-shek</button> (蔣介石).</p>
+          <p>Sun Yat-sen died of illness in 1925. His <button type="button" class="gl" data-g="sanmin" aria-haspopup="dialog">Three Principles of the People</button> (三民主義, sanmin zhuyi), nationalism, democracy and the people's livelihood, became the Kuomintang's guiding ideology. In 1926 Chiang Kai-shek led the National Revolutionary Army (國民革命軍) north from Guangzhou on the Northern Expedition (北伐, beifa), to defeat the warlords and reunify China, and it swept all before it. But tensions inside the Kuomintang, and between the Nationalists and the Communists, grew ever sharper. On 12 April 1927 Chiang suddenly ordered a purge of Communists in Shanghai, and thousands of Communists and workers were arrested and killed. This is known as the <button type="button" class="gl" data-g="siyier" aria-haspopup="dialog">12 April Incident</button> (四一二事件), and it ended the First United Front. In 1928 the Northern Expedition's armies entered Beijing, and Zhang Xueliang (張學良) in the northeast declared his loyalty to the Nanjing government: China was reunified, at least in name.</p>
+        </section>
+
+        <section class="part">
+          <span class="when">1928 – 1937</span>
+          <h3>The Nanjing Decade and the Long March</h3>
+          <p>Over the next ten years, the <button type="button" class="gl" data-g="nanjinggov" aria-haspopup="dialog">Nationalist Government</button> (國民政府) that the Kuomintang set up in Nanjing built railways and roads, unified the currency and developed industry and education, and Shanghai became the most glittering city in the Far East. But the government's power lay mainly in the big cities of the east. The vast countryside remained poor, and many areas were still controlled by warlords. The Kuomintang ruled as a single party and restricted freedom of speech.</p>
+          <p>Driven out of the cities, the Communists moved to the countryside and set up bases of their own in mountainous areas such as southern Jiangxi (江西), known as <button type="button" class="gl" data-g="suqu" aria-haspopup="dialog">soviet areas</button> (蘇區, suqu). There they took land from landlords and gave it to the peasants, and formed the Red Army (紅軍). Chiang Kai-shek saw the Communists as a more urgent threat than Japan, and five times sent huge armies to encircle and wipe them out. In October 1934 the Red Army was forced to abandon its base in Jiangxi and began a great retreat, first west and then north, known as the <button type="button" class="gl" data-g="changzheng" aria-haspopup="dialog">Long March</button> (長征, changzheng) (see Map 2). Over a year they crossed snow-covered mountains and marshy grasslands, covering a distance said to be more than 12,000 km. A little over 80,000 set out; fewer than 10,000 were left when they reached northern Shaanxi (陝西). During the march, at a meeting in Zunyi (遵義), Guizhou (貴州), in 1935, Mao Zedong won the leadership of the Red Army. In the end the Red Army made <button type="button" class="gl" data-g="yanan" aria-haspopup="dialog">Yan'an</button> (延安) in northern Shaanxi the centre of a new base.</p>
+        </section>
+
+        <section class="part">
+          <span class="when">1931 – 1937</span>
+          <h3>The Japanese invasion and the Xi'an Incident</h3>
+          <p>Ever since the First Sino-Japanese War (甲午戰爭; see Era 8), Japan had been seeking to widen its power in China. On 18 September 1931 Japanese troops stationed in the northeast blew up a section of railway near Shenyang (瀋陽), falsely blamed Chinese troops, and used this as an excuse to occupy the whole of the northeast. This is known as the <button type="button" class="gl" data-g="jiuyiba" aria-haspopup="dialog">September 18th Incident</button> (九一八事變). The next year Japan set up a puppet state in the northeast, <button type="button" class="gl" data-g="manzhouguo" aria-haspopup="dialog">Manchukuo</button> (滿洲國), with the last emperor, Puyi, who had long since abdicated, as head of state, and later even made him its "emperor". This part of his life is told in detail in the film <i>The Last Emperor</i>.</p>
+          <p>As Japan pressed further and further, Chiang Kai-shek still insisted on "pacifying the interior before resisting the outside", in other words, wiping out the Communists first and resisting Japan afterwards, and more and more people grew angry. In December 1936 <button type="button" class="gl" data-g="zhangxueliang" aria-haspopup="dialog">Zhang Xueliang</button>, the Northeastern Army (東北軍) general responsible for encircling the Red Army in the northwest, detained Chiang when he came to Xi'an to oversee the campaign, and demanded that he end the civil war and join with the Communists against Japan. This is known as the <button type="button" class="gl" data-g="xian" aria-haspopup="dialog">Xi'an Incident</button> (西安事變). After negotiations Chiang agreed, and the two parties joined forces once more. Zhang Xueliang personally escorted Chiang back to Nanjing, where he was promptly detained himself; he spent more than fifty years under house arrest.</p>
+        </section>
+
+        <section class="part">
+          <span class="when">1937 – 1945</span>
+          <h3>All-out war against Japan</h3>
+          <p>On 7 July 1937, near the Lugou Bridge (盧溝橋, known in the West as the Marco Polo Bridge) on the southwestern outskirts of Beijing, Chinese and Japanese troops clashed, in what is known as the <button type="button" class="gl" data-g="qiqi" aria-haspopup="dialog">July 7th Incident</button> (七七事變). Japan at once launched a full-scale invasion, and China's <button type="button" class="gl" data-g="kangzhan" aria-haspopup="dialog">War of Resistance against Japan</button> (抗日戰爭) broke out in full (see Map 3). From August to November that year, Chinese troops fought the Japanese for three months in Shanghai, suffering very heavy losses but showing the world China's determination to resist. In December the Japanese army captured Nanjing, then the capital, and over the following six weeks massacred large numbers of soldiers who had laid down their arms, as well as civilians, and raped women on a massive scale. This is known as the <button type="button" class="gl" data-g="nanjingdatusha" aria-haspopup="dialog">Nanjing Massacre</button> (南京大屠殺). The number of victims is still disputed: the official Chinese figure is more than 300,000, while the postwar Tokyo Trial found that more than 200,000 were killed. A German businessman in Nanjing, <button type="button" class="gl" data-g="rabe" aria-haspopup="dialog">John Rabe</button>, together with other Westerners, set up a "Safety Zone" (安全區) that protected more than 200,000 refugees.</p>
+          <p>The Nationalist Government moved the capital to <button type="button" class="gl" data-g="chongqing" aria-haspopup="dialog">Chongqing</button> (重慶) in Sichuan, and factories, universities and tens of millions of refugees moved west into the interior. The Japanese army occupied the big cities and transport lines of the east but could not control the vast countryside, while the Communist forces fought a guerrilla war behind Japanese lines and rapidly expanded their power. Japan bombed Chongqing for years. After Japan's surprise attack on Pearl Harbor in December 1941, China formally became an ally of Britain and the United States, and the Americans sent supplies to China through Burma and over the Himalayas along the air route known as "the Hump".</p>
+          <p>In August 1945 the United States dropped two atomic bombs on Japan and the Soviet Union sent its army into the northeast, and on 15 August Japan announced its surrender. China was one of the victors. It recovered the northeast and <button type="button" class="gl" data-g="taiwan" aria-haspopup="dialog">Taiwan</button> (台灣), which Japan had ruled for fifty years, and became one of the five permanent members of the Security Council of the newly founded United Nations. But the price was terrible: by common estimates, 14 to 20 million Chinese soldiers and civilians died in the war, and about 100 million more became refugees.</p>
+        </section>
+
+        <section class="part">
+          <span class="when">1945 – 1949</span>
+          <h3>The civil war</h3>
+          <p>After the victory over Japan, the United States sent General Marshall to China to mediate, hoping the two parties would form a coalition government, but the talks failed, and in 1946 full-scale civil war broke out. At first the Kuomintang had more troops, as well as American aid, but the government was corrupt and inflation ran out of control: the new currency issued in 1948, the <button type="button" class="gl" data-g="jinyuanquan" aria-haspopup="dialog">gold yuan</button> (金圓券), lost tens of thousands of times its value within a year. People had to carry banknotes in sacks to buy rice, and the urban middle class lost all faith in the government. The Communists, meanwhile, carried out <button type="button" class="gl" data-g="tugai" aria-haspopup="dialog">land reform</button> (土地改革) in the countryside, giving landlords' land to the peasants. This won them the support of vast numbers of peasants, and they also won over many intellectuals and students.</p>
+          <p>From 1948 to early 1949 the two sides fought three huge, decisive campaigns in the northeast, east China and north China, known as the <button type="button" class="gl" data-g="sanda" aria-haspopup="dialog">Three Great Campaigns</button> (三大戰役), and the Kuomintang's main forces were destroyed. In April 1949 the People's Liberation Army (解放軍) crossed the Yangtze (長江) and took Nanjing. On 1 October 1949, standing on the Gate of Heavenly Peace (Tiananmen, 天安門) in Beijing, Mao Zedong proclaimed the founding of the People's Republic of China.</p>
+          <p>In December that year Chiang Kai-shek's Nationalist Government moved to Taiwan, taking with it more than a million soldiers and civilians. They also took a great many precious treasures from the Palace Museum (故宮) in Beijing and the Central Museum (中央博物院) in Nanjing, which are now kept in the National Palace Museum (故宮博物院) in Taipei (台北). Since then the two sides of the Taiwan Strait have been governed separately, right up to today.</p>
+        </section>
+      </div>
+
+      <aside class="side">
+<figure>
+          <div class="frame">
+            <svg viewBox="0 0 600 250" role="img" aria-labelledby="c9time">
+              <title id="c9time">Timeline of the main periods from 1912 to 1949, to scale</title><g transform="translate(0 24)">
+              <line class="c-mid" x1="206.8" y1="12" x2="206.8" y2="172"/><line class="c-mid" x1="231.6" y1="12" x2="231.6" y2="172"/>
+              <text class="c-row" x="0" y="34">Beiyang govt</text>
+              <rect class="b-adult" x="120" y="22" width="198.4" height="16" rx="2"/>
+              <text class="c-row" x="0" y="74">Nationalist govt</text>
+              <rect class="b-yes" x="306" y="62" width="124" height="16" rx="2"/>
+              <text class="c-row" x="0" y="114">War with Japan</text>
+              <rect class="b-child" x="355.6" y="102" width="74.4" height="16" rx="2" opacity="0.45"/><rect class="b-child" x="430" y="102" width="99.2" height="16" rx="2"/>
+              <text class="c-row" x="0" y="154">Civil war</text>
+              <rect class="b-yes" x="306" y="142" width="111.6" height="16" rx="2" opacity="0.4" style="fill:var(--rust)"/><rect class="b-yes" x="529.2" y="142" width="49.6" height="16" rx="2" style="fill:var(--rust)"/>
+              <text class="c-note" x="200" y="186" text-anchor="end">1919 May Fourth</text>
+              <text class="c-note" x="238" y="186">1921 CCP founded</text>
+              <g class="c-axis"><line x1="120" y1="196" x2="580" y2="196"/></g>
+              <text class="c-tick" x="120" y="216" text-anchor="middle">1912</text><text class="c-tick" x="219.2" y="216" text-anchor="middle">1920</text><text class="c-tick" x="343.2" y="216" text-anchor="middle">1930</text><text class="c-tick" x="467.2" y="216" text-anchor="middle">1940</text><text class="c-tick" x="578.8" y="216" text-anchor="middle">1949</text>
+            </g></svg>
+          </div>
+          <figcaption><b>Figure 1: How many of the thirty-seven years were peaceful?</b> Drawn to scale. Paler bars: Japan's occupation of the northeast and partial invasion between 1931 and 1937, and the first civil war between the Nationalists and the Communists, from 1927 to 1936. In thirty-seven years China had hardly a single year of complete peace.</figcaption>
+        </figure>
+        <figure>
+          <div class="frame">
+            <svg viewBox="0 0 520 440" role="img" aria-labelledby="c9ma"><title id="c9ma">The route of the Long March: from Ruijin in Jiangxi, through Guizhou and Sichuan, to northern Shaanxi</title><rect class="m-sea" x="0" y="0" width="520" height="440" rx="4"/><path class="m-land" d="M500.7,0L500.1,0.5L498.6,1L496.6,0.8L494.9,1.2L491.9,0.6L488.3,2.4L484.2,4L480.7,0.1L480.4,0L500.7,0ZM474.9,0L474.1,0.2L472.1,2L468.2,10.5L466.7,15.3L466.8,17.3L469.1,23.3L471.7,26.7L477.5,30.5L490,33.2L492.8,32.2L496,32.2L499.3,34.7L501.3,38.8L501.5,41.7L501.5,42.7L502.3,43.5L502.7,44.9L501.5,46.1L500.5,46.7L499.6,51L499.6,55.8L500.6,57.4L503.3,59.7L507.5,61.5L511.3,61.9L518.5,61.1L520,59.6L520,105.7L520,105.7L519.7,105.9L517.6,106.7L515,110.1L513,113.4L510.8,115L509,120.4L505.8,123.3L504.6,128L505.4,130.9L508.9,130.8L510.7,131.8L514.4,135.6L518.8,138L520,138.4L520,347.2L520,347.2L519.2,347.5L518.7,349L517.4,350.3L516,349.8L514.5,348.8L514.6,350.2L515.3,351.6L515.7,353.1L517.7,353.4L519.1,355.1L520,357L520,361.2L520,361.2L519.4,361.5L516.9,363.2L514,366L511.5,367.9L509.3,367.9L508.1,367.7L506.1,366.6L503.9,366.2L506.9,370L508.5,370.7L510.5,370.6L512.5,369.1L515.2,369.2L515.9,371.5L515.2,374L513.6,377.2L513.4,380L515.2,384L515.3,385.2L514.6,385.8L512.4,384.8L510.6,383.5L508.7,383.8L506.9,383.2L504.9,383.7L504.1,384.6L504.7,386.2L506.4,387.4L507.4,389.4L506.2,390L501.3,389.6L500.1,389.9L498.7,392.1L499.6,395.3L498.5,397.2L496.5,397.7L493.8,399.3L492.2,399.6L492.3,400.3L493.4,401L494.1,402L492.6,405.2L490.4,406.2L486.8,405.7L484.1,406.4L481.8,405L479.2,405L477.5,406.8L477.4,408.8L475.7,408.9L474.8,408.8L473.5,408.9L473.7,410L474.3,411L477.8,411.4L478.4,412.8L478.6,414.9L474.9,418.4L473.4,420.8L471.1,420.8L469.4,422.7L468.5,425.4L467.3,424.9L464.7,425.3L463.8,426.5L464.5,427L464.6,427.9L463.5,430.9L462.3,431.7L461.8,430.5L461.5,428.6L460.6,428.5L459,430.2L457.2,431.5L455.6,432L454.5,430.8L451.6,430.2L450.5,435.2L448,437L446.9,437.6L445,437.8L446.3,438.4L446.7,439.7L446.5,440L0,440L0,0ZM520,350.1L520,350L519.8,348.4L520,347.5L520,350.1ZM486.8,407.7L487.8,409.4L487.3,410.5L484.1,409.9L484,408.9L485.1,409.1ZM481.5,408.4L480.7,409.9L479.3,409.7L479.3,408.6L479,408.3L479.4,407.2L479.7,406.9L481.2,407.8ZM520,381.5L519.6,382.2L520,382.6L520,383.4L520,383.4L520,383.5L520,383.5L518.2,384.7L517.1,384.1L517.1,382.5L517.7,381.1L517,380L517.6,378.8L519,378.4L519.4,379.2L520,379.5L520,381.5Z"/>
+              <path class="m-river" d="M7.6 123.7 L144.5 93.1 L201.8 22 L289.4 -42.9 L317.5 -30.6 L310.5 21.1 L301.1 94.8 L296.4 135.1 L317.5 129.4 L345.7 126.5 L373.9 126.5 L390.3 126.5 L425.5 100.6 L453.7 74.4 L505.4 43.4"/><path class="m-river" d="M-15.9 180.3 L31.1 262.9 L53.4 345.7 L94.5 353.6 L163.3 296.1 L208.3 274.8 L319.9 243.9 L390.3 246.9 L430.2 271.1 L496 206.5 L559.4 224.7"/>
+              <path d="M430.9 372.5 L395 387.6 L348.1 385 L305.8 379.8 L265.9 361.5 L237.7 335.2 L216.6 324.6 L190.7 316.6 L160.2 337.8 L129.7 356.3 L115.6 364.1 L110.9 322 L108.5 292.6 L106.9 265.1 L117.9 239.8 L115.6 199.8 L122.6 174.7 L139.1 152.1 L167.2 123.7 L202.5 94.8 L246.6 67.7" fill="none" stroke="var(--rust)" stroke-width="2.8" stroke-linejoin="round"/>
+              <text class="m-lab river" x="100.0" y="300.0" text-anchor="middle">Yangtze</text><text class="m-lab river" x="380.0" y="120.0" text-anchor="middle">Yellow River</text>
+              <circle cx="430.9" cy="372.5" r="5.5" fill="var(--rust)" stroke="var(--surface)" stroke-width="1.5"/><circle cx="216.6" cy="324.6" r="4.5" fill="var(--ink)" stroke="var(--surface)" stroke-width="1.5"/><circle cx="106.9" cy="265.1" r="4.5" fill="var(--ink)" stroke="var(--surface)" stroke-width="1.5"/><circle cx="277.4" cy="77.3" r="5.5" fill="var(--rust)" stroke="var(--surface)" stroke-width="1.5"/><circle cx="305.8" cy="379.8" r="4.5" fill="var(--ink)" stroke="var(--surface)" stroke-width="1.5"/>
+              <circle cx="496" cy="206.5" r="5" fill="var(--loch)" stroke="var(--surface)" stroke-width="1.5"/><circle cx="208.3" cy="274.8" r="3.5" fill="var(--muted)" stroke="var(--surface)" stroke-width="1.5"/><circle cx="264.7" cy="144.5" r="3.5" fill="var(--muted)" stroke="var(--surface)" stroke-width="1.5"/>
+              <text class="m-lab red" x="422.9" y="390.5" text-anchor="middle">Ruijin (Jiangxi)</text>
+              <text class="m-lab" x="305.8" y="397.8" text-anchor="middle">Xiang River</text>
+              <text class="m-lab" x="224.6" y="328.6" text-anchor="start">Zunyi</text>
+              <text class="m-lab" x="114.9" y="269.1" text-anchor="start">Luding Bridge</text>
+              <text class="m-lab" x="127.9" y="235.8" text-anchor="start">Snow mountains</text>
+              <text class="m-lab" x="132.6" y="178.7" text-anchor="start">Grasslands (marsh)</text>
+              <text class="m-lab red" x="285.4" y="81.3" text-anchor="start">Yan'an</text>
+              <text class="m-lab" style="fill:var(--loch);font-weight:700" x="488.0" y="210.5" text-anchor="end">Nanjing (Nationalist govt)</text>
+              <text class="m-lab mu" x="215.3" y="278.8" text-anchor="start">Chongqing</text><text class="m-lab mu" x="271.7" y="148.5" text-anchor="start">Xi'an</text>
+              <circle cx="446.9" cy="366.5" r="9" fill="var(--rust)" stroke="var(--surface)" stroke-width="1.5"/><text x="446.9" y="370.5" text-anchor="middle" style="font:700 11px var(--mono);fill:#fff">1</text><circle cx="305.8" cy="363.8" r="9" fill="var(--rust)" stroke="var(--surface)" stroke-width="1.5"/><text x="305.8" y="367.8" text-anchor="middle" style="font:700 11px var(--mono);fill:#fff">2</text><circle cx="212.6" cy="308.6" r="9" fill="var(--rust)" stroke="var(--surface)" stroke-width="1.5"/><text x="212.6" y="312.6" text-anchor="middle" style="font:700 11px var(--mono);fill:#fff">3</text><circle cx="88.9" cy="269.1" r="9" fill="var(--rust)" stroke="var(--surface)" stroke-width="1.5"/><text x="88.9" y="273.1" text-anchor="middle" style="font:700 11px var(--mono);fill:#fff">4</text><circle cx="104.6" cy="176.7" r="9" fill="var(--rust)" stroke="var(--surface)" stroke-width="1.5"/><text x="104.6" y="180.7" text-anchor="middle" style="font:700 11px var(--mono);fill:#fff">5</text><circle cx="230.6" cy="61.7" r="9" fill="var(--rust)" stroke="var(--surface)" stroke-width="1.5"/><text x="230.6" y="65.7" text-anchor="middle" style="font:700 11px var(--mono);fill:#fff">6</text>
+            </svg>
+          </div>
+          <ol class="stages">
+            <li><b style="color:var(--rust)">① Ruijin, October 1934:</b> about 86,000 Red Army troops abandon their base in Jiangxi and break out.</li>
+            <li><b style="color:var(--rust)">② Xiang River:</b> forcing a crossing of the Xiang costs them dearly; their numbers fall by more than half.</li>
+            <li><b style="color:var(--rust)">③ Zunyi, January 1935:</b> at a meeting here, Mao Zedong wins military leadership.</li>
+            <li><b style="color:var(--rust)">④ Luding Bridge, May 1935:</b> the capture of the iron-chain bridge over the Dadu River, the most famous scene of the Long March.</li>
+            <li><b style="color:var(--rust)">⑤ Snow mountains and grasslands:</b> they cross the snowy mountains of western Sichuan and the high-plateau marshes; many freeze, starve or sink into the bogs.</li>
+            <li><b style="color:var(--rust)">⑥ Northern Shaanxi, October 1935:</b> fewer than 10,000 are left on arrival; Yan'an later becomes their centre.</li>
+          </ol>
+          <figcaption><b>Map 2: Which way did the Long March go?</b> This is the approximate, simplified route of the Central Red Army, the force Mao Zedong was with; the other Red Army groups took different routes. Scholars still disagree about the length of the Long March and the details of some battles (for example, the scale of the fight for Luding Bridge).</figcaption>
+        </figure>
+        <figure>
+          <div class="frame">
+            <svg viewBox="0 0 520 560" role="img" aria-labelledby="c9mb"><title id="c9mb">Where the main events of Japan's invasion of China took place, and the wartime centres of the Nationalist Government and the Communists</title><rect class="m-sea" x="0" y="0" width="520" height="560" rx="4"/><path class="m-land" d="M401.3,520.8L400.1,523.2L399.2,525.8L398.8,528.2L398.9,530.6L398.6,532.8L398.1,535L396.3,534.4L395.3,532.8L395.1,530.2L393.7,527.1L393.2,526.2L391.3,524.5L389.6,523.6L388.2,522.3L388.4,522.4L387.4,520.7L386.7,518.9L385.1,513.6L384.6,512.3L383.9,511.2L383.7,510L383.9,508.7L384.6,506.9L385,504.9L384.6,502.3L384.8,499.7L385.3,498.6L394.1,482.7L396.6,479.3L398,477.6L399.3,475.8L400.4,473.4L401.9,471.2L402.9,470.6L408,468.6L409.6,466.7L410.8,466.2L412.3,466.2L413.2,467.1L414,468.1L414.9,468.7L417.1,469.7L418.2,470.7L418.6,472.5L417.2,474.1L416.5,475.6L416.4,477.2L416.7,479.4L416.7,481.6L415,486.7L413.1,489.9L412.7,491.5L412.1,495.5L411,499.4L410.1,504.4L408.6,509.6L407.7,511.7L406.6,513.8L404.1,517.7ZM520,266.4L517.3,264.6L517.7,263.3L518.9,261.9L519.1,260.6L518.7,259.8L514.5,263.2L512,267L510.8,266.7L510.1,265.8L509.4,265.4L506.7,267.9L506.1,269.8L505.2,269.9L504.7,269L504.7,267.3L504.3,265.8L501.5,263.6L500.2,261.7L500.9,260.6L503.2,261.2L505.1,261.1L504.7,260.2L504,259.8L505.3,259.3L506.4,258.2L505.5,257.9L504.2,258.5L503.1,258.2L502.7,255.7L501.3,253.1L500.7,250.6L501.9,249.2L502.6,247L503.8,243.7L504.5,242.6L506.1,241.9L506.8,241L505.8,240.6L504.3,240.2L504.4,239.3L505.4,238.8L506.5,237.7L508.7,236.4L509.3,234.1L508.7,233.5L507.4,232.9L507.7,231.7L508.2,230.8L508,230.2L506.4,228.7L505.3,227.2L505.7,225.6L505.4,223.1L505.5,221.1L505.5,219.9L504.7,217.4L504.4,214.9L503.3,215.3L502.5,215.9L499.5,215L498.6,214.9L498.2,213L499.2,210.7L501.8,208.7L503.2,208.4L504.3,207.5L506.1,207.2L508.1,208.6L509.9,208.9L511,211.3L511.6,211.8L511.7,210.9L513.2,209.9L513.5,209.1L513.3,208.7L511.6,208.2L510,205.3L509.8,203.9L509.2,203.1L510.1,200.7L508.3,198L507.4,197.1L507.6,194.7L506.6,193.1L506.1,192.2L505.8,190.7L506.1,190L506.9,189.8L507.1,189.2L506.9,189L505.9,188.8L502.2,186.9L499,188.1L498.2,189.6L497.4,190.1L496.1,187.1L494.1,187L490.8,184.3L489.4,184.8L489.1,185.9L487.3,188.4L484.8,190.4L484,190.7L483.1,190.5L483.3,190L482.2,187.7L478.3,186.8L476.9,185.8L476.1,185.6L480,183L481,182.6L480.3,182L479.5,181.7L476.3,182.1L474.7,181.3L472.2,181.5L470.6,180.9L474,178.4L474.2,176.9L474.1,175.8L475.9,172.4L477.6,170.6L482.2,168L484.2,167.6L485.6,167.8L486.8,167.5L485.6,166.5L484.3,166L482,166.1L479.5,164.6L479.3,163L484.1,152.9L484.1,152L483.4,149.5L483.2,147.1L479.7,145.7L478.2,145.6L473.9,142.8L472.1,141.4L471.5,141.9L471.3,144L470.7,144.5L469.6,145L469,142.5L468,140.7L465.2,138.8L464.1,137.8L464.6,135.6L464.4,135.4L464.2,135.2L462.6,137.4L459.5,139.5L453,139.9L451,138.4L450.3,139.5L449.7,140.8L448,141.2L445.3,141.3L443.8,142.2L443,143.2L439.4,143.5L438,144.8L435.7,145.3L426.2,151L424.2,153.4L422.2,156.2L420.8,157.6L419.6,158.6L418.5,159L417.3,160L416.3,160.1L415.1,159.7L413.8,159.8L413,161L413.7,162.5L413.4,163.2L410.8,164L407.1,164.5L405.6,165.5L405,166.1L404.2,166.4L403.4,164.4L403.1,161.8L404.7,161.2L406,160.9L413.9,157.3L412.9,154.6L413.6,153.4L415.4,151.5L416.5,150.5L415.9,150.2L410.8,150.8L407.8,150.8L406.3,150.6L406.8,148.9L406.5,147.3L406.2,146.7L408.7,144.8L410,144.3L410.8,144.4L410.8,143.2L410,141.5L410.8,139.3L416.2,136.7L417.5,134.4L419.6,132.2L423.5,126.7L423.8,125.8L424.9,123.2L425.1,122.2L423.3,120.7L422.6,118.6L417.3,114.7L416.8,111.4L416.3,111.6L415.5,113.9L414.8,114.6L412.4,114.7L411.2,113.8L404.4,113.3L402.7,114.7L401.2,117L399.7,118.6L398.1,119.5L396.8,121L391.3,129.9L389.2,130.5L379.5,135.8L374.6,137.9L370.8,141.6L369.5,143.8L368.4,146.3L367.7,150L364.2,154.5L363,155.5L361.8,155.9L360.2,155.7L358.8,156L356.5,155.6L353.5,157.1L350.3,158.3L347.4,155.2L345.4,154.4L342.2,155.3L340.6,156.7L337.4,163.5L336.3,167.4L336.3,169L338.2,173.8L340.3,176.5L344.9,179.6L354.9,181.7L357.2,180.9L359.7,180.9L362.3,182.9L364,186.2L364.2,188.5L364.2,189.3L364.8,190L365.1,191.1L364.1,192L363.3,192.5L362.6,196L362.6,199.8L363.4,201.1L365.6,202.9L368.9,204.4L372,204.7L377.8,204L380.2,201.7L380,200.7L380.1,199.4L385.2,196L388.2,192.9L387.7,192.1L387.1,191.6L387.7,191.3L389.2,191.1L396.4,187.9L402,190.5L405.2,193.5L408.4,194L410.6,195.5L413.1,196.8L416.5,196.9L419.2,197.2L420.1,195.9L421,195.2L422,195.3L423.1,196.9L426.3,198.1L429.2,198L431.2,197.6L432.5,198.2L430.7,200.2L431,203.4L429.6,204.4L428.3,206.1L429.1,207.1L429.7,207.6L429.7,208.9L428.5,209.7L426.4,211.6L425.1,211.6L424.5,211.2L424.1,210.5L423.8,209.4L423,208.7L420.9,208.4L418.6,208.6L413.7,211.5L408.9,213.8L403.8,215.7L402.1,216.8L400.9,217.1L398.9,216.2L397.6,216.3L397.3,216.9L398.9,218.5L399.3,219.8L399.1,220.7L398.2,221.2L396.9,220.4L395.7,221.4L395.1,223.1L395.1,227.2L394.3,228L392.1,228.5L389.7,229.8L388.8,229.2L388.5,228.5L388.8,226.7L388.5,225.8L387.4,225.8L385.7,226.3L384.5,227.6L384.1,228.3L385.7,230.7L387.3,230.9L387.7,231.4L386.4,232.6L383.3,234.3L382.8,235.8L381.9,237.1L380.6,238.2L379.8,239.3L378.7,239.9L377,240.6L374.9,243.3L373.4,246L371.6,247.2L370.1,251.6L367.6,253.9L366.6,257.7L367.3,260L370.1,259.9L371.5,260.8L374.5,263.8L378,265.7L381.6,266.8L386.1,269.6L387.3,270.8L388.4,273.2L390.3,280L391.7,283.4L391.8,285.2L393.9,288.6L396.1,294.3L398.7,299.2L399.2,303.1L398.3,304.9L398.4,307.2L400.9,309.3L406.6,311.7L407.5,312.4L408.7,313.6L408.7,317.3L409.6,318.5L410.4,319.2L413.8,320.8L415.2,322L416.8,324.1L417.2,326L417.4,328.5L415.5,328.5L413.9,328.3L407.7,325L406.1,324.9L403.9,325.4L400.6,324.8L397.2,321.2L394.7,320.1L392.1,319.5L385.8,322.7L384.2,322.4L383.7,322.8L382.9,323.3L385.9,324L388.8,323L391.7,321.5L395.7,322.3L396.4,323.6L397.1,325.9L399.9,327.4L402.2,328.1L405,330.1L407.7,333.3L413.6,336.9L415.9,340.4L416.8,342.6L417.6,345.8L415.6,346.8L413.8,347L411,347.5L409,348.6L406.9,350.5L401.1,353.6L399.9,355.6L399.2,357.2L397.8,358.1L394.1,357.3L390.7,357.4L386.9,359.6L386,360.5L386.6,360.4L387.2,360.1L388.9,360.4L391.6,359.2L394.2,362.9L399.3,362.3L404.1,359.2L406,359.2L407.5,359.7L409.2,360.9L413.9,366.2L416.4,366.8L418.9,368.1L420.3,368.2L421.5,368.6L418.2,370.6L413.8,374.8L411.9,375.8L410.6,377L414.1,376.4L416.6,374.4L417.8,373.9L418.8,374.3L419.3,376.8L418.4,384.5L417.1,384.6L416,382.5L414.6,381.9L413.4,382.3L411.2,382.3L410.3,383.3L409.6,384.6L410.9,384.9L413.6,387.2L413.9,388.4L413.1,389.2L411.3,388.9L413.6,390.6L412.9,392.4L412.2,393.1L410.8,393.6L410,395.1L411.3,397.7L412.5,401L412.6,402.6L410.7,401.9L407.8,403.9L406.2,404.1L405.2,401.4L403.9,401.8L403,402.6L401.8,405.5L400.3,408L399.1,408.7L397.6,408.6L396.4,408.6L396.7,409.3L398,410.1L398,411.1L395.2,414.2L394.7,415.5L394.8,416.5L393.4,417.7L394.1,419.8L393.7,421.3L392.4,423.3L391.1,424.6L389.5,426.8L387.5,428L384.9,432.4L384.2,434.7L384,437L383.1,437.7L381.7,438.8L380.1,438.3L380,436.7L379.3,436.6L378.9,435.6L378.8,434.3L379,433.3L378.3,433.6L377.9,434.8L376.8,435.8L375.8,435.4L374.5,434.6L374.6,435.7L375.2,436.9L375.5,438L377.1,438.3L378.3,439.6L379.1,441.6L379.3,442.4L380,443.3L380,444.1L378.5,444.8L376.5,446.1L374.1,448.4L372.2,449.9L370.4,449.9L369.4,449.7L367.8,448.9L366.1,448.5L368.4,451.6L369.7,452.1L371.4,452L372.9,450.9L375.2,451L375.7,452.8L375.1,454.7L373.9,457.4L373.7,459.6L375.2,462.8L375.2,463.8L374.6,464.2L372.8,463.4L371.4,462.4L369.9,462.6L368.4,462.2L366.9,462.5L366.2,463.3L366.7,464.5L368,465.5L368.9,467.1L367.9,467.6L364,467.3L363,467.6L361.9,469.3L362.6,471.8L361.7,473.4L360.1,473.8L357.9,475L356.7,475.3L356.7,475.8L357.7,476.4L358.2,477.2L357,479.8L355.2,480.6L352.4,480.2L350.2,480.8L348.3,479.7L346.3,479.6L344.9,481L344.8,482.6L343.5,482.8L342.7,482.7L341.7,482.8L341.8,483.6L342.4,484.4L345.1,484.8L345.6,485.8L345.8,487.5L342.8,490.4L341.6,492.3L339.8,492.3L338.4,493.8L337.7,496L336.7,495.5L334.6,495.9L334,496.9L334.5,497.3L334.6,498L333.7,500.4L332.7,501L332.3,500.1L332.1,498.6L331.3,498.5L330.1,499.8L328.6,500.8L327.4,501.2L326.4,500.3L324.1,499.8L323.3,503.8L321.3,505.3L320.4,505.7L318.9,505.9L319.9,506.4L320.2,507.4L319.6,508.4L318.1,508.6L317.2,509.4L316.8,513L315.9,514.2L313.5,514.3L311.8,513.5L311.2,514.1L310.9,514.7L310,515.4L308.2,515.6L304.2,517.2L302.5,516.7L300.3,516.1L298.7,516.7L298.3,517.9L297.6,518.8L295.4,518.8L293.7,517.7L291.9,516.8L289.9,517.5L288.5,519L286.6,519.5L286.3,520.5L285.5,520.9L283.5,520.7L282.8,518.4L281.7,518.1L280.6,519.2L280.2,520.2L279.6,520.8L279.8,522.7L278.8,522.7L277.3,521.6L275.8,521.4L274.4,522.5L274.9,523.3L274.8,524.2L275.5,524.6L275.7,525.4L274.9,525.9L274.8,526.8L274.4,527.4L272,526.4L270,525.8L268.2,526L267.6,525.4L267.5,524.8L269.6,523.6L269.7,523.1L268.1,522.7L266.2,521.1L264.8,518.5L263.1,517.2L262.2,515.9L262,513.7L261.6,512.7L261.8,511.5L262.2,510.5L260.3,511L259,512L259.3,513.2L258.9,514.3L256.8,514.9L257,515.4L257.1,515.9L258.7,517.4L259.1,518.7L259.7,519.4L261,521.4L261,525.3L261.7,526.4L261.4,527.4L260.9,528.9L260,529.4L258.4,529.8L257.5,530.1L256.8,530.5L255.6,531.6L253.4,531.9L252.3,529.2L250.7,531L250.3,534.7L249.7,535.3L248.8,535.9L247,534.6L245.4,535.5L244.2,536.3L243.7,537.1L242.8,538L241.1,537.1L239.7,535.9L240,534.9L239.9,534.3L239.2,533.8L238.5,533.9L238.9,535.1L239.1,537.5L238.5,538.2L237.5,538.7L235.4,538.3L234,537.4L232.2,536.6L230.7,536.5L230.4,538L229.4,539.2L228.5,539.4L227.6,539.1L226.3,540.4L225.8,541.4L224.3,542.4L220.4,542.9L219,543.9L217.1,543.7L215.7,544L214.8,543.9L214.1,543.4L213.3,543.4L212.9,545L210.7,545.7L208.7,545.9L206.4,548.1L204.8,549.4L203.6,549.5L202.8,549L202.3,547.1L201.9,546.9L201.6,548.7L201.2,550.2L200.4,551L197.8,552.9L197.1,554.8L197.6,556.5L201,557L201.5,557.9L201.1,558.7L200.3,559.3L200.1,560L190.4,560L190.4,560L190.5,559.5L189.8,558.1L189,556.9L188.2,556.2L187.8,555.3L188.6,552.6L188.1,551L189.6,549.1L190,546.9L192.7,546.1L192.9,544L190.9,543.9L189.6,542.4L189.3,543L188.3,543.1L186.5,540.1L186,539.7L185.2,539.7L185.6,542.8L183.5,544L181.8,544.5L179.5,544.7L178.1,545.1L176.9,544.8L177.2,543.9L177.8,542.7L177.2,541.7L175.9,541L173.8,541.1L172.4,540.9L171.1,540.9L170.5,540.5L169.2,539L168.1,538.1L167.6,537.2L168.1,536.1L167.7,535.5L165.5,535.4L165.6,536.9L165.8,538.8L166.4,540.1L166,540.9L164.9,541.4L163.8,540L163.2,539.6L162.6,539.7L162.2,541.1L161.2,542.4L159.3,542.3L157.8,543.1L156,543.4L155.2,543.6L152.9,543.6L151,545.5L149.7,546.3L147.6,546.9L145.4,548L144.8,549.8L144.7,551.1L144.4,552.6L140.8,554.7L139.8,554.5L139.1,553.7L138.1,553.9L137.3,554.3L136.5,554.2L135.6,554.7L134.4,554.5L133.2,553.9L132.5,553.7L131.7,553.7L131.6,554.5L132.7,557.6L133.1,559L132.2,560L0,560L0,0L520,0ZM273.8,529.2L273.3,529.5L272,528L271.9,527.5L272.9,527.4L274,528.1L274,528.7ZM509.3,269.2L509.7,270.3L508.2,270.1L507.4,269L507.4,268.1L508.4,268ZM417.6,558.1L416.7,559.7L416,559.7L416.1,558.8L417.1,556.9L417.4,556.9ZM463.1,481.9L462,485.2L461,485.7L460.1,485.4L459.1,483.6L459.8,482.9L460.8,483.3L461.5,483.1L463.2,480.5L463.7,480.9ZM455.5,486.8L454.3,487.1L452.8,486.7L451.6,486.7L451.6,486L452.9,485.4L452.9,484.5L453.2,484L456.4,485.1L456.2,485.9ZM484.7,477.2L483.1,477.8L481.4,477.5L481.7,474.6L482.3,474.9L482.6,476L483.9,476.5ZM352.3,481.8L353.1,483.2L352.8,484L350.2,483.6L350.1,482.7L351,482.9ZM348.1,482.4L347.4,483.6L346.4,483.4L346.4,482.5L346.1,482.2L346.4,481.4L346.6,481.2L347.9,481.9ZM501.3,294.5L500.5,295.1L499.7,294.7L499.5,294.5L498.6,293.2L498.3,292.6L499,291.3L501.5,289.2L508.2,287.2L509.5,287.2L512.1,288L512.7,289.6L512.2,291L511.6,291.9L508.5,293.5L506.1,294.2ZM499.6,268.6L498.4,269L497.7,268.2L497.2,267.9L497.5,266.9L499.4,264.9L499.8,264.2L501.7,264.6L502.4,265.7L501.5,267.3ZM505,190.2L504.9,193.4L503.8,193.2L503.2,192.9L502.8,192.3L502.2,189.4L502.9,188.2L504.5,189.1ZM417.3,333.1L415.8,333.8L410.9,331.9L407.5,329.8L405.4,327.3L405.1,326.2L407.5,326.4L409.8,327.3L410.4,328.7L411.3,329.1L411.9,329.9L416.3,331.8L417,332.4ZM425.5,366.6L425.2,367L422.9,365.8L420.4,365.5L419.5,364.4L419.4,362.7L422,362.8L425.3,364.3L426,365.1ZM423.2,372.8L423.1,373.2L421.5,371.8L420.7,371.5L421.1,370.7L422.2,370.5L423,372.3ZM427.5,368.1L427.4,369.1L426.8,369L426.2,367.2L426.6,366.8L427.5,366.9ZM378.9,462.4L377.5,463.4L376.6,462.9L376.6,461.6L377.1,460.4L376.6,459.6L377,458.6L378.1,458.3L378.5,458.9L379.1,459.3L379.3,459.6L379.3,460.3L378.7,461.3L379.1,461.9ZM201.4,551.8L202.1,552.5L204,552L204.3,552.9L204.3,553.3L203.6,554.3L202.1,553.6L200.5,553.7L199.4,553.7L199.1,553.2L200,552.2ZM149.1,549.3L146.3,551.8L145.3,551.8L146.2,548.9L146.7,548.3L148.3,549.3ZM147.5,555.2L146.5,555.7L145.2,555.6L146.7,554.6L147.5,553.4L148.1,553L148,554ZM138.3,558.8L137.5,558.9L136,557.2L136.8,556.4L138.6,557L138.9,557.4L138.9,557.7L138.5,558.5ZM135.2,557.4L135,557.8L134,556.8L133.3,556.4L133.9,555.1L135,556.5ZM503,219.6L502.8,221.1L501.5,220.1L501.2,216.8L502.5,217.7ZM474.6,146.9L473.5,147.6L473.5,146.3L474.3,145.3L475.1,145.1ZM405.8,407L404.2,407.5L403.6,407.5L403.6,405.9L405,404.5L405.5,405L405.8,405.7ZM261,517.1L261.2,518L259.7,516.6L259.3,516.5L258.6,516L258.2,515.1L259.3,515.1L260.4,516.1ZM246.7,541.5L246.3,541.9L245.7,541.2L245.6,540.2L245.2,539.6L246.1,538.9L246.5,538.1L247.5,538.2L248,538.5L247.1,539.3L246.9,539.6ZM243.9,540.8L242.1,541.2L241.6,541.1L242.3,540.1L243.9,539.3ZM269.3,529.2L267.1,529.2L266.6,529L266.4,528.5L267.2,527.8L270.2,526.7L269.5,527.8ZM498.4,260.4L498.2,260.9L497.3,260.8L496.5,259.2L496.2,257.9L495.3,257.2L496.7,256.1L498.4,258.1ZM471.5,184.4L471.7,184.7L471.7,185L471.5,185.2L471.1,185.6L470.7,185.9L469.9,185.7L469.3,185.3L469.5,184.4L470,184.6L471.1,184.2Z"/>
+              <path class="m-river" d="M-31.6 254.2 L78.1 229.7 L124 172.7 L194.1 120.7 L216.7 130.6 L211.1 172 L203.6 231.1 L199.8 263.4 L216.7 258.8 L239.3 256.5 L261.9 256.5 L275.1 256.5 L303.3 235.7 L325.9 214.7 L367.2 189.9"/><path class="m-river" d="M-50.4 299.6 L-12.8 365.8 L5.1 432.1 L38 438.5 L93.1 392.4 L129.2 375.3 L218.6 350.5 L275.1 352.9 L307 372.3 L359.7 320.6 L410.5 335.2"/>
+              <text class="m-reg" style="fill:var(--rust);font-size:16px" x="360" y="96" text-anchor="middle">Manchukuo</text>
+              <circle cx="446.8" cy="90.7" r="4.5" fill="var(--ink)" stroke="var(--surface)" stroke-width="1.5"/><circle cx="482.4" cy="37.3" r="4.5" fill="var(--ink)" stroke="var(--surface)" stroke-width="1.5"/><circle cx="311" cy="139.2" r="4.5" fill="var(--ink)" stroke="var(--surface)" stroke-width="1.5"/><circle cx="410" cy="338.9" r="4.5" fill="var(--ink)" stroke="var(--surface)" stroke-width="1.5"/><circle cx="359.7" cy="320.6" r="5.5" fill="var(--rust)" stroke="var(--surface)" stroke-width="1.5"/><circle cx="339.6" cy="264.3" r="4.5" fill="var(--ink)" stroke="var(--surface)" stroke-width="1.5"/><circle cx="275.1" cy="352.9" r="4.5" fill="var(--ink)" stroke="var(--surface)" stroke-width="1.5"/><circle cx="129.2" cy="375.3" r="6" fill="var(--loch)" stroke="var(--surface)" stroke-width="1.5"/><circle cx="184.6" cy="217.1" r="5" fill="var(--loch)" stroke="var(--surface)" stroke-width="1.5"/><circle cx="57" cy="471.1" r="4.5" fill="var(--ink)" stroke="var(--surface)" stroke-width="1.5"/><circle cx="272.6" cy="527.4" r="4.5" fill="var(--ink)" stroke="var(--surface)" stroke-width="1.5"/><circle cx="411.6" cy="471.3" r="4" fill="var(--muted)" stroke="var(--surface)" stroke-width="1.5"/>
+              <text class="m-lab" x="454.8" y="94.7" text-anchor="start">Shenyang</text>
+              <text class="m-lab" x="476.4" y="53.3" text-anchor="end">Xinjing (Changchun)</text>
+              <text class="m-lab" x="303.0" y="143.2" text-anchor="end">Lugou Bridge (Beijing)</text>
+              <text class="m-lab" x="418.0" y="342.9" text-anchor="start">Shanghai</text>
+              <text class="m-lab red" x="351.7" y="324.6" text-anchor="end">Nanjing</text>
+              <text class="m-lab" x="331.6" y="268.3" text-anchor="end">Taierzhuang</text>
+              <text class="m-lab" x="267.1" y="356.9" text-anchor="end">Wuhan</text>
+              <text class="m-lab" style="fill:var(--loch);font-weight:700" x="129.2" y="395.3" text-anchor="middle">Chongqing (wartime capital)</text>
+              <text class="m-lab" style="fill:var(--loch);font-weight:700" x="176.6" y="221.1" text-anchor="end">Yan'an (CCP)</text>
+              <text class="m-lab" x="65.0" y="487.1" text-anchor="start">Kunming</text>
+              <text class="m-lab" x="280.6" y="531.4" text-anchor="start">Hong Kong</text>
+              <text class="m-lab mu" x="419.6" y="475.3" text-anchor="start">Taiwan</text><text class="m-lab mu" x="419.6" y="490.3" text-anchor="start">(Japanese rule)</text>
+              <circle cx="444.8" cy="74.7" r="9" fill="var(--rust)" stroke="var(--surface)" stroke-width="1.5"/><text x="444.8" y="78.7" text-anchor="middle" style="font:700 11px var(--mono);fill:#fff">1</text><circle cx="313.0" cy="123.2" r="9" fill="var(--rust)" stroke="var(--surface)" stroke-width="1.5"/><text x="313.0" y="127.2" text-anchor="middle" style="font:700 11px var(--mono);fill:#fff">2</text><circle cx="414.0" cy="322.9" r="9" fill="var(--rust)" stroke="var(--surface)" stroke-width="1.5"/><text x="414.0" y="326.9" text-anchor="middle" style="font:700 11px var(--mono);fill:#fff">3</text><circle cx="363.7" cy="302.6" r="9" fill="var(--rust)" stroke="var(--surface)" stroke-width="1.5"/><text x="363.7" y="306.6" text-anchor="middle" style="font:700 11px var(--mono);fill:#fff">4</text><circle cx="291.1" cy="346.9" r="9" fill="var(--rust)" stroke="var(--surface)" stroke-width="1.5"/><text x="291.1" y="350.9" text-anchor="middle" style="font:700 11px var(--mono);fill:#fff">5</text><circle cx="125.2" cy="359.3" r="9" fill="var(--rust)" stroke="var(--surface)" stroke-width="1.5"/><text x="125.2" y="363.3" text-anchor="middle" style="font:700 11px var(--mono);fill:#fff">6</text><circle cx="256.6" cy="519.4" r="9" fill="var(--rust)" stroke="var(--surface)" stroke-width="1.5"/><text x="256.6" y="523.4" text-anchor="middle" style="font:700 11px var(--mono);fill:#fff">7</text>
+            </svg>
+          </div>
+          <ol class="stages">
+            <li><b style="color:var(--rust)">① Shenyang, 1931:</b> the September 18th Incident. Japan occupies the northeast and the next year sets up Manchukuo, with Xinjing (Changchun) as its capital.</li>
+            <li><b style="color:var(--rust)">② Lugou Bridge, July 1937:</b> the July 7th Incident; Japan's full-scale invasion of China begins.</li>
+            <li><b style="color:var(--rust)">③ Shanghai, August–November 1937:</b> Chinese troops hold out for three months.</li>
+            <li><b style="color:var(--rust)">④ Nanjing, December 1937:</b> the capital falls, and the Japanese army carries out a massacre.</li>
+            <li><b style="color:var(--rust)">⑤ Wuhan, 1938:</b> the Nationalist Government briefly directs the war from here until the city falls in October. That spring, Chinese troops won a major victory at Taierzhuang.</li>
+            <li><b style="color:var(--rust)">⑥ Chongqing, 1938–1946:</b> the wartime capital, bombed by Japan for years. Kunming was home to the National Southwestern Associated University, formed by universities that moved inland.</li>
+            <li><b style="color:var(--rust)">⑦ Hong Kong, December 1941:</b> Japan attacks Hong Kong; the British surrender eighteen days later.</li>
+          </ol>
+          <figcaption><b>Map 3: How did Japan invade China, step by step?</b> The Japanese mainly occupied the big cities of the east and the land along the railways; the vast west and many rural areas were never occupied. Places are shown at their real positions; rivers are simplified.</figcaption>
+        </figure>
+      </aside>
+    </div>
+
+    <section class="block" id="life" aria-labelledby="life9">
+      <span class="label">Daily life</span>
+      <h3 id="life9">How people lived</h3>
+      <div class="life">
+        <div>
+          <h4>Modern Shanghai</h4>
+          <p>In the 1930s Shanghai was the biggest city in the Far East, with more than three million people. It had foreign-run concessions, bank buildings along the Bund (外灘), department stores, cinemas and dance halls. Women wore the restyled qipao (旗袍), film stars and pop songs were famous across the country, and Shanghai was called the "Paris of the East". But the same city was also home to large numbers of child workers who laboured more than ten hours a day in factories, and refugees living in shacks.</p>
+        </div>
+        <div>
+          <h4>Hard times in the countryside</h4>
+          <p>At the time about nine in ten Chinese people lived in the countryside. Many farmers were tenants who rented their land and had to hand over around half of their harvest to the landlord, while also coping with warlords' heavy taxes, bandits and natural disasters. The great drought in the northwest from 1928 to 1930 and the Henan (河南) famine of 1942 each killed millions of people through starvation.</p>
+        </div>
+        <div>
+          <h4>The New Woman</h4>
+          <p>In the Republican period, girls began to go to school, universities began to admit women, foot-binding was banned, and the idea that people should choose their own marriage partners gradually spread. Many educated young women left home to become teachers, journalists, doctors and writers. In the countryside, though, arranged marriages and foot-binding remained common.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="people" aria-labelledby="people9">
+      <span class="label">Key people</span>
+      <h3 id="people9">Who's who</h3>
+      <ul class="people">
+        <li><span class="nm">Sun Yat-sen (孫中山)</span><span class="rl">Revolutionary, 1866–1925</span><p>Founder of the Republic of China, who set out the Three Principles of the People. Both the Kuomintang and the Communist Party honour him: Taiwan calls him the "Father of the Nation", and mainland China calls him the "Forerunner of the Revolution".</p></li>
+        <li><span class="nm">Yuan Shikai (袁世凱)</span><span class="rl">President of the Republic of China, 1859–1916</span><p>Brought about the abdication of the Qing emperor. After becoming president he tried to make himself emperor, failed and died of illness, leaving the country divided among warlords.</p></li>
+        <li><span class="nm">Lu Xun (魯迅)</span><span class="rl">Writer, 1881–1936</span><p>Born Zhou Shuren (周樹人), he first studied medicine in Japan, then decided to use literature to change the way Chinese people thought. His best-known works include "A Madman's Diary" and "The True Story of Ah Q" (阿Q正傳). He is considered the most important writer of modern Chinese literature.</p></li>
+        <li><span class="nm">Chiang Kai-shek (蔣介石)</span><span class="rl">Kuomintang leader, 1887–1975</span><p>Reunified China through the Northern Expedition and led the Nationalist Government against Japan. After losing the civil war he withdrew to Taiwan, where he ruled until his death in 1975.</p></li>
+        <li><span class="nm">Mao Zedong (毛澤東)</span><span class="rl">Communist Party leader, 1893–1976</span><p>The son of a Hunan farming family. He won the leadership of the Communist Party during the Long March, argued for surrounding the cities from the countryside, and in 1949 founded the People's Republic of China (see Era 10).</p></li>
+        <li><span class="nm">Soong Ching-ling (宋慶齡)</span><span class="rl">Wife of Sun Yat-sen, 1893–1981</span><p>Born into a wealthy Shanghai merchant family, she went to university in the United States. Her younger sister, Soong Mei-ling (宋美齡), was Chiang Kai-shek's wife, and her elder sister, Soong Ai-ling (宋靄齡), married the finance minister H. H. Kung (孔祥熙). The three sisters took different political sides; Soong Ching-ling later stayed in the People's Republic of China, where she served as vice-chair of the state.</p></li>
+      </ul>
+    </section>
+
+    <section class="block" id="myths" aria-labelledby="myths9">
+      <span class="label">Myth or fact</span>
+      <h3 id="myths9">What people often get wrong</h3>
+      <ul class="myths">
+        <li><span class="mq">"The 1911 Revolution created a democratic republic in one stroke."</span><span class="ma"><b>It was only a beginning.</b> The revolution overthrew the emperor, but parliament was soon dissolved, Yuan Shikai tried to make himself emperor, and more than ten years of warlord fighting followed. Democracy never really took root.</span></li>
+        <li><span class="mq">"The War of Resistance against Japan lasted eight years."</span><span class="ma"><b>There are two ways of counting.</b> Traditionally it is counted from the July 7th Incident of 1937, making eight years. Since 2017, mainland Chinese textbooks have counted from the September 18th Incident of 1931 instead, calling it the "Fourteen Years' War of Resistance" (十四年抗戰).</span></li>
+        <li><span class="mq">"The war against Japan was fought mainly by one party."</span><span class="ma"><b>Both sides of the Strait have slanted the story.</b> The Kuomintang's armies fought most of the large-scale battles at the front and suffered the heaviest losses; the Communist forces mainly fought a guerrilla war behind Japanese lines, tying down Japanese troops and expanding their bases. In the past each side stressed its own contribution; in recent years mainland China has also given more recognition to the role of the Kuomintang's armies.</span></li>
+        <li><span class="mq">"Life in the Republican era was all modern elegance."</span><span class="ma"><b>Only for a few people in a few cities.</b> The qipao and dance halls of films and nostalgic works belonged mainly to the upper classes of big cities such as Shanghai. Most Chinese people lived in the countryside, where life was very hard, and they lived through war and famine.</span></li>
+      </ul>
+    </section>
+
+    <section class="block" id="evidence" aria-labelledby="ev9">
+      <span class="label">How we know</span>
+      <h3 id="ev9">Newspapers, photographs, diaries and oral history</h3>
+      <div class="life">
+        <div>
+          <h4>Archives on both sides of the Strait</h4>
+          <p>Much of the Nationalist Government's archive was taken to Taiwan in 1949 and is kept today by Academia Historica (國史館) in Taipei and other institutions; what stayed on the mainland is held by the Second Historical Archives of China (中國第二歷史檔案館) in Nanjing. Chiang Kai-shek's diaries, kept over several decades, were for many years held at the Hoover Institution at Stanford University in the United States, where they were open to researchers.</p>
+        </div>
+        <div>
+          <h4>Newspapers and photographs</h4>
+          <p>This was the first era in China with large numbers of newspapers, magazines, photographs and newsreels. Newspapers such as Shanghai's <i>Shenbao</i> (申報), along with the reports and photographs of foreign journalists, recorded war, famine and city life. <i>Red Star Over China</i> (《紅星照耀中國》), written by the American journalist Edgar Snow after he visited the Red Army's base in northern Shaanxi in 1936, introduced Mao Zedong to the West for the first time.</p>
+        </div>
+        <div>
+          <h4>The voices of eyewitnesses</h4>
+          <p>The evidence for the Nanjing Massacre includes survivors' testimony, the diaries of Japanese soldiers, letters written and film shot at the time by Western missionaries and businessmen, and the records of the postwar Tokyo Trial and Nanjing Trial (南京審判). John Rabe's diary was only published in the 1990s. The oral histories of many eyewitnesses were also recorded before they died.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="words" aria-labelledby="words9">
+      <span class="label">Key terms</span>
+      <h3 id="words9">Terms from this era</h3>
+      <dl class="words">
+        <div><dt>Kuomintang / Communist Party (國民黨 / 共產黨)</dt><dd>The two most important political parties of the Republican era. They worked together twice and fought two civil wars.</dd></div>
+        <div><dt>Warlord (軍閥)</dt><dd>A general with a private army who controlled a territory of his own.</dd></div>
+        <div><dt>May Fourth Movement (五四運動)</dt><dd>The 1919 movement of students and the public against the decision of the Paris Peace Conference; also used more broadly for the new currents of thought of the time.</dd></div>
+        <div><dt>Vernacular Chinese (白話文)</dt><dd>Writing based on everyday speech, which replaced classical Chinese.</dd></div>
+        <div><dt>Long March (長征)</dt><dd>The Red Army's long retreat from Jiangxi to northern Shaanxi in 1934–1935.</dd></div>
+        <div><dt>War of Resistance against Japan (抗日戰爭)</dt><dd>China's war against the Japanese invasion, 1937–1945, or counted from 1931.</dd></div>
+        <div><dt>Republic calendar (民國紀年)</dt><dd>A way of numbering years with 1912 as year 1, still used in Taiwan today.</dd></div>
+        <div><dt>Liberation (解放)</dt><dd>The term used in mainland China for the Communist Party's coming to power in 1949. Taiwan does not use this word.</dd></div>
+      </dl>
+    </section>
+
+    <section class="hk" id="hk" aria-labelledby="hk9">
+      <span class="label">Hong Kong</span>
+      <h3 id="hk9">Strikes, Japanese occupation and newcomers from the north</h3>
+      <p>In 1925 British police in Shanghai opened fire on demonstrators, setting off a wave of anti-British protest across the country. In Hong Kong (香港), hundreds of thousands of workers went on strike and returned to Guangzhou. The strike lasted sixteen months and for a time brought Hong Kong's economy to a standstill. It is known as the <button type="button" class="gl" data-g="shenggang" aria-haspopup="dialog">Canton–Hong Kong Strike</button> (省港大罷工).</p>
+      <p>On 8 December 1941, a few hours after the attack on Pearl Harbor, Japanese forces attacked Hong Kong. British, Canadian, Indian and local Hong Kong defenders held out for eighteen days; on 25 December the Governor surrendered, a day remembered as "Black Christmas" (黑色聖誕). During the "three years and eight months" of Japanese occupation that followed, food was desperately short, and the Japanese forced large numbers of residents to leave, so that the population fell from about 1.6 million to about 600,000. The Hong Kong and Kowloon Brigade (港九大隊) of the Communist-led East River Column (東江縱隊) fought a guerrilla war in the New Territories (新界) and helped captured Allied personnel and cultural figures escape from Hong Kong. After Japan surrendered in August 1945, British rule was restored.</p>
+      <p>Around 1949 large numbers of people fled from the mainland to Hong Kong, among them textile families from Shanghai who brought their capital south. They laid the foundations for Hong Kong's postwar industrial take-off.</p>
+    </section>
+
+    <section class="parallel" id="world" aria-labelledby="w9">
+      <span class="label">Meanwhile in Europe and the world</span>
+      <h3 id="w9">Between the two world wars</h3>
+      <div class="pair">
+        <div>
+          <h4>The First World War and the Chinese labourers</h4>
+          <p>During the First World War, Britain and France recruited about 140,000 labourers from China to work behind the front lines in France and Belgium; the British called them the Chinese Labour Corps (華工軍團). Thousands of them died in Europe, and many are buried in the Chinese cemetery at Noyelles-sur-Mer in northern France. Their contribution was long forgotten, and only in recent years has Britain begun to commemorate it.</p>
+        </div>
+        <div>
+          <h4>Revolution and depression</h4>
+          <p>The Russian Revolution of 1917 directly influenced the founding of the Chinese Communist Party and the reorganisation of the Kuomintang. The Great Depression that began in 1929 swept the world. Japan was hit hard too; its military grew in power and the country turned to expansion abroad, invading northeast China in 1931.</p>
+        </div>
+        <div>
+          <h4>A Scottish Olympic champion</h4>
+          <p>Eric Liddell (李愛銳), the Scot who won the 400 metres at the 1924 Paris Olympics, was born in Tianjin (天津). After winning gold he went back to China as a missionary and teacher. During the Japanese occupation he was held in the Weixian (濰縣) internment camp in Shandong, where he died of illness in February 1945, only months before Japan surrendered. The film <i>Chariots of Fire</i> tells his story.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="visit" id="visit" aria-labelledby="v9">
+      <span class="label">See it for yourself</span>
+      <h3 id="v9">Places to visit</h3>
+      <ul class="places">
+        <li><span class="nm">Sun Yat-sen Mausoleum and the Presidential Palace (中山陵與總統府)</span><span class="tm">Nanjing, Jiangsu</span><p>Sun Yat-sen's tomb, and the Republican-era Presidential Palace and offices of the Nationalist Government.</p></li>
+        <li><span class="nm">Memorial Hall of the Victims in Nanjing Massacre by Japanese Invaders (侵華日軍南京大屠殺遇難同胞紀念館)</span><span class="tm">Nanjing, Jiangsu</span><p>A memorial built on a site where victims' remains were excavated. John Rabe's former home is nearby.</p></li>
+        <li><span class="nm">Site of the First National Congress of the CCP (中共一大會址紀念館)</span><span class="tm">Shanghai</span><p>Where the Chinese Communist Party held its First National Congress in 1921, in what is now the Xintiandi area.</p></li>
+        <li><span class="nm">The Bund (外灘)</span><span class="tm">Shanghai</span><p>Republican-era banks, the customs house and hotels line the Huangpu River: the best place to get a feel for "modern Shanghai".</p></li>
+        <li><span class="nm">Sun Yat-sen Memorial Hall and the National Palace Museum (國父紀念館與國立故宮博物院)</span><span class="tm">Taipei</span><p>A building commemorating Sun Yat-sen, and the great collection of treasures shipped from the mainland to Taiwan in 1949.</p></li>
+        <li><span class="nm">Stanley Military Cemetery and Hong Kong Museum of Coastal Defence (赤柱軍人墳場與香港海防博物館)</span><span class="tm">Hong Kong</span><p>The cemetery holds soldiers and civilians who died in the Battle of Hong Kong and during the Japanese occupation; the Museum of Coastal Defence tells the story of the Battle of Hong Kong in 1941.</p></li>
+        <li><span class="nm">Imperial War Museum</span><span class="tm">London, UK · Free</span><p>Has exhibits and archives on the Chinese Labour Corps of the First World War and on the war in the Far East.</p></li>
+      </ul>
+    </section>
+
+    <p class="remember"><span class="label">The one thing to remember</span>The Republic of China was born when the emperor abdicated, but it went through warlord wars, the struggle between the Nationalists and the Communists, and Japanese invasion. In 1949 the Communists founded the People's Republic of China, while the government of the Republic of China withdrew to Taiwan, and the two sides of the Strait have been governed separately ever since.</p>
+  </article>
+
+<script type="application/json" id="gloss">{"kmt": ["Kuomintang 國民黨", "Chinese Nationalist Party, reorganised 1919", "It grew out of Sun Yat-sen's Tongmenghui, became the Kuomintang in 1912 and was renamed the Chinese Kuomintang in 1919. It ruled mainland China from 1928 to 1949 and governed in Taiwan after 1949; it is still one of Taiwan's main political parties today. In English it is often called the Kuomintang (KMT) or the Nationalists."], "ccp": ["Chinese Communist Party 共產黨", "Founded 1921", "Founded in Shanghai with help from the Soviet Union and the Communist International, and committed to Marxism-Leninism. It has governed mainland China since 1949. In English it is called the Chinese Communist Party (CCP)."], "roc": ["Republic of China 中華民國", "Founded 1912", "One of Asia's first republics. From 1912 to 1949 it was China's official name; after 1949 its government moved to Taiwan, and Taiwan's official name today is still the Republic of China."], "sunyatsen": ["Sun Yat-sen 孫中山", "Revolutionary, 1866–1925", "From Xiangshan (now Zhongshan) in Guangdong. He studied medicine in Hong Kong, became a professional revolutionary fighting to overthrow the Qing and found a republic, and is honoured by the Kuomintang as the 'Father of the Nation'."], "yuanshikai": ["Yuan Shikai 袁世凱", "General and statesman, 1859–1916", "The most powerful general of the late Qing, commanding the modern Beiyang Army. He arranged the emperor's abdication and became president of the Republic of China. He later dissolved parliament, and at the end of 1915 declared himself emperor. The whole country opposed him; three months later he abandoned the monarchy, and he died of illness in 1916."], "puyi": ["Puyi 溥儀", "Last Qing emperor, 1906–1967", "Enthroned at two and forced to abdicate at six. The Japanese later made him emperor of their puppet state 'Manchukuo', and he ended his life as a gardener and archivist in Beijing. Bernardo Bertolucci's 1987 film The Last Emperor tells his story."], "junfa": ["Warlord 軍閥", "Worst from 1916 to 1928", "A general with a private army who controlled one or more provinces. Warlords taxed the local people, issued their own money, and fought each other for territory and for control of the government in Beijing."], "beiyang": ["Beiyang government 北洋政府", "1912–1928", "The government of the Republic of China based in Beijing, named after the generals from Yuan Shikai's Beiyang Army who controlled it. It was the internationally recognised government of China, but in practice it controlled only part of the country."], "zhangzuolin": ["Zhang Zuolin 張作霖", "Warlord of the northeast, 1875–1928", "A former bandit who came to control the three northeastern provinces and for a time took over the government in Beijing. As the Northern Expedition approached in 1928 he withdrew to the northeast, and was killed when Japanese soldiers blew up his train near Shenyang. His son was Zhang Xueliang."], "chenduxiu": ["Chen Duxiu 陳獨秀", "Thinker, 1879–1942", "Founded New Youth and led the New Culture Movement. He later became a founder and the first leader of the Chinese Communist Party, was removed from his post after 1927, and died of illness in Sichuan in his last years."], "xinqingnian": ["New Youth 新青年", "Magazine, founded 1915", "The magazine founded by Chen Duxiu, first called Youth Magazine. It championed democracy, science and vernacular Chinese, attacked Confucian moral codes, and was the main platform of the New Culture Movement. Lu Xun's 'A Madman's Diary' was first published here."], "hushi": ["Hu Shi 胡適", "Scholar, 1891–1962", "Studied at Columbia University in the United States and, back in China, championed vernacular Chinese and a scientific method he summed up as 'bold hypotheses, careful verification'. He later served as president of Peking University and ambassador to the United States, and after 1949 moved to the United States and Taiwan."], "baihua": ["Vernacular Chinese 白話文", "Written language", "Written Chinese based on everyday speech. For the previous two thousand years, formal writing had used classical Chinese, which was concise but hard to understand and very different from speech. After May Fourth, vernacular Chinese became the standard written language; Chinese newspapers and books today are all written in it."], "luxun": ["Lu Xun 魯迅", "Writer, 1881–1936", "Born Zhou Shuren, from Shaoxing in Zhejiang. While studying medicine in Japan he saw a lantern slide of Chinese people standing by and watching as a fellow Chinese was executed, and decided to give up medicine for writing, to awaken his people through literature. His best-known works include 'A Madman's Diary', 'The True Story of Ah Q' and a great many essays."], "xinwenhua": ["New Culture Movement 新文化運動", "c. 1915–1925", "A movement of ideas in which intellectuals championed democracy, science and vernacular Chinese, and attacked Confucian tradition and the old moral codes. It greatly changed Chinese literature, education and social attitudes."], "wusi": ["May Fourth Movement 五四運動", "4 May 1919", "Beijing students protested against the Paris Peace Conference's decision to hand Germany's rights in Shandong to Japan, and demanded punishment of pro-Japanese officials; the movement spread across the country. In mainland China today, 4 May is 'Youth Day'."], "maozedong": ["Mao Zedong 毛澤東", "1893–1976", "The son of a farming family in Shaoshan, Hunan. He worked as a teacher and a library assistant, and in 1921 helped to found the Chinese Communist Party. He argued for relying on the peasants and building bases in the countryside, became the main leader of the Party and the Red Army during the Long March, and in 1949 founded the People's Republic of China."], "guogong1": ["First United Front 第一次國共合作", "1924–1927", "Under pressure from the Soviet Union, the Kuomintang let Communists join as individual members, and the two parties worked together to overthrow the warlords. It broke down when Chiang Kai-shek purged the party in 1927."], "huangpu": ["Whampoa Military Academy 黃埔軍校", "Guangzhou, founded 1924", "Officially the Army Officers' Academy. The Soviet Union provided money and advisers, Chiang Kai-shek was commandant, and Zhou Enlai at one time headed its political department. It trained large numbers of generals for both the Nationalists and the Communists."], "chiangkaishek": ["Chiang Kai-shek 蔣介石", "1887–1975", "From Fenghua in Zhejiang. He studied military science in Japan, was a close follower of Sun Yat-sen, and was commandant of the Whampoa Military Academy. He led the Northern Expedition, from 1928 was the leader of the Nationalist Government, and led the War of Resistance against Japan. After losing the civil war he withdrew to Taiwan and ruled it until his death. His given name was Zhongzheng, and in Taiwan he is usually called 'Chiang Chung-cheng' (蔣中正)."], "sanmin": ["Three Principles of the People 三民主義", "Sun Yat-sen's political theory", "Nationalism (overthrowing the Qing, standing up to the foreign powers, and equality among China's peoples), democracy (political rights for the people, such as the vote) and the people's livelihood (equal rights to land, curbs on capital, and a better life for the people). It is still written into Article 1 of the Constitution of the Republic of China."], "siyier": ["12 April Incident 四一二事件", "12 April 1927", "In Shanghai, Chiang Kai-shek, together with the Green Gang and other forces, suddenly purged Communists and left-wing workers, killing and wounding large numbers. The Kuomintang called it 'party purification'; the Communists called it a 'counter-revolutionary coup'. Ten years of civil war between the two parties followed."], "nanjinggov": ["Nationalist Government 國民政府", "1927–1948", "The central government set up by the Kuomintang in Nanjing; from 1928 it was the internationally recognised government of China. During the war against Japan it moved to Chongqing, returning to Nanjing in 1946."], "suqu": ["Soviet areas 蘇區", "Communist base areas", "'Soviet' comes from the Russian word for a council, here a council of workers' and peasants' delegates. In 1931 the Communists founded the 'Chinese Soviet Republic' at Ruijin in Jiangxi, and in their base areas they took land from landlords and gave it to peasants."], "changzheng": ["Long March 長征", "October 1934 – October 1935", "To escape encirclement by Nationalist armies, the Red Army set out from southern Jiangxi, passed through Guizhou, Yunnan and Sichuan, crossed snow-covered mountains and grasslands, and finally reached northern Shaanxi. The Communist Party later treated it as the heroic epic of its founding."], "yanan": ["Yan'an 延安", "Northern Shaanxi; Communist headquarters 1937–1947", "The capital of the Communists' base area after the Long March. Mao Zedong lived here in caves dug into the hillside. Many educated young people made their way to Yan'an from all over China."], "jiuyiba": ["September 18th Incident 九一八事變", "18 September 1931", "The Japanese Kwantung Army blew up a section of the South Manchuria Railway at Liutiaohu near Shenyang, falsely blamed Chinese troops, then attacked Shenyang and within a few months occupied the three northeastern provinces. In the West it is called the Mukden Incident."], "manzhouguo": ["Manchukuo 滿洲國", "1932–1945", "A puppet state set up by Japan in northeast China, with its capital at Xinjing (now Changchun). Puyi was head of state, and from 1934 was called emperor, but real power lay with the Japanese Kwantung Army. The League of Nations refused to recognise it, and Japan left the League as a result."], "zhangxueliang": ["Zhang Xueliang 張學良", "1901–2001", "Zhang Zuolin's son, known as the 'Young Marshal'. At the time of the September 18th Incident he was ordered not to resist, and lost the northeast. In 1936 he staged the Xi'an Incident, after which Chiang Kai-shek kept him under house arrest, first on the mainland and then in Taiwan. He only regained his freedom in the 1990s, moved to Hawaii in old age, and lived to a hundred."], "xian": ["Xi'an Incident 西安事變", "12 December 1936", "Zhang Xueliang and Yang Hucheng detained Chiang Kai-shek in Xi'an, demanding an end to the civil war and a united front against Japan. After negotiations involving Zhou Enlai and others, Chiang agreed and was released two weeks later, which led to the second alliance between the Nationalists and the Communists."], "qiqi": ["July 7th Incident 七七事變", "7 July 1937", "Japanese troops on exercise near the Lugou Bridge, southwest of Beijing, claimed a soldier was missing and demanded to search the town of Wanping. Shots were exchanged, and this became the start of Japan's full-scale invasion of China. In the West it is called the Marco Polo Bridge Incident, because Marco Polo described the bridge in his account of his travels."], "kangzhan": ["War of Resistance against Japan 抗日戰爭", "1937–1945 (or 1931–1945)", "China's war against the Japanese invasion. From 1941 it became part of the Second World War, and the war in China tied down large numbers of Japanese troops."], "nanjingdatusha": ["Nanjing Massacre 南京大屠殺", "About six weeks from December 1937", "The mass killing, rape and looting of prisoners of war and civilians by the Japanese army after it captured Nanjing. The postwar Tokyo Trial and Nanjing Trial both found that these atrocities took place. Estimates of the number of victims vary; the official Chinese figure is more than 300,000. 13 December is China's National Memorial Day."], "rabe": ["John Rabe 拉貝", "1882–1950", "The Nanjing representative of the German company Siemens, and also a member of the Nazi Party. With other Westerners he formed an international committee and set up the Nanjing Safety Zone, which sheltered more than 200,000 refugees; he has been called the 'Schindler of Nanjing'. His diary is an important piece of evidence for the massacre."], "chongqing": ["Chongqing 重慶", "Wartime capital, 1938–1946", "A city on the upper Yangtze in the east of the Sichuan basin. Surrounded by mountains, it was hard for the Japanese army to reach overland, but it suffered more than five years of Japanese air raids that killed and injured large numbers of civilians."], "taiwan": ["Taiwan 台灣", "Ruled by Japan, 1895–1945", "After the First Sino-Japanese War the Qing ceded Taiwan to Japan, which ruled it for fifty years. After Japan's surrender in 1945 it was taken over by the Republic of China. In 1947, official corruption and clashes led to the 'February 28 Incident', in which large numbers of Taiwanese people were killed. In 1949 the government of the Republic of China moved here."], "jinyuanquan": ["Gold yuan 金圓券", "Issued August 1948", "A new currency issued by the Nationalist Government to deal with runaway inflation, while forcing people to hand over their gold and foreign currency in exchange. In less than a year it was almost worthless, and huge numbers of city dwellers were ruined."], "tugai": ["Land reform 土地改革", "From 1946 in Communist-held areas", "Taking land from landlords and giving it to peasants who had little or none. The process often involved 'struggle sessions', and many landlords were beaten to death, but it won the Communists the support of vast numbers of peasants. It was carried out across the whole country in the early 1950s."], "sanda": ["Three Great Campaigns 三大戰役", "September 1948 – January 1949", "The Liaoshen campaign (the northeast), the Huaihai campaign (east China, centred on Xuzhou) and the Pingjin campaign (Beiping and Tianjin). About 1.5 million Nationalist troops were destroyed or surrendered, and the outcome of the civil war was decided."], "shenggang": ["Canton–Hong Kong Strike 省港大罷工", "June 1925 – October 1926", "After the 'May Thirtieth Incident' in Shanghai, workers in Hong Kong and Guangzhou (the 'provincial capital' of Guangdong) went on strike together and boycotted British goods, and hundreds of thousands of Hong Kong workers went back to Guangzhou. It was the largest strike in Hong Kong's history."]}</script>
+  <nav class="pagenav" aria-label="Eras"><a class="prev" href="era8.html"><span class="dir">Previous · Era 8</span><span class="ttl">Qing</span></a><a class="next" href="era10.html"><span class="dir">Next · Era 10</span><span class="ttl">People's Republic of China</span></a></nav>
+</div>
+<div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-labelledby="lb-title">
+  <div class="lb-bar">
+    <span class="lb-title" id="lb-title"></span>
+    <button type="button" class="lb-close" id="lb-close">Close</button>
+  </div>
+  <div class="lb-controls">
+    <button type="button" id="lb-fit">Fit to screen</button>
+    <button type="button" id="lb-out" aria-label="Zoom out">&minus;</button>
+    <input type="range" id="lb-range" min="25" max="300" step="5" value="100" aria-label="Zoom level">
+    <button type="button" id="lb-in" aria-label="Zoom in">+</button>
+    <span class="lb-level" id="lb-level">100%</span>
+  </div>
+  <div class="lb-body" id="lb-body"></div>
+  <div class="lb-hint">Drag the slider or use &minus; and + to zoom from 25% to 300%. 100% fills the screen width. Scroll to move around.</div>
+</div>
+<script>
+(function () {
+  var box = document.getElementById('lightbox'), body = document.getElementById('lb-body');
+  var title = document.getElementById('lb-title'), level = document.getElementById('lb-level'), range = document.getElementById('lb-range');
+  var z = 1, MIN = 0.25, MAX = 3, current = null, opener = null;
+  function availW() { return Math.max(200, body.clientWidth - 32); }
+  function availH() { return Math.max(200, body.clientHeight - 32); }
+  function aspect() { var vb = current && current.viewBox && current.viewBox.baseVal; return vb && vb.width ? vb.height / vb.width : 0.6; }
+  function setZ(v) {
+    z = Math.min(MAX, Math.max(MIN, Math.round(v * 100) / 100));
+    if (current) current.style.width = Math.round(availW() * z) + 'px';
+    range.value = Math.round(z * 100); level.textContent = Math.round(z * 100) + '%';
+  }
+  function fit() { setZ(Math.min(1, availH() / (availW() * aspect()))); }
+  function open(svg, from) {
+    current = svg.cloneNode(true);
+    current.querySelectorAll('[id]').forEach(function (el) { el.removeAttribute('id'); });
+    current.removeAttribute('aria-labelledby');
+    var t = svg.querySelector('title'); title.textContent = t ? t.textContent : 'Diagram';
+    current.setAttribute('role', 'img'); current.setAttribute('aria-label', title.textContent);
+    body.innerHTML = ''; body.appendChild(current);
+    opener = from; box.hidden = false; document.documentElement.style.overflow = 'hidden';
+    fit(); body.scrollTop = 0; body.scrollLeft = 0;
+    document.getElementById('lb-close').focus();
+  }
+  function close() { box.hidden = true; body.innerHTML = ''; current = null; document.documentElement.style.overflow = ''; if (opener) opener.focus(); }
+  document.querySelectorAll('figure .frame').forEach(function (frame) {
+    var svg = frame.querySelector('svg'); if (!svg) return;
+    var b = document.createElement('button'); b.type = 'button'; b.className = 'zoom-btn'; b.textContent = 'Enlarge';
+    b.setAttribute('aria-label', 'Enlarge: ' + ((svg.querySelector('title') || {}).textContent || 'diagram'));
+    b.addEventListener('click', function () { open(svg, b); });
+    svg.addEventListener('click', function () { open(svg, b); });
+    frame.appendChild(b);
+  });
+  document.getElementById('lb-close').addEventListener('click', close);
+  document.getElementById('lb-fit').addEventListener('click', fit);
+  document.getElementById('lb-in').addEventListener('click', function () { setZ(z + 0.1); });
+  document.getElementById('lb-out').addEventListener('click', function () { setZ(z - 0.1); });
+  range.addEventListener('input', function () { setZ(range.value / 100); });
+  body.addEventListener('wheel', function (e) { if (!e.ctrlKey) return; e.preventDefault(); setZ(z * (e.deltaY < 0 ? 1.1 : 0.9)); }, { passive: false });
+  window.addEventListener('resize', function () { if (!box.hidden) setZ(z); });
+  document.addEventListener('keydown', function (e) {
+    if (box.hidden) return;
+    if (e.key === 'Escape') close();
+    else if (e.key === '+' || e.key === '=') setZ(z + 0.1);
+    else if (e.key === '-') setZ(z - 0.1);
+    else if (e.key === '0') fit();
+  });
+})();
+</script>
+<div class="glcard" id="glcard" role="dialog" aria-modal="false" aria-labelledby="gl-t" hidden>
+  <button type="button" class="gx" id="gl-x" aria-label="Close">×</button>
+  <span class="gt" id="gl-t"></span><span class="gs" id="gl-s"></span><p class="gb" id="gl-b"></p>
+</div>
+<script>
+(function () {
+  var el = document.getElementById('gloss'); if (!el) return;
+  var G = JSON.parse(el.textContent), card = document.getElementById('glcard'), cur = null;
+  function hide() { card.hidden = true; if (cur) { cur.setAttribute('aria-expanded', 'false'); } cur = null; }
+  function show(btn) {
+    var e = G[btn.dataset.g]; if (!e) return;
+    if (cur === btn) { hide(); return; }
+    if (cur) cur.setAttribute('aria-expanded', 'false');
+    document.getElementById('gl-t').textContent = e[0];
+    document.getElementById('gl-s').textContent = e[1];
+    document.getElementById('gl-b').textContent = e[2];
+    card.hidden = false; cur = btn; btn.setAttribute('aria-expanded', 'true');
+    if (window.innerWidth > 700) {
+      var r = btn.getBoundingClientRect(), w = card.offsetWidth, h = card.offsetHeight;
+      var left = Math.min(Math.max(16, r.left + window.scrollX), window.scrollX + document.documentElement.clientWidth - w - 16);
+      var top = r.bottom + window.scrollY + 8;
+      if (r.bottom + h + 16 > window.innerHeight && r.top > h + 16) top = r.top + window.scrollY - h - 8;
+      card.style.left = left + 'px'; card.style.top = top + 'px';
+    }
+    document.getElementById('gl-x').focus({ preventScroll: true });
+  }
+  document.querySelectorAll('button.gl').forEach(function (b) { b.setAttribute('aria-expanded', 'false'); b.addEventListener('click', function (ev) { ev.stopPropagation(); show(b); }); });
+  document.getElementById('gl-x').addEventListener('click', function () { var b = cur; hide(); if (b) b.focus(); });
+  card.addEventListener('click', function (ev) { ev.stopPropagation(); });
+  document.addEventListener('click', hide);
+  document.addEventListener('keydown', function (ev) { if (ev.key === 'Escape' && !card.hidden) { var b = cur; hide(); if (b) b.focus(); } });
+  window.addEventListener('resize', hide);
+})();
+</script>
+</body>
+</html>
